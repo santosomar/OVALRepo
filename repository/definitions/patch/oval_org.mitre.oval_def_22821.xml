@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22821" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22821" version="33">
   <metadata>
     <title>ELSA-2011:0027: python security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>python</product>
     </affected>
-    <reference ref_id="ELSA-2011:0027-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0027.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-5983" ref_url="http://linux.oracle.com/cve/CVE-2008-5983.html" source="CVE"/>
-    <reference ref_id="CVE-2009-4134" ref_url="http://linux.oracle.com/cve/CVE-2009-4134.html" source="CVE"/>
-    <reference ref_id="CVE-2010-1449" ref_url="http://linux.oracle.com/cve/CVE-2010-1449.html" source="CVE"/>
-    <reference ref_id="CVE-2010-1450" ref_url="http://linux.oracle.com/cve/CVE-2010-1450.html" source="CVE"/>
-    <reference ref_id="CVE-2010-1634" ref_url="http://linux.oracle.com/cve/CVE-2010-1634.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2089" ref_url="http://linux.oracle.com/cve/CVE-2010-2089.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0027-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0027.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-5983" ref_url="http://linux.oracle.com/cve/CVE-2008-5983.html" source="CVE" />
+    <reference ref_id="CVE-2009-4134" ref_url="http://linux.oracle.com/cve/CVE-2009-4134.html" source="CVE" />
+    <reference ref_id="CVE-2010-1449" ref_url="http://linux.oracle.com/cve/CVE-2010-1449.html" source="CVE" />
+    <reference ref_id="CVE-2010-1450" ref_url="http://linux.oracle.com/cve/CVE-2010-1450.html" source="CVE" />
+    <reference ref_id="CVE-2010-1634" ref_url="http://linux.oracle.com/cve/CVE-2010-1634.html" source="CVE" />
+    <reference ref_id="CVE-2010-2089" ref_url="http://linux.oracle.com/cve/CVE-2010-2089.html" source="CVE" />
     <description>The audioop module in Python 2.7 and 3.2 does not verify the relationships between size arguments and byte string lengths, which allows context-dependent attackers to cause a denial of service (memory corruption and application crash) via crafted arguments, as demonstrated by a call to audioop.reverse with a one-byte string, a different vulnerability than CVE-2010-1634.</description>
     <oval_repository>
       <dates>
@@ -29,16 +28,17 @@
         <status_change date="2014-05-26T04:02:21.412-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="python-devel is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104140"/>
-      <criterion comment="python-libs is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104007"/>
-      <criterion comment="tkinter is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104557"/>
-      <criterion comment="python is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104594"/>
-      <criterion comment="python-tools is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104652"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="python-devel is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104140" />
+      <criterion comment="python-libs is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104007" />
+      <criterion comment="tkinter is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104557" />
+      <criterion comment="python is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104594" />
+      <criterion comment="python-tools is earlier than 0:2.4.3-43.el5" test_ref="oval:org.mitre.oval:tst:104652" />
     </criteria>
   </criteria>
 </definition>

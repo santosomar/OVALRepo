@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:6884" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:6884" version="7">
   <metadata>
     <title>DSA-2039 cacti -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>cacti</product>
     </affected>
-    <reference source="DSA" ref_url="http://www.debian.org/security/2010/dsa-2039" ref_id="DSA-2039"/>
+    <reference ref_id="DSA-2039" ref_url="http://www.debian.org/security/2010/dsa-2039" source="DSA" />
     <description>It was discovered that Cacti, a frontend to rrdtool for monitoring systems and services missed input sanitising, making an SQL injection attack possible.</description>
     <oval_repository>
       <dates>
@@ -18,14 +17,15 @@
         <status_change date="2010-06-29T11:49:02.909-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <extend_definition comment="Debian 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="cacti is earlier than 0.8.7b-2.1+lenny2" test_ref="oval:org.mitre.oval:tst:26941"/>
+    <extend_definition comment="Debian 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="cacti is earlier than 0.8.7b-2.1+lenny2" test_ref="oval:org.mitre.oval:tst:26941" />
       </criteria>
     </criteria>
   </criteria>

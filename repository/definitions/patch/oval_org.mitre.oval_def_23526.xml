@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23526" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23526" version="15">
   <metadata>
     <title>ELSA-2011:0406: quagga security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>quagga</product>
     </affected>
-    <reference ref_id="ELSA-2011:0406-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0406.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-1674" ref_url="http://linux.oracle.com/cve/CVE-2010-1674.html" source="CVE"/>
-    <reference ref_id="CVE-2010-1675" ref_url="http://linux.oracle.com/cve/CVE-2010-1675.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0406-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0406.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-1674" ref_url="http://linux.oracle.com/cve/CVE-2010-1674.html" source="CVE" />
+    <reference ref_id="CVE-2010-1675" ref_url="http://linux.oracle.com/cve/CVE-2010-1675.html" source="CVE" />
     <description>bgpd in Quagga before 0.99.18 allows remote attackers to cause a denial of service (session reset) via a malformed AS_PATHLIMIT path attribute.</description>
     <oval_repository>
       <dates>
@@ -25,14 +24,15 @@
         <status_change date="2014-05-26T04:04:38.714-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="quagga-devel is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108263"/>
-      <criterion comment="quagga-contrib is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108710"/>
-      <criterion comment="quagga is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108400"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="quagga-devel is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108263" />
+      <criterion comment="quagga-contrib is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108710" />
+      <criterion comment="quagga is earlier than 0:0.99.15-5.el6_0.2" test_ref="oval:org.mitre.oval:tst:108400" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:6826" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:6826" version="10">
   <metadata>
     <title>DSA-1998 kdelibs -- buffer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>kdelibs</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2010/dsa-1998" ref_id="DSA-1998"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0689" ref_id="CVE-2009-0689"/>
+    <reference ref_id="DSA-1998" ref_url="http://www.debian.org/security/2010/dsa-1998" source="VENDOR" />
+    <reference ref_id="CVE-2009-0689" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0689" source="CVE" />
     <description>Maksymilian Arciemowicz discovered a buffer overflow in the internal string routines of the KDE core libraries, which could lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -29,38 +28,39 @@
         <status_change date="2015-02-23T04:01:35.775-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="kdelibs4-doc is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26706"/>
-          <criterion comment="kdelibs is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:25901"/>
-          <criterion comment="kdelibs-data is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26815"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="kdelibs4-doc is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26706" />
+          <criterion comment="kdelibs is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:25901" />
+          <criterion comment="kdelibs-data is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26815" />
         </criteria>
       </criteria>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="kdelibs4-dev is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26210"/>
-          <criterion comment="kdelibs4c2a is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26771"/>
-          <criterion comment="kdelibs-dbg is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26648"/>
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="kdelibs4-dev is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26210" />
+          <criterion comment="kdelibs4c2a is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26771" />
+          <criterion comment="kdelibs-dbg is earlier than 4:3.5.10.dfsg.1-0lenny4" test_ref="oval:org.mitre.oval:tst:26648" />
         </criteria>
       </criteria>
     </criteria>

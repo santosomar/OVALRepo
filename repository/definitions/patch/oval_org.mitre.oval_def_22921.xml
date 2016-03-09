@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22921" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22921" version="15">
   <metadata>
     <title>ELSA-2009:1505: java-1.4.2-ibm security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>java-1.4.2-ibm</product>
     </affected>
-    <reference ref_id="ELSA-2009:1505-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1505.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-5349" ref_url="http://linux.oracle.com/cve/CVE-2008-5349.html" source="CVE"/>
-    <reference ref_id="CVE-2009-2625" ref_url="http://linux.oracle.com/cve/CVE-2009-2625.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1505-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1505.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-5349" ref_url="http://linux.oracle.com/cve/CVE-2008-5349.html" source="CVE" />
+    <reference ref_id="CVE-2009-2625" ref_url="http://linux.oracle.com/cve/CVE-2009-2625.html" source="CVE" />
     <description>XMLScanner.java in Apache Xerces2 Java, as used in Sun Java Runtime Environment (JRE) in JDK and JRE 6 before Update 15 and JDK and JRE 5.0 before Update 20, and in other products, allows remote attackers to cause a denial of service (infinite loop and application hang) via malformed XML input, as demonstrated by the Codenomicon XML fuzzing framework.</description>
     <oval_repository>
       <dates>
@@ -25,18 +24,19 @@
         <status_change date="2014-05-26T04:02:47.552-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="java-1.4.2-ibm is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103207"/>
-      <criterion comment="java-1.4.2-ibm-devel is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103378"/>
-      <criterion comment="java-1.4.2-ibm-src is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103288"/>
-      <criterion comment="java-1.4.2-ibm-demo is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103391"/>
-      <criterion comment="java-1.4.2-ibm-javacomm is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103485"/>
-      <criterion comment="java-1.4.2-ibm-plugin is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103293"/>
-      <criterion comment="java-1.4.2-ibm-jdbc is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103245"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="java-1.4.2-ibm is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103207" />
+      <criterion comment="java-1.4.2-ibm-devel is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103378" />
+      <criterion comment="java-1.4.2-ibm-src is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103288" />
+      <criterion comment="java-1.4.2-ibm-demo is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103391" />
+      <criterion comment="java-1.4.2-ibm-javacomm is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103485" />
+      <criterion comment="java-1.4.2-ibm-plugin is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103293" />
+      <criterion comment="java-1.4.2-ibm-jdbc is earlier than 0:1.4.2.13.1-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103245" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22797" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22797" version="8">
   <metadata>
     <title>ELSA-2009:0373: systemtap security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>systemtap</product>
     </affected>
-    <reference ref_id="ELSA-2009:0373-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0373.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0784" ref_url="http://linux.oracle.com/cve/CVE-2009-0784.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0373-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0373.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0784" ref_url="http://linux.oracle.com/cve/CVE-2009-0784.html" source="CVE" />
     <description>Race condition in the SystemTap stap tool 0.0.20080705 and 0.0.20090314 allows local users in the stapusr group to insert arbitrary SystemTap kernel modules and gain privileges via unknown vectors.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-05-26T04:02:16.607-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="systemtap-testsuite is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102727"/>
-      <criterion comment="systemtap-runtime is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102670"/>
-      <criterion comment="systemtap is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102006"/>
-      <criterion comment="systemtap-client is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102617"/>
-      <criterion comment="systemtap-server is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:101977"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="systemtap-testsuite is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102727" />
+      <criterion comment="systemtap-runtime is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102670" />
+      <criterion comment="systemtap is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102006" />
+      <criterion comment="systemtap-client is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:102617" />
+      <criterion comment="systemtap-server is earlier than 0:0.7.2-3.el5_3" test_ref="oval:org.mitre.oval:tst:101977" />
     </criteria>
   </criteria>
 </definition>

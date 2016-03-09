@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26644" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26644" version="6">
   <metadata>
     <title>ELSA-2014-1147 -- squid security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>squid</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1147.html" ref_id="ELSA-2014-1147"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3609" ref_id="CVE-2014-3609"/>
+    <reference ref_id="ELSA-2014-1147" ref_url="http://linux.oracle.com/errata/ELSA-2014-1147.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3609" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3609" source="CVE" />
     <description>Squid is a high-performance proxy caching server for web clients,
 supporting FTP, Gopher, and HTTP data objects.
 
@@ -36,13 +35,14 @@ update, the squid service will be restarted automatically.</description>
         <status_change date="2015-02-23T04:00:49.448-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="squid RPM is earlier than 7:3.3.8-12.el7_0" test_ref="oval:org.mitre.oval:tst:124830"/>
-      <criterion comment="squid-sysvinit RPM is earlier than 7:3.3.8-12.el7_0" test_ref="oval:org.mitre.oval:tst:124626"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="squid RPM is earlier than 7:3.3.8-12.el7_0" test_ref="oval:org.mitre.oval:tst:124830" />
+      <criterion comment="squid-sysvinit RPM is earlier than 7:3.3.8-12.el7_0" test_ref="oval:org.mitre.oval:tst:124626" />
     </criteria>
   </criteria>
 </definition>

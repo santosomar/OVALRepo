@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22958" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22958" version="8">
   <metadata>
     <title>ELSA-2010:0129: cups security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>cups</product>
     </affected>
-    <reference ref_id="ELSA-2010:0129-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0129.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-0302" ref_url="http://linux.oracle.com/cve/CVE-2010-0302.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0129-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0129.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0302" ref_url="http://linux.oracle.com/cve/CVE-2010-0302.html" source="CVE" />
     <description>Use-after-free vulnerability in the abstract file-descriptor handling interface in the cupsdDoSelect function in scheduler/select.c in the scheduler in cupsd in CUPS before 1.4.4, when kqueue or epoll is used, allows remote attackers to cause a denial of service (daemon crash or hang) via a client disconnection during listing of a large number of print jobs, related to improperly maintaining a reference count. NOTE: some of these details are obtained from third party information. NOTE: this vulnerability exists because of an incomplete fix for CVE-2009-3553.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-05-26T04:02:59.180-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="cups-lpd is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103727"/>
-      <criterion comment="cups-devel is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103712"/>
-      <criterion comment="cups-libs is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103780"/>
-      <criterion comment="cups is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103697"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="cups-lpd is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103727" />
+      <criterion comment="cups-devel is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103712" />
+      <criterion comment="cups-libs is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103780" />
+      <criterion comment="cups is earlier than 1:1.3.7-11.el5_4.6" test_ref="oval:org.mitre.oval:tst:103697" />
     </criteria>
   </criteria>
 </definition>

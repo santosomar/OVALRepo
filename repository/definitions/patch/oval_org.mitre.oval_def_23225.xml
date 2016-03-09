@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23225" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23225" version="10">
   <metadata>
     <title>ELSA-2010:0866: cups security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>cups</product>
     </affected>
-    <reference ref_id="ELSA-2010:0866-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0866.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-2941" ref_url="http://linux.oracle.com/cve/CVE-2010-2941.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0866-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0866.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-2941" ref_url="http://linux.oracle.com/cve/CVE-2010-2941.html" source="CVE" />
     <description>ipp.c in cupsd in CUPS 1.4.4 and earlier does not properly allocate memory for attribute values with invalid string data types, which allows remote attackers to cause a denial of service (use-after-free and application crash) or possibly execute arbitrary code via a crafted IPP request.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-05-26T04:03:46.865-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="cups-php is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108150"/>
-      <criterion comment="cups-lpd is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:107230"/>
-      <criterion comment="cups-devel is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108081"/>
-      <criterion comment="cups is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:107842"/>
-      <criterion comment="cups-libs is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108045"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="cups-php is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108150" />
+      <criterion comment="cups-lpd is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:107230" />
+      <criterion comment="cups-devel is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108081" />
+      <criterion comment="cups is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:107842" />
+      <criterion comment="cups-libs is earlier than 1:1.4.2-35.el6_0.1" test_ref="oval:org.mitre.oval:tst:108045" />
     </criteria>
   </criteria>
 </definition>

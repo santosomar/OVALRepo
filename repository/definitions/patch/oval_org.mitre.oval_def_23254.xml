@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23254" version="50" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:23254" version="51">
   <metadata>
     <title>DEPRECATED: ELSA-2010:0966: firefox security update (Critical)</title>
     <affected family="unix">
@@ -8,18 +7,18 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference ref_id="ELSA-2010:0966-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0966.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-3766" ref_url="http://linux.oracle.com/cve/CVE-2010-3766.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3767" ref_url="http://linux.oracle.com/cve/CVE-2010-3767.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3768" ref_url="http://linux.oracle.com/cve/CVE-2010-3768.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3770" ref_url="http://linux.oracle.com/cve/CVE-2010-3770.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3771" ref_url="http://linux.oracle.com/cve/CVE-2010-3771.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3772" ref_url="http://linux.oracle.com/cve/CVE-2010-3772.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3773" ref_url="http://linux.oracle.com/cve/CVE-2010-3773.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3774" ref_url="http://linux.oracle.com/cve/CVE-2010-3774.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3775" ref_url="http://linux.oracle.com/cve/CVE-2010-3775.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3776" ref_url="http://linux.oracle.com/cve/CVE-2010-3776.html" source="CVE"/>
-    <reference ref_id="CVE-2010-3777" ref_url="http://linux.oracle.com/cve/CVE-2010-3777.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0966-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0966.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3766" ref_url="http://linux.oracle.com/cve/CVE-2010-3766.html" source="CVE" />
+    <reference ref_id="CVE-2010-3767" ref_url="http://linux.oracle.com/cve/CVE-2010-3767.html" source="CVE" />
+    <reference ref_id="CVE-2010-3768" ref_url="http://linux.oracle.com/cve/CVE-2010-3768.html" source="CVE" />
+    <reference ref_id="CVE-2010-3770" ref_url="http://linux.oracle.com/cve/CVE-2010-3770.html" source="CVE" />
+    <reference ref_id="CVE-2010-3771" ref_url="http://linux.oracle.com/cve/CVE-2010-3771.html" source="CVE" />
+    <reference ref_id="CVE-2010-3772" ref_url="http://linux.oracle.com/cve/CVE-2010-3772.html" source="CVE" />
+    <reference ref_id="CVE-2010-3773" ref_url="http://linux.oracle.com/cve/CVE-2010-3773.html" source="CVE" />
+    <reference ref_id="CVE-2010-3774" ref_url="http://linux.oracle.com/cve/CVE-2010-3774.html" source="CVE" />
+    <reference ref_id="CVE-2010-3775" ref_url="http://linux.oracle.com/cve/CVE-2010-3775.html" source="CVE" />
+    <reference ref_id="CVE-2010-3776" ref_url="http://linux.oracle.com/cve/CVE-2010-3776.html" source="CVE" />
+    <reference ref_id="CVE-2010-3777" ref_url="http://linux.oracle.com/cve/CVE-2010-3777.html" source="CVE" />
     <description>Unspecified vulnerability in Mozilla Firefox 3.6.x before 3.6.13 and Thunderbird 3.1.x before 3.1.7 allows remote attackers to cause a denial of service (memory corruption and application crash) or possibly execute arbitrary code via unknown vectors.</description>
     <oval_repository>
       <dates>
@@ -40,23 +39,24 @@
         <status_change date="2014-07-11T16:39:11.373-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.13-3.el5" test_ref="oval:org.mitre.oval:tst:103832"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.13-3.el5" test_ref="oval:org.mitre.oval:tst:104569"/>
-        <criterion comment="firefox is earlier than 0:3.6.13-2.el5" test_ref="oval:org.mitre.oval:tst:104526"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.13-3.el5" test_ref="oval:org.mitre.oval:tst:103832" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.13-3.el5" test_ref="oval:org.mitre.oval:tst:104569" />
+        <criterion comment="firefox is earlier than 0:3.6.13-2.el5" test_ref="oval:org.mitre.oval:tst:104526" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.13-3.el6_0" test_ref="oval:org.mitre.oval:tst:104597"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.13-3.el6_0" test_ref="oval:org.mitre.oval:tst:104439"/>
-        <criterion comment="firefox is earlier than 0:3.6.13-2.el6_0" test_ref="oval:org.mitre.oval:tst:104413"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.13-3.el6_0" test_ref="oval:org.mitre.oval:tst:104597" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.13-3.el6_0" test_ref="oval:org.mitre.oval:tst:104439" />
+        <criterion comment="firefox is earlier than 0:3.6.13-2.el6_0" test_ref="oval:org.mitre.oval:tst:104413" />
       </criteria>
     </criteria>
   </criteria>

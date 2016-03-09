@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12551" version="5" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:12551" version="8">
   <metadata>
     <title>Apple Mac OS X 10.6.0 (Snow Leopard) is installed</title>
     <affected family="macos">
       <platform>Apple Mac OS X</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:apple:mac_os_x:10.6.0"/>
+    <reference ref_id="cpe:/o:apple:mac_os_x:10.6.0" source="CPE" />
     <description>The operating system installed on the system is Apple Mac OS X 10.6.0 (Snow Leopard).</description>
     <oval_repository>
       <dates>
@@ -22,10 +21,11 @@
         <status_change date="2011-10-17T04:00:10.456-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="The Installed Operating System is Part of the Mac OS Family" test_ref="oval:org.mitre.oval:tst:42186"/>
-    <criterion comment="Apple Mac OS X 10.6 (Snow Leopard) is Installed" test_ref="oval:org.mitre.oval:tst:41991"/>
+    <criterion comment="The Installed Operating System is Part of the Mac OS Family" test_ref="oval:org.mitre.oval:tst:42186" />
+    <criterion comment="Apple Mac OS X 10.6 (Snow Leopard) is Installed" test_ref="oval:org.mitre.oval:tst:41991" />
   </criteria>
 </definition>

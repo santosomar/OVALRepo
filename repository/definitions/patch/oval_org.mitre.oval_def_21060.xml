@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21060" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21060" version="8">
   <metadata>
     <title>RHSA-2013:1869: pixman security update (Important)</title>
     <affected family="unix">
@@ -9,9 +8,9 @@
       <platform>CentOS Linux 6</platform>
       <product>pixman</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2013:1869-00" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1869.html"/>
-    <reference source="CESA" ref_id="CESA-2013:1869"/>
-    <reference source="CVE" ref_id="CVE-2013-6425" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6425.html"/>
+    <reference ref_id="RHSA-2013:1869-00" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1869.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:1869" source="CESA" />
+    <reference ref_id="CVE-2013-6425" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6425.html" source="CVE" />
     <description>Integer underflow in the pixman_trapezoid_valid macro in pixman.h in Pixman before 0.32.0, as used in X.Org server and cairo, allows context-dependent attackers to cause a denial of service (crash) via a negative bottom value.</description>
     <oval_repository>
       <dates>
@@ -28,27 +27,28 @@
         <status_change date="2014-06-30T04:09:21.111-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="pixman-devel is earlier than 0:0.22.0-2.2.el5_10" test_ref="oval:org.mitre.oval:tst:92053"/>
-        <criterion comment="pixman is earlier than 0:0.22.0-2.2.el5_10" test_ref="oval:org.mitre.oval:tst:92234"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="pixman-devel is earlier than 0:0.22.0-2.2.el5_10" test_ref="oval:org.mitre.oval:tst:92053" />
+        <criterion comment="pixman is earlier than 0:0.22.0-2.2.el5_10" test_ref="oval:org.mitre.oval:tst:92234" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="pixman-devel is earlier than 0:0.26.2-5.1.el6_5" test_ref="oval:org.mitre.oval:tst:92222"/>
-        <criterion comment="pixman is earlier than 0:0.26.2-5.1.el6_5" test_ref="oval:org.mitre.oval:tst:92046"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="pixman-devel is earlier than 0:0.26.2-5.1.el6_5" test_ref="oval:org.mitre.oval:tst:92222" />
+        <criterion comment="pixman is earlier than 0:0.26.2-5.1.el6_5" test_ref="oval:org.mitre.oval:tst:92046" />
       </criteria>
     </criteria>
   </criteria>

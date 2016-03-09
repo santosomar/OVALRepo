@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17906" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17906" version="8">
   <metadata>
     <title>USN-1483-2 -- network-manager-applet vulnerability</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <platform>Ubuntu 10.04</platform>
       <product>network-manager-applet</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1483-2/" ref_id="USN-1483-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2736" ref_id="CVE-2012-2736"/>
+    <reference ref_id="USN-1483-2" ref_url="http://www.ubuntu.com/usn/usn-1483-2/" source="VENDOR" />
+    <reference ref_id="CVE-2012-2736" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2736" source="CVE" />
     <description>network-manager-applet could create insecure AdHoc wireless networks.</description>
     <oval_repository>
       <dates>
@@ -31,20 +30,21 @@
         <status_change date="2014-07-21T04:00:36.645-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="network-manager-gnome DPKG is earlier than 0.9.1.90-0ubuntu6.1" test_ref="oval:org.mitre.oval:tst:83752"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="network-manager-gnome DPKG is earlier than 0.9.1.90-0ubuntu6.1" test_ref="oval:org.mitre.oval:tst:83752" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="network-manager-gnome DPKG is earlier than 0.8.4~git.20110318t152954.9c4c9a0-0ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83829"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="network-manager-gnome DPKG is earlier than 0.8.4~git.20110318t152954.9c4c9a0-0ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83829" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="network-manager-gnome DPKG is earlier than 0.8-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83640"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="network-manager-gnome DPKG is earlier than 0.8-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83640" />
     </criteria>
   </criteria>
 </definition>

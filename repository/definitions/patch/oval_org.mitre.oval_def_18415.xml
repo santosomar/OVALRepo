@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18415" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18415" version="8">
   <metadata>
     <title>DSA-1920-1 nginx – denial of service</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Debian GNU/Linux 5.0</platform>
       <product>nginx</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1920-1" ref_id="DSA-1920-1"/>
+    <reference ref_id="DSA-1920-1" ref_url="http://www.debian.org/security/dsa-1920-1" source="VENDOR" />
     <description>A denial of service vulnerability has been found in nginx, a small and efficient web server.</description>
     <oval_repository>
       <dates>
@@ -29,16 +28,17 @@
         <status_change date="2014-06-23T04:04:26.192-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="nginx DPKG is earlier than 0.4.13-2+etch3" test_ref="oval:org.mitre.oval:tst:86525"/>
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="nginx DPKG is earlier than 0.4.13-2+etch3" test_ref="oval:org.mitre.oval:tst:86525" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="nginx DPKG is earlier than 0.6.32-3+lenny3" test_ref="oval:org.mitre.oval:tst:86408"/>
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="nginx DPKG is earlier than 0.6.32-3+lenny3" test_ref="oval:org.mitre.oval:tst:86408" />
     </criteria>
   </criteria>
 </definition>

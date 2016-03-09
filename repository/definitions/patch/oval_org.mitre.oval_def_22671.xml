@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22671" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22671" version="8">
   <metadata>
     <title>ELSA-2009:0020: bind security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bind</product>
     </affected>
-    <reference ref_id="ELSA-2009:0020-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0020.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0025" ref_url="http://linux.oracle.com/cve/CVE-2009-0025.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0020-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0020.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0025" ref_url="http://linux.oracle.com/cve/CVE-2009-0025.html" source="CVE" />
     <description>BIND 9.6.0, 9.5.1, 9.5.0, 9.4.3, and earlier does not properly check the return value from the OpenSSL DSA_verify function, which allows remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature, a similar vulnerability to CVE-2008-5077.</description>
     <oval_repository>
       <dates>
@@ -24,19 +23,20 @@
         <status_change date="2014-05-26T04:01:47.025-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="bind-utils is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101968"/>
-      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102830"/>
-      <criterion comment="bind-devel is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102674"/>
-      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102318"/>
-      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102574"/>
-      <criterion comment="bind is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102831"/>
-      <criterion comment="bind-libs is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102730"/>
-      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102596"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="bind-utils is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101968" />
+      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102830" />
+      <criterion comment="bind-devel is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102674" />
+      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102318" />
+      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102574" />
+      <criterion comment="bind is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102831" />
+      <criterion comment="bind-libs is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102730" />
+      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.0.3.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102596" />
     </criteria>
   </criteria>
 </definition>

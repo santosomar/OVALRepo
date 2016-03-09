@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22626" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22626" version="19">
   <metadata>
     <title>ELSA-2009:1066: squirrelmail security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>squirrelmail</product>
     </affected>
-    <reference ref_id="ELSA-2009:1066-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1066.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-1578" ref_url="http://linux.oracle.com/cve/CVE-2009-1578.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1579" ref_url="http://linux.oracle.com/cve/CVE-2009-1579.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1581" ref_url="http://linux.oracle.com/cve/CVE-2009-1581.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1066-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1066.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-1578" ref_url="http://linux.oracle.com/cve/CVE-2009-1578.html" source="CVE" />
+    <reference ref_id="CVE-2009-1579" ref_url="http://linux.oracle.com/cve/CVE-2009-1579.html" source="CVE" />
+    <reference ref_id="CVE-2009-1581" ref_url="http://linux.oracle.com/cve/CVE-2009-1581.html" source="CVE" />
     <description>functions/mime.php in SquirrelMail before 1.4.18 does not protect the application's content from Cascading Style Sheets (CSS) positioning in HTML e-mail messages, which allows remote attackers to spoof the user interface, and conduct cross-site scripting (XSS) and phishing attacks, via a crafted message.</description>
     <oval_repository>
       <dates>
@@ -26,10 +25,11 @@
         <status_change date="2014-05-26T04:01:38.881-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_3.7" test_ref="oval:org.mitre.oval:tst:102782"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_3.7" test_ref="oval:org.mitre.oval:tst:102782" />
   </criteria>
 </definition>

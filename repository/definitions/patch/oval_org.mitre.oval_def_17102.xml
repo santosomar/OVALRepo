@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17102" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17102" version="10">
   <metadata>
     <title>USN-1893-1 -- libdmx vulnerability</title>
     <affected family="unix">
@@ -8,14 +7,14 @@
       <platform>Ubuntu 12.04</platform>
       <product>subversion</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1893-1/" ref_id="usn-1893-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1845" ref_id="CVE-2013-1845"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1846" ref_id="CVE-2013-1846"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1847" ref_id="CVE-2013-1847"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1849" ref_id="CVE-2013-1849"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1884" ref_id="CVE-2013-1884"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1968" ref_id="CVE-2013-1968"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2112" ref_id="CVE-2013-2112"/>
+    <reference ref_id="usn-1893-1" ref_url="http://www.ubuntu.com/usn/usn-1893-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-1845" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1845" source="CVE" />
+    <reference ref_id="CVE-2013-1846" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1846" source="CVE" />
+    <reference ref_id="CVE-2013-1847" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1847" source="CVE" />
+    <reference ref_id="CVE-2013-1849" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1849" source="CVE" />
+    <reference ref_id="CVE-2013-1884" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1884" source="CVE" />
+    <reference ref_id="CVE-2013-1968" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1968" source="CVE" />
+    <reference ref_id="CVE-2013-2112" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2112" source="CVE" />
     <description>Several security issues were fixed in Subversion.</description>
     <oval_repository>
       <dates>
@@ -37,31 +36,32 @@
         <status_change date="2014-06-30T04:06:13.286-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libapache2-svn DPKG is earlier than 1.7.5-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81373"/>
-        <criterion comment="libsvn1 DPKG is earlier than 1.7.5-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81587"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libapache2-svn DPKG is earlier than 1.7.5-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81373" />
+        <criterion comment="libsvn1 DPKG is earlier than 1.7.5-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81587" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libapache2-svn DPKG is earlier than 1.7.5-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81265"/>
-        <criterion comment="libsvn1 DPKG is earlier than 1.7.5-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81174"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libapache2-svn DPKG is earlier than 1.7.5-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81265" />
+        <criterion comment="libsvn1 DPKG is earlier than 1.7.5-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81174" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libapache2-svn DPKG is earlier than 1.6.17dfsg-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81386"/>
-        <criterion comment="libsvn1 DPKG is earlier than 1.6.17dfsg-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81291"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libapache2-svn DPKG is earlier than 1.6.17dfsg-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81386" />
+        <criterion comment="libsvn1 DPKG is earlier than 1.6.17dfsg-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81291" />
       </criteria>
     </criteria>
   </criteria>

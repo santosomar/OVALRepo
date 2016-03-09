@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26203" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26203" version="4">
   <metadata>
     <title>SUSE-SU-2014:0870-1 -- Security update for xalan-j2</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>xalan-j2</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140870-1.html" ref_id="SUSE-SU-2014:0870-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0107" ref_id="CVE-2014-0107"/>
+    <reference ref_id="SUSE-SU-2014:0870-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140870-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0107" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0107" source="CVE" />
     <description>xalan-j2 has been updated to ensure that secure processing can't be circumvented.</description>
     <oval_repository>
       <dates>
@@ -20,13 +19,14 @@
         <status_change date="2014-09-15T04:00:46.408-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="xalan-j2 RPM is earlier than 0:2.7.0-217.26.1" test_ref="oval:org.mitre.oval:tst:121676"/>
+    <criterion comment="xalan-j2 RPM is earlier than 0:2.7.0-217.26.1" test_ref="oval:org.mitre.oval:tst:121676" />
   </criteria>
 </definition>

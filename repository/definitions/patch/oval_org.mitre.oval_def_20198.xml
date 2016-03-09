@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20198" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20198" version="6">
   <metadata>
     <title>DSA-1444-1 php5 several issues</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>php5</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1444-1" ref_id="DSA-1444-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3799" ref_id="CVE-2007-3799"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3998" ref_id="CVE-2007-3998"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4657" ref_id="CVE-2007-4657"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4658" ref_id="CVE-2007-4658"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4660" ref_id="CVE-2007-4660"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4662" ref_id="CVE-2007-4662"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5898" ref_id="CVE-2007-5898"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5899" ref_id="CVE-2007-5899"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4659" ref_id="CVE-2007-4659"/>
-    <description>It was discovered that the patch for &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-4659">CVE-2007-4659&lt;/a> could lead to regressions in some scenarios. The fix has been reverted for now, a revised update will be provided in a future PHP DSA.</description>
+    <reference ref_id="DSA-1444-1" ref_url="http://www.debian.org/security/dsa-1444-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-3799" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3799" source="CVE" />
+    <reference ref_id="CVE-2007-3998" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3998" source="CVE" />
+    <reference ref_id="CVE-2007-4657" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4657" source="CVE" />
+    <reference ref_id="CVE-2007-4658" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4658" source="CVE" />
+    <reference ref_id="CVE-2007-4660" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4660" source="CVE" />
+    <reference ref_id="CVE-2007-4662" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4662" source="CVE" />
+    <reference ref_id="CVE-2007-5898" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5898" source="CVE" />
+    <reference ref_id="CVE-2007-5899" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5899" source="CVE" />
+    <reference ref_id="CVE-2007-4659" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4659" source="CVE" />
+    <description>It was discovered that the patch for &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-4659"&gt;CVE-2007-4659&lt;/a&gt; could lead to regressions in some scenarios. The fix has been reverted for now, a revised update will be provided in a future PHP DSA.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-12-06T10:23:21">
@@ -32,10 +31,11 @@
         <status_change date="2014-06-23T04:06:57.521-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="php5 DPKG is earlier than 0:5.2.0-8+etch9" test_ref="oval:org.mitre.oval:tst:89432"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="php5 DPKG is earlier than 0:5.2.0-8+etch9" test_ref="oval:org.mitre.oval:tst:89432" />
   </criteria>
 </definition>

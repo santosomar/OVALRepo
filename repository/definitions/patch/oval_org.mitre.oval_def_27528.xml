@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27528" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27528" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1366 -- kernel security and bug fix update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1366.html" ref_id="ELSA-2012-1366"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3412" ref_id="CVE-2012-3412"/>
+    <reference ref_id="ELSA-2012-1366" ref_url="http://linux.oracle.com/errata/ELSA-2012-1366.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3412" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3412" source="CVE" />
     <description>[2.6.32-279.11.1.el6]
 - [net] core: Fix napi_gro_frags vs netpoll path (Amerigo Wang) [857854 845347]
 - [netdrv] benet: disable BH in callers of be_process_mcc() (Amerigo Wang) [857854 845347]
@@ -38,20 +37,21 @@
         <status_change date="2015-02-10T14:45:25.709-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131093"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131141"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131068"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130871"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131074"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130403"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131140"/>
-      <criterion comment="perf is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130900"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130963"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131093" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131141" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131068" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130871" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131074" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130403" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:131140" />
+      <criterion comment="perf is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130900" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-279.11.1.el6" test_ref="oval:org.mitre.oval:tst:130963" />
     </criteria>
   </criteria>
 </definition>

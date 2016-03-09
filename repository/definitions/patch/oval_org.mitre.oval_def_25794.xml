@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25794" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25794" version="4">
   <metadata>
     <title>SUSE-RU-2013:1290-1 -- Recommended update for release-notes-sles</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 10</platform>
       <product>release-notes-sles</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20131290-1.html" ref_id="SUSE-RU-2013:1290-1"/>
+    <reference ref_id="SUSE-RU-2013:1290-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20131290-1.html" source="VENDOR" />
     <description>This announcement marks the end of the security and
 maintenance patch  period for SUSE Linux Enterprise Server
 10 Service Pack 4 and the end of  General Support for SUSE
@@ -22,7 +21,7 @@ For more information on how to upgrade to SUSE Linux
 Enterprise Server 11  Service Pack 3, please read:
 
 https://www.suse.com/support/kb/doc.php?id=7012368
-&lt;https://www.suse.com/support/kb/doc.php?id=7012368>
+&lt;https://www.suse.com/support/kb/doc.php?id=7012368&gt;
 
 Please make sure that you applied all maintenance updates
 provided for SUSE  Linux Enterprise Server 10 Service Pack
@@ -36,7 +35,7 @@ information about this, please see:
 https://www.suse.com/support/programs/long-term-service-pack
 -support.html
 &lt;https://www.suse.com/support/programs/long-term-service-pac
-k-support.html>
+k-support.html&gt;
 
 Contact your SUSE sales representative if you would like to
 purchase Long  Term Service Pack Support.</description>
@@ -50,10 +49,11 @@ purchase Long  Term Service Pack Support.</description>
         <status_change date="2014-09-08T04:03:21.088-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 10 is installed" definition_ref="oval:org.mitre.oval:def:1368"/>
-    <criterion comment="release-notes-sles RPM is earlier than 0:10.4.12-0.10.1" test_ref="oval:org.mitre.oval:tst:119243"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 10 is installed" definition_ref="oval:org.mitre.oval:def:1368" />
+    <criterion comment="release-notes-sles RPM is earlier than 0:10.4.12-0.10.1" test_ref="oval:org.mitre.oval:tst:119243" />
   </criteria>
 </definition>

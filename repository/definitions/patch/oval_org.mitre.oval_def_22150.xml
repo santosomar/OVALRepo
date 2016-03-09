@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22150" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22150" version="30">
   <metadata>
     <title>RHSA-2011:1324: qt4 security update (Moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 5</platform>
       <product>qt4</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1324-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1324.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1324"/>
-    <reference source="CVE" ref_id="CVE-2007-0242" ref_url="https://www.redhat.com/security/data/cve/CVE-2007-0242.html"/>
-    <reference source="CVE" ref_id="CVE-2011-3193" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-3193.html"/>
+    <reference ref_id="RHSA-2011:1324-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1324.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1324" source="CESA" />
+    <reference ref_id="CVE-2007-0242" ref_url="https://www.redhat.com/security/data/cve/CVE-2007-0242.html" source="CVE" />
+    <reference ref_id="CVE-2011-3193" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-3193.html" source="CVE" />
     <description>Heap-based buffer overflow in the Lookup_MarkMarkPos function in the HarfBuzz module (harfbuzz-gpos.c), as used by Qt before 4.7.4 and Pango, allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted font file.</description>
     <oval_repository>
       <dates>
@@ -22,21 +21,22 @@
         <status_change date="2014-02-24T04:02:50.245-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="qt4-odbc is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98333"/>
-      <criterion comment="qt4-devel is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97602"/>
-      <criterion comment="qt4-postgresql is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98146"/>
-      <criterion comment="qt4 is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98500"/>
-      <criterion comment="qt4-sqlite is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97652"/>
-      <criterion comment="qt4-mysql is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98195"/>
-      <criterion comment="qt4-doc is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97857"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="qt4-odbc is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98333" />
+      <criterion comment="qt4-devel is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97602" />
+      <criterion comment="qt4-postgresql is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98146" />
+      <criterion comment="qt4 is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98500" />
+      <criterion comment="qt4-sqlite is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97652" />
+      <criterion comment="qt4-mysql is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98195" />
+      <criterion comment="qt4-doc is earlier than 0:4.2.1-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:97857" />
     </criteria>
   </criteria>
 </definition>

@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26972" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26972" version="5">
   <metadata>
     <title>ELSA-2014-1647 -- thunderbird security update</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1647.html" ref_id="ELSA-2014-1647"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1574" ref_id="CVE-2014-1574"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1577" ref_id="CVE-2014-1577"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1578" ref_id="CVE-2014-1578"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1581" ref_id="CVE-2014-1581"/>
+    <reference ref_id="ELSA-2014-1647" ref_url="http://linux.oracle.com/errata/ELSA-2014-1647.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-1574" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1574" source="CVE" />
+    <reference ref_id="CVE-2014-1577" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1577" source="CVE" />
+    <reference ref_id="CVE-2014-1578" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1578" source="CVE" />
+    <reference ref_id="CVE-2014-1581" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1581" source="CVE" />
     <description>[31.2.0-3.0.1.el6_5]
 - Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js
 
@@ -44,10 +43,11 @@
         <status_change date="2014-12-08T04:00:29.440-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="thunderbird is earlier than 0:31.2.0-3.0.1.el6_6" test_ref="oval:org.mitre.oval:tst:126216"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="thunderbird is earlier than 0:31.2.0-3.0.1.el6_6" test_ref="oval:org.mitre.oval:tst:126216" />
   </criteria>
 </definition>

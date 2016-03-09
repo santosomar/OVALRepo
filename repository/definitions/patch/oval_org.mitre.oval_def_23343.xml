@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23343" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23343" version="8">
   <metadata>
     <title>ELSA-2011:0926: bind security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <product>bind97</product>
       <product>bind</product>
     </affected>
-    <reference ref_id="ELSA-2011:0926-02" ref_url="http://linux.oracle.com/errata/ELSA-2011-0926.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-2464" ref_url="http://linux.oracle.com/cve/CVE-2011-2464.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0926-02" ref_url="http://linux.oracle.com/errata/ELSA-2011-0926.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2464" ref_url="http://linux.oracle.com/cve/CVE-2011-2464.html" source="CVE" />
     <description>Unspecified vulnerability in ISC BIND 9 9.6.x before 9.6-ESV-R4-P3, 9.7.x before 9.7.3-P3, and 9.8.x before 9.8.0-P4 allows remote attackers to cause a denial of service (named daemon crash) via a crafted UPDATE request.</description>
     <oval_repository>
       <dates>
@@ -25,17 +24,18 @@
         <status_change date="2014-05-26T04:04:07.159-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="bind is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108937"/>
-      <criterion comment="bind-chroot is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108805"/>
-      <criterion comment="bind-sdb is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108889"/>
-      <criterion comment="bind-libs is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:109070"/>
-      <criterion comment="bind-devel is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:109064"/>
-      <criterion comment="bind-utils is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108823"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="bind is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108937" />
+      <criterion comment="bind-chroot is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108805" />
+      <criterion comment="bind-sdb is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108889" />
+      <criterion comment="bind-libs is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:109070" />
+      <criterion comment="bind-devel is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:109064" />
+      <criterion comment="bind-utils is earlier than 32:9.7.3-2.el6_1.P3.2" test_ref="oval:org.mitre.oval:tst:108823" />
     </criteria>
   </criteria>
 </definition>

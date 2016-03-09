@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26707" version="5" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:26707" version="9">
   <metadata>
     <title>ActiveX Control is installed</title>
     <affected family="windows">
@@ -15,7 +14,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>ActiveX Control</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:adobe:shockwave_flash_activex"/>
+    <reference ref_id="cpe:/a:adobe:shockwave_flash_activex" source="CPE" />
     <description>ActiveX Control (Flash.ocx) is installed on the system.</description>
     <oval_repository>
       <dates>
@@ -32,9 +31,10 @@
         <status_change date="2015-02-23T04:00:49.800-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="The file flash.*.ocx exists" test_ref="oval:org.mitre.oval:tst:125474"/>
+    <criterion comment="The file flash.*.ocx exists" test_ref="oval:org.mitre.oval:tst:125474" />
   </criteria>
 </definition>

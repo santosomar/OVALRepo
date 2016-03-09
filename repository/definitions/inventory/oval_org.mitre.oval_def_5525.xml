@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:5525" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:5525" version="4">
   <metadata>
     <title>WMI support is installed</title>
     <affected family="windows">
@@ -10,7 +9,7 @@
       <platform>Microsoft Windows Server 2008</platform>
       <platform>Microsoft Windows Vista</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:wmi"/>
+    <reference ref_id="cpe:/a:microsoft:wmi" source="CPE" />
     <description>Test if this OS should support WMI service. Note: different Objects are
           supported on different OS. This is a generic test for the API.</description>
     <oval_repository>
@@ -34,15 +33,16 @@
         <status_change date="2009-06-15T04:00:42.986-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <extend_definition comment="Microsoft Windows NT is installed" definition_ref="oval:org.mitre.oval:def:36"/>
-    <extend_definition comment="Microsoft Windows Server 2008 (32-bit) is installed" definition_ref="oval:org.mitre.oval:def:4870"/>
-    <extend_definition comment="Microsoft Windows Server 2008 x64 Edition is installed" definition_ref="oval:org.mitre.oval:def:5356"/>
-    <extend_definition comment="Microsoft Windows XP is installed" definition_ref="oval:org.mitre.oval:def:105"/>
-    <extend_definition comment="Microsoft Windows Vista is installed" definition_ref="oval:org.mitre.oval:def:228"/>
-    <extend_definition comment="Microsoft Windows Server 2003 is installed" definition_ref="oval:org.mitre.oval:def:128"/>
-    <extend_definition comment="Microsoft Windows 2000 SP4 or later is installed" definition_ref="oval:org.mitre.oval:def:229"/>
+    <extend_definition comment="Microsoft Windows NT is installed" definition_ref="oval:org.mitre.oval:def:36" />
+    <extend_definition comment="Microsoft Windows Server 2008 (32-bit) is installed" definition_ref="oval:org.mitre.oval:def:4870" />
+    <extend_definition comment="Microsoft Windows Server 2008 x64 Edition is installed" definition_ref="oval:org.mitre.oval:def:5356" />
+    <extend_definition comment="Microsoft Windows XP is installed" definition_ref="oval:org.mitre.oval:def:105" />
+    <extend_definition comment="Microsoft Windows Vista is installed" definition_ref="oval:org.mitre.oval:def:228" />
+    <extend_definition comment="Microsoft Windows Server 2003 is installed" definition_ref="oval:org.mitre.oval:def:128" />
+    <extend_definition comment="Microsoft Windows 2000 SP4 or later is installed" definition_ref="oval:org.mitre.oval:def:229" />
   </criteria>
 </definition>

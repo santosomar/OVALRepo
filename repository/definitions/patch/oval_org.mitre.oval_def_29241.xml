@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29241" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29241" version="4">
   <metadata>
     <title>RHSA-2008:0836 -- libxml2 security update (Moderate)</title>
     <affected family="unix">
@@ -11,11 +10,11 @@
       <platform>CentOS Linux 5</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0836.html" ref_id="RHSA-2008:0836"/>
-    <reference source="CESA-2008:0836" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015196.html" ref_id="CESA-2008:0836-CentOS 3"/>
-    <reference source="CESA-2008:0836" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015206.html" ref_id="CESA-2008:0836-CentOS 2"/>
-    <reference source="CESA-2008:0836" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015212.html" ref_id="CESA-2008:0836-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3281" ref_id="CVE-2008-3281"/>
+    <reference ref_id="RHSA-2008:0836" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0836.html" source="VENDOR" />
+    <reference ref_id="CESA-2008:0836-CentOS 3" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015196.html" source="CESA-2008:0836" />
+    <reference ref_id="CESA-2008:0836-CentOS 2" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015206.html" source="CESA-2008:0836" />
+    <reference ref_id="CESA-2008:0836-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-August/015212.html" source="CESA-2008:0836" />
+    <reference ref_id="CVE-2008-3281" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3281" source="CVE" />
     <description>Updated libxml2 packages that fix a security issue are now available.
 This update has been rated as having moderate security impact by the Red
 Hat Security Response Team.
@@ -31,41 +30,43 @@ applications.</description>
         </submitted>
         <status_change date="2015-07-06T10:30:31.572-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:30.129-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:23.676-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:139272"/>
-        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:139288"/>
-        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:138587"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:139272" />
+        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:139288" />
+        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.4" test_ref="oval:org.mitre.oval:tst:138587" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 3 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2 is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:138962"/>
-        <criterion comment="libxml2-devel is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:139230"/>
-        <criterion comment="libxml2-python is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:138985"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2 is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:138962" />
+        <criterion comment="libxml2-devel is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:139230" />
+        <criterion comment="libxml2-python is earlier than 0:2.5.10-11" test_ref="oval:org.mitre.oval:tst:138985" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 4 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2 is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139290"/>
-        <criterion comment="libxml2-devel is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139255"/>
-        <criterion comment="libxml2-python is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139002"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2 is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139290" />
+        <criterion comment="libxml2-devel is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139255" />
+        <criterion comment="libxml2-python is earlier than 0:2.6.16-12.3" test_ref="oval:org.mitre.oval:tst:139002" />
       </criteria>
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139189"/>
-        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139307"/>
-        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139280"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139189" />
+        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139307" />
+        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.3" test_ref="oval:org.mitre.oval:tst:139280" />
       </criteria>
     </criteria>
   </criteria>

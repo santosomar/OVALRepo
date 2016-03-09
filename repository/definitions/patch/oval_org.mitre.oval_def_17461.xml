@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17461" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17461" version="8">
   <metadata>
     <title>USN-528-1 -- mysql-dfsg-5.0 vulnerabilities</title>
     <affected family="unix">
@@ -8,11 +7,11 @@
       <platform>Ubuntu 7.04</platform>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-528-1/" ref_id="USN-528-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2583" ref_id="CVE-2007-2583"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2691" ref_id="CVE-2007-2691"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3780" ref_id="CVE-2007-3780"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3782" ref_id="CVE-2007-3782"/>
+    <reference ref_id="USN-528-1" ref_url="http://www.ubuntu.com/usn/usn-528-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-2583" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2583" source="CVE" />
+    <reference ref_id="CVE-2007-2691" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2691" source="CVE" />
+    <reference ref_id="CVE-2007-3780" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3780" source="CVE" />
+    <reference ref_id="CVE-2007-3782" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3782" source="CVE" />
     <description>Neil Kettle discovered that MySQL could be made to dereference a NULL pointer and divide by zero.</description>
     <oval_repository>
       <dates>
@@ -34,20 +33,21 @@
         <status_change date="2014-06-30T04:06:40.042-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.5" test_ref="oval:org.mitre.oval:tst:81788"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.5" test_ref="oval:org.mitre.oval:tst:81788" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.24a-9ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81633"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.24a-9ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81633" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.38-0ubuntu1.1" test_ref="oval:org.mitre.oval:tst:81646"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.38-0ubuntu1.1" test_ref="oval:org.mitre.oval:tst:81646" />
     </criteria>
   </criteria>
 </definition>

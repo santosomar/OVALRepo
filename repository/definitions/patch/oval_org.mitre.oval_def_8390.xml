@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8390" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8390" version="6">
   <metadata>
     <title>DSA-1892 dovecot -- buffer overflow</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>dovecot</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1892" ref_id="DSA-1892"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2632" ref_id="CVE-2009-2632"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3235" ref_id="CVE-2009-3235"/>
+    <reference ref_id="DSA-1892" ref_url="http://www.debian.org/security/2009/dsa-1892" source="VENDOR" />
+    <reference ref_id="CVE-2009-2632" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2632" source="CVE" />
+    <reference ref_id="CVE-2009-3235" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3235" source="CVE" />
     <description>It was discovered that the SIEVE component of dovecot, a mail server that supports mbox and maildir mailboxes, is vulnerable to a buffer overflow when processing SIEVE scripts. This can be used to elevate privileges to the dovecot system user. An attacker who is able to install SIEVE scripts executed by the server is therefore able to read and modify arbitrary email messages on the system.</description>
     <oval_repository>
       <dates>
@@ -26,48 +25,49 @@
         <status_change date="2014-06-23T04:10:37.467-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="dovecot-pop3d is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20162"/>
-        <criterion comment="dovecot-common is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:19778"/>
-        <criterion comment="dovecot-imapd is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20133"/>
-        <criterion comment="dovecot-dev is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20214"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="dovecot-pop3d is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20162" />
+        <criterion comment="dovecot-common is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:19778" />
+        <criterion comment="dovecot-imapd is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20133" />
+        <criterion comment="dovecot-dev is earlier than 1.0.15-2.3+lenny1" test_ref="oval:org.mitre.oval:tst:20214" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="dovecot-pop3d is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:20136"/>
-        <criterion comment="dovecot-common is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:19805"/>
-        <criterion comment="dovecot-imapd is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:20210"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="dovecot-pop3d is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:20136" />
+        <criterion comment="dovecot-common is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:19805" />
+        <criterion comment="dovecot-imapd is earlier than 1.0.rc15-2etch5" test_ref="oval:org.mitre.oval:tst:20210" />
       </criteria>
     </criteria>
   </criteria>

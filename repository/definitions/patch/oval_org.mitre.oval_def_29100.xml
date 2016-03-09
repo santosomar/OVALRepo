@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29100" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29100" version="4">
   <metadata>
     <title>RHSA-2009:1139 -- pidgin security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -8,9 +7,9 @@
       <platform>CentOS Linux 5</platform>
       <product>pidgin</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1139.html" ref_id="RHSA-2009:1139"/>
-    <reference source="CESA-2009:1139" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-July/016023.html" ref_id="CESA-2009:1139-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1889" ref_id="CVE-2009-1889"/>
+    <reference ref_id="RHSA-2009:1139" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1139.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1139-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-July/016023.html" source="CESA-2009:1139" />
+    <reference ref_id="CVE-2009-1889" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1889" source="CVE" />
     <description>Updated pidgin packages that fix one security issue and one bug are now
 available for Red Hat Enterprise Linux 4 and 5.
 This update has been rated as having moderate security impact by the Red
@@ -26,40 +25,42 @@ AOL ICQ and AIM instant messaging systems.</description>
         </submitted>
         <status_change date="2015-07-06T10:30:45.026-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:04.513-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:54.346-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="finch-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139585"/>
-        <criterion comment="libpurple-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139575"/>
-        <criterion comment="pidgin-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139614"/>
-        <criterion comment="finch is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139522"/>
-        <criterion comment="libpurple is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139457"/>
-        <criterion comment="libpurple-perl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139566"/>
-        <criterion comment="libpurple-tcl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139630"/>
-        <criterion comment="pidgin is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139676"/>
-        <criterion comment="pidgin-perl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139510"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="finch-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139585" />
+        <criterion comment="libpurple-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139575" />
+        <criterion comment="pidgin-devel is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139614" />
+        <criterion comment="finch is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139522" />
+        <criterion comment="libpurple is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139457" />
+        <criterion comment="libpurple-perl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139566" />
+        <criterion comment="libpurple-tcl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139630" />
+        <criterion comment="pidgin is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139676" />
+        <criterion comment="pidgin-perl is earlier than 0:2.5.8-1.el5" test_ref="oval:org.mitre.oval:tst:139510" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 4 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="finch is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139612"/>
-        <criterion comment="finch-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139365"/>
-        <criterion comment="libpurple is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139182"/>
-        <criterion comment="libpurple-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139217"/>
-        <criterion comment="libpurple-perl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139407"/>
-        <criterion comment="libpurple-tcl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139155"/>
-        <criterion comment="pidgin is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:138936"/>
-        <criterion comment="pidgin-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139122"/>
-        <criterion comment="pidgin-perl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:138984"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="finch is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139612" />
+        <criterion comment="finch-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139365" />
+        <criterion comment="libpurple is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139182" />
+        <criterion comment="libpurple-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139217" />
+        <criterion comment="libpurple-perl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139407" />
+        <criterion comment="libpurple-tcl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139155" />
+        <criterion comment="pidgin is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:138936" />
+        <criterion comment="pidgin-devel is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:139122" />
+        <criterion comment="pidgin-perl is earlier than 0:2.5.8-1.el4" test_ref="oval:org.mitre.oval:tst:138984" />
       </criteria>
     </criteria>
   </criteria>

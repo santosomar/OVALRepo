@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26820" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26820" version="4">
   <metadata>
     <title>RHSA-2014:1193: axis security update (Important)</title>
     <affected family="unix">
@@ -9,9 +8,9 @@
       <platform>CentOS Linux 6</platform>
       <product>axis</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1193-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1193.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1193"/>
-    <reference source="CVE" ref_id="CVE-2014-3596" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3596.html"/>
+    <reference ref_id="RHSA-2014:1193-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1193.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1193" source="CESA" />
+    <reference ref_id="CVE-2014-3596" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3596.html" source="CVE" />
     <description>Apache Axis is an implementation of SOAP (Simple Object Access Protocol).
 It can be used to build both web service clients and servers.
 
@@ -39,29 +38,30 @@ Axis must be restarted for this update to take effect.</description>
         <status_change date="2014-11-10T04:02:05.063-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="axis is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123908"/>
-        <criterion comment="axis-javadoc is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123895"/>
-        <criterion comment="axis-manual is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123598"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="axis is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123908" />
+        <criterion comment="axis-javadoc is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123895" />
+        <criterion comment="axis-manual is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:123598" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="axis is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123761"/>
-        <criterion comment="axis-javadoc is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123903"/>
-        <criterion comment="axis-manual is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123658"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="axis is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123761" />
+        <criterion comment="axis-javadoc is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123903" />
+        <criterion comment="axis-manual is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:123658" />
       </criteria>
     </criteria>
   </criteria>

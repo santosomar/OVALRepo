@@ -1,27 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23840" version="65" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23840" version="69">
   <metadata>
     <title>ELSA-2012:0509: wireshark security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>wireshark</product>
     </affected>
-    <reference ref_id="ELSA-2012:0509-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0509.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1143" ref_url="http://linux.oracle.com/cve/CVE-2011-1143.html" source="CVE"/>
-    <reference ref_id="CVE-2011-1590" ref_url="http://linux.oracle.com/cve/CVE-2011-1590.html" source="CVE"/>
-    <reference ref_id="CVE-2011-1957" ref_url="http://linux.oracle.com/cve/CVE-2011-1957.html" source="CVE"/>
-    <reference ref_id="CVE-2011-1958" ref_url="http://linux.oracle.com/cve/CVE-2011-1958.html" source="CVE"/>
-    <reference ref_id="CVE-2011-1959" ref_url="http://linux.oracle.com/cve/CVE-2011-1959.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2174" ref_url="http://linux.oracle.com/cve/CVE-2011-2174.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2175" ref_url="http://linux.oracle.com/cve/CVE-2011-2175.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2597" ref_url="http://linux.oracle.com/cve/CVE-2011-2597.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2698" ref_url="http://linux.oracle.com/cve/CVE-2011-2698.html" source="CVE"/>
-    <reference ref_id="CVE-2011-4102" ref_url="http://linux.oracle.com/cve/CVE-2011-4102.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0041" ref_url="http://linux.oracle.com/cve/CVE-2012-0041.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0042" ref_url="http://linux.oracle.com/cve/CVE-2012-0042.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0066" ref_url="http://linux.oracle.com/cve/CVE-2012-0066.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0067" ref_url="http://linux.oracle.com/cve/CVE-2012-0067.html" source="CVE"/>
-    <reference ref_id="CVE-2012-1595" ref_url="http://linux.oracle.com/cve/CVE-2012-1595.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0509-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0509.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1143" ref_url="http://linux.oracle.com/cve/CVE-2011-1143.html" source="CVE" />
+    <reference ref_id="CVE-2011-1590" ref_url="http://linux.oracle.com/cve/CVE-2011-1590.html" source="CVE" />
+    <reference ref_id="CVE-2011-1957" ref_url="http://linux.oracle.com/cve/CVE-2011-1957.html" source="CVE" />
+    <reference ref_id="CVE-2011-1958" ref_url="http://linux.oracle.com/cve/CVE-2011-1958.html" source="CVE" />
+    <reference ref_id="CVE-2011-1959" ref_url="http://linux.oracle.com/cve/CVE-2011-1959.html" source="CVE" />
+    <reference ref_id="CVE-2011-2174" ref_url="http://linux.oracle.com/cve/CVE-2011-2174.html" source="CVE" />
+    <reference ref_id="CVE-2011-2175" ref_url="http://linux.oracle.com/cve/CVE-2011-2175.html" source="CVE" />
+    <reference ref_id="CVE-2011-2597" ref_url="http://linux.oracle.com/cve/CVE-2011-2597.html" source="CVE" />
+    <reference ref_id="CVE-2011-2698" ref_url="http://linux.oracle.com/cve/CVE-2011-2698.html" source="CVE" />
+    <reference ref_id="CVE-2011-4102" ref_url="http://linux.oracle.com/cve/CVE-2011-4102.html" source="CVE" />
+    <reference ref_id="CVE-2012-0041" ref_url="http://linux.oracle.com/cve/CVE-2012-0041.html" source="CVE" />
+    <reference ref_id="CVE-2012-0042" ref_url="http://linux.oracle.com/cve/CVE-2012-0042.html" source="CVE" />
+    <reference ref_id="CVE-2012-0066" ref_url="http://linux.oracle.com/cve/CVE-2012-0066.html" source="CVE" />
+    <reference ref_id="CVE-2012-0067" ref_url="http://linux.oracle.com/cve/CVE-2012-0067.html" source="CVE" />
+    <reference ref_id="CVE-2012-1595" ref_url="http://linux.oracle.com/cve/CVE-2012-1595.html" source="CVE" />
     <description>The pcap_process_pseudo_header function in wiretap/pcap-common.c in Wireshark 1.4.x before 1.4.12 and 1.6.x before 1.6.6 allows remote attackers to cause a denial of service (application crash) via a WTAP_ENCAP_ERF file containing an Extension or Multi-Channel header with an invalid pseudoheader size, related to the pcap and pcap-ng file parsers.</description>
     <oval_repository>
       <dates>
@@ -38,14 +37,15 @@
         <status_change date="2014-05-26T04:05:35.498-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="wireshark is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:109810"/>
-      <criterion comment="wireshark-devel is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:110165"/>
-      <criterion comment="wireshark-gnome is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:110056"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="wireshark is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:109810" />
+      <criterion comment="wireshark-devel is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:110165" />
+      <criterion comment="wireshark-gnome is earlier than 0:1.2.15-2.el6_2.1" test_ref="oval:org.mitre.oval:tst:110056" />
     </criteria>
   </criteria>
 </definition>

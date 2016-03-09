@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28020" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28020" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-0886 -- thunderbird security update (critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-0886.html" ref_id="ELSA-2011-0886"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0083" ref_id="CVE-2011-0083"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0085" ref_id="CVE-2011-0085"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2362" ref_id="CVE-2011-2362"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2363" ref_id="CVE-2011-2363"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2364" ref_id="CVE-2011-2364"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2365" ref_id="CVE-2011-2365"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2374" ref_id="CVE-2011-2374"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2375" ref_id="CVE-2011-2375"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2376" ref_id="CVE-2011-2376"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2377" ref_id="CVE-2011-2377"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2605" ref_id="CVE-2011-2605"/>
+    <reference ref_id="ELSA-2011-0886" ref_url="http://linux.oracle.com/errata/ELSA-2011-0886.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0083" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0083" source="CVE" />
+    <reference ref_id="CVE-2011-0085" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0085" source="CVE" />
+    <reference ref_id="CVE-2011-2362" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2362" source="CVE" />
+    <reference ref_id="CVE-2011-2363" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2363" source="CVE" />
+    <reference ref_id="CVE-2011-2364" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2364" source="CVE" />
+    <reference ref_id="CVE-2011-2365" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2365" source="CVE" />
+    <reference ref_id="CVE-2011-2374" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2374" source="CVE" />
+    <reference ref_id="CVE-2011-2375" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2375" source="CVE" />
+    <reference ref_id="CVE-2011-2376" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2376" source="CVE" />
+    <reference ref_id="CVE-2011-2377" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2377" source="CVE" />
+    <reference ref_id="CVE-2011-2605" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2605" source="CVE" />
     <description>[3.1.11-1.0.1.el6_1]
 - Replaced thunderbird-redhat-default-prefs.js with
   thunderbird-oracle-default-prefs.js
@@ -39,10 +38,11 @@
         <status_change date="2015-02-10T13:56:16.923-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="thunderbird is earlier than 0:3.1.11-2.0.1.el6_1" test_ref="oval:org.mitre.oval:tst:132910"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="thunderbird is earlier than 0:3.1.11-2.0.1.el6_1" test_ref="oval:org.mitre.oval:tst:132910" />
   </criteria>
 </definition>

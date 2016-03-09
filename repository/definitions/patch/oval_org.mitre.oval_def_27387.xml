@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27387" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27387" version="4">
   <metadata>
     <title>ELSA-2013-1537 -- augeas security, bug fix, and enhancement update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>augeas</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1537.html" ref_id="ELSA-2013-1537"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0786" ref_id="CVE-2012-0786"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0787" ref_id="CVE-2012-0787"/>
+    <reference ref_id="ELSA-2013-1537" ref_url="http://linux.oracle.com/errata/ELSA-2013-1537.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0786" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0786" source="CVE" />
+    <reference ref_id="CVE-2012-0787" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0787" source="CVE" />
     <description>[1.0.0-5]
 
 - Don't package lenses in tests/ subdirectory.
@@ -24,14 +23,15 @@
         <status_change date="2014-12-15T04:01:41.574-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="augeas is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:128040"/>
-      <criterion comment="augeas-devel is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:128514"/>
-      <criterion comment="augeas-libs is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:127549"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="augeas is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:128040" />
+      <criterion comment="augeas-devel is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:128514" />
+      <criterion comment="augeas-libs is earlier than 0:1.0.0-5.el6" test_ref="oval:org.mitre.oval:tst:127549" />
     </criteria>
   </criteria>
 </definition>

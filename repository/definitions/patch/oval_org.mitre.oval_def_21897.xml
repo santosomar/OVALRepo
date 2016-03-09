@@ -1,28 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21897" version="69" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21897" version="71">
   <metadata>
     <title>ELSA-2009:0480: poppler security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>poppler</product>
     </affected>
-    <reference ref_id="ELSA-2009:0480-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0480.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0146" ref_url="http://linux.oracle.com/cve/CVE-2009-0146.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0147" ref_url="http://linux.oracle.com/cve/CVE-2009-0147.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0166" ref_url="http://linux.oracle.com/cve/CVE-2009-0166.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0195" ref_url="http://linux.oracle.com/cve/CVE-2009-0195.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0791" ref_url="http://linux.oracle.com/cve/CVE-2009-0791.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0799" ref_url="http://linux.oracle.com/cve/CVE-2009-0799.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0800" ref_url="http://linux.oracle.com/cve/CVE-2009-0800.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1179" ref_url="http://linux.oracle.com/cve/CVE-2009-1179.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1180" ref_url="http://linux.oracle.com/cve/CVE-2009-1180.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1181" ref_url="http://linux.oracle.com/cve/CVE-2009-1181.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1182" ref_url="http://linux.oracle.com/cve/CVE-2009-1182.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1183" ref_url="http://linux.oracle.com/cve/CVE-2009-1183.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1187" ref_url="http://linux.oracle.com/cve/CVE-2009-1187.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1188" ref_url="http://linux.oracle.com/cve/CVE-2009-1188.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3604" ref_url="http://linux.oracle.com/cve/CVE-2009-3604.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3606" ref_url="http://linux.oracle.com/cve/CVE-2009-3606.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0480-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0480.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0146" ref_url="http://linux.oracle.com/cve/CVE-2009-0146.html" source="CVE" />
+    <reference ref_id="CVE-2009-0147" ref_url="http://linux.oracle.com/cve/CVE-2009-0147.html" source="CVE" />
+    <reference ref_id="CVE-2009-0166" ref_url="http://linux.oracle.com/cve/CVE-2009-0166.html" source="CVE" />
+    <reference ref_id="CVE-2009-0195" ref_url="http://linux.oracle.com/cve/CVE-2009-0195.html" source="CVE" />
+    <reference ref_id="CVE-2009-0791" ref_url="http://linux.oracle.com/cve/CVE-2009-0791.html" source="CVE" />
+    <reference ref_id="CVE-2009-0799" ref_url="http://linux.oracle.com/cve/CVE-2009-0799.html" source="CVE" />
+    <reference ref_id="CVE-2009-0800" ref_url="http://linux.oracle.com/cve/CVE-2009-0800.html" source="CVE" />
+    <reference ref_id="CVE-2009-1179" ref_url="http://linux.oracle.com/cve/CVE-2009-1179.html" source="CVE" />
+    <reference ref_id="CVE-2009-1180" ref_url="http://linux.oracle.com/cve/CVE-2009-1180.html" source="CVE" />
+    <reference ref_id="CVE-2009-1181" ref_url="http://linux.oracle.com/cve/CVE-2009-1181.html" source="CVE" />
+    <reference ref_id="CVE-2009-1182" ref_url="http://linux.oracle.com/cve/CVE-2009-1182.html" source="CVE" />
+    <reference ref_id="CVE-2009-1183" ref_url="http://linux.oracle.com/cve/CVE-2009-1183.html" source="CVE" />
+    <reference ref_id="CVE-2009-1187" ref_url="http://linux.oracle.com/cve/CVE-2009-1187.html" source="CVE" />
+    <reference ref_id="CVE-2009-1188" ref_url="http://linux.oracle.com/cve/CVE-2009-1188.html" source="CVE" />
+    <reference ref_id="CVE-2009-3604" ref_url="http://linux.oracle.com/cve/CVE-2009-3604.html" source="CVE" />
+    <reference ref_id="CVE-2009-3606" ref_url="http://linux.oracle.com/cve/CVE-2009-3606.html" source="CVE" />
     <description>Integer overflow in the PSOutputDev::doImageL1Sep function in Xpdf before 3.02pl4, and Poppler 0.x, as used in kdegraphics KPDF, might allow remote attackers to execute arbitrary code via a crafted PDF document that triggers a heap-based buffer overflow.</description>
     <oval_repository>
       <dates>
@@ -39,14 +38,15 @@
         <status_change date="2014-05-26T04:00:41.507-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="poppler-utils is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:102623"/>
-      <criterion comment="poppler is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:103040"/>
-      <criterion comment="poppler-devel is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:102435"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="poppler-utils is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:102623" />
+      <criterion comment="poppler is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:103040" />
+      <criterion comment="poppler-devel is earlier than 0:0.5.4-4.4.el5_3.9" test_ref="oval:org.mitre.oval:tst:102435" />
     </criteria>
   </criteria>
 </definition>

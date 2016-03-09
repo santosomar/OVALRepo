@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21855" version="33" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21855" version="35">
   <metadata>
     <title>ELSA-2007:0829: java-1.5.0-ibm security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>java-1.5.0-ibm</product>
     </affected>
-    <reference ref_id="ELSA-2007:0829-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0829.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-2435" ref_url="http://linux.oracle.com/cve/CVE-2007-2435.html" source="CVE"/>
-    <reference ref_id="CVE-2007-2788" ref_url="http://linux.oracle.com/cve/CVE-2007-2788.html" source="CVE"/>
-    <reference ref_id="CVE-2007-2789" ref_url="http://linux.oracle.com/cve/CVE-2007-2789.html" source="CVE"/>
-    <reference ref_id="CVE-2007-3503" ref_url="http://linux.oracle.com/cve/CVE-2007-3503.html" source="CVE"/>
-    <reference ref_id="CVE-2007-3655" ref_url="http://linux.oracle.com/cve/CVE-2007-3655.html" source="CVE"/>
-    <reference ref_id="CVE-2007-3922" ref_url="http://linux.oracle.com/cve/CVE-2007-3922.html" source="CVE"/>
-    <reference ref_id="CVE-2007-4381" ref_url="http://linux.oracle.com/cve/CVE-2007-4381.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0829-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0829.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-2435" ref_url="http://linux.oracle.com/cve/CVE-2007-2435.html" source="CVE" />
+    <reference ref_id="CVE-2007-2788" ref_url="http://linux.oracle.com/cve/CVE-2007-2788.html" source="CVE" />
+    <reference ref_id="CVE-2007-2789" ref_url="http://linux.oracle.com/cve/CVE-2007-2789.html" source="CVE" />
+    <reference ref_id="CVE-2007-3503" ref_url="http://linux.oracle.com/cve/CVE-2007-3503.html" source="CVE" />
+    <reference ref_id="CVE-2007-3655" ref_url="http://linux.oracle.com/cve/CVE-2007-3655.html" source="CVE" />
+    <reference ref_id="CVE-2007-3922" ref_url="http://linux.oracle.com/cve/CVE-2007-3922.html" source="CVE" />
+    <reference ref_id="CVE-2007-4381" ref_url="http://linux.oracle.com/cve/CVE-2007-4381.html" source="CVE" />
     <description>Unspecified vulnerability in the font parsing implementation in Sun JDK and JRE 5.0 Update 9 and earlier, and SDK and JRE 1.4.2_14 and earlier, allows remote attackers to perform unauthorized actions via an applet that grants certain privileges to itself.</description>
     <oval_repository>
       <dates>
@@ -30,18 +29,19 @@
         <status_change date="2014-05-26T04:00:37.189-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="java-1.5.0-ibm-jdbc is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101348"/>
-      <criterion comment="java-1.5.0-ibm is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101347"/>
-      <criterion comment="java-1.5.0-ibm-src is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101383"/>
-      <criterion comment="java-1.5.0-ibm-plugin is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101364"/>
-      <criterion comment="java-1.5.0-ibm-devel is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101453"/>
-      <criterion comment="java-1.5.0-ibm-demo is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101089"/>
-      <criterion comment="java-1.5.0-ibm-javacomm is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:100561"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="java-1.5.0-ibm-jdbc is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101348" />
+      <criterion comment="java-1.5.0-ibm is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101347" />
+      <criterion comment="java-1.5.0-ibm-src is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101383" />
+      <criterion comment="java-1.5.0-ibm-plugin is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101364" />
+      <criterion comment="java-1.5.0-ibm-devel is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101453" />
+      <criterion comment="java-1.5.0-ibm-demo is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:101089" />
+      <criterion comment="java-1.5.0-ibm-javacomm is earlier than 1:1.5.0.5-1jpp.0.1.el5" test_ref="oval:org.mitre.oval:tst:100561" />
     </criteria>
   </criteria>
 </definition>

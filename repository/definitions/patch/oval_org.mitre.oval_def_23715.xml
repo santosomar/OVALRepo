@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23715" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23715" version="33">
   <metadata>
     <title>ELSA-2012:0544: ImageMagick security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>ImageMagick</product>
     </affected>
-    <reference ref_id="ELSA-2012:0544-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0544.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-4167" ref_url="http://linux.oracle.com/cve/CVE-2010-4167.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0247" ref_url="http://linux.oracle.com/cve/CVE-2012-0247.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0248" ref_url="http://linux.oracle.com/cve/CVE-2012-0248.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0259" ref_url="http://linux.oracle.com/cve/CVE-2012-0259.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0260" ref_url="http://linux.oracle.com/cve/CVE-2012-0260.html" source="CVE"/>
-    <reference ref_id="CVE-2012-1798" ref_url="http://linux.oracle.com/cve/CVE-2012-1798.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0544-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0544.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-4167" ref_url="http://linux.oracle.com/cve/CVE-2010-4167.html" source="CVE" />
+    <reference ref_id="CVE-2012-0247" ref_url="http://linux.oracle.com/cve/CVE-2012-0247.html" source="CVE" />
+    <reference ref_id="CVE-2012-0248" ref_url="http://linux.oracle.com/cve/CVE-2012-0248.html" source="CVE" />
+    <reference ref_id="CVE-2012-0259" ref_url="http://linux.oracle.com/cve/CVE-2012-0259.html" source="CVE" />
+    <reference ref_id="CVE-2012-0260" ref_url="http://linux.oracle.com/cve/CVE-2012-0260.html" source="CVE" />
+    <reference ref_id="CVE-2012-1798" ref_url="http://linux.oracle.com/cve/CVE-2012-1798.html" source="CVE" />
     <description>The TIFFGetEXIFProperties function in coders/tiff.c in ImageMagick before 6.7.6-3 allows remote attackers to cause a denial of service (out-of-bounds read and crash) via a crafted EXIF IFD in a TIFF image.</description>
     <oval_repository>
       <dates>
@@ -29,17 +28,18 @@
         <status_change date="2014-05-26T04:05:15.335-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="ImageMagick-doc is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109392"/>
-      <criterion comment="ImageMagick-perl is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109683"/>
-      <criterion comment="ImageMagick-devel is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109478"/>
-      <criterion comment="ImageMagick-c++-devel is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:110197"/>
-      <criterion comment="ImageMagick-c++ is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109931"/>
-      <criterion comment="ImageMagick is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109923"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="ImageMagick-doc is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109392" />
+      <criterion comment="ImageMagick-perl is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109683" />
+      <criterion comment="ImageMagick-devel is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109478" />
+      <criterion comment="ImageMagick-c++-devel is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:110197" />
+      <criterion comment="ImageMagick-c++ is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109931" />
+      <criterion comment="ImageMagick is earlier than 0:6.5.4.7-6.el6_2" test_ref="oval:org.mitre.oval:tst:109923" />
     </criteria>
   </criteria>
 </definition>

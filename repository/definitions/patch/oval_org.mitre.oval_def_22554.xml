@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22554" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22554" version="19">
   <metadata>
     <title>ELSA-2008:0270: libvorbis security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>libvorbis</product>
     </affected>
-    <reference ref_id="ELSA-2008:0270-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0270.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-1419" ref_url="http://linux.oracle.com/cve/CVE-2008-1419.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1420" ref_url="http://linux.oracle.com/cve/CVE-2008-1420.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1423" ref_url="http://linux.oracle.com/cve/CVE-2008-1423.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0270-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0270.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-1419" ref_url="http://linux.oracle.com/cve/CVE-2008-1419.html" source="CVE" />
+    <reference ref_id="CVE-2008-1420" ref_url="http://linux.oracle.com/cve/CVE-2008-1420.html" source="CVE" />
+    <reference ref_id="CVE-2008-1423" ref_url="http://linux.oracle.com/cve/CVE-2008-1423.html" source="CVE" />
     <description>Integer overflow in a certain quantvals and quantlist calculation in Xiph.org libvorbis 1.2.0 and earlier allows remote attackers to cause a denial of service (crash) or execute arbitrary code via a crafted OGG file with a large virtual space for its codebook, which triggers a heap overflow.</description>
     <oval_repository>
       <dates>
@@ -26,13 +25,14 @@
         <status_change date="2014-05-26T04:01:28.475-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libvorbis-devel is earlier than 1:1.1.2-3.el5_1.2" test_ref="oval:org.mitre.oval:tst:102139"/>
-      <criterion comment="libvorbis is earlier than 1:1.1.2-3.el5_1.2" test_ref="oval:org.mitre.oval:tst:102025"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libvorbis-devel is earlier than 1:1.1.2-3.el5_1.2" test_ref="oval:org.mitre.oval:tst:102139" />
+      <criterion comment="libvorbis is earlier than 1:1.1.2-3.el5_1.2" test_ref="oval:org.mitre.oval:tst:102025" />
     </criteria>
   </criteria>
 </definition>

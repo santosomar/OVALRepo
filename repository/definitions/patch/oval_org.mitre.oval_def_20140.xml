@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20140" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20140" version="6">
   <metadata>
     <title>DSA-1573-1 rdesktop - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>rdesktop</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1573-1" ref_id="DSA-1573-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1801" ref_id="CVE-2008-1801"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1802" ref_id="CVE-2008-1802"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1803" ref_id="CVE-2008-1803"/>
+    <reference ref_id="DSA-1573-1" ref_url="http://www.debian.org/security/dsa-1573-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-1801" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1801" source="CVE" />
+    <reference ref_id="CVE-2008-1802" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1802" source="CVE" />
+    <reference ref_id="CVE-2008-1803" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1803" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in rdesktop, a Remote Desktop Protocol client.</description>
     <oval_repository>
       <dates>
@@ -26,10 +25,11 @@
         <status_change date="2014-06-23T04:06:47.862-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="rdesktop DPKG is earlier than 0:1.5.0-1etch2" test_ref="oval:org.mitre.oval:tst:89206"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="rdesktop DPKG is earlier than 0:1.5.0-1etch2" test_ref="oval:org.mitre.oval:tst:89206" />
   </criteria>
 </definition>

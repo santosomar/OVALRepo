@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22790" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22790" version="8">
   <metadata>
     <title>ELSA-2009:0344: libsoup security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <product>evolution28-libsoup</product>
       <product>libsoup</product>
     </affected>
-    <reference ref_id="ELSA-2009:0344-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0344.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0585" ref_url="http://linux.oracle.com/cve/CVE-2009-0585.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0344-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0344.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0585" ref_url="http://linux.oracle.com/cve/CVE-2009-0585.html" source="CVE" />
     <description>Integer overflow in the soup_base64_encode function in soup-misc.c in libsoup 2.x.x before 2.2.x, and 2.x before 2.24, allows context-dependent attackers to execute arbitrary code via a long string that is converted to a base64 representation.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:02:14.799-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libsoup-devel is earlier than 0:2.2.98-2.el5_3.1" test_ref="oval:org.mitre.oval:tst:102801"/>
-      <criterion comment="libsoup is earlier than 0:2.2.98-2.el5_3.1" test_ref="oval:org.mitre.oval:tst:102707"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libsoup-devel is earlier than 0:2.2.98-2.el5_3.1" test_ref="oval:org.mitre.oval:tst:102801" />
+      <criterion comment="libsoup is earlier than 0:2.2.98-2.el5_3.1" test_ref="oval:org.mitre.oval:tst:102707" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23106" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23106" version="10">
   <metadata>
     <title>ELSA-2011:0392: libtiff security and bug fix update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>libtiff</product>
     </affected>
-    <reference ref_id="ELSA-2011:0392-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0392.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1167" ref_url="http://linux.oracle.com/cve/CVE-2011-1167.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0392-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0392.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1167" ref_url="http://linux.oracle.com/cve/CVE-2011-1167.html" source="CVE" />
     <description>Heap-based buffer overflow in the thunder (aka ThunderScan) decoder in tif_thunder.c in LibTIFF 3.9.4 and earlier allows remote attackers to execute arbitrary code via crafted THUNDER_2BITDELTAS data in a .tiff file that has an unexpected BitsPerSample value.</description>
     <oval_repository>
       <dates>
@@ -25,22 +24,23 @@
         <status_change date="2014-05-26T04:03:23.944-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="libtiff is earlier than 0:3.8.2-7.el5_6.7" test_ref="oval:org.mitre.oval:tst:108422"/>
-        <criterion comment="libtiff-devel is earlier than 0:3.8.2-7.el5_6.7" test_ref="oval:org.mitre.oval:tst:108194"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="libtiff is earlier than 0:3.8.2-7.el5_6.7" test_ref="oval:org.mitre.oval:tst:108422" />
+        <criterion comment="libtiff-devel is earlier than 0:3.8.2-7.el5_6.7" test_ref="oval:org.mitre.oval:tst:108194" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="libtiff is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108777"/>
-        <criterion comment="libtiff-static is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108776"/>
-        <criterion comment="libtiff-devel is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108602"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="libtiff is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108777" />
+        <criterion comment="libtiff-static is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108776" />
+        <criterion comment="libtiff-devel is earlier than 0:3.9.4-1.el6_0.2" test_ref="oval:org.mitre.oval:tst:108602" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26596" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26596" version="4">
   <metadata>
     <title>ELSA-2014-1319 -- xerces-j2 security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>xerces-j2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1319.html" ref_id="ELSA-2014-1319"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4002" ref_id="CVE-2013-4002"/>
+    <reference ref_id="ELSA-2014-1319" ref_url="http://linux.oracle.com/errata/ELSA-2014-1319.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4002" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4002" source="CVE" />
     <description>Apache Xerces for Java (Xerces-J) is a high performance, standards
 compliant, validating XML parser written in Java. The xerces-j2 packages
 provide Xerces-J version 2.
@@ -31,14 +30,15 @@ Xerces-J must be restarted for this update to take effect.</description>
         <status_change date="2014-11-17T04:00:38.638-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="xerces-j2 RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:125051"/>
-      <criterion comment="xerces-j2-demo RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:125000"/>
-      <criterion comment="xerces-j2-javadoc RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:124135"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="xerces-j2 RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:125051" />
+      <criterion comment="xerces-j2-demo RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:125000" />
+      <criterion comment="xerces-j2-javadoc RPM is earlier than 0:2.11.0-17.el7_0" test_ref="oval:org.mitre.oval:tst:124135" />
     </criteria>
   </criteria>
 </definition>

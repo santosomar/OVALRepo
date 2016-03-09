@@ -1,39 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21199" version="354" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21199" version="355">
   <metadata>
     <title>RHSA-2012:1391: java-1.7.0-oracle security update (Critical)</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>java-1.7.0-oracle</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:1391-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1391.html"/>
-    <reference source="CVE" ref_id="CVE-2012-1531" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1531.html"/>
-    <reference source="CVE" ref_id="CVE-2012-1532" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1532.html"/>
-    <reference source="CVE" ref_id="CVE-2012-1533" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1533.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3143" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3143.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3159" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3159.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3216" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3216.html"/>
-    <reference source="CVE" ref_id="CVE-2012-4416" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4416.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5067" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5067.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5068" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5068.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5069" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5069.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5070" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5070.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5071" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5071.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5072" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5072.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5073" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5073.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5074" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5074.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5075" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5075.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5076" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5076.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5077" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5077.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5079" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5079.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5081" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5081.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5083" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5083.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5084" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5084.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5085" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5085.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5086" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5086.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5087" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5087.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5088" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5088.html"/>
-    <reference source="CVE" ref_id="CVE-2012-5089" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5089.html"/>
+    <reference ref_id="RHSA-2012:1391-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1391.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-1531" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1531.html" source="CVE" />
+    <reference ref_id="CVE-2012-1532" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1532.html" source="CVE" />
+    <reference ref_id="CVE-2012-1533" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1533.html" source="CVE" />
+    <reference ref_id="CVE-2012-3143" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3143.html" source="CVE" />
+    <reference ref_id="CVE-2012-3159" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3159.html" source="CVE" />
+    <reference ref_id="CVE-2012-3216" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3216.html" source="CVE" />
+    <reference ref_id="CVE-2012-4416" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4416.html" source="CVE" />
+    <reference ref_id="CVE-2012-5067" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5067.html" source="CVE" />
+    <reference ref_id="CVE-2012-5068" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5068.html" source="CVE" />
+    <reference ref_id="CVE-2012-5069" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5069.html" source="CVE" />
+    <reference ref_id="CVE-2012-5070" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5070.html" source="CVE" />
+    <reference ref_id="CVE-2012-5071" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5071.html" source="CVE" />
+    <reference ref_id="CVE-2012-5072" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5072.html" source="CVE" />
+    <reference ref_id="CVE-2012-5073" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5073.html" source="CVE" />
+    <reference ref_id="CVE-2012-5074" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5074.html" source="CVE" />
+    <reference ref_id="CVE-2012-5075" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5075.html" source="CVE" />
+    <reference ref_id="CVE-2012-5076" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5076.html" source="CVE" />
+    <reference ref_id="CVE-2012-5077" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5077.html" source="CVE" />
+    <reference ref_id="CVE-2012-5079" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5079.html" source="CVE" />
+    <reference ref_id="CVE-2012-5081" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5081.html" source="CVE" />
+    <reference ref_id="CVE-2012-5083" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5083.html" source="CVE" />
+    <reference ref_id="CVE-2012-5084" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5084.html" source="CVE" />
+    <reference ref_id="CVE-2012-5085" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5085.html" source="CVE" />
+    <reference ref_id="CVE-2012-5086" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5086.html" source="CVE" />
+    <reference ref_id="CVE-2012-5087" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5087.html" source="CVE" />
+    <reference ref_id="CVE-2012-5088" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5088.html" source="CVE" />
+    <reference ref_id="CVE-2012-5089" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5089.html" source="CVE" />
     <description>Unspecified vulnerability in the Java Runtime Environment (JRE) component in Oracle Java SE 7 Update 7 and earlier, 6 Update 35 and earlier, and 5.0 Update 36 and earlier allows remote attackers to affect confidentiality, integrity, and availability, related to JMX.</description>
     <oval_repository>
       <dates>
@@ -45,17 +44,18 @@
         <status_change date="2014-02-24T04:00:55.934-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="java-1.7.0-oracle is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94181"/>
-      <criterion comment="java-1.7.0-oracle-src is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94834"/>
-      <criterion comment="java-1.7.0-oracle-javafx is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94494"/>
-      <criterion comment="java-1.7.0-oracle-plugin is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94722"/>
-      <criterion comment="java-1.7.0-oracle-jdbc is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94790"/>
-      <criterion comment="java-1.7.0-oracle-devel is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94611"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="java-1.7.0-oracle is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94181" />
+      <criterion comment="java-1.7.0-oracle-src is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94834" />
+      <criterion comment="java-1.7.0-oracle-javafx is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94494" />
+      <criterion comment="java-1.7.0-oracle-plugin is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94722" />
+      <criterion comment="java-1.7.0-oracle-jdbc is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94790" />
+      <criterion comment="java-1.7.0-oracle-devel is earlier than 1:1.7.0.9-1jpp.3.el6_3" test_ref="oval:org.mitre.oval:tst:94611" />
     </criteria>
   </criteria>
 </definition>

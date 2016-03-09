@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7775" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7775" version="6">
   <metadata>
     <title>DSA-1510 gs-esp gs-gpl -- buffer overflow</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>gs-esp</product>
       <product>gs-gpl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1510" ref_id="DSA-1510"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0411" ref_id="CVE-2008-0411"/>
+    <reference ref_id="DSA-1510" ref_url="http://www.debian.org/security/2008/dsa-1510" source="VENDOR" />
+    <reference ref_id="CVE-2008-0411" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0411" source="CVE" />
     <description>Chris Evans discovered a buffer overflow in the color space handling code of the Ghostscript PostScript/PDF interpreter, which might result in the execution of arbitrary code if a user is tricked into processing a malformed file.</description>
     <oval_repository>
       <dates>
@@ -26,29 +25,30 @@
         <status_change date="2014-06-23T04:08:52.600-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="gs is earlier than 8.54.dfsg.1-5etch1" test_ref="oval:org.mitre.oval:tst:17874"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="gs is earlier than 8.54.dfsg.1-5etch1" test_ref="oval:org.mitre.oval:tst:17874" />
         </criteria>
-        <criterion comment="gs-gpl is earlier than 8.54.dfsg.1-5etch1" test_ref="oval:org.mitre.oval:tst:18068"/>
-        <criterion comment="gs-esp is earlier than 8.15.3.dfsg.1-1etch1" test_ref="oval:org.mitre.oval:tst:17931"/>
+        <criterion comment="gs-gpl is earlier than 8.54.dfsg.1-5etch1" test_ref="oval:org.mitre.oval:tst:18068" />
+        <criterion comment="gs-esp is earlier than 8.15.3.dfsg.1-1etch1" test_ref="oval:org.mitre.oval:tst:17931" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="gs is earlier than 8.01-6" test_ref="oval:org.mitre.oval:tst:18380"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="gs is earlier than 8.01-6" test_ref="oval:org.mitre.oval:tst:18380" />
         </criteria>
-        <criterion comment="gs-gpl is earlier than 8.01-6" test_ref="oval:org.mitre.oval:tst:18352"/>
-        <criterion comment="gs-esp is earlier than 7.07.1-9sarge1" test_ref="oval:org.mitre.oval:tst:18018"/>
+        <criterion comment="gs-gpl is earlier than 8.01-6" test_ref="oval:org.mitre.oval:tst:18352" />
+        <criterion comment="gs-esp is earlier than 7.07.1-9sarge1" test_ref="oval:org.mitre.oval:tst:18018" />
       </criteria>
     </criteria>
   </criteria>

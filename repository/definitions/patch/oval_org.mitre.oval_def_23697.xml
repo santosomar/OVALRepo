@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23697" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23697" version="8">
   <metadata>
     <title>ELSA-2011:1356: openswan security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>openswan</product>
     </affected>
-    <reference ref_id="ELSA-2011:1356-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1356.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-3380" ref_url="http://linux.oracle.com/cve/CVE-2011-3380.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1356-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1356.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3380" ref_url="http://linux.oracle.com/cve/CVE-2011-3380.html" source="CVE" />
     <description>Openswan 2.6.29 through 2.6.35 allows remote attackers to cause a denial of service (NULL pointer dereference and pluto IKE daemon crash) via an ISAKMP message with an invalid KEY_LENGTH attribute, which is not properly handled by the error handling function.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-07-21T04:01:01.352-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="openswan is earlier than 0:2.6.32-4.el6_1.2" test_ref="oval:org.mitre.oval:tst:109334"/>
-      <criterion comment="openswan-doc is earlier than 0:2.6.32-4.el6_1.2" test_ref="oval:org.mitre.oval:tst:109332"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="openswan is earlier than 0:2.6.32-4.el6_1.2" test_ref="oval:org.mitre.oval:tst:109334" />
+      <criterion comment="openswan-doc is earlier than 0:2.6.32-4.el6_1.2" test_ref="oval:org.mitre.oval:tst:109332" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17882" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17882" version="6">
   <metadata>
     <title>USN-681-1 -- imagemagick vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Ubuntu 7.10</platform>
       <product>imagemagick</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-681-1/" ref_id="USN-681-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1096" ref_id="CVE-2008-1096"/>
+    <reference ref_id="USN-681-1" ref_url="http://www.ubuntu.com/usn/usn-681-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-1096" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1096" source="CVE" />
     <description>It was discovered that ImageMagick did not correctly handle certain malformed XCF images.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-07-21T04:00:36.155-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="imagemagick DPKG is earlier than 6:6.2.4.5-0.6ubuntu0.8" test_ref="oval:org.mitre.oval:tst:83496"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="imagemagick DPKG is earlier than 6:6.2.4.5-0.6ubuntu0.8" test_ref="oval:org.mitre.oval:tst:83496" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="imagemagick DPKG is earlier than 7:6.2.4.5.dfsg1-2ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83472"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="imagemagick DPKG is earlier than 7:6.2.4.5.dfsg1-2ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83472" />
     </criteria>
   </criteria>
 </definition>

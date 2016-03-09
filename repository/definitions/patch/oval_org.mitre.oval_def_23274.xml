@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23274" version="18" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:23274" version="19">
   <metadata>
     <title>DEPRECATED: ELSA-2012:1407: firefox security update (Critical)</title>
     <affected family="unix">
@@ -8,10 +7,10 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference ref_id="ELSA-2012:1407-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1407.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-4194" ref_url="http://linux.oracle.com/cve/CVE-2012-4194.html" source="CVE"/>
-    <reference ref_id="CVE-2012-4195" ref_url="http://linux.oracle.com/cve/CVE-2012-4195.html" source="CVE"/>
-    <reference ref_id="CVE-2012-4196" ref_url="http://linux.oracle.com/cve/CVE-2012-4196.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:1407-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1407.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-4194" ref_url="http://linux.oracle.com/cve/CVE-2012-4194.html" source="CVE" />
+    <reference ref_id="CVE-2012-4195" ref_url="http://linux.oracle.com/cve/CVE-2012-4195.html" source="CVE" />
+    <reference ref_id="CVE-2012-4196" ref_url="http://linux.oracle.com/cve/CVE-2012-4196.html" source="CVE" />
     <description>Mozilla Firefox before 16.0.2, Firefox ESR 10.x before 10.0.10, Thunderbird before 16.0.2, Thunderbird ESR 10.x before 10.0.10, and SeaMonkey before 2.13.2 allow remote attackers to bypass the Same Origin Policy and read the Location object via a prototype property-injection attack that defeats certain protection mechanisms for this object.</description>
     <oval_repository>
       <dates>
@@ -32,23 +31,24 @@
         <status_change date="2014-07-11T16:44:37.332-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106699"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106966"/>
-        <criterion comment="firefox is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106600"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106699" />
+        <criterion comment="xulrunner is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106966" />
+        <criterion comment="firefox is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:106600" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106881"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106889"/>
-        <criterion comment="firefox is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106259"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106881" />
+        <criterion comment="xulrunner is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106889" />
+        <criterion comment="firefox is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:106259" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26390" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26390" version="6">
   <metadata>
     <title>RHSA-2014:1390: luci security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>luci</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1390-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1390.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3593" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3593.html"/>
-    <reference source="CESA-2014:1390" ref_id="CESA-2014:1390" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001283.html"/>
+    <reference ref_id="RHSA-2014:1390-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1390.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3593" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3593.html" source="CVE" />
+    <reference ref_id="CESA-2014:1390" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001283.html" source="CESA-2014:1390" />
     <description>Luci is a web-based high availability administration application.
 
 It was discovered that luci used eval() on inputs containing strings from
@@ -44,16 +43,17 @@ enhancements.</description>
         <status_change date="2015-04-13T04:00:08.323-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <criterion comment="luci is earlier than 0:0.26.0-63.el6" test_ref="oval:org.mitre.oval:tst:124900"/>
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+      <criterion comment="luci is earlier than 0:0.26.0-63.el6" test_ref="oval:org.mitre.oval:tst:124900" />
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
     </criteria>
     <criteria comment="CentOS Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
-      <criterion comment="luci is earlier than 0:0.26.0-63.el6.centos" test_ref="oval:org.mitre.oval:tst:137992"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
+      <criterion comment="luci is earlier than 0:0.26.0-63.el6.centos" test_ref="oval:org.mitre.oval:tst:137992" />
     </criteria>
   </criteria>
 </definition>

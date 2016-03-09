@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7185" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7185" version="8">
   <metadata>
     <title>DSA-1949 php-net-ping -- programming error</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>php-net-ping</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1949" ref_id="DSA-1949"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4024" ref_id="CVE-2009-4024"/>
+    <reference ref_id="DSA-1949" ref_url="http://www.debian.org/security/2009/dsa-1949" source="VENDOR" />
+    <reference ref_id="CVE-2009-4024" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4024" source="CVE" />
     <description>It was discovered that php-net-ping, a PHP PEAR module to execute ping independently of the Operating System, performs insufficient input sanitising, which might be used to inject arguments or execute arbitrary commands on a system that uses php-net-ping.</description>
     <oval_repository>
       <dates>
@@ -25,18 +24,19 @@
         <status_change date="2014-06-23T04:08:10.227-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="php-net-ping is earlier than 2.4.2-1+lenny1" test_ref="oval:org.mitre.oval:tst:24303"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="php-net-ping is earlier than 2.4.2-1+lenny1" test_ref="oval:org.mitre.oval:tst:24303" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="php-net-ping is earlier than 2.4.2-1+etch1" test_ref="oval:org.mitre.oval:tst:24135"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="php-net-ping is earlier than 2.4.2-1+etch1" test_ref="oval:org.mitre.oval:tst:24135" />
     </criteria>
   </criteria>
 </definition>

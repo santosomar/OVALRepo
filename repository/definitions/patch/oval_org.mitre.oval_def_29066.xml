@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29066" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29066" version="4">
   <metadata>
     <title>RHSA-2008:0597 -- firefox security update (Critical)</title>
     <affected family="unix">
@@ -11,11 +10,11 @@
       <product>xulrunner</product>
       <product>yelp</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0597.html" ref_id="RHSA-2008:0597"/>
-    <reference source="CESA-2008:0597" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-July/015135.html" ref_id="CESA-2008:0597-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2785" ref_id="CVE-2008-2785"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2933" ref_id="CVE-2008-2933"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3198" ref_id="CVE-2008-3198"/>
+    <reference ref_id="RHSA-2008:0597" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0597.html" source="VENDOR" />
+    <reference ref_id="CESA-2008:0597-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-July/015135.html" source="CESA-2008:0597" />
+    <reference ref_id="CVE-2008-2785" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2785" source="CVE" />
+    <reference ref_id="CVE-2008-2933" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2933" source="CVE" />
+    <reference ref_id="CVE-2008-3198" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3198" source="CVE" />
     <description>Updated firefox packages that fix various security issues are now available
 for Red Hat Enterprise Linux 5.
 This update has been rated as having critical security impact by the Red
@@ -40,21 +39,23 @@ Firefox 3.0.1 that corrects these issues.</description>
         </submitted>
         <status_change date="2015-07-06T10:30:30.828-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:57.219-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:49.337-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="devhelp-devel is earlier than 0:0.12-18.el5" test_ref="oval:org.mitre.oval:tst:139065"/>
-      <criterion comment="xulrunner-devel is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139157"/>
-      <criterion comment="xulrunner-devel-unstable is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:138992"/>
-      <criterion comment="devhelp is earlier than 0:0.12-18.el5" test_ref="oval:org.mitre.oval:tst:139327"/>
-      <criterion comment="firefox is earlier than 0:3.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139309"/>
-      <criterion comment="nspluginwrapper is earlier than 0:0.9.91.5-22.el5" test_ref="oval:org.mitre.oval:tst:139129"/>
-      <criterion comment="xulrunner is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139303"/>
-      <criterion comment="yelp is earlier than 0:2.16.0-20.el5" test_ref="oval:org.mitre.oval:tst:139151"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="devhelp-devel is earlier than 0:0.12-18.el5" test_ref="oval:org.mitre.oval:tst:139065" />
+      <criterion comment="xulrunner-devel is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139157" />
+      <criterion comment="xulrunner-devel-unstable is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:138992" />
+      <criterion comment="devhelp is earlier than 0:0.12-18.el5" test_ref="oval:org.mitre.oval:tst:139327" />
+      <criterion comment="firefox is earlier than 0:3.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139309" />
+      <criterion comment="nspluginwrapper is earlier than 0:0.9.91.5-22.el5" test_ref="oval:org.mitre.oval:tst:139129" />
+      <criterion comment="xulrunner is earlier than 0:1.9.0.1-1.el5" test_ref="oval:org.mitre.oval:tst:139303" />
+      <criterion comment="yelp is earlier than 0:2.16.0-20.el5" test_ref="oval:org.mitre.oval:tst:139151" />
     </criteria>
   </criteria>
 </definition>

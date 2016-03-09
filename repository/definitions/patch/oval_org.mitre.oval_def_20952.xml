@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20952" version="68" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20952" version="69">
   <metadata>
     <title>RHSA-2012:1181: gimp security update (Moderate)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>CentOS Linux 5</platform>
       <product>gimp</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:1181-00" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1181.html"/>
-    <reference source="CESA" ref_id="CESA-2012:1181"/>
-    <reference source="CVE" ref_id="CVE-2009-3909" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-3909.html"/>
-    <reference source="CVE" ref_id="CVE-2011-2896" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2896.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3402" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3402.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3403" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3403.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3481" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3481.html"/>
+    <reference ref_id="RHSA-2012:1181-00" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1181.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:1181" source="CESA" />
+    <reference ref_id="CVE-2009-3909" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-3909.html" source="CVE" />
+    <reference ref_id="CVE-2011-2896" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2896.html" source="CVE" />
+    <reference ref_id="CVE-2012-3402" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3402.html" source="CVE" />
+    <reference ref_id="CVE-2012-3403" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3403.html" source="CVE" />
+    <reference ref_id="CVE-2012-3481" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3481.html" source="CVE" />
     <description>Integer overflow in the ReadImage function in plug-ins/common/file-gif-load.c in the GIF image format plug-in in GIMP 2.8.x and earlier allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via crafted height and len properties in a GIF image file, which triggers a heap-based buffer overflow.  NOTE: some of these details are obtained from third party information.</description>
     <oval_repository>
       <dates>
@@ -25,17 +24,18 @@
         <status_change date="2014-02-24T04:00:39.669-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="gimp-libs is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94432"/>
-      <criterion comment="gimp-devel is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94309"/>
-      <criterion comment="gimp is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94425"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="gimp-libs is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94432" />
+      <criterion comment="gimp-devel is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94309" />
+      <criterion comment="gimp is earlier than 2:2.2.13-2.0.7.el5_8.5" test_ref="oval:org.mitre.oval:tst:94425" />
     </criteria>
   </criteria>
 </definition>

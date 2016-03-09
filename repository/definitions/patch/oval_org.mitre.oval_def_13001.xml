@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13001" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13001" version="7">
   <metadata>
     <title>DSA-2245-1 chromium-browser -- several vulnerabilities</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>chromium-browser</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00115.html" ref_id="DSA-2245-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1292" ref_id="CVE-2011-1292"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1293" ref_id="CVE-2011-1293"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1440" ref_id="CVE-2011-1440"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1444" ref_id="CVE-2011-1444"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1797" ref_id="CVE-2011-1797"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1799" ref_id="CVE-2011-1799"/>
+    <reference ref_id="DSA-2245-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00115.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1292" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1292" source="CVE" />
+    <reference ref_id="CVE-2011-1293" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1293" source="CVE" />
+    <reference ref_id="CVE-2011-1440" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1440" source="CVE" />
+    <reference ref_id="CVE-2011-1444" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1444" source="CVE" />
+    <reference ref_id="CVE-2011-1797" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1797" source="CVE" />
+    <reference ref_id="CVE-2011-1799" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1799" source="CVE" />
     <description>Several vulnerabilities were discovered in the Chromium browser. The Common Vulnerabilities and Exposures project identifies the following problems: CVE-2011-1292 Use-after-free vulnerability in the frame-loader implementation in Google Chrome allows remote attackers to cause a denial of service or possibly have unspecified other impact via unknown vectors. CVE-2011-1293 Use-after-free vulnerability in the HTMLCollection implementation in Google Chrome allows remote attackers to cause a denial of service or possibly have unspecified other impact via unknown vectors. CVE-2011-1440 Use-after-free vulnerability in Google Chrome allows remote attackers to cause a denial of service or possibly have unspecified other impact via vectors related to the ruby element and Cascading Style Sheets token sequences. CVE-2011-1444 Race condition in the sandbox launcher implementation in Google Chrome on Linux allows remote attackers to cause a denial of service or possibly have unspecified other impact via unknown vectors. CVE-2011-1797 Google Chrome does not properly render tables, which allows remote attackers to cause a denial of service or possibly have unspecified other impact via unknown vectors that lead to a &amp;quot;stale pointer.&amp;quot; CVE-2011-1799 Google Chrome does not properly perform casts of variables during interaction with the WebKit engine, which allows remote attackers to cause a denial of service or possibly have unspecified other impact via unknown vectors.</description>
     <oval_repository>
       <dates>
@@ -30,15 +29,16 @@
         <status_change date="2014-06-23T04:01:19.919-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="chromium-browser DPKG is earlier than 6.0.472.63~r59945-5+squeeze5" test_ref="oval:org.mitre.oval:tst:44166"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="chromium-browser DPKG is earlier than 6.0.472.63~r59945-5+squeeze5" test_ref="oval:org.mitre.oval:tst:44166" />
   </criteria>
 </definition>

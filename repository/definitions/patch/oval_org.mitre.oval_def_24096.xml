@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24096" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24096" version="8">
   <metadata>
     <title>ELSA-2013:1119: 389-ds-base security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>389-ds-base</product>
     </affected>
-    <reference ref_id="ELSA-2013:1119-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1119.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-2219" ref_url="http://linux.oracle.com/cve/CVE-2013-2219.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1119-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1119.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-2219" ref_url="http://linux.oracle.com/cve/CVE-2013-2219.html" source="CVE" />
     <description>The Red Hat Directory Server before 8.2.11-13 and 389 Directory Server do not properly restrict access to entity attributes, which allows remote authenticated users to obtain sensitive information via a search query for the attribute.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:06:13.717-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="389-ds-base is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112280"/>
-      <criterion comment="389-ds-base-devel is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112085"/>
-      <criterion comment="389-ds-base-libs is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112178"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="389-ds-base is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112280" />
+      <criterion comment="389-ds-base-devel is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112085" />
+      <criterion comment="389-ds-base-libs is earlier than 0:1.2.11.15-20.el6_4" test_ref="oval:org.mitre.oval:tst:112178" />
     </criteria>
   </criteria>
 </definition>

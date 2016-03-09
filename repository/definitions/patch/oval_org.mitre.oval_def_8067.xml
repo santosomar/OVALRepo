@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8067" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8067" version="8">
   <metadata>
     <title>DSA-1643 feta -- insecure temp file handling</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>feta</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1643" ref_id="DSA-1643"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4440" ref_id="CVE-2008-4440"/>
+    <reference ref_id="DSA-1643" ref_url="http://www.debian.org/security/2008/dsa-1643" source="VENDOR" />
+    <reference ref_id="CVE-2008-4440" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4440" source="CVE" />
     <description>Dmitry E. Oboukhov discovered that the "to-upgrade" plugin of Feta, a simpler interface to APT, dpkg, and other Debian package tools creates temporary files insecurely, which may lead to local denial of service through symlink attacks.</description>
     <oval_repository>
       <dates>
@@ -29,11 +28,12 @@
         <status_change date="2014-06-23T04:09:56.991-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="feta is earlier than 1.4.15+etch1" test_ref="oval:org.mitre.oval:tst:18371"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="feta is earlier than 1.4.15+etch1" test_ref="oval:org.mitre.oval:tst:18371" />
   </criteria>
 </definition>

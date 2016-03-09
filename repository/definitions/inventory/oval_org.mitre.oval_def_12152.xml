@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12152" version="11" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:12152" version="12">
   <metadata>
     <title>Apache APR-util is installed</title>
     <affected family="windows">
@@ -11,7 +10,7 @@
       <platform>Microsoft Windows XP</platform>
       <product>Apache APR-util</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:apache:apr-util"/>
+    <reference ref_id="cpe:/a:apache:apr-util" source="CPE" />
     <description>Apache APR-util is installed</description>
     <oval_repository>
       <dates>
@@ -43,17 +42,18 @@
         <status_change date="2014-07-14T04:00:18.351-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Check if Apache APR-util is installed">
-      <criterion comment="Check HKEY_LOCAL_MACHINE\SOFTWARE\Apache Software Foundation\Apache\ is exist" test_ref="oval:org.mitre.oval:tst:113023"/>
-      <criterion comment="Check if Apache APR-util is installed" test_ref="oval:org.mitre.oval:tst:42278"/>
+    <criteria comment="Check if Apache APR-util is installed" operator="AND">
+      <criterion comment="Check HKEY_LOCAL_MACHINE\SOFTWARE\Apache Software Foundation\Apache\ is exist" test_ref="oval:org.mitre.oval:tst:113023" />
+      <criterion comment="Check if Apache APR-util is installed" test_ref="oval:org.mitre.oval:tst:42278" />
     </criteria>
-    <criteria operator="AND" comment="Check if lower version of Apache APR-util is installed">
-      <criterion comment="Check HKEY_LOCAL_MACHINE\SOFTWARE\Apache Group\Apache\ is exist" test_ref="oval:org.mitre.oval:tst:112747"/>
-      <criterion comment="Check if lower version of Apache APR-util is installed" test_ref="oval:org.mitre.oval:tst:42325"/>
+    <criteria comment="Check if lower version of Apache APR-util is installed" operator="AND">
+      <criterion comment="Check HKEY_LOCAL_MACHINE\SOFTWARE\Apache Group\Apache\ is exist" test_ref="oval:org.mitre.oval:tst:112747" />
+      <criterion comment="Check if lower version of Apache APR-util is installed" test_ref="oval:org.mitre.oval:tst:42325" />
     </criteria>
-    <criterion comment="Check if libaprutil.dll or libaprutil-1.dll is present" test_ref="oval:org.mitre.oval:tst:42066"/>
+    <criterion comment="Check if libaprutil.dll or libaprutil-1.dll is present" test_ref="oval:org.mitre.oval:tst:42066" />
   </criteria>
 </definition>

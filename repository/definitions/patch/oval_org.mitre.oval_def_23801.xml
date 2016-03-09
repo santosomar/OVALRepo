@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23801" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23801" version="11">
   <metadata>
     <title>ELSA-2013:1156: httpd security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>httpd</product>
     </affected>
-    <reference ref_id="ELSA-2013:1156-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-1156.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-1896" ref_url="http://linux.oracle.com/cve/CVE-2013-1896.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1156-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-1156.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1896" ref_url="http://linux.oracle.com/cve/CVE-2013-1896.html" source="CVE" />
     <description>mod_dav.c in the Apache HTTP Server before 2.2.25 does not properly determine whether DAV is enabled for a URI, which allows remote attackers to cause a denial of service (segmentation fault) via a MERGE request in which the URI is configured for handling by the mod_dav_svn module, but a certain href attribute in XML data refers to a non-DAV URI.</description>
     <oval_repository>
       <dates>
@@ -25,26 +24,27 @@
         <status_change date="2014-05-26T04:05:29.835-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="mod_ssl is earlier than 1:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112368"/>
-        <criterion comment="httpd-tools is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:111602"/>
-        <criterion comment="httpd is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112058"/>
-        <criterion comment="httpd-manual is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112390"/>
-        <criterion comment="httpd-devel is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112223"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="mod_ssl is earlier than 1:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112368" />
+        <criterion comment="httpd-tools is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:111602" />
+        <criterion comment="httpd is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112058" />
+        <criterion comment="httpd-manual is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112390" />
+        <criterion comment="httpd-devel is earlier than 0:2.2.15-29.el6_4" test_ref="oval:org.mitre.oval:tst:112223" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="mod_ssl is earlier than 1:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112020"/>
-        <criterion comment="httpd is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112217"/>
-        <criterion comment="httpd-manual is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112103"/>
-        <criterion comment="httpd-devel is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112346"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="mod_ssl is earlier than 1:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112020" />
+        <criterion comment="httpd is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112217" />
+        <criterion comment="httpd-manual is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112103" />
+        <criterion comment="httpd-devel is earlier than 0:2.2.3-82.el5_9" test_ref="oval:org.mitre.oval:tst:112346" />
       </criteria>
     </criteria>
   </criteria>

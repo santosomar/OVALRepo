@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18591" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18591" version="8">
   <metadata>
     <title>DSA-1449-1 loop-aes-utils privilege escalation</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>loop-aes-utils</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1449-1" ref_id="DSA-1449-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5191" ref_id="CVE-2007-5191"/>
+    <reference ref_id="DSA-1449-1" ref_url="http://www.debian.org/security/dsa-1449-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-5191" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5191" source="CVE" />
     <description>It was discovered that loop-aes-utils, tools for mounting and manipulating filesystems, didn't drop privileged user and group permissions in the correct order in the mount and umount commands. This could potentially allow a local user to gain additional privileges.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:04:59.664-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="loop-aes-utils DPKG is earlier than 2.12r-15+etch1" test_ref="oval:org.mitre.oval:tst:86501"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="loop-aes-utils DPKG is earlier than 2.12r-15+etch1" test_ref="oval:org.mitre.oval:tst:86501" />
   </criteria>
 </definition>

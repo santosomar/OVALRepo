@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27976" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27976" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0018 -- libxml2 security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0018.html" ref_id="ELSA-2012-0018"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3905" ref_id="CVE-2011-3905"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3919" ref_id="CVE-2011-3919"/>
+    <reference ref_id="ELSA-2012-0018" ref_url="http://linux.oracle.com/errata/ELSA-2012-0018.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3905" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3905" source="CVE" />
+    <reference ref_id="CVE-2011-3919" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3919" source="CVE" />
     <description>[2.7.6-4.0.1.el6_2.1]
 - Update doc/redhat.gif in tarball
 - Add libxml2-oracle-enterprise.patch and update logos in tarball
@@ -31,15 +30,16 @@
         <status_change date="2015-02-10T15:44:32.444-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libxml2 is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132333"/>
-      <criterion comment="libxml2-devel is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132842"/>
-      <criterion comment="libxml2-python is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132967"/>
-      <criterion comment="libxml2-static is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132079"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libxml2 is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132333" />
+      <criterion comment="libxml2-devel is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132842" />
+      <criterion comment="libxml2-python is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132967" />
+      <criterion comment="libxml2-static is earlier than 0:2.7.6-4.0.1.el6_2.1" test_ref="oval:org.mitre.oval:tst:132079" />
     </criteria>
   </criteria>
 </definition>

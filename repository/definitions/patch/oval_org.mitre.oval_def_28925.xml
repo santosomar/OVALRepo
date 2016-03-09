@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28925" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28925" version="4">
   <metadata>
     <title>SUSE-SU-2015:0803-1 -- Security update for gdm (low)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 12</platform>
       <product>gdm</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2015/suse-su-20150803-1.html" ref_id="SUSE-SU-2015:0803-1"/>
+    <reference ref_id="SUSE-SU-2015:0803-1" ref_url="https://www.suse.com/support/update/announcement/2015/suse-su-20150803-1.html" source="VENDOR" />
     <description>The GNOME Display Manager was updated to fix several bugs:
 Security issue fixed:
 - Removed gdm-fingerprint and gdm-smartcard pamfiles that allowed
@@ -25,25 +24,27 @@ Bugs fixed:
         </submitted>
         <status_change date="2015-07-06T10:37:38.887-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:43.966-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:36.669-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="gdm is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139957"/>
-      <criterion comment="gdm-debuginfo is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140001"/>
-      <criterion comment="gdm-debugsource is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139670"/>
-      <criterion comment="libgdm1 is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140071"/>
-      <criterion comment="libgdm1-debuginfo is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140008"/>
-      <criterion comment="typelib-1_0-Gdm-1_0 is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140062"/>
-      <criterion comment="gdm-branding-upstream is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140037"/>
-      <criterion comment="gdm-lang is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139509"/>
-      <criterion comment="gdmflexiserver is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139984"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="gdm is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139957" />
+      <criterion comment="gdm-debuginfo is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140001" />
+      <criterion comment="gdm-debugsource is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139670" />
+      <criterion comment="libgdm1 is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140071" />
+      <criterion comment="libgdm1-debuginfo is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140008" />
+      <criterion comment="typelib-1_0-Gdm-1_0 is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140062" />
+      <criterion comment="gdm-branding-upstream is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:140037" />
+      <criterion comment="gdm-lang is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139509" />
+      <criterion comment="gdmflexiserver is earlier than 0:3.10.0.1-16.1" test_ref="oval:org.mitre.oval:tst:139984" />
     </criteria>
   </criteria>
 </definition>

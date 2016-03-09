@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21914" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21914" version="8">
   <metadata>
     <title>ELSA-2009:0341: curl security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>curl</product>
     </affected>
-    <reference ref_id="ELSA-2009:0341-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0341.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0037" ref_url="http://linux.oracle.com/cve/CVE-2009-0037.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0341-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0341.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0037" ref_url="http://linux.oracle.com/cve/CVE-2009-0037.html" source="CVE" />
     <description>The redirect implementation in curl and libcurl 5.11 through 7.19.3, when CURLOPT_FOLLOWLOCATION is enabled, accepts arbitrary Location values, which might allow remote HTTP servers to (1) trigger arbitrary requests to intranet servers, (2) read or overwrite arbitrary files via a redirect to a file: URL, or (3) execute arbitrary commands via a redirect to an scp: URL.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-05-26T04:00:43.040-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="curl is earlier than 0:7.15.5-2.1.el5_3.4" test_ref="oval:org.mitre.oval:tst:102850"/>
-      <criterion comment="curl-devel is earlier than 0:7.15.5-2.1.el5_3.4" test_ref="oval:org.mitre.oval:tst:102797"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="curl is earlier than 0:7.15.5-2.1.el5_3.4" test_ref="oval:org.mitre.oval:tst:102850" />
+      <criterion comment="curl-devel is earlier than 0:7.15.5-2.1.el5_3.4" test_ref="oval:org.mitre.oval:tst:102797" />
     </criteria>
   </criteria>
 </definition>

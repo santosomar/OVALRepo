@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27401" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27401" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1268 -- firefox security update (critical)</title>
     <affected family="unix">
@@ -8,15 +7,15 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1268.html" ref_id="ELSA-2013-1268"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1718" ref_id="CVE-2013-1718"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1722" ref_id="CVE-2013-1722"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1725" ref_id="CVE-2013-1725"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1730" ref_id="CVE-2013-1730"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1732" ref_id="CVE-2013-1732"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1735" ref_id="CVE-2013-1735"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1736" ref_id="CVE-2013-1736"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1737" ref_id="CVE-2013-1737"/>
+    <reference ref_id="ELSA-2013-1268" ref_url="http://linux.oracle.com/errata/ELSA-2013-1268.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1718" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1718" source="CVE" />
+    <reference ref_id="CVE-2013-1722" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1722" source="CVE" />
+    <reference ref_id="CVE-2013-1725" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1725" source="CVE" />
+    <reference ref_id="CVE-2013-1730" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1730" source="CVE" />
+    <reference ref_id="CVE-2013-1732" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1732" source="CVE" />
+    <reference ref_id="CVE-2013-1735" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1735" source="CVE" />
+    <reference ref_id="CVE-2013-1736" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1736" source="CVE" />
+    <reference ref_id="CVE-2013-1737" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1737" source="CVE" />
     <description>firefox
 [17.0.9-1.0.1.el6_4]
 - Add firefox-oracle-default-prefs.js and remove the corresponding Red Hat ones
@@ -63,23 +62,24 @@ xulrunner
         <status_change date="2015-02-10T11:02:25.345-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128975"/>
-        <criterion comment="xulrunner is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128755"/>
-        <criterion comment="xulrunner-devel is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129087"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128975" />
+        <criterion comment="xulrunner is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128755" />
+        <criterion comment="xulrunner-devel is earlier than 0:17.0.9-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129087" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128136"/>
-        <criterion comment="xulrunner is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128426"/>
-        <criterion comment="xulrunner-devel is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128766"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128136" />
+        <criterion comment="xulrunner is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128426" />
+        <criterion comment="xulrunner-devel is earlier than 0:17.0.9-1.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128766" />
       </criteria>
     </criteria>
   </criteria>

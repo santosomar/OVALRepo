@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24493" version="11" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24493" version="15">
   <metadata>
     <title>ELSA-2014:0211: postgresql84 and postgresql security update (Important)</title>
     <affected family="unix">
@@ -8,14 +7,14 @@
       <product>postgresql84</product>
       <product>postgresql</product>
     </affected>
-    <reference ref_id="ELSA-2014:0211-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0211.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-0060" ref_url="http://linux.oracle.com/cve/CVE-2014-0060.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0061" ref_url="http://linux.oracle.com/cve/CVE-2014-0061.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0062" ref_url="http://linux.oracle.com/cve/CVE-2014-0062.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0063" ref_url="http://linux.oracle.com/cve/CVE-2014-0063.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0064" ref_url="http://linux.oracle.com/cve/CVE-2014-0064.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0065" ref_url="http://linux.oracle.com/cve/CVE-2014-0065.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0066" ref_url="http://linux.oracle.com/cve/CVE-2014-0066.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0211-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0211.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0060" ref_url="http://linux.oracle.com/cve/CVE-2014-0060.html" source="CVE" />
+    <reference ref_id="CVE-2014-0061" ref_url="http://linux.oracle.com/cve/CVE-2014-0061.html" source="CVE" />
+    <reference ref_id="CVE-2014-0062" ref_url="http://linux.oracle.com/cve/CVE-2014-0062.html" source="CVE" />
+    <reference ref_id="CVE-2014-0063" ref_url="http://linux.oracle.com/cve/CVE-2014-0063.html" source="CVE" />
+    <reference ref_id="CVE-2014-0064" ref_url="http://linux.oracle.com/cve/CVE-2014-0064.html" source="CVE" />
+    <reference ref_id="CVE-2014-0065" ref_url="http://linux.oracle.com/cve/CVE-2014-0065.html" source="CVE" />
+    <reference ref_id="CVE-2014-0066" ref_url="http://linux.oracle.com/cve/CVE-2014-0066.html" source="CVE" />
     <description>PostgreSQL is an advanced object-relational database management system
 (DBMS).
 Multiple stack-based buffer overflow flaws were found in the date/time
@@ -78,39 +77,40 @@ this update.</description>
         <status_change date="2014-05-26T04:06:25.333-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="postgresql84-python is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113342"/>
-        <criterion comment="postgresql84-devel is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:112768"/>
-        <criterion comment="postgresql84-tcl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113485"/>
-        <criterion comment="postgresql84-docs is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113256"/>
-        <criterion comment="postgresql84-pltcl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113662"/>
-        <criterion comment="postgresql84-server is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113627"/>
-        <criterion comment="postgresql84-test is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113378"/>
-        <criterion comment="postgresql84-plpython is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113697"/>
-        <criterion comment="postgresql84-libs is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113496"/>
-        <criterion comment="postgresql84-contrib is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113704"/>
-        <criterion comment="postgresql84 is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113398"/>
-        <criterion comment="postgresql84-plperl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113676"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="postgresql84-python is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113342" />
+        <criterion comment="postgresql84-devel is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:112768" />
+        <criterion comment="postgresql84-tcl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113485" />
+        <criterion comment="postgresql84-docs is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113256" />
+        <criterion comment="postgresql84-pltcl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113662" />
+        <criterion comment="postgresql84-server is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113627" />
+        <criterion comment="postgresql84-test is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113378" />
+        <criterion comment="postgresql84-plpython is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113697" />
+        <criterion comment="postgresql84-libs is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113496" />
+        <criterion comment="postgresql84-contrib is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113704" />
+        <criterion comment="postgresql84 is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113398" />
+        <criterion comment="postgresql84-plperl is earlier than 0:8.4.20-1.el5_10" test_ref="oval:org.mitre.oval:tst:113676" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="postgresql-contrib is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113756"/>
-        <criterion comment="postgresql-libs is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113440"/>
-        <criterion comment="postgresql-docs is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113706"/>
-        <criterion comment="postgresql-server is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113604"/>
-        <criterion comment="postgresql-test is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113665"/>
-        <criterion comment="postgresql-devel is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113265"/>
-        <criterion comment="postgresql-plperl is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113474"/>
-        <criterion comment="postgresql-pltcl is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113747"/>
-        <criterion comment="postgresql-plpython is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113761"/>
-        <criterion comment="postgresql is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113635"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="postgresql-contrib is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113756" />
+        <criterion comment="postgresql-libs is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113440" />
+        <criterion comment="postgresql-docs is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113706" />
+        <criterion comment="postgresql-server is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113604" />
+        <criterion comment="postgresql-test is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113665" />
+        <criterion comment="postgresql-devel is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113265" />
+        <criterion comment="postgresql-plperl is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113474" />
+        <criterion comment="postgresql-pltcl is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113747" />
+        <criterion comment="postgresql-plpython is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113761" />
+        <criterion comment="postgresql is earlier than 0:8.4.20-1.el6_5" test_ref="oval:org.mitre.oval:tst:113635" />
       </criteria>
     </criteria>
   </criteria>

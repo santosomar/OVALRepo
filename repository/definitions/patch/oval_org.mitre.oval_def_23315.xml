@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23315" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23315" version="8">
   <metadata>
     <title>ELSA-2011:0372: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2011:0372-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0372.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-0609" ref_url="http://linux.oracle.com/cve/CVE-2011-0609.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0372-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0372.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0609" ref_url="http://linux.oracle.com/cve/CVE-2011-0609.html" source="CVE" />
     <description>Unspecified vulnerability in Adobe Flash Player 10.2.154.13 and earlier on Windows, Mac OS X, Linux, and Solaris; 10.1.106.16 and earlier on Android; Adobe AIR 2.5.1 and earlier; and Authplay.dll (aka AuthPlayLib.bundle) in Adobe Reader and Acrobat 9.x through 9.4.2 and 10.x through 10.0.1 on Windows and Mac OS X, allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via crafted Flash content, as demonstrated by a .swf file embedded in an Excel spreadsheet, and as exploited in the wild in March 2011.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-05-26T04:04:01.925-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="flash-plugin is earlier than 0:10.2.153.1-1.el5" test_ref="oval:org.mitre.oval:tst:108390"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="flash-plugin is earlier than 0:10.2.153.1-1.el5" test_ref="oval:org.mitre.oval:tst:108390" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="flash-plugin is earlier than 0:10.2.153.1-1.el6" test_ref="oval:org.mitre.oval:tst:108659"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="flash-plugin is earlier than 0:10.2.153.1-1.el6" test_ref="oval:org.mitre.oval:tst:108659" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

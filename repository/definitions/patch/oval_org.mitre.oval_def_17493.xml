@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17493" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17493" version="8">
   <metadata>
     <title>USN-559-1 -- mysql-dfsg-5.0 vulnerabilities</title>
     <affected family="unix">
@@ -9,11 +8,11 @@
       <platform>Ubuntu 7.10</platform>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-559-1/" ref_id="USN-559-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5925" ref_id="CVE-2007-5925"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5969" ref_id="CVE-2007-5969"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6304" ref_id="CVE-2007-6304"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3781" ref_id="CVE-2007-3781"/>
+    <reference ref_id="USN-559-1" ref_url="http://www.ubuntu.com/usn/usn-559-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-5925" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5925" source="CVE" />
+    <reference ref_id="CVE-2007-5969" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5969" source="CVE" />
+    <reference ref_id="CVE-2007-6304" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6304" source="CVE" />
+    <reference ref_id="CVE-2007-3781" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3781" source="CVE" />
     <description>Joe Gallo and Artem Russakovskii discovered that the InnoDB engine in MySQL did not properly perform input validation.</description>
     <oval_repository>
       <dates>
@@ -35,24 +34,25 @@
         <status_change date="2014-06-30T04:06:42.863-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.6" test_ref="oval:org.mitre.oval:tst:82381"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.6" test_ref="oval:org.mitre.oval:tst:82381" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.24a-9ubuntu2.2" test_ref="oval:org.mitre.oval:tst:81749"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.24a-9ubuntu2.2" test_ref="oval:org.mitre.oval:tst:81749" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.38-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:82348"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.38-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:82348" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.45-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:82162"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.45-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:82162" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27673" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27673" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1261 -- dbus security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>dbus</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1261.html" ref_id="ELSA-2012-1261"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3524" ref_id="CVE-2012-3524"/>
+    <reference ref_id="ELSA-2012-1261" ref_url="http://linux.oracle.com/errata/ELSA-2012-1261.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3524" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3524" source="CVE" />
     <description>[1:1.2.24-7.0.1.el6_3 ]
 - fix netlink poll: error 4 (Zhenzhong Duan)
 
@@ -31,16 +30,17 @@
         <status_change date="2015-02-10T13:51:56.898-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="dbus is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131066"/>
-      <criterion comment="dbus-devel is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130942"/>
-      <criterion comment="dbus-doc is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131147"/>
-      <criterion comment="dbus-libs is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131112"/>
-      <criterion comment="dbus-x11 is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131061"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="dbus is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131066" />
+      <criterion comment="dbus-devel is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130942" />
+      <criterion comment="dbus-doc is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131147" />
+      <criterion comment="dbus-libs is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131112" />
+      <criterion comment="dbus-x11 is earlier than 0:1.2.24-7.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131061" />
     </criteria>
   </criteria>
 </definition>

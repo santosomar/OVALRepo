@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29206" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29206" version="4">
   <metadata>
     <title>RHSA-2009:1082 -- cups security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>cups</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1082.html" ref_id="RHSA-2009:1082"/>
-    <reference source="CESA-2009:1082" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015963.html" ref_id="CESA-2009:1082-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0949" ref_id="CVE-2009-0949"/>
+    <reference ref_id="RHSA-2009:1082" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1082.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1082-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015963.html" source="CESA-2009:1082" />
+    <reference ref_id="CVE-2009-0949" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0949" source="CVE" />
     <description>Updated cups packages that fix one security issue are now available for Red
 Hat Enterprise Linux 5.
 This update has been rated as having important security impact by the Red
@@ -28,20 +27,22 @@ cupsd daemon. (CVE-2009-0949)</description>
         </submitted>
         <status_change date="2015-07-06T11:17:18.606-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:25.300-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:17.465-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="cups-devel is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140422"/>
-      <criterion comment="cups is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140915"/>
-      <criterion comment="cups-libs is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140962"/>
-      <criterion comment="cups-lpd is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:141005"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="cups-devel is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140422" />
+      <criterion comment="cups is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140915" />
+      <criterion comment="cups-libs is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:140962" />
+      <criterion comment="cups-lpd is earlier than 1:1.3.7-8.el5_3.6" test_ref="oval:org.mitre.oval:tst:141005" />
     </criteria>
   </criteria>
 </definition>

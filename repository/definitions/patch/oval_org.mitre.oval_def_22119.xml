@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22119" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22119" version="30">
   <metadata>
     <title>RHSA-2010:0122: sudo security update (Important)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 5</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2010:0122-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0122.html"/>
-    <reference source="CESA" ref_id="CESA-2010:0122"/>
-    <reference source="CVE" ref_id="CVE-2010-0426" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0426.html"/>
-    <reference source="CVE" ref_id="CVE-2010-0427" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0427.html"/>
+    <reference ref_id="RHSA-2010:0122-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0122.html" source="VENDOR" />
+    <reference ref_id="CESA-2010:0122" source="CESA" />
+    <reference ref_id="CVE-2010-0426" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0426.html" source="CVE" />
+    <reference ref_id="CVE-2010-0427" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0427.html" source="CVE" />
     <description>sudo 1.6.x before 1.6.9p21, when the runas_default option is used, does not properly set group memberships, which allows local users to gain privileges via a sudo command.</description>
     <oval_repository>
       <dates>
@@ -22,13 +21,14 @@
         <status_change date="2014-02-24T04:02:44.656-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criterion comment="sudo is earlier than 0:1.6.9p17-6.el5_4" test_ref="oval:org.mitre.oval:tst:98948"/>
+    <criterion comment="sudo is earlier than 0:1.6.9p17-6.el5_4" test_ref="oval:org.mitre.oval:tst:98948" />
   </criteria>
 </definition>

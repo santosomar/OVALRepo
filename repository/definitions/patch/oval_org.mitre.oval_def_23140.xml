@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23140" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23140" version="8">
   <metadata>
     <title>ELSA-2011:0920: krb5-appl security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>krb5-appl</product>
     </affected>
-    <reference ref_id="ELSA-2011:0920-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0920.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1526" ref_url="http://linux.oracle.com/cve/CVE-2011-1526.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0920-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0920.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1526" ref_url="http://linux.oracle.com/cve/CVE-2011-1526.html" source="CVE" />
     <description>ftpd.c in the GSS-API FTP daemon in MIT Kerberos Version 5 Applications (aka krb5-appl) 1.0.1 and earlier does not check the krb5_setegid return value, which allows remote authenticated users to bypass intended group access restrictions, and create, overwrite, delete, or read files, via standard FTP commands, related to missing autoconf tests in a configure script.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:03:29.320-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="krb5-appl-clients is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:109120"/>
-      <criterion comment="krb5-appl-servers is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:108766"/>
-      <criterion comment="krb5-appl is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:109080"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="krb5-appl-clients is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:109120" />
+      <criterion comment="krb5-appl-servers is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:108766" />
+      <criterion comment="krb5-appl is earlier than 0:1.0.1-2.el6_1.1" test_ref="oval:org.mitre.oval:tst:109080" />
     </criteria>
   </criteria>
 </definition>

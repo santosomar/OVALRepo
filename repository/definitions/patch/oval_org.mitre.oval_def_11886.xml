@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:11886" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:11886" version="7">
   <metadata>
     <title>DSA-2067 mahara -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>mahara</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2010/dsa-2067" ref_id="DSA-2067"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1667" ref_id="CVE-2010-1667"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1668" ref_id="CVE-2010-1668"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1670" ref_id="CVE-2010-1670"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2479" ref_id="CVE-2010-2479"/>
+    <reference ref_id="DSA-2067" ref_url="http://www.debian.org/security/2010/dsa-2067" source="VENDOR" />
+    <reference ref_id="CVE-2010-1667" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1667" source="CVE" />
+    <reference ref_id="CVE-2010-1668" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1668" source="CVE" />
+    <reference ref_id="CVE-2010-1670" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1670" source="CVE" />
+    <reference ref_id="CVE-2010-2479" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2479" source="CVE" />
     <description>Several vulnerabilities were discovered in mahara, an electronic portfolio, weblog, and resume builder. The following Common Vulnerabilities and Exposures project ids identify them: Multiple pages performed insufficient input sanitising, making them vulnerable to cross-site scripting attacks. Multiple forms lacked protection against cross-site request forgery attacks, therefore making them vulnerable. Gregor Anzelj discovered that it was possible to accidentally configure an installation of mahara that allows access to another user's account without a password. Certain Internet Explorer-specific cross-site scripting vulnerabilities were discovered in HTML Purifier, of which a copy is included in the mahara package.</description>
     <oval_repository>
       <dates>
@@ -27,14 +26,15 @@
         <status_change date="2014-07-21T04:00:06.421-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="mahara-apache2 is earlier than 1.0.4-4+lenny6" test_ref="oval:org.mitre.oval:tst:41469"/>
-      <criterion comment="mahara is earlier than 1.0.4-4+lenny6" test_ref="oval:org.mitre.oval:tst:41494"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="mahara-apache2 is earlier than 1.0.4-4+lenny6" test_ref="oval:org.mitre.oval:tst:41469" />
+      <criterion comment="mahara is earlier than 1.0.4-4+lenny6" test_ref="oval:org.mitre.oval:tst:41494" />
     </criteria>
   </criteria>
 </definition>

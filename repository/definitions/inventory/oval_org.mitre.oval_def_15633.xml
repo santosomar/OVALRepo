@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:15633" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:15633" version="4">
   <metadata>
     <title>Microsoft Windows 7 Starter is installed</title>
     <affected family="windows">
       <platform>Microsoft Windows 7</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:microsoft:windows_7:::starter"/>
+    <reference ref_id="cpe:/o:microsoft:windows_7:::starter" source="CPE" />
     <description>Microsoft Windows 7 Starter is installed.</description>
     <oval_repository>
       <dates>
@@ -17,10 +16,11 @@
         <status_change date="2012-12-03T04:00:07.475-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:org.mitre.oval:def:12541"/>
-    <criterion comment="Check if edition of Microsoft Windows 7 is Starter" test_ref="oval:org.mitre.oval:tst:80159"/>
+    <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:org.mitre.oval:def:12541" />
+    <criterion comment="Check if edition of Microsoft Windows 7 is Starter" test_ref="oval:org.mitre.oval:tst:80159" />
   </criteria>
 </definition>

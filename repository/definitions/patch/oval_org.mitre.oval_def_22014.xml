@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22014" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22014" version="30">
   <metadata>
     <title>RHSA-2011:1343: thunderbird security update (Critical)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 5</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1343-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1343.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1343"/>
-    <reference source="CVE" ref_id="CVE-2011-2998" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2998.html"/>
-    <reference source="CVE" ref_id="CVE-2011-2999" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2999.html"/>
+    <reference ref_id="RHSA-2011:1343-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1343.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1343" source="CESA" />
+    <reference ref_id="CVE-2011-2998" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2998.html" source="CVE" />
+    <reference ref_id="CVE-2011-2999" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2999.html" source="CVE" />
     <description>Mozilla Firefox before 3.6.23 and 4.x through 5, Thunderbird before 6.0, and SeaMonkey before 2.3 do not properly handle "location" as the name of a frame, which allows remote attackers to bypass the Same Origin Policy via a crafted web site, a different vulnerability than CVE-2010-0170.</description>
     <oval_repository>
       <dates>
@@ -22,13 +21,14 @@
         <status_change date="2014-02-24T04:02:32.504-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criterion comment="thunderbird is earlier than 0:2.0.0.24-26.el5_7" test_ref="oval:org.mitre.oval:tst:98191"/>
+    <criterion comment="thunderbird is earlier than 0:2.0.0.24-26.el5_7" test_ref="oval:org.mitre.oval:tst:98191" />
   </criteria>
 </definition>

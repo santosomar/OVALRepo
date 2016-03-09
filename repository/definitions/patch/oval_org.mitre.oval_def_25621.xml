@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25621" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25621" version="5">
   <metadata>
     <title>SUSE-SU-2013:1642-1 -- Security update for libvirt</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131642-1.html" ref_id="SUSE-SU-2013:1642-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4296" ref_id="CVE-2013-4296"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5651" ref_id="CVE-2013-5651"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4311" ref_id="CVE-2013-4311"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4291" ref_id="CVE-2013-4291"/>
+    <reference ref_id="SUSE-SU-2013:1642-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131642-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4296" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4296" source="CVE" />
+    <reference ref_id="CVE-2013-5651" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5651" source="CVE" />
+    <reference ref_id="CVE-2013-4311" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4311" source="CVE" />
+    <reference ref_id="CVE-2013-4291" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4291" source="CVE" />
     <description>libvirt has been updated to the 1.0.5.6 stable release that
 fixes bugs and  security issues:
 
@@ -50,25 +49,26 @@ some SRIOV virtual functions in guest domains with ""
         <status_change date="2014-09-08T04:02:50.142-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118193"/>
-        <criterion comment="libvirt-client RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118182"/>
-        <criterion comment="libvirt-doc RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118186"/>
-        <criterion comment="libvirt-python RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118197"/>
-        <criterion comment="libvirt-client-32bit RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118126"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118193" />
+        <criterion comment="libvirt-client RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118182" />
+        <criterion comment="libvirt-doc RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118186" />
+        <criterion comment="libvirt-python RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118197" />
+        <criterion comment="libvirt-client-32bit RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118126" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criterion comment="libvirt-lock-sanlock RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118296"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criterion comment="libvirt-lock-sanlock RPM is earlier than 0:1.0.5.6-0.7.1" test_ref="oval:org.mitre.oval:tst:118296" />
     </criteria>
   </criteria>
 </definition>

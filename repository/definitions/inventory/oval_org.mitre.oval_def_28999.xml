@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28999" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:28999" version="3">
   <metadata>
     <title>Microsoft SQL Server 2008 Service Pack 4 is installed</title>
     <affected family="windows">
@@ -11,7 +10,7 @@
       <platform>Microsoft Windows XP</platform>
       <product>Microsoft SQL Server 2008</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:sql_server:2008:sp4"/>
+    <reference ref_id="cpe:/a:microsoft:sql_server:2008:sp4" source="CPE" />
     <description>Microsoft SQL Server 2008 Service Pack 4 is installed</description>
     <oval_repository>
       <dates>
@@ -19,12 +18,15 @@
           <contributor organization="SecPod Technologies">SecPod Team</contributor>
         </submitted>
         <status_change date="2015-07-23T11:09:48.997-04:00">DRAFT</status_change>
+        <status_change date="2015-08-10T04:00:41.953-04:00">INTERIM</status_change>
+        <status_change date="2015-12-22T12:30:00.000-05:00">ACCEPTED</status_change>
       </dates>
-      <status>DRAFT</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <extend_definition comment="Microsoft SQL Server 2008 is installed" definition_ref="oval:org.mitre.oval:def:12454"/>
-    <criterion comment="Check if SQL Server 2008 SP4 is installed" test_ref="oval:org.mitre.oval:tst:141117"/>
+    <extend_definition comment="Microsoft SQL Server 2008 is installed" definition_ref="oval:org.mitre.oval:def:12454" />
+    <criterion comment="Check if SQL Server 2008 SP4 is installed" test_ref="oval:org.mitre.oval:tst:141117" />
   </criteria>
 </definition>

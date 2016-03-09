@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23200" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23200" version="8">
   <metadata>
     <title>ELSA-2011:1000: rgmanager security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>rgmanager</product>
     </affected>
-    <reference ref_id="ELSA-2011:1000-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1000.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-3389" ref_url="http://linux.oracle.com/cve/CVE-2010-3389.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1000-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1000.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3389" ref_url="http://linux.oracle.com/cve/CVE-2010-3389.html" source="CVE" />
     <description>The (1) SAPDatabase and (2) SAPInstance scripts in OCF Resource Agents (aka resource-agents or cluster-agents) 1.0.3 in Linux-HA place a zero-length directory name in the LD_LIBRARY_PATH, which allows local users to gain privileges via a Trojan horse shared library in the current working directory.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:03:40.762-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="rgmanager is earlier than 0:2.0.52-21.el5" test_ref="oval:org.mitre.oval:tst:105023"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="rgmanager is earlier than 0:2.0.52-21.el5" test_ref="oval:org.mitre.oval:tst:105023" />
   </criteria>
 </definition>

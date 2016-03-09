@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21646" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21646" version="5">
   <metadata>
     <title>RHSA-2011:1196: system-config-printer security update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>system-config-printer</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1196-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1196.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1196"/>
-    <reference source="CVE" ref_id="CVE-2011-2899" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2899.html"/>
+    <reference ref_id="RHSA-2011:1196-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1196.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1196" source="CESA" />
+    <reference ref_id="CVE-2011-2899" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2899.html" source="CVE" />
     <description>pysmb.py in system-config-printer 0.6.x and 0.7.x, as used in foomatic-gui and possibly other products, allows remote SMB servers to execute arbitrary commands via shell metacharacters in the (1) NetBIOS or (2) workgroup name, which are not properly handled when searching for network printers.</description>
     <oval_repository>
       <dates>
@@ -21,16 +20,17 @@
         <status_change date="2014-02-24T04:01:52.130-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="system-config-printer-libs is earlier than 0:0.7.32.10-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98395"/>
-      <criterion comment="system-config-printer is earlier than 0:0.7.32.10-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98125"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="system-config-printer-libs is earlier than 0:0.7.32.10-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98395" />
+      <criterion comment="system-config-printer is earlier than 0:0.7.32.10-1.el5_7.1" test_ref="oval:org.mitre.oval:tst:98125" />
     </criteria>
   </criteria>
 </definition>

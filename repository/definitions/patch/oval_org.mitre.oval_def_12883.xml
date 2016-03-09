@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12883" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12883" version="9">
   <metadata>
     <title>DSA-1782-1 mplayer -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>mplayer</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00093.html" ref_id="DSA-1782-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0385" ref_id="CVE-2009-0385"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4866" ref_id="CVE-2008-4866"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5616" ref_id="CVE-2008-5616"/>
+    <reference ref_id="DSA-1782-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00093.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0385" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0385" source="CVE" />
+    <reference ref_id="CVE-2008-4866" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4866" source="CVE" />
+    <reference ref_id="CVE-2008-5616" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5616" source="CVE" />
     <description>Several vulnerabilities have been discovered in mplayer, a movie player for Unix-like systems. The Common Vulnerabilities and Exposures project identifies the following problems: CVE-2009-0385 It was discovered that watching a malformed 4X movie file could lead to the execution of arbitrary code. CVE-2008-4866 It was discovered that multiple buffer overflows could lead to the execution of arbitrary code. CVE-2008-5616 It was discovered that watching a malformed TwinVQ file could lead to the execution of arbitrary code. For the oldstable distribution, these problems have been fixed in version 1.0~rc1-12etch7. For the stable distribution, mplayer links against ffmpeg-debian. For the testing distribution and the unstable distribution, mplayer links against ffmpeg-debian. We recommend that you upgrade your mplayer packages.</description>
     <oval_repository>
       <dates>
@@ -26,29 +25,30 @@
         <status_change date="2014-06-23T04:01:02.766-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="mplayer-doc DPKG is earlier than 1.0~rc1-12etch7" test_ref="oval:org.mitre.oval:tst:48129"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="mplayer-doc DPKG is earlier than 1.0~rc1-12etch7" test_ref="oval:org.mitre.oval:tst:48129" />
       </criteria>
-      <criteria operator="AND" comment="Architecture depended section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture depended section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criterion comment="mplayer DPKG is earlier than 1.0~rc1-12etch7" test_ref="oval:org.mitre.oval:tst:47896"/>
+        <criterion comment="mplayer DPKG is earlier than 1.0~rc1-12etch7" test_ref="oval:org.mitre.oval:tst:47896" />
       </criteria>
     </criteria>
   </criteria>

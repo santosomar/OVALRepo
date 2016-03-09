@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23974" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23974" version="8">
   <metadata>
     <title>ELSA-2013:1270: polkit security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>polkit</product>
     </affected>
-    <reference ref_id="ELSA-2013:1270-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1270.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-4288" ref_url="http://linux.oracle.com/cve/CVE-2013-4288.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1270-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1270.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4288" ref_url="http://linux.oracle.com/cve/CVE-2013-4288.html" source="CVE" />
     <description>Race condition in PolicyKit (aka polkit) allows local users to bypass intended PolicyKit restrictions and gain privileges by starting a setuid or pkexec process before the authorization check is performed, related to (1) the polkit_unix_process_new API function, (2) the dbus API, or (3) the --process (unix-process) option for authorization to pkcheck.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-05-26T04:06:00.405-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="polkit-desktop-policy is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112376"/>
-      <criterion comment="polkit-devel is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112169"/>
-      <criterion comment="polkit is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112438"/>
-      <criterion comment="polkit-docs is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112095"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="polkit-desktop-policy is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112376" />
+      <criterion comment="polkit-devel is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112169" />
+      <criterion comment="polkit is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112438" />
+      <criterion comment="polkit-docs is earlier than 0:0.96-5.el6_4" test_ref="oval:org.mitre.oval:tst:112095" />
     </criteria>
   </criteria>
 </definition>

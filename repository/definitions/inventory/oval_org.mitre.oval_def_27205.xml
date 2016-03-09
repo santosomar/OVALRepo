@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27205" version="5" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:27205" version="6">
   <metadata>
     <title>Adobe Flash Player 15 is installed</title>
     <affected family="windows">
@@ -14,7 +13,7 @@
       <platform>Microsoft Windows Server 2012</platform>
       <product>Adobe Flash Player 15</product>
     </affected>
-    <reference ref_id="cpe:/a:adobe:flash_player:15" source="CPE"/>
+    <reference ref_id="cpe:/a:adobe:flash_player:15" source="CPE" />
     <description>Adobe Flash Player 15 is installed on the system</description>
     <oval_repository>
       <dates>
@@ -31,9 +30,10 @@
         <status_change date="2015-03-23T04:02:23.750-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Adobe Flash Player 15.x is installed on the system" test_ref="oval:org.mitre.oval:tst:125493"/>
+    <criterion comment="Adobe Flash Player 15.x is installed on the system" test_ref="oval:org.mitre.oval:tst:125493" />
   </criteria>
 </definition>

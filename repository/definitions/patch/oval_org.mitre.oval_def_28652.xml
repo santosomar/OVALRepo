@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28652" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28652" version="5">
   <metadata>
     <title>RHSA-2014:1982 -- xorg-x11-server security update (Important)</title>
     <affected family="unix">
@@ -7,19 +6,19 @@
       <platform>CentOS Linux 5</platform>
       <product>xorg-x11-server</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1982.html" ref_id="RHSA-2014:1982"/>
-    <reference source="CESA-2014:1982" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020825.html" ref_id="CESA-2014:1982"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8091" ref_id="CVE-2014-8091"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8092" ref_id="CVE-2014-8092"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8093" ref_id="CVE-2014-8093"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8095" ref_id="CVE-2014-8095"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8096" ref_id="CVE-2014-8096"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8097" ref_id="CVE-2014-8097"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8098" ref_id="CVE-2014-8098"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8099" ref_id="CVE-2014-8099"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8100" ref_id="CVE-2014-8100"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8101" ref_id="CVE-2014-8101"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8102" ref_id="CVE-2014-8102"/>
+    <reference ref_id="RHSA-2014:1982" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1982.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1982" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020825.html" source="CESA-2014:1982" />
+    <reference ref_id="CVE-2014-8091" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8091" source="CVE" />
+    <reference ref_id="CVE-2014-8092" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8092" source="CVE" />
+    <reference ref_id="CVE-2014-8093" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8093" source="CVE" />
+    <reference ref_id="CVE-2014-8095" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8095" source="CVE" />
+    <reference ref_id="CVE-2014-8096" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8096" source="CVE" />
+    <reference ref_id="CVE-2014-8097" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8097" source="CVE" />
+    <reference ref_id="CVE-2014-8098" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8098" source="CVE" />
+    <reference ref_id="CVE-2014-8099" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8099" source="CVE" />
+    <reference ref_id="CVE-2014-8100" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8100" source="CVE" />
+    <reference ref_id="CVE-2014-8101" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8101" source="CVE" />
+    <reference ref_id="CVE-2014-8102" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8102" source="CVE" />
     <description>X.Org is an open source implementation of the X Window System. It provides
 the basic low-level functionality that full-fledged graphical user
 interfaces are designed upon.
@@ -59,32 +58,33 @@ which contain backported patches to correct these issues.</description>
         <status_change date="2015-02-23T04:01:31.960-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="xorg-x11-server-debuginfo is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136985"/>
-        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136732"/>
-        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137131"/>
-        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136937"/>
-        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136903"/>
-        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137140"/>
-        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136872"/>
-        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137218"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="xorg-x11-server-debuginfo is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136985" />
+        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136732" />
+        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137131" />
+        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136937" />
+        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136903" />
+        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137140" />
+        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:136872" />
+        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.el5_11" test_ref="oval:org.mitre.oval:tst:137218" />
       </criteria>
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137184"/>
-        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137142"/>
-        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137110"/>
-        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:136986"/>
-        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:136828"/>
-        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137238"/>
-        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137219"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137184" />
+        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137142" />
+        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137110" />
+        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:136986" />
+        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:136828" />
+        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137238" />
+        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.el5.centos" test_ref="oval:org.mitre.oval:tst:137219" />
       </criteria>
     </criteria>
   </criteria>

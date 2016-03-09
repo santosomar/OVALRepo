@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26538" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26538" version="4">
   <metadata>
     <title>ELSA-2014-3074 -- Unbreakable Enterprise kernel security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 5</platform>
       <product>kernel-uek</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-3074.html" ref_id="ELSA-2014-3074"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917" ref_id="CVE-2014-3917"/>
+    <reference ref_id="ELSA-2014-3074" ref_url="http://linux.oracle.com/errata/ELSA-2014-3074.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3917" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917" source="CVE" />
     <description>[2.6.39-400.215.10.el6uek]
 - auditsc: audit_krule mask accesses need bounds checking (Andy 
 Lutomirski)  [Orabug: 19590597]  {CVE-2014-3917}
@@ -48,29 +47,30 @@ race between dentry put and lookup (Junxiao Bi)  [Orabug: 17627075]</description
         <status_change date="2014-11-17T04:00:36.475-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel-uek RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124797"/>
-        <criterion comment="kernel-uek-debug RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124854"/>
-        <criterion comment="kernel-uek-debug-devel RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124802"/>
-        <criterion comment="kernel-uek-devel RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124809"/>
-        <criterion comment="kernel-uek-doc RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124476"/>
-        <criterion comment="kernel-uek-firmware RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124686"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel-uek RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124797" />
+        <criterion comment="kernel-uek-debug RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124854" />
+        <criterion comment="kernel-uek-debug-devel RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124802" />
+        <criterion comment="kernel-uek-devel RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124809" />
+        <criterion comment="kernel-uek-doc RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124476" />
+        <criterion comment="kernel-uek-firmware RPM is earlier than 0:2.6.39-400.215.10.el6uek" test_ref="oval:org.mitre.oval:tst:124686" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel-uek RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124563"/>
-        <criterion comment="kernel-uek-debug RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124944"/>
-        <criterion comment="kernel-uek-debug-devel RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124912"/>
-        <criterion comment="kernel-uek-devel RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124826"/>
-        <criterion comment="kernel-uek-doc RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124927"/>
-        <criterion comment="kernel-uek-firmware RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124831"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel-uek RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124563" />
+        <criterion comment="kernel-uek-debug RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124944" />
+        <criterion comment="kernel-uek-debug-devel RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124912" />
+        <criterion comment="kernel-uek-devel RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124826" />
+        <criterion comment="kernel-uek-doc RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124927" />
+        <criterion comment="kernel-uek-firmware RPM is earlier than 0:2.6.39-400.215.10.el5uek" test_ref="oval:org.mitre.oval:tst:124831" />
       </criteria>
     </criteria>
   </criteria>

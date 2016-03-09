@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21408" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21408" version="6">
   <metadata>
     <title>RHSA-2012:0136: libvorbis security update (Important)</title>
     <affected family="unix">
@@ -9,9 +8,9 @@
       <platform>CentOS Linux 6</platform>
       <product>libvorbis</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0136-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0136.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0136"/>
-    <reference source="CVE" ref_id="CVE-2012-0444" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-0444.html"/>
+    <reference ref_id="RHSA-2012:0136-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0136.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0136" source="CESA" />
+    <reference ref_id="CVE-2012-0444" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-0444.html" source="CVE" />
     <description>Mozilla Firefox before 3.6.26 and 4.x through 9.0, Thunderbird before 3.1.18 and 5.0 through 9.0, and SeaMonkey before 2.7 do not properly initialize nsChildView data structures, which allows remote attackers to cause a denial of service (memory corruption and application crash) or possibly execute arbitrary code via a crafted Ogg Vorbis file.</description>
     <oval_repository>
       <dates>
@@ -23,28 +22,29 @@
         <status_change date="2014-02-24T04:01:22.750-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libvorbis is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:92836"/>
-        <criterion comment="libvorbis-devel is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:92918"/>
-        <criterion comment="libvorbis-devel-docs is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:93040"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libvorbis is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:92836" />
+        <criterion comment="libvorbis-devel is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:92918" />
+        <criterion comment="libvorbis-devel-docs is earlier than 1:1.2.3-4.el6_2.1" test_ref="oval:org.mitre.oval:tst:93040" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libvorbis is earlier than 1:1.1.2-3.el5_7.6" test_ref="oval:org.mitre.oval:tst:92964"/>
-        <criterion comment="libvorbis-devel is earlier than 1:1.1.2-3.el5_7.6" test_ref="oval:org.mitre.oval:tst:92940"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libvorbis is earlier than 1:1.1.2-3.el5_7.6" test_ref="oval:org.mitre.oval:tst:92964" />
+        <criterion comment="libvorbis-devel is earlier than 1:1.1.2-3.el5_7.6" test_ref="oval:org.mitre.oval:tst:92940" />
       </criteria>
     </criteria>
   </criteria>

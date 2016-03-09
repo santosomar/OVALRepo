@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17182" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17182" version="8">
   <metadata>
     <title>USN-1866-1 -- libxtst vulnerabilities</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>Ubuntu 10.04</platform>
       <product>libxtst</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1866-1/" ref_id="usn-1866-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2063" ref_id="CVE-2013-2063"/>
+    <reference ref_id="usn-1866-1" ref_url="http://www.ubuntu.com/usn/usn-1866-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-2063" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2063" source="CVE" />
     <description>Several security issues were fixed in libxtst.</description>
     <oval_repository>
       <dates>
@@ -27,28 +26,29 @@
         <status_change date="2014-06-30T04:06:19.994-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.1-1ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:80986"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.1-1ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:80986" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.1-1ubuntu0.13.04.1" test_ref="oval:org.mitre.oval:tst:81588"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.1-1ubuntu0.13.04.1" test_ref="oval:org.mitre.oval:tst:81588" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.0-4ubuntu0.1" test_ref="oval:org.mitre.oval:tst:81567"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="libxtst6 DPKG is earlier than 2:1.2.0-4ubuntu0.1" test_ref="oval:org.mitre.oval:tst:81567" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="libxtst6 DPKG is earlier than 2:1.1.0-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:81607"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="libxtst6 DPKG is earlier than 2:1.1.0-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:81607" />
     </criteria>
   </criteria>
 </definition>

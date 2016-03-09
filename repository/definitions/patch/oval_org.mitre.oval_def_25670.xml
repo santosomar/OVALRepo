@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25670" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25670" version="4">
   <metadata>
     <title>SUSE-SU-2013:1967-1 -- Security update for acroread</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>acroread</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131967-1.html" ref_id="SUSE-SU-2013:1967-1"/>
+    <reference ref_id="SUSE-SU-2013:1967-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131967-1.html" source="VENDOR" />
     <description>Adobe has discontinued the support of Adobe Reader for
 Linux in June 2013.
 
@@ -35,18 +34,19 @@ again, we do not  recommend to use it.</description>
         <status_change date="2014-09-08T04:02:59.205-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="acroread-cmaps RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:118033"/>
-      <criterion comment="acroread-fonts-ja RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:118041"/>
-      <criterion comment="acroread-fonts-ko RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117690"/>
-      <criterion comment="acroread-fonts-zh_CN RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117902"/>
-      <criterion comment="acroread-fonts-zh_TW RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117668"/>
-      <criterion comment="acroread RPM is earlier than 0:9.5.5-0.5.5.1" test_ref="oval:org.mitre.oval:tst:118109"/>
-      <criterion comment="acroread_ja RPM is earlier than 0:9.4.2-0.4.1" test_ref="oval:org.mitre.oval:tst:117447"/>
+    <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="acroread-cmaps RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:118033" />
+      <criterion comment="acroread-fonts-ja RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:118041" />
+      <criterion comment="acroread-fonts-ko RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117690" />
+      <criterion comment="acroread-fonts-zh_CN RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117902" />
+      <criterion comment="acroread-fonts-zh_TW RPM is earlier than 0:9.4.6-0.4.5.1" test_ref="oval:org.mitre.oval:tst:117668" />
+      <criterion comment="acroread RPM is earlier than 0:9.5.5-0.5.5.1" test_ref="oval:org.mitre.oval:tst:118109" />
+      <criterion comment="acroread_ja RPM is earlier than 0:9.4.2-0.4.1" test_ref="oval:org.mitre.oval:tst:117447" />
     </criteria>
   </criteria>
 </definition>

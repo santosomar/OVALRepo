@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13556" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13556" version="8">
   <metadata>
     <title>DSA-2002-1 polipo -- denial of service</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>polipo</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00042.html" ref_id="DSA-2002-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3305" ref_id="CVE-2009-3305"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4413" ref_id="CVE-2009-4413"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4143" ref_id="CVE-2009-4143"/>
+    <reference ref_id="DSA-2002-1" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00042.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-3305" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3305" source="CVE" />
+    <reference ref_id="CVE-2009-4413" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4413" source="CVE" />
+    <reference ref_id="CVE-2009-4143" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4143" source="CVE" />
     <description>Several denial of service vulnerabilities have been discovered in polipo, a small, caching web proxy. The Common Vulnerabilities and Exposures project identifies the following problems: CVE-2009-3305 A malicious remote sever could cause polipo to crash by sending an invalid Cache-Control header. CVE-2009-4143 A malicious client could cause polipo to crash by sending a large Content-Length value. This upgrade also fixes some other bugs that could lead to a daemon crash or an infinite loop and may be triggerable remotely. For the stable distribution, these problems have been fixed in version 1.0.4-1+lenny1. For the testing distribution and the unstable distribution, these problems have been fixed in version 1.0.4-3. We recommend that you upgrade your polipo packages.</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2014-06-23T04:02:31.313-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Supported architectures section">
-      <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-      <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-      <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-      <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-      <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-      <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-      <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-      <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-      <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Supported architectures section" operator="OR">
+      <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+      <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+      <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+      <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+      <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+      <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+      <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+      <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+      <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
     </criteria>
-    <criterion comment="polipo DPKG is earlier than 1.0.4-1+lenny1" test_ref="oval:org.mitre.oval:tst:46874"/>
+    <criterion comment="polipo DPKG is earlier than 1.0.4-1+lenny1" test_ref="oval:org.mitre.oval:tst:46874" />
   </criteria>
 </definition>

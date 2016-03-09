@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28169" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28169" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1328 -- qt security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>qt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1328.html" ref_id="ELSA-2011-1328"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3193" ref_id="CVE-2011-3193"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3194" ref_id="CVE-2011-3194"/>
+    <reference ref_id="ELSA-2011-1328" ref_url="http://linux.oracle.com/errata/ELSA-2011-1328.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3193" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3193" source="CVE" />
+    <reference ref_id="CVE-2011-3194" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3194" source="CVE" />
     <description>[4.6.2-20]
 - Resolves: #rhbz737813
    fix multiple flaws in Qt
@@ -35,22 +34,23 @@
         <status_change date="2015-02-10T13:44:16.275-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="qt is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132922"/>
-      <criterion comment="phonon-backend-gstreamer is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133060"/>
-      <criterion comment="qt-demos is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133022"/>
-      <criterion comment="qt-devel is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132139"/>
-      <criterion comment="qt-doc is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132140"/>
-      <criterion comment="qt-examples is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132998"/>
-      <criterion comment="qt-mysql is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132953"/>
-      <criterion comment="qt-odbc is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133059"/>
-      <criterion comment="qt-postgresql is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132312"/>
-      <criterion comment="qt-sqlite is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132775"/>
-      <criterion comment="qt-x11 is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132971"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="qt is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132922" />
+      <criterion comment="phonon-backend-gstreamer is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133060" />
+      <criterion comment="qt-demos is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133022" />
+      <criterion comment="qt-devel is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132139" />
+      <criterion comment="qt-doc is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132140" />
+      <criterion comment="qt-examples is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132998" />
+      <criterion comment="qt-mysql is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132953" />
+      <criterion comment="qt-odbc is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:133059" />
+      <criterion comment="qt-postgresql is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132312" />
+      <criterion comment="qt-sqlite is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132775" />
+      <criterion comment="qt-x11 is earlier than 0:4.6.2-20.el6" test_ref="oval:org.mitre.oval:tst:132971" />
     </criteria>
   </criteria>
 </definition>

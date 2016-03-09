@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26641" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26641" version="6">
   <metadata>
     <title>RHSA-2014:1243: automake security update (Low)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>automake</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1243-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1243.html"/>
-    <reference source="CVE" ref_id="CVE-2012-3386" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3386.html"/>
-    <reference source="CESA-2014:1243" ref_id="CESA-2014:1243" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020607.html"/>
+    <reference ref_id="RHSA-2014:1243-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1243.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3386" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-3386.html" source="CVE" />
+    <reference ref_id="CESA-2014:1243" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020607.html" source="CESA-2014:1243" />
     <description>Automake is a tool for automatically generating Makefile.in files compliant
 with the GNU Coding Standards.
 
@@ -38,13 +37,14 @@ contains a backported patch to correct this issue.</description>
         <status_change date="2015-04-13T04:00:09.452-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criterion comment="automake is earlier than 0:1.9.6-3.el5" test_ref="oval:org.mitre.oval:tst:123229"/>
+    <criterion comment="automake is earlier than 0:1.9.6-3.el5" test_ref="oval:org.mitre.oval:tst:123229" />
   </criteria>
 </definition>

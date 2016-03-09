@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22927" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22927" version="31">
   <metadata>
     <title>ELSA-2010:0636: acroread security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>acroread</product>
     </affected>
-    <reference ref_id="ELSA-2010:0636-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0636.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-0209" ref_url="http://linux.oracle.com/cve/CVE-2010-0209.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2213" ref_url="http://linux.oracle.com/cve/CVE-2010-2213.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2214" ref_url="http://linux.oracle.com/cve/CVE-2010-2214.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2215" ref_url="http://linux.oracle.com/cve/CVE-2010-2215.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2216" ref_url="http://linux.oracle.com/cve/CVE-2010-2216.html" source="CVE"/>
-    <reference ref_id="CVE-2010-2862" ref_url="http://linux.oracle.com/cve/CVE-2010-2862.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0636-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0636.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0209" ref_url="http://linux.oracle.com/cve/CVE-2010-0209.html" source="CVE" />
+    <reference ref_id="CVE-2010-2213" ref_url="http://linux.oracle.com/cve/CVE-2010-2213.html" source="CVE" />
+    <reference ref_id="CVE-2010-2214" ref_url="http://linux.oracle.com/cve/CVE-2010-2214.html" source="CVE" />
+    <reference ref_id="CVE-2010-2215" ref_url="http://linux.oracle.com/cve/CVE-2010-2215.html" source="CVE" />
+    <reference ref_id="CVE-2010-2216" ref_url="http://linux.oracle.com/cve/CVE-2010-2216.html" source="CVE" />
+    <reference ref_id="CVE-2010-2862" ref_url="http://linux.oracle.com/cve/CVE-2010-2862.html" source="CVE" />
     <description>Integer overflow in CoolType.dll in Adobe Reader 8.2.3 and 9.3.3, and Acrobat 9.3.3, allows remote attackers to execute arbitrary code via a TrueType font with a large maxCompositePoints value in a Maximum Profile (maxp) table.</description>
     <oval_repository>
       <dates>
@@ -29,13 +28,14 @@
         <status_change date="2014-05-26T04:02:48.925-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="acroread-plugin is earlier than 0:9.3.4-1.el5" test_ref="oval:org.mitre.oval:tst:103896"/>
-      <criterion comment="acroread is earlier than 0:9.3.4-1.el5" test_ref="oval:org.mitre.oval:tst:104278"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="acroread-plugin is earlier than 0:9.3.4-1.el5" test_ref="oval:org.mitre.oval:tst:103896" />
+      <criterion comment="acroread is earlier than 0:9.3.4-1.el5" test_ref="oval:org.mitre.oval:tst:104278" />
     </criteria>
   </criteria>
 </definition>

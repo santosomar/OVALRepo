@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17964" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17964" version="6">
   <metadata>
     <title>USN-1668-1 -- apport update</title>
     <affected family="unix">
@@ -8,7 +7,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>apport</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1668-1/" ref_id="USN-1668-1"/>
+    <reference ref_id="USN-1668-1" ref_url="http://www.ubuntu.com/usn/usn-1668-1/" source="VENDOR" />
     <description>A hardening measure was added to apport.</description>
     <oval_repository>
       <dates>
@@ -25,20 +24,21 @@
         <status_change date="2013-12-16T04:01:03.968-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="apport DPKG is earlier than 2.0.1-0ubuntu15.1" test_ref="oval:org.mitre.oval:tst:85299"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="apport DPKG is earlier than 2.0.1-0ubuntu15.1" test_ref="oval:org.mitre.oval:tst:85299" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="apport DPKG is earlier than 1.23-0ubuntu4.1" test_ref="oval:org.mitre.oval:tst:84385"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="apport DPKG is earlier than 1.23-0ubuntu4.1" test_ref="oval:org.mitre.oval:tst:84385" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="apport DPKG is earlier than 1.13.3-0ubuntu2.2" test_ref="oval:org.mitre.oval:tst:84685"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="apport DPKG is earlier than 1.13.3-0ubuntu2.2" test_ref="oval:org.mitre.oval:tst:84685" />
     </criteria>
   </criteria>
 </definition>

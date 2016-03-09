@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27512" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27512" version="4">
   <metadata>
     <title>ELSA-2012-0304 -- vixie-cron security, bug fix, and enhancement update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>vixie-cron</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0304.html" ref_id="ELSA-2012-0304"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0424" ref_id="CVE-2010-0424"/>
+    <reference ref_id="ELSA-2012-0304" ref_url="http://linux.oracle.com/errata/ELSA-2012-0304.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0424" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0424" source="CVE" />
     <description>[4:4.1-81]
 - 455664 adoptions of crontab orphans, forgot add buffer for list of
   orphans
@@ -22,10 +21,11 @@
         <status_change date="2014-12-15T04:02:07.906-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="vixie-cron is earlier than 0:4.1-81.el5" test_ref="oval:org.mitre.oval:tst:132421"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="vixie-cron is earlier than 0:4.1-81.el5" test_ref="oval:org.mitre.oval:tst:132421" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27361" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27361" version="4">
   <metadata>
     <title>ELSA-2014-0255 -- subversion security update (moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Oracle Linux 6</platform>
       <product>subversion</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0255.html" ref_id="ELSA-2014-0255"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1968" ref_id="CVE-2013-1968"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2112" ref_id="CVE-2013-2112"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0032" ref_id="CVE-2014-0032"/>
+    <reference ref_id="ELSA-2014-0255" ref_url="http://linux.oracle.com/errata/ELSA-2014-0255.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1968" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1968" source="CVE" />
+    <reference ref_id="CVE-2013-2112" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2112" source="CVE" />
+    <reference ref_id="CVE-2014-0032" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0032" source="CVE" />
     <description>[1.6.11-10]
 - add security fixes for CVE-2013-1968, CVE-2013-2112, CVE-2014-0032</description>
     <oval_repository>
@@ -23,32 +22,33 @@
         <status_change date="2014-12-15T04:01:36.420-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="subversion is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128053"/>
-        <criterion comment="mod_dav_svn is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128140"/>
-        <criterion comment="subversion-devel is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128085"/>
-        <criterion comment="subversion-javahl is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128114"/>
-        <criterion comment="subversion-perl is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128121"/>
-        <criterion comment="subversion-ruby is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128128"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="subversion is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128053" />
+        <criterion comment="mod_dav_svn is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128140" />
+        <criterion comment="subversion-devel is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128085" />
+        <criterion comment="subversion-javahl is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128114" />
+        <criterion comment="subversion-perl is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128121" />
+        <criterion comment="subversion-ruby is earlier than 0:1.6.11-12.el5_10" test_ref="oval:org.mitre.oval:tst:128128" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="subversion is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127818"/>
-        <criterion comment="mod_dav_svn is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128144"/>
-        <criterion comment="subversion-devel is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128000"/>
-        <criterion comment="subversion-gnome is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127851"/>
-        <criterion comment="subversion-javahl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127854"/>
-        <criterion comment="subversion-kde is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128060"/>
-        <criterion comment="subversion-perl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127397"/>
-        <criterion comment="subversion-ruby is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127725"/>
-        <criterion comment="subversion-svn2cl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127910"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="subversion is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127818" />
+        <criterion comment="mod_dav_svn is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128144" />
+        <criterion comment="subversion-devel is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128000" />
+        <criterion comment="subversion-gnome is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127851" />
+        <criterion comment="subversion-javahl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127854" />
+        <criterion comment="subversion-kde is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:128060" />
+        <criterion comment="subversion-perl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127397" />
+        <criterion comment="subversion-ruby is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127725" />
+        <criterion comment="subversion-svn2cl is earlier than 0:1.6.11-10.el6_5" test_ref="oval:org.mitre.oval:tst:127910" />
       </criteria>
     </criteria>
   </criteria>

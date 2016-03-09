@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7279" version="7" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:7279" version="10">
   <metadata>
     <title>Microsoft Producer 2003 is installed</title>
     <affected family="windows">
@@ -12,7 +11,7 @@
       <product>Microsoft PowerPoint 2007</product>
       <product>Microsoft PowerPoint 2010</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:producer:2003"/>
+    <reference ref_id="cpe:/a:microsoft:producer:2003" source="CPE" />
     <description>The application Microsoft Producer 2003 is installed</description>
     <oval_repository>
       <dates>
@@ -34,9 +33,10 @@
         <status_change date="2014-09-29T04:00:27.214-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Microsoft Producer 2003 is installed" test_ref="oval:org.mitre.oval:tst:11362"/>
+    <criterion comment="Microsoft Producer 2003 is installed" test_ref="oval:org.mitre.oval:tst:11362" />
   </criteria>
 </definition>

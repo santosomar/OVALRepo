@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17957" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17957" version="6">
   <metadata>
     <title>USN-1763-2 -- nspr update</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>nspr</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1763-2/" ref_id="USN-1763-2"/>
+    <reference ref_id="USN-1763-2" ref_url="http://www.ubuntu.com/usn/usn-1763-2/" source="VENDOR" />
     <description>NSPR update to work with the new NSS.</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2013-12-16T04:01:03.547-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85444"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85444" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85771"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85771" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:85793"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libnspr4 DPKG is earlier than 4.9.5-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:85793" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libnspr4-0d DPKG is earlier than 4.9.5-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:85717"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libnspr4-0d DPKG is earlier than 4.9.5-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:85717" />
     </criteria>
   </criteria>
 </definition>

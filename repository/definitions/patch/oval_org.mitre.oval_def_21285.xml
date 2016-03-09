@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21285" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21285" version="5">
   <metadata>
     <title>RHSA-2011:0327: subversion security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>subversion</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:0327-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0327.html"/>
-    <reference source="CESA" ref_id="CESA-2011:0327"/>
-    <reference source="CVE" ref_id="CVE-2011-0715" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0715.html"/>
+    <reference ref_id="RHSA-2011:0327-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0327.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:0327" source="CESA" />
+    <reference ref_id="CVE-2011-0715" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0715.html" source="CVE" />
     <description>The mod_dav_svn module for the Apache HTTP Server, as distributed in Apache Subversion before 1.6.16, allows remote attackers to cause a denial of service (NULL pointer dereference and daemon crash) via a request that contains a lock token.</description>
     <oval_repository>
       <dates>
@@ -21,20 +20,21 @@
         <status_change date="2014-02-24T04:01:05.224-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="subversion-devel is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97284"/>
-      <criterion comment="subversion is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97381"/>
-      <criterion comment="subversion-perl is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97495"/>
-      <criterion comment="subversion-ruby is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97511"/>
-      <criterion comment="subversion-javahl is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97015"/>
-      <criterion comment="mod_dav_svn is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97509"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="subversion-devel is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97284" />
+      <criterion comment="subversion is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97381" />
+      <criterion comment="subversion-perl is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97495" />
+      <criterion comment="subversion-ruby is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97511" />
+      <criterion comment="subversion-javahl is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97015" />
+      <criterion comment="mod_dav_svn is earlier than 0:1.6.11-7.el5_6.3" test_ref="oval:org.mitre.oval:tst:97509" />
     </criteria>
   </criteria>
 </definition>

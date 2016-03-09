@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18440" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18440" version="8">
   <metadata>
     <title>DSA-1662-1 mysql-dfsg-5.0 - authorisation bypass</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1662-1" ref_id="DSA-1662-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4098" ref_id="CVE-2008-4098"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4097" ref_id="CVE-2008-4097"/>
+    <reference ref_id="DSA-1662-1" ref_url="http://www.debian.org/security/dsa-1662-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-4098" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4098" source="CVE" />
+    <reference ref_id="CVE-2008-4097" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4097" source="CVE" />
     <description>A symlink traversal vulnerability was discovered in MySQL, a relational database server. The weakness could permit an attacker having both CREATE TABLE access to a database and the ability to execute shell commands on the database server to bypass MySQL access controls, enabling them to write to tables in databases to which they would not ordinarily have access.</description>
     <oval_repository>
       <dates>
@@ -30,10 +29,11 @@
         <status_change date="2014-06-23T04:04:30.567-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="mysql-dfsg-5.0 DPKG is earlier than 5.0.32-7etch8" test_ref="oval:org.mitre.oval:tst:86457"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="mysql-dfsg-5.0 DPKG is earlier than 5.0.32-7etch8" test_ref="oval:org.mitre.oval:tst:86457" />
   </criteria>
 </definition>

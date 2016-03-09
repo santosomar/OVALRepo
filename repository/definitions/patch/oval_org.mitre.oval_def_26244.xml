@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26244" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26244" version="7">
   <metadata>
     <title>RHSA-2013-1605: glibc security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 6</platform>
       <product>glibc</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2013:1605-02" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1605.html"/>
-    <reference source="CESA" ref_id="CESA-2013:1605"/>
-    <reference source="CVE" ref_id="CVE-2013-0242" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0242.html"/>
-    <reference source="CVE" ref_id="CVE-2013-1914" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1914.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4332" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4332.html"/>
+    <reference ref_id="RHSA-2013:1605-02" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1605.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:1605" source="CESA" />
+    <reference ref_id="CVE-2013-0242" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0242.html" source="CVE" />
+    <reference ref_id="CVE-2013-1914" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1914.html" source="CVE" />
+    <reference ref_id="CVE-2013-4332" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4332.html" source="CVE" />
     <description>Updated glibc packages that fix three security issues, several bugs, and add various enhancements are now available for Red Hat Enterprise Linux 6.</description>
     <oval_repository>
       <dates>
@@ -28,21 +27,22 @@
         <status_change date="2015-03-09T04:01:21.601-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="glibc-utils is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121335"/>
-      <criterion comment="glibc-devel is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:120736"/>
-      <criterion comment="glibc is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121418"/>
-      <criterion comment="nscd is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121079"/>
-      <criterion comment="glibc-static is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121239"/>
-      <criterion comment="glibc-common is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121453"/>
-      <criterion comment="glibc-headers is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121434"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="glibc-utils is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121335" />
+      <criterion comment="glibc-devel is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:120736" />
+      <criterion comment="glibc is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121418" />
+      <criterion comment="nscd is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121079" />
+      <criterion comment="glibc-static is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121239" />
+      <criterion comment="glibc-common is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121453" />
+      <criterion comment="glibc-headers is earlier than 0:2.12-1.132.el6" test_ref="oval:org.mitre.oval:tst:121434" />
     </criteria>
   </criteria>
 </definition>

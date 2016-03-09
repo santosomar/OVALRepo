@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21801" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21801" version="8">
   <metadata>
     <title>ELSA-2009:0352: gstreamer-plugins-base security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>gstreamer-plugins-base</product>
     </affected>
-    <reference ref_id="ELSA-2009:0352-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0352.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0586" ref_url="http://linux.oracle.com/cve/CVE-2009-0586.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0352-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0352.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0586" ref_url="http://linux.oracle.com/cve/CVE-2009-0586.html" source="CVE" />
     <description>Integer overflow in the gst_vorbis_tag_add_coverart function (gst-libs/gst/tag/gstvorbistag.c) in vorbistag in gst-plugins-base (aka gstreamer-plugins-base) before 0.10.23 in GStreamer allows context-dependent attackers to execute arbitrary code via a crafted COVERART tag that is converted from a base64 representation, which triggers a heap-based buffer overflow.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-05-26T04:00:29.539-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="gstreamer-plugins-base is earlier than 0:0.10.20-3.0.1.el5_3" test_ref="oval:org.mitre.oval:tst:102878"/>
-      <criterion comment="gstreamer-plugins-base-devel is earlier than 0:0.10.20-3.0.1.el5_3" test_ref="oval:org.mitre.oval:tst:102795"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="gstreamer-plugins-base is earlier than 0:0.10.20-3.0.1.el5_3" test_ref="oval:org.mitre.oval:tst:102878" />
+      <criterion comment="gstreamer-plugins-base-devel is earlier than 0:0.10.20-3.0.1.el5_3" test_ref="oval:org.mitre.oval:tst:102795" />
     </criteria>
   </criteria>
 </definition>

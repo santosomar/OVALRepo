@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18128" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18128" version="6">
   <metadata>
     <title>USN-1632-2 -- python-django regression</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>python-django</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1632-2/" ref_id="USN-1632-2"/>
+    <reference ref_id="USN-1632-2" ref_url="http://www.ubuntu.com/usn/usn-1632-2/" source="VENDOR" />
     <description>A testsuite regression was fixed in Django.</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2013-12-16T04:01:12.307-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="python-django DPKG is earlier than 1.4.1-2ubuntu0.2" test_ref="oval:org.mitre.oval:tst:85048"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="python-django DPKG is earlier than 1.4.1-2ubuntu0.2" test_ref="oval:org.mitre.oval:tst:85048" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="python-django DPKG is earlier than 1.3.1-4ubuntu1.4" test_ref="oval:org.mitre.oval:tst:85101"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="python-django DPKG is earlier than 1.3.1-4ubuntu1.4" test_ref="oval:org.mitre.oval:tst:85101" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="python-django DPKG is earlier than 1.3-2ubuntu1.5" test_ref="oval:org.mitre.oval:tst:85127"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="python-django DPKG is earlier than 1.3-2ubuntu1.5" test_ref="oval:org.mitre.oval:tst:85127" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="python-django DPKG is earlier than 1.1.1-2ubuntu1.7" test_ref="oval:org.mitre.oval:tst:85033"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="python-django DPKG is earlier than 1.1.1-2ubuntu1.7" test_ref="oval:org.mitre.oval:tst:85033" />
     </criteria>
   </criteria>
 </definition>

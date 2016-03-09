@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23286" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23286" version="8">
   <metadata>
     <title>ELSA-2011:1110: foomatic security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>foomatic</product>
     </affected>
-    <reference ref_id="ELSA-2011:1110-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1110.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-2964" ref_url="http://linux.oracle.com/cve/CVE-2011-2964.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1110-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1110.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2964" ref_url="http://linux.oracle.com/cve/CVE-2011-2964.html" source="CVE" />
     <description>foomaticrip.c in foomatic-rip in foomatic-filters in Foomatic 4.0.6 allows remote attackers to execute arbitrary code via a crafted *FoomaticRIPCommandLine field in a .ppd file, a different vulnerability than CVE-2011-2697.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:03:57.342-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="foomatic is earlier than 0:4.0.4-1.el6_1.1" test_ref="oval:org.mitre.oval:tst:109272"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="foomatic is earlier than 0:4.0.4-1.el6_1.1" test_ref="oval:org.mitre.oval:tst:109272" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

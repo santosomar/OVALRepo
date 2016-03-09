@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17416" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17416" version="6">
   <metadata>
     <title>USN-1495-1 -- libreoffice, libreoffice-l10n vulnerabilities</title>
     <affected family="unix">
@@ -8,9 +7,9 @@
       <product>libreoffice</product>
       <product>libreoffice-l10n</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1495-1/" ref_id="USN-1495-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1149" ref_id="CVE-2012-1149"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2334" ref_id="CVE-2012-2334"/>
+    <reference ref_id="USN-1495-1" ref_url="http://www.ubuntu.com/usn/usn-1495-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-1149" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1149" source="CVE" />
+    <reference ref_id="CVE-2012-2334" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2334" source="CVE" />
     <description>LibreOffice could be made to crash or potentially run programs as your login if it opened a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -27,21 +26,22 @@
         <status_change date="2014-06-30T04:06:37.703-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libreoffice-core DPKG is earlier than 1:3.4.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84364"/>
-        <criterion comment="libreoffice-l10n-common DPKG is earlier than 1:3.4.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84381"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libreoffice-core DPKG is earlier than 1:3.4.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84364" />
+        <criterion comment="libreoffice-l10n-common DPKG is earlier than 1:3.4.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84381" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libreoffice-core DPKG is earlier than 1:3.3.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83702"/>
-        <criterion comment="libreoffice-l10n-common DPKG is earlier than 1:3.3.3-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84250"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libreoffice-core DPKG is earlier than 1:3.3.4-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83702" />
+        <criterion comment="libreoffice-l10n-common DPKG is earlier than 1:3.3.3-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:84250" />
       </criteria>
     </criteria>
   </criteria>

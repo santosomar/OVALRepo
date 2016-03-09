@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21086" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21086" version="5">
   <metadata>
     <title>RHSA-2013:0550: bind security and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>bind</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2013:0550-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0550.html"/>
-    <reference source="CESA" ref_id="CESA-2013:0550"/>
-    <reference source="CVE" ref_id="CVE-2012-5689" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5689.html"/>
+    <reference ref_id="RHSA-2013:0550-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0550.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:0550" source="CESA" />
+    <reference ref_id="CVE-2012-5689" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-5689.html" source="CVE" />
     <description>ISC BIND 9.8.x through 9.8.4-P1 and 9.9.x through 9.9.2-P1, in certain configurations involving DNS64 with a Response Policy Zone that lacks an AAAA rewrite rule, allows remote attackers to cause a denial of service (assertion failure and named daemon exit) via a query for an AAAA record.</description>
     <oval_repository>
       <dates>
@@ -21,20 +20,21 @@
         <status_change date="2014-02-17T04:01:13.789-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="bind is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90706"/>
-      <criterion comment="bind-chroot is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90330"/>
-      <criterion comment="bind-sdb is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90440"/>
-      <criterion comment="bind-libs is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:89834"/>
-      <criterion comment="bind-devel is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90709"/>
-      <criterion comment="bind-utils is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90666"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="bind is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90706" />
+      <criterion comment="bind-chroot is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90330" />
+      <criterion comment="bind-sdb is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90440" />
+      <criterion comment="bind-libs is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:89834" />
+      <criterion comment="bind-devel is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90709" />
+      <criterion comment="bind-utils is earlier than 32:9.8.2-0.17.rc1.el6.3" test_ref="oval:org.mitre.oval:tst:90666" />
     </criteria>
   </criteria>
 </definition>

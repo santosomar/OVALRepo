@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25228" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25228" version="4">
   <metadata>
     <title>SUSE-RU-2014:0375-1 -- Recommended update for multipath-tools</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>multipath-tools</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140375-1.html" ref_id="SUSE-RU-2014:0375-1"/>
+    <reference ref_id="SUSE-RU-2014:0375-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140375-1.html" source="VENDOR" />
     <description>This collective update for multipath-tools provides the
 following fixes and  enhancements:
 
@@ -46,16 +45,17 @@ following fixes and  enhancements:
         <status_change date="2014-09-08T04:01:21.119-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kpartx RPM is earlier than 0:0.4.9-0.95.1" test_ref="oval:org.mitre.oval:tst:117560"/>
-      <criterion comment="multipath-tools RPM is earlier than 0:0.4.9-0.95.1" test_ref="oval:org.mitre.oval:tst:117312"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kpartx RPM is earlier than 0:0.4.9-0.95.1" test_ref="oval:org.mitre.oval:tst:117560" />
+      <criterion comment="multipath-tools RPM is earlier than 0:0.4.9-0.95.1" test_ref="oval:org.mitre.oval:tst:117312" />
     </criteria>
   </criteria>
 </definition>

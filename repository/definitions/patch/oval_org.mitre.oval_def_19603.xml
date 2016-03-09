@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19603" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19603" version="6">
   <metadata>
     <title>DSA-2490-1 nss - denial of service</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>nss</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2490-1" ref_id="DSA-2490-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0441" ref_id="CVE-2012-0441"/>
+    <reference ref_id="DSA-2490-1" ref_url="http://www.debian.org/security/dsa-2490-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-0441" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0441" source="CVE" />
     <description>Kaspar Brand discovered that Mozilla's Network Security Services (NSS) libraries did insufficient length checking in the QuickDER decoder, allowing to crash a program using the libraries.</description>
     <oval_repository>
       <dates>
@@ -25,14 +24,15 @@
         <status_change date="2014-06-23T04:05:42.892-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="nss DPKG is earlier than 0:3.12.8-1+squeeze5" test_ref="oval:org.mitre.oval:tst:89246"/>
+    <criterion comment="nss DPKG is earlier than 0:3.12.8-1+squeeze5" test_ref="oval:org.mitre.oval:tst:89246" />
   </criteria>
 </definition>

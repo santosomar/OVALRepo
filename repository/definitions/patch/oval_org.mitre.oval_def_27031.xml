@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27031" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27031" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1273 -- spice-gtk security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>spice-gtk</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1273.html" ref_id="ELSA-2013-1273"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4324" ref_id="CVE-2013-4324"/>
+    <reference ref_id="ELSA-2013-1273" ref_url="http://linux.oracle.com/errata/ELSA-2013-1273.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4324" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4324" source="CVE" />
     <description>[0.14-7.3]
 - New build with correct patch for CVE-2013-4324
 
@@ -28,17 +27,18 @@
         <status_change date="2015-02-10T10:57:40.264-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="spice-gtk is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128544"/>
-      <criterion comment="spice-glib is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128590"/>
-      <criterion comment="spice-glib-devel is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128799"/>
-      <criterion comment="spice-gtk-devel is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128733"/>
-      <criterion comment="spice-gtk-python is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128792"/>
-      <criterion comment="spice-gtk-tools is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:129019"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="spice-gtk is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128544" />
+      <criterion comment="spice-glib is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128590" />
+      <criterion comment="spice-glib-devel is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128799" />
+      <criterion comment="spice-gtk-devel is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128733" />
+      <criterion comment="spice-gtk-python is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:128792" />
+      <criterion comment="spice-gtk-tools is earlier than 0:0.14-7.el6_4.3" test_ref="oval:org.mitre.oval:tst:129019" />
     </criteria>
   </criteria>
 </definition>

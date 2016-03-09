@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23989" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23989" version="8">
   <metadata>
     <title>ELSA-2012:1284: spice-gtk security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>spice-gtk</product>
     </affected>
-    <reference ref_id="ELSA-2012:1284-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1284.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-4425" ref_url="http://linux.oracle.com/cve/CVE-2012-4425.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:1284-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1284.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-4425" ref_url="http://linux.oracle.com/cve/CVE-2012-4425.html" source="CVE" />
     <description>libgio, when used in setuid or other privileged programs in spice-gtk and possibly other products, allows local users to gain privileges and execute arbitrary code via the DBUS_SYSTEM_BUS_ADDRESS environment variable.	NOTE: it could be argued that this is a vulnerability in the applications that do not cleanse environment variables, not in libgio itself.</description>
     <oval_repository>
       <dates>
@@ -24,17 +23,18 @@
         <status_change date="2014-05-26T04:06:01.921-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="spice-gtk-tools is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111066"/>
-      <criterion comment="spice-glib-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111174"/>
-      <criterion comment="spice-glib is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111193"/>
-      <criterion comment="spice-gtk-python is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:110596"/>
-      <criterion comment="spice-gtk is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:110973"/>
-      <criterion comment="spice-gtk-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111204"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="spice-gtk-tools is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111066" />
+      <criterion comment="spice-glib-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111174" />
+      <criterion comment="spice-glib is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111193" />
+      <criterion comment="spice-gtk-python is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:110596" />
+      <criterion comment="spice-gtk is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:110973" />
+      <criterion comment="spice-gtk-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:111204" />
     </criteria>
   </criteria>
 </definition>

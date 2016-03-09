@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:14378" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:14378" version="7">
   <metadata>
     <title>DSA-2344-1 python-django-piston -- deserialization vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>python-django-piston</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00221.html" ref_id="DSA-2344-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4103" ref_id="CVE-2011-4103"/>
+    <reference ref_id="DSA-2344-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00221.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4103" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4103" source="CVE" />
     <description>It was discovered that the Piston framework can deserializes untrusted YAML and Pickle data, leading to remote code execution. The old stable distribution does not contain a python-django-piston package.</description>
     <oval_repository>
       <dates>
@@ -25,15 +24,16 @@
         <status_change date="2014-06-23T04:03:09.631-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="python-django-piston DPKG is earlier than 0.2.2-1+squeeze1" test_ref="oval:org.mitre.oval:tst:78314"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="python-django-piston DPKG is earlier than 0.2.2-1+squeeze1" test_ref="oval:org.mitre.oval:tst:78314" />
   </criteria>
 </definition>

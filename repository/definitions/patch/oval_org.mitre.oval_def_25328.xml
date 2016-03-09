@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25328" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25328" version="4">
   <metadata>
     <title>SUSE-SU-2014:0237-1 -- Security update for pwlib</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>pwlib</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140237-1.html" ref_id="SUSE-SU-2014:0237-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1864" ref_id="CVE-2013-1864"/>
+    <reference ref_id="SUSE-SU-2014:0237-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140237-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1864" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1864" source="CVE" />
     <description>This update fixes a XML DoS vulnerability in pwlib.
 CVE-2013-1864 has been  assigned to this issue.
 
@@ -15,7 +14,7 @@ Security Issue reference:
 
     * CVE-2013-1864
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1864
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:18:47">
@@ -26,15 +25,16 @@ Security Issue reference:
         <status_change date="2014-09-08T04:01:55.101-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="pwlib RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117603"/>
-      <criterion comment="pwlib-plugins-avc RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117112"/>
-      <criterion comment="pwlib-plugins-dc RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117433"/>
-      <criterion comment="pwlib-plugins-v4l2 RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117520"/>
+    <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="pwlib RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117603" />
+      <criterion comment="pwlib-plugins-avc RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117112" />
+      <criterion comment="pwlib-plugins-dc RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117433" />
+      <criterion comment="pwlib-plugins-v4l2 RPM is earlier than 0:1.10.10-120.35.1" test_ref="oval:org.mitre.oval:tst:117520" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17967" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17967" version="8">
   <metadata>
     <title>USN-1441-1 -- quagga vulnerabilities</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>Ubuntu 10.04</platform>
       <product>quagga</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1441-1/" ref_id="USN-1441-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0249" ref_id="CVE-2012-0249"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0250" ref_id="CVE-2012-0250"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0255" ref_id="CVE-2012-0255"/>
+    <reference ref_id="USN-1441-1" ref_url="http://www.ubuntu.com/usn/usn-1441-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-0249" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0249" source="CVE" />
+    <reference ref_id="CVE-2012-0250" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0250" source="CVE" />
+    <reference ref_id="CVE-2012-0255" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0255" source="CVE" />
     <description>Quagga could be made to crash if it received specially crafted network traffic.</description>
     <oval_repository>
       <dates>
@@ -34,24 +33,25 @@
         <status_change date="2014-06-30T04:07:53.968-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.12.04.2" test_ref="oval:org.mitre.oval:tst:83448"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.12.04.2" test_ref="oval:org.mitre.oval:tst:83448" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.11.10.2" test_ref="oval:org.mitre.oval:tst:83978"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.11.10.2" test_ref="oval:org.mitre.oval:tst:83978" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.11.04.2" test_ref="oval:org.mitre.oval:tst:84034"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.11.04.2" test_ref="oval:org.mitre.oval:tst:84034" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.10.04.2" test_ref="oval:org.mitre.oval:tst:83689"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="quagga DPKG is earlier than 0.99.20.1-0ubuntu0.10.04.2" test_ref="oval:org.mitre.oval:tst:83689" />
     </criteria>
   </criteria>
 </definition>

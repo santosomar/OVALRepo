@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18537" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18537" version="8">
   <metadata>
     <title>DSA-1388-3 dhcp - buffer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>dhcp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1388-3" ref_id="DSA-1388-3"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5365" ref_id="CVE-2007-5365"/>
+    <reference ref_id="DSA-1388-3" ref_url="http://www.debian.org/security/dsa-1388-3" source="VENDOR" />
+    <reference ref_id="CVE-2007-5365" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5365" source="CVE" />
     <description>The patch used to correct the DHCP server buffer overflow in DSA-1388-1 was incomplete and did not adequately resolve the problem. This update to the previous advisory makes updated packages based on a newer version of the patch available.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:04:49.205-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="dhcp DPKG is earlier than 2.0pl5-19.5etch2" test_ref="oval:org.mitre.oval:tst:86181"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="dhcp DPKG is earlier than 2.0pl5-19.5etch2" test_ref="oval:org.mitre.oval:tst:86181" />
   </criteria>
 </definition>

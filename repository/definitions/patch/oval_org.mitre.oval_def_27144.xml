@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27144" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27144" version="4">
   <metadata>
     <title>RHSA-2014:1633: java-1.7.0-openjdk security and bug fix update (Important)</title>
     <affected family="unix">
@@ -7,18 +6,18 @@
       <platform>CentOS Linux 5</platform>
       <product>java-1.7.0-openjdk</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1633-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1633.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1633"/>
-    <reference source="CVE" ref_id="CVE-2014-6457" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6457.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6502" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6502.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6504" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6504.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6506" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6506.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6511" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6511.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6512" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6512.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6517" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6517.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6519" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6519.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6531" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6531.html"/>
-    <reference source="CVE" ref_id="CVE-2014-6558" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6558.html"/>
+    <reference ref_id="RHSA-2014:1633-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1633.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1633" source="CESA" />
+    <reference ref_id="CVE-2014-6457" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6457.html" source="CVE" />
+    <reference ref_id="CVE-2014-6502" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6502.html" source="CVE" />
+    <reference ref_id="CVE-2014-6504" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6504.html" source="CVE" />
+    <reference ref_id="CVE-2014-6506" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6506.html" source="CVE" />
+    <reference ref_id="CVE-2014-6511" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6511.html" source="CVE" />
+    <reference ref_id="CVE-2014-6512" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6512.html" source="CVE" />
+    <reference ref_id="CVE-2014-6517" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6517.html" source="CVE" />
+    <reference ref_id="CVE-2014-6519" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6519.html" source="CVE" />
+    <reference ref_id="CVE-2014-6531" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6531.html" source="CVE" />
+    <reference ref_id="CVE-2014-6558" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-6558.html" source="CVE" />
     <description>The java-1.7.0-openjdk packages provide the OpenJDK 7 Java Runtime
 Environment and the OpenJDK 7 Java Software Development Kit.
 
@@ -74,19 +73,20 @@ must be restarted for the update to take effect.</description>
         <status_change date="2014-11-24T04:02:29.483-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="java-1.7.0-openjdk is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125307"/>
-      <criterion comment="java-1.7.0-openjdk-demo is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:124937"/>
-      <criterion comment="java-1.7.0-openjdk-devel is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125095"/>
-      <criterion comment="java-1.7.0-openjdk-javadoc is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125228"/>
-      <criterion comment="java-1.7.0-openjdk-src is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:124403"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="java-1.7.0-openjdk is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125307" />
+      <criterion comment="java-1.7.0-openjdk-demo is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:124937" />
+      <criterion comment="java-1.7.0-openjdk-devel is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125095" />
+      <criterion comment="java-1.7.0-openjdk-javadoc is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:125228" />
+      <criterion comment="java-1.7.0-openjdk-src is earlier than 1:1.7.0.71-2.5.3.1.el5_11" test_ref="oval:org.mitre.oval:tst:124403" />
     </criteria>
   </criteria>
 </definition>

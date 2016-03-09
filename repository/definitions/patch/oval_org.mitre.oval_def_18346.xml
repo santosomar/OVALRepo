@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18346" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18346" version="8">
   <metadata>
     <title>DSA-2603-1 emacs23 - programming error</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>emacs23</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2603-1" ref_id="DSA-2603-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3479" ref_id="CVE-2012-3479"/>
-    <description>Paul Ling discovered that Emacs insufficiently restricted the evaluation of Lisp code if enable-local-variables is set to &lt;q>safe&lt;/q>.</description>
+    <reference ref_id="DSA-2603-1" ref_url="http://www.debian.org/security/dsa-2603-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-3479" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3479" source="CVE" />
+    <description>Paul Ling discovered that Emacs insufficiently restricted the evaluation of Lisp code if enable-local-variables is set to &lt;q&gt;safe&lt;/q&gt;.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:16">
@@ -30,14 +29,15 @@
         <status_change date="2014-06-23T04:04:17.124-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="emacs23 DPKG is earlier than 23.2+1-7+squeeze1" test_ref="oval:org.mitre.oval:tst:86221"/>
+    <criterion comment="emacs23 DPKG is earlier than 23.2+1-7+squeeze1" test_ref="oval:org.mitre.oval:tst:86221" />
   </criteria>
 </definition>

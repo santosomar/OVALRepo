@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18363" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18363" version="8">
   <metadata>
     <title>DSA-1596-1 typo3-src - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>typo3-src</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1596-1" ref_id="DSA-1596-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2717" ref_id="CVE-2008-2717"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2718" ref_id="CVE-2008-2718"/>
+    <reference ref_id="DSA-1596-1" ref_url="http://www.debian.org/security/dsa-1596-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-2717" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2717" source="CVE" />
+    <reference ref_id="CVE-2008-2718" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2718" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in the TYPO3 content management framework.</description>
     <oval_repository>
       <dates>
@@ -30,10 +29,11 @@
         <status_change date="2014-06-23T04:04:18.509-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="typo3-src DPKG is earlier than 4.0.2+debian-5" test_ref="oval:org.mitre.oval:tst:86387"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="typo3-src DPKG is earlier than 4.0.2+debian-5" test_ref="oval:org.mitre.oval:tst:86387" />
   </criteria>
 </definition>

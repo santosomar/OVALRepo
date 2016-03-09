@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17885" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17885" version="8">
   <metadata>
     <title>USN-1467-1 -- mysql-5.1, mysql-5.5, mysql-dfsg-5.0, mysql-dfsg-5.1 vulnerabilities</title>
     <affected family="unix">
@@ -13,8 +12,8 @@
       <product>mysql-dfsg-5.1</product>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1467-1/" ref_id="USN-1467-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2122" ref_id="CVE-2012-2122"/>
+    <reference ref_id="USN-1467-1" ref_url="http://www.ubuntu.com/usn/usn-1467-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-2122" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2122" source="CVE" />
     <description>Several security issues were fixed in MySQL.</description>
     <oval_repository>
       <dates>
@@ -36,28 +35,29 @@
         <status_change date="2014-07-21T04:00:36.296-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.24-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84168"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.24-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84168" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84191"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84191" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83614"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83614" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:83644"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.63-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:83644" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.96-0ubuntu3" test_ref="oval:org.mitre.oval:tst:84171"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.96-0ubuntu3" test_ref="oval:org.mitre.oval:tst:84171" />
     </criteria>
   </criteria>
 </definition>

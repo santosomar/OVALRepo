@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:5537" version="7" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:5537" version="10">
   <metadata>
     <title>The operating system installed on the system is Red Hat Enterprise Linux 3 for x86</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 3</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:redhat:enterprise_linux:3::ix86"/>
+    <reference ref_id="cpe:/o:redhat:enterprise_linux:3::ix86" source="CPE" />
     <description>The operating system installed on the system is Red Hat Enterprise Linux 3 for x86.</description>
     <oval_repository>
       <dates>
@@ -32,10 +31,11 @@
         <status_change date="2013-04-08T04:00:47.744-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Red Hat Enterprise 3 is installed" test_ref="oval:org.mitre.oval:tst:7836"/>
-    <criterion comment="ix86 architecture" test_ref="oval:org.mitre.oval:tst:3912"/>
+    <criterion comment="Red Hat Enterprise 3 is installed" test_ref="oval:org.mitre.oval:tst:7836" />
+    <criterion comment="ix86 architecture" test_ref="oval:org.mitre.oval:tst:3912" />
   </criteria>
 </definition>

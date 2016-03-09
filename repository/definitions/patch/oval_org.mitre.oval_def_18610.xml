@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18610" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18610" version="8">
   <metadata>
     <title>DSA-2459-2 quagga - regression</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>quagga</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2459-2" ref_id="DSA-2459-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0249" ref_id="CVE-2012-0249"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0250" ref_id="CVE-2012-0250"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0255" ref_id="CVE-2012-0255"/>
+    <reference ref_id="DSA-2459-2" ref_url="http://www.debian.org/security/dsa-2459-2" source="VENDOR" />
+    <reference ref_id="CVE-2012-0249" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0249" source="CVE" />
+    <reference ref_id="CVE-2012-0250" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0250" source="CVE" />
+    <reference ref_id="CVE-2012-0255" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0255" source="CVE" />
     <description>Several vulnerabilities have been discovered in Quagga, a routing daemon.</description>
     <oval_repository>
       <dates>
@@ -32,14 +31,15 @@
         <status_change date="2014-06-23T04:05:04.312-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="quagga DPKG is earlier than 0.99.20.1-0+squeeze2" test_ref="oval:org.mitre.oval:tst:86488"/>
+    <criterion comment="quagga DPKG is earlier than 0.99.20.1-0+squeeze2" test_ref="oval:org.mitre.oval:tst:86488" />
   </criteria>
 </definition>

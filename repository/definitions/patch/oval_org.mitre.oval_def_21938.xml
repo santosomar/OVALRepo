@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21938" version="71" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21938" version="73">
   <metadata>
     <title>RHSA-2014:0164: mysql security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>CentOS Linux 6</platform>
       <product>mysql</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0164-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0164.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0164"/>
-    <reference source="CVE" ref_id="CVE-2013-5908" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-5908.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0001" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0001.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0386" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0386.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0393" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0393.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0401" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0401.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0402" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0402.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0412" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0412.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0437" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0437.html"/>
+    <reference ref_id="RHSA-2014:0164-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0164.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0164" source="CESA" />
+    <reference ref_id="CVE-2013-5908" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-5908.html" source="CVE" />
+    <reference ref_id="CVE-2014-0001" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0001.html" source="CVE" />
+    <reference ref_id="CVE-2014-0386" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0386.html" source="CVE" />
+    <reference ref_id="CVE-2014-0393" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0393.html" source="CVE" />
+    <reference ref_id="CVE-2014-0401" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0401.html" source="CVE" />
+    <reference ref_id="CVE-2014-0402" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0402.html" source="CVE" />
+    <reference ref_id="CVE-2014-0412" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0412.html" source="CVE" />
+    <reference ref_id="CVE-2014-0437" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0437.html" source="CVE" />
     <description>Unspecified vulnerability in the MySQL Server component in Oracle MySQL 5.1.72 and earlier, 5.5.34 and earlier, and 5.6.14 and earlier allows remote authenticated users to affect availability via unknown vectors related to Optimizer.</description>
     <oval_repository>
       <dates>
@@ -38,22 +37,23 @@
         <status_change date="2014-07-07T04:00:52.572-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="mysql-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100580"/>
-      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100624"/>
-      <criterion comment="mysql-test is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100589"/>
-      <criterion comment="mysql-server is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100277"/>
-      <criterion comment="mysql-embedded is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100506"/>
-      <criterion comment="mysql is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100202"/>
-      <criterion comment="mysql-bench is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100229"/>
-      <criterion comment="mysql-libs is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100043"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="mysql-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100580" />
+      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100624" />
+      <criterion comment="mysql-test is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100589" />
+      <criterion comment="mysql-server is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100277" />
+      <criterion comment="mysql-embedded is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100506" />
+      <criterion comment="mysql is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100202" />
+      <criterion comment="mysql-bench is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100229" />
+      <criterion comment="mysql-libs is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:100043" />
     </criteria>
   </criteria>
 </definition>

@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22370" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22370" version="15">
   <metadata>
     <title>ELSA-2009:0010: squirrelmail security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>squirrelmail</product>
     </affected>
-    <reference ref_id="ELSA-2009:0010-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0010.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-2379" ref_url="http://linux.oracle.com/cve/CVE-2008-2379.html" source="CVE"/>
-    <reference ref_id="CVE-2008-3663" ref_url="http://linux.oracle.com/cve/CVE-2008-3663.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0010-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0010.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-2379" ref_url="http://linux.oracle.com/cve/CVE-2008-2379.html" source="CVE" />
+    <reference ref_id="CVE-2008-3663" ref_url="http://linux.oracle.com/cve/CVE-2008-3663.html" source="CVE" />
     <description>Squirrelmail 1.4.15 does not set the secure flag for the session cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie.</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2014-05-26T04:01:09.942-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_2.2" test_ref="oval:org.mitre.oval:tst:102742"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_2.2" test_ref="oval:org.mitre.oval:tst:102742" />
   </criteria>
 </definition>

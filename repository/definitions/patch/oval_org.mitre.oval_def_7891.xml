@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7891" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7891" version="6">
   <metadata>
     <title>DSA-1514 moin -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>moin</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1514" ref_id="DSA-1514"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2423" ref_id="CVE-2007-2423"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2637" ref_id="CVE-2007-2637"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0780" ref_id="CVE-2008-0780"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0781" ref_id="CVE-2008-0781"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0782" ref_id="CVE-2008-0782"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1098" ref_id="CVE-2008-1098"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1099" ref_id="CVE-2008-1099"/>
+    <reference ref_id="DSA-1514" ref_url="http://www.debian.org/security/2008/dsa-1514" source="VENDOR" />
+    <reference ref_id="CVE-2007-2423" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2423" source="CVE" />
+    <reference ref_id="CVE-2007-2637" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2637" source="CVE" />
+    <reference ref_id="CVE-2008-0780" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0780" source="CVE" />
+    <reference ref_id="CVE-2008-0781" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0781" source="CVE" />
+    <reference ref_id="CVE-2008-0782" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0782" source="CVE" />
+    <reference ref_id="CVE-2008-1098" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1098" source="CVE" />
+    <reference ref_id="CVE-2008-1099" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1099" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in MoinMoin, a Python clone of WikiWiki. The Common Vulnerabilities and Exposures project identifies the following problems: A cross-site-scripting vulnerability has been discovered in attachment handling. Access control lists for calendars and includes were insufficiently enforced, which could lead to information disclosure. A cross-site-scripting vulnerability has been discovered in the login code. A cross-site-scripting vulnerability has been discovered in attachment handling. A directory traversal vulnerability in cookie handling could lead to local denial of service by overwriting files. Cross-site-scripting vulnerabilities have been discovered in the GUI editor formatter and the code to delete pages. The macro code validates access control lists insufficiently, which could lead to information disclosure.</description>
     <oval_repository>
       <dates>
@@ -30,14 +29,15 @@
         <status_change date="2014-06-23T04:09:13.379-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="python-moinmoin is earlier than 1.5.3-1.2etch1" test_ref="oval:org.mitre.oval:tst:18186"/>
-      <criterion comment="moinmoin-common is earlier than 1.5.3-1.2etch1" test_ref="oval:org.mitre.oval:tst:17793"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="python-moinmoin is earlier than 1.5.3-1.2etch1" test_ref="oval:org.mitre.oval:tst:18186" />
+      <criterion comment="moinmoin-common is earlier than 1.5.3-1.2etch1" test_ref="oval:org.mitre.oval:tst:17793" />
     </criteria>
   </criteria>
 </definition>

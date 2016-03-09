@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25169" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25169" version="7">
   <metadata>
     <title>ELSA-2014:0560: libvirt security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libvirt</product>
     </affected>
-    <reference ref_id="ELSA-2014:0560-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0560.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-0179" ref_url="http://linux.oracle.com/cve/CVE-2014-0179.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0560-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0560.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0179" ref_url="http://linux.oracle.com/cve/CVE-2014-0179.html" source="CVE" />
     <description>The libvirt library is a C API for managing and interacting with the
 virtualization capabilities of Linux and other operating systems. In 
 addition, libvirt provides tools for remote management of virtualized
@@ -58,16 +57,17 @@ updated packages, libvirtd will be restarted automatically.</description>
         <status_change date="2014-09-01T04:03:00.931-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115527"/>
-      <criterion comment="libvirt-devel is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115647"/>
-      <criterion comment="libvirt is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115653"/>
-      <criterion comment="libvirt-python is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115649"/>
-      <criterion comment="libvirt-client is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115648"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115527" />
+      <criterion comment="libvirt-devel is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115647" />
+      <criterion comment="libvirt is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115653" />
+      <criterion comment="libvirt-python is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115649" />
+      <criterion comment="libvirt-client is earlier than 0:0.10.2-29.el6_5.8" test_ref="oval:org.mitre.oval:tst:115648" />
     </criteria>
   </criteria>
 </definition>

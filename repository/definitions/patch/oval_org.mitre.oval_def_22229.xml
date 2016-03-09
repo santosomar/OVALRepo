@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22229" version="61" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22229" version="63">
   <metadata>
     <title>ELSA-2009:1109: acroread security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>acroread</product>
     </affected>
-    <reference ref_id="ELSA-2009:1109-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1109.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0198" ref_url="http://linux.oracle.com/cve/CVE-2009-0198.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0509" ref_url="http://linux.oracle.com/cve/CVE-2009-0509.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0510" ref_url="http://linux.oracle.com/cve/CVE-2009-0510.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0511" ref_url="http://linux.oracle.com/cve/CVE-2009-0511.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0512" ref_url="http://linux.oracle.com/cve/CVE-2009-0512.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0888" ref_url="http://linux.oracle.com/cve/CVE-2009-0888.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0889" ref_url="http://linux.oracle.com/cve/CVE-2009-0889.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1855" ref_url="http://linux.oracle.com/cve/CVE-2009-1855.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1856" ref_url="http://linux.oracle.com/cve/CVE-2009-1856.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1857" ref_url="http://linux.oracle.com/cve/CVE-2009-1857.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1858" ref_url="http://linux.oracle.com/cve/CVE-2009-1858.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1859" ref_url="http://linux.oracle.com/cve/CVE-2009-1859.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1861" ref_url="http://linux.oracle.com/cve/CVE-2009-1861.html" source="CVE"/>
-    <reference ref_id="CVE-2009-2028" ref_url="http://linux.oracle.com/cve/CVE-2009-2028.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1109-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1109.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0198" ref_url="http://linux.oracle.com/cve/CVE-2009-0198.html" source="CVE" />
+    <reference ref_id="CVE-2009-0509" ref_url="http://linux.oracle.com/cve/CVE-2009-0509.html" source="CVE" />
+    <reference ref_id="CVE-2009-0510" ref_url="http://linux.oracle.com/cve/CVE-2009-0510.html" source="CVE" />
+    <reference ref_id="CVE-2009-0511" ref_url="http://linux.oracle.com/cve/CVE-2009-0511.html" source="CVE" />
+    <reference ref_id="CVE-2009-0512" ref_url="http://linux.oracle.com/cve/CVE-2009-0512.html" source="CVE" />
+    <reference ref_id="CVE-2009-0888" ref_url="http://linux.oracle.com/cve/CVE-2009-0888.html" source="CVE" />
+    <reference ref_id="CVE-2009-0889" ref_url="http://linux.oracle.com/cve/CVE-2009-0889.html" source="CVE" />
+    <reference ref_id="CVE-2009-1855" ref_url="http://linux.oracle.com/cve/CVE-2009-1855.html" source="CVE" />
+    <reference ref_id="CVE-2009-1856" ref_url="http://linux.oracle.com/cve/CVE-2009-1856.html" source="CVE" />
+    <reference ref_id="CVE-2009-1857" ref_url="http://linux.oracle.com/cve/CVE-2009-1857.html" source="CVE" />
+    <reference ref_id="CVE-2009-1858" ref_url="http://linux.oracle.com/cve/CVE-2009-1858.html" source="CVE" />
+    <reference ref_id="CVE-2009-1859" ref_url="http://linux.oracle.com/cve/CVE-2009-1859.html" source="CVE" />
+    <reference ref_id="CVE-2009-1861" ref_url="http://linux.oracle.com/cve/CVE-2009-1861.html" source="CVE" />
+    <reference ref_id="CVE-2009-2028" ref_url="http://linux.oracle.com/cve/CVE-2009-2028.html" source="CVE" />
     <description>Multiple unspecified vulnerabilities in Adobe Reader 7 and Acrobat 7 before 7.1.3, Adobe Reader 8 and Acrobat 8 before 8.1.6, and Adobe Reader 9 and Acrobat 9 before 9.1.2 have unknown impact and attack vectors, related to "Adobe internally discovered issues."</description>
     <oval_repository>
       <dates>
@@ -37,13 +36,14 @@
         <status_change date="2014-05-26T04:00:59.170-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="acroread-plugin is earlier than 0:8.1.6-2.el5" test_ref="oval:org.mitre.oval:tst:102978"/>
-      <criterion comment="acroread is earlier than 0:8.1.6-2.el5" test_ref="oval:org.mitre.oval:tst:102781"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="acroread-plugin is earlier than 0:8.1.6-2.el5" test_ref="oval:org.mitre.oval:tst:102978" />
+      <criterion comment="acroread is earlier than 0:8.1.6-2.el5" test_ref="oval:org.mitre.oval:tst:102781" />
     </criteria>
   </criteria>
 </definition>

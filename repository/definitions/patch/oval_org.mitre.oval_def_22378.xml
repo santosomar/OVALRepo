@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22378" version="68" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22378" version="69">
   <metadata>
     <title>RHSA-2010:0623: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2010:0623-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0623.html"/>
-    <reference source="CVE" ref_id="CVE-2010-0209" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0209.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2213" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2213.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2214" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2214.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2215" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2215.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2216" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2216.html"/>
+    <reference ref_id="RHSA-2010:0623-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0623.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0209" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0209.html" source="CVE" />
+    <reference ref_id="CVE-2010-2213" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2213.html" source="CVE" />
+    <reference ref_id="CVE-2010-2214" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2214.html" source="CVE" />
+    <reference ref_id="CVE-2010-2215" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2215.html" source="CVE" />
+    <reference ref_id="CVE-2010-2216" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2216.html" source="CVE" />
     <description>Adobe Flash Player before 9.0.280 and 10.x before 10.1.82.76, and Adobe AIR before 2.0.3, allows attackers to execute arbitrary code or cause a denial of service (memory corruption) via unspecified vectors, a different vulnerability than CVE-2010-0209, CVE-2010-2213, and CVE-2010-2214.</description>
     <oval_repository>
       <dates>
@@ -23,10 +22,11 @@
         <status_change date="2014-02-24T04:03:11.048-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-    <criterion comment="flash-plugin is earlier than 0:10.1.82.76-1.el5" test_ref="oval:org.mitre.oval:tst:99535"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+    <criterion comment="flash-plugin is earlier than 0:10.1.82.76-1.el5" test_ref="oval:org.mitre.oval:tst:99535" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21016" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21016" version="6">
   <metadata>
     <title>USN-1138-1 -- dbus-glib vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>dbus-glib</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1138-1/" ref_id="USN-1138-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1172" ref_id="CVE-2010-1172"/>
+    <reference ref_id="USN-1138-1" ref_url="http://www.ubuntu.com/usn/usn-1138-1/" source="VENDOR" />
+    <reference ref_id="CVE-2010-1172" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1172" source="CVE" />
     <description>An attacker could send crafted input to applications using DBus-GLib and cause them to crash.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-06-30T04:09:19.640-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Ubuntu 10.04 release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libdbus-glib-1-2 DPKG is earlier than 0:0.84-1ubuntu0.2" test_ref="oval:org.mitre.oval:tst:91965"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libdbus-glib-1-2 DPKG is earlier than 0:0.84-1ubuntu0.2" test_ref="oval:org.mitre.oval:tst:91965" />
     </criteria>
     <criteria comment="Ubuntu 8.04 release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libdbus-glib-1-2 DPKG is earlier than 0:0.74-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:92363"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libdbus-glib-1-2 DPKG is earlier than 0:0.74-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:92363" />
     </criteria>
   </criteria>
 </definition>

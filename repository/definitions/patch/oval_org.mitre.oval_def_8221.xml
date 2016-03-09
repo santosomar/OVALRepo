@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8221" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8221" version="5">
   <metadata>
     <title>DSA-1932 pidgin -- programming error</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>pidgin</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1932" ref_id="DSA-1932"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3615" ref_id="CVE-2009-3615"/>
+    <reference ref_id="DSA-1932" ref_url="http://www.debian.org/security/2009/dsa-1932" source="VENDOR" />
+    <reference ref_id="CVE-2009-3615" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3615" source="CVE" />
     <description>It was discovered that incorrect pointer handling in the purple library, an internal component of the multi-protocol instant messaging client Pidgin, could lead to denial of service or the execution of arbitrary code through malformed contact requests.</description>
     <oval_repository>
       <dates>
@@ -24,25 +23,26 @@
         <status_change date="2014-06-23T04:10:23.658-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="libpurple-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18722"/>
-          <criterion comment="finch-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18904"/>
-          <criterion comment="pidgin-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18847"/>
-          <criterion comment="libpurple-bin is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19352"/>
-          <criterion comment="pidgin-data is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19451"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="libpurple-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18722" />
+          <criterion comment="finch-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18904" />
+          <criterion comment="pidgin-dev is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18847" />
+          <criterion comment="libpurple-bin is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19352" />
+          <criterion comment="pidgin-data is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19451" />
         </criteria>
       </criteria>
-      <criterion comment="libpurple0 is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18808"/>
-      <criterion comment="pidgin-dbg is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19383"/>
-      <criterion comment="pidgin is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18867"/>
-      <criterion comment="finch is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19231"/>
+      <criterion comment="libpurple0 is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18808" />
+      <criterion comment="pidgin-dbg is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19383" />
+      <criterion comment="pidgin is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:18867" />
+      <criterion comment="finch is earlier than 2.4.3-4lenny5" test_ref="oval:org.mitre.oval:tst:19231" />
     </criteria>
   </criteria>
 </definition>

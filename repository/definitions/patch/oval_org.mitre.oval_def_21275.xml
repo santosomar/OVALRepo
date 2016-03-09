@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21275" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21275" version="6">
   <metadata>
     <title>RHSA-2011:0374: thunderbird security and bug fix update (Important)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:0374-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0374.html"/>
+    <reference ref_id="RHSA-2011:0374-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0374.html" source="VENDOR" />
     <description>Mozilla Thunderbird is a standalone mail and newsgroup client.
 
 This erratum blacklists a small number of HTTPS certificates. (BZ#689430)
@@ -37,16 +36,17 @@ restarted for the update to take effect.</description>
         <status_change date="2014-06-30T04:09:34.611-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="thunderbird is earlier than 0:2.0.0.24-15.el5_6" test_ref="oval:org.mitre.oval:tst:97616"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="thunderbird is earlier than 0:2.0.0.24-15.el5_6" test_ref="oval:org.mitre.oval:tst:97616" />
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="thunderbird is earlier than 0:3.1.9-3.el6_0" test_ref="oval:org.mitre.oval:tst:97486"/>
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+      <criterion comment="thunderbird is earlier than 0:3.1.9-3.el6_0" test_ref="oval:org.mitre.oval:tst:97486" />
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
     </criteria>
   </criteria>
 </definition>

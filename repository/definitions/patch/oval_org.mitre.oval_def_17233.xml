@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17233" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17233" version="8">
   <metadata>
     <title>USN-682-1 -- libvorbis vulnerabilities</title>
     <affected family="unix">
@@ -8,10 +7,10 @@
       <platform>Ubuntu 8.04</platform>
       <product>libvorbis</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-682-1/" ref_id="USN-682-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1419" ref_id="CVE-2008-1419"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1420" ref_id="CVE-2008-1420"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1423" ref_id="CVE-2008-1423"/>
+    <reference ref_id="USN-682-1" ref_url="http://www.ubuntu.com/usn/usn-682-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-1419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1419" source="CVE" />
+    <reference ref_id="CVE-2008-1420" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1420" source="CVE" />
+    <reference ref_id="CVE-2008-1423" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1423" source="CVE" />
     <description>It was discovered that libvorbis did not correctly handle certain malformed sound files.</description>
     <oval_repository>
       <dates>
@@ -33,20 +32,21 @@
         <status_change date="2014-07-21T04:00:27.916-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="libvorbis0a DPKG is earlier than 1.1.2-0ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83545"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="libvorbis0a DPKG is earlier than 1.1.2-0ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83545" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="libvorbis0a DPKG is earlier than 1.2.0.dfsg-1ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83695"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="libvorbis0a DPKG is earlier than 1.2.0.dfsg-1ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83695" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libvorbis0a DPKG is earlier than 1.2.0.dfsg-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83233"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libvorbis0a DPKG is earlier than 1.2.0.dfsg-2ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83233" />
     </criteria>
   </criteria>
 </definition>

@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:5189" version="2" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:5189" version="3">
   <metadata>
     <title>IBM AIX 5.2 is installed</title>
     <affected family="unix">
       <platform>IBM AIX 5.2</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:ibm:aix:5.2"/>
+    <reference ref_id="cpe:/o:ibm:aix:5.2" source="CPE" />
     <description>The operating system installed on the system is IBM AIX 5.2.</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2008-07-28T04:00:08.992-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="IBM AIX version is greater than or equal 5.2.0.0" test_ref="oval:org.mitre.oval:tst:7986"/>
-    <criterion comment="IBM AIX version is less than 5.3.0.0" test_ref="oval:org.mitre.oval:tst:7740"/>
+    <criterion comment="IBM AIX version is greater than or equal 5.2.0.0" test_ref="oval:org.mitre.oval:tst:7986" />
+    <criterion comment="IBM AIX version is less than 5.3.0.0" test_ref="oval:org.mitre.oval:tst:7740" />
   </criteria>
 </definition>

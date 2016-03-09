@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21752" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21752" version="8">
   <metadata>
     <title>ELSA-2007:0343: gimp security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>gimp</product>
     </affected>
-    <reference ref_id="ELSA-2007:0343-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0343.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-2356" ref_url="http://linux.oracle.com/cve/CVE-2007-2356.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0343-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0343.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-2356" ref_url="http://linux.oracle.com/cve/CVE-2007-2356.html" source="CVE" />
     <description>Stack-based buffer overflow in the set_color_table function in sunras.c in the SUNRAS plugin in Gimp 2.2.14 allows user-assisted remote attackers to execute arbitrary code via a crafted RAS file.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:00:20.774-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="gimp-libs is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:100888"/>
-      <criterion comment="gimp-devel is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:100931"/>
-      <criterion comment="gimp is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:101210"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="gimp-libs is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:100888" />
+      <criterion comment="gimp-devel is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:100931" />
+      <criterion comment="gimp is earlier than 2:2.2.13-2.el5" test_ref="oval:org.mitre.oval:tst:101210" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27713" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27713" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1267 -- bind security and bug fix update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bind</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1267.html" ref_id="ELSA-2012-1267"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4244" ref_id="CVE-2012-4244"/>
+    <reference ref_id="ELSA-2012-1267" ref_url="http://linux.oracle.com/errata/ELSA-2012-1267.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-4244" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4244" source="CVE" />
     <description>[30:9.3.6-20.P1.4]
 - bind-chroot-admin: set correct permissions on /etc/named.conf during update
 
@@ -27,19 +26,20 @@
         <status_change date="2015-02-10T18:24:12.062-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="bind is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130703"/>
-      <criterion comment="bind-chroot is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130868"/>
-      <criterion comment="bind-devel is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:131230"/>
-      <criterion comment="bind-libbind-devel is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130916"/>
-      <criterion comment="bind-libs is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130244"/>
-      <criterion comment="bind-sdb is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130849"/>
-      <criterion comment="bind-utils is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:131145"/>
-      <criterion comment="caching-nameserver is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130745"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="bind is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130703" />
+      <criterion comment="bind-chroot is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130868" />
+      <criterion comment="bind-devel is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:131230" />
+      <criterion comment="bind-libbind-devel is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130916" />
+      <criterion comment="bind-libs is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130244" />
+      <criterion comment="bind-sdb is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130849" />
+      <criterion comment="bind-utils is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:131145" />
+      <criterion comment="caching-nameserver is earlier than 0:9.3.6-20.P1.el5_8.4" test_ref="oval:org.mitre.oval:tst:130745" />
     </criteria>
   </criteria>
 </definition>

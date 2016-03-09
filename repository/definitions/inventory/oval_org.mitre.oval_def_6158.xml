@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:6158" version="7" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:6158" version="11">
   <metadata>
     <title>Microsoft .NET Framework 2.0 Service Pack 2 is installed</title>
     <affected family="windows">
@@ -9,7 +8,7 @@
       <platform>Microsoft Windows Vista</platform>
       <product>Microsoft .NET Framework 2.0</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:.net_framework:2.0:sp2"/>
+    <reference ref_id="cpe:/a:microsoft:.net_framework:2.0:sp2" source="CPE" />
     <description>Microsoft .NET Framework 2.0 Service Pack 2 is installed</description>
     <oval_repository>
       <dates>
@@ -36,9 +35,10 @@
         <status_change date="2014-04-07T04:06:55.839-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="The version of Mscorlib.dll is greater than or equal to 2.0.50727.3053" test_ref="oval:org.mitre.oval:tst:10028"/>
+    <criterion comment="The version of Mscorlib.dll is greater than or equal to 2.0.50727.3053" test_ref="oval:org.mitre.oval:tst:10028" />
   </criteria>
 </definition>

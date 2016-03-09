@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28210" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28210" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0675 -- sudo security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0675.html" ref_id="ELSA-2010-0675"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2956" ref_id="CVE-2010-2956"/>
+    <reference ref_id="ELSA-2010-0675" ref_url="http://linux.oracle.com/errata/ELSA-2010-0675.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-2956" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2956" source="CVE" />
     <description>[1.7.2p1-8]
 - added patch for CVE-2010-2956 (#628628)</description>
     <oval_repository>
@@ -24,10 +23,11 @@
         <status_change date="2015-02-10T20:13:39.269-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="sudo is earlier than 0:1.7.2p1-8.el5_5" test_ref="oval:org.mitre.oval:tst:134218"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="sudo is earlier than 0:1.7.2p1-8.el5_5" test_ref="oval:org.mitre.oval:tst:134218" />
   </criteria>
 </definition>

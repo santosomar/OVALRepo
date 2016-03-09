@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26931" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:26931" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0481 -- kernel security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0481.html" ref_id="ELSA-2012-0481"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0879" ref_id="CVE-2012-0879"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1090" ref_id="CVE-2012-1090"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1097" ref_id="CVE-2012-1097"/>
+    <reference ref_id="ELSA-2012-0481" ref_url="http://linux.oracle.com/errata/ELSA-2012-0481.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0879" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0879" source="CVE" />
+    <reference ref_id="CVE-2012-1090" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1090" source="CVE" />
+    <reference ref_id="CVE-2012-1097" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1097" source="CVE" />
     <description>[2.6.32-220.13.1.el6]
 - Revert: [fs] NFSv4: include bitmap in nfsv4 get acl data (Sachin Prabhu) [753231 753232] {CVE-2011-4131}
 
@@ -29,7 +28,7 @@
 - [net] tcp: bind() fix autoselection to share ports (Flavio Leitner) [787764 784671]
 - [fs] cifs: change oplock break slow work to very slow work (Jeff Layton) [789373 772874]
 - [net] sunrpc: remove xpt_pool (J. Bruce Fields) [795338 753301]
-- [net] Potential null skb->dev dereference (Flavio Leitner) [795335 769590]
+- [net] Potential null skb-&gt;dev dereference (Flavio Leitner) [795335 769590]
 - [net] pkt_sched: Fix sch_sfq vs tcf_bind_filter oops (Jiri Pirko) [786873 667925]
 - [net] mac80211: cancel auth retries when deauthenticating (John Linville) [797241 754356]</description>
     <oval_repository>
@@ -46,20 +45,21 @@
         <status_change date="2015-02-10T14:38:56.251-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131882"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132472"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132544"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131960"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132583"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132509"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131824"/>
-      <criterion comment="perf is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131996"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132325"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131882" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132472" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132544" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131960" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132583" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132509" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131824" />
+      <criterion comment="perf is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:131996" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-220.13.1.el6" test_ref="oval:org.mitre.oval:tst:132325" />
     </criteria>
   </criteria>
 </definition>

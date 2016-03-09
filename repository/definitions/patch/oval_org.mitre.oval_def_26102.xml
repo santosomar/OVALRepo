@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26102" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26102" version="6">
   <metadata>
     <title>End of life cycle for Microsoft Commerce Server 2002</title>
     <affected family="windows">
@@ -12,7 +11,7 @@
       <platform>Microsoft Windows Server 2008 R2</platform>
       <product>Microsoft Commerce Server 2002</product>
     </affected>
-    <reference source="VENDOR" ref_id="Microsoft Commerce Server 2002" ref_url="http://support.microsoft.com/lifecycle/?p1=1552"/>
+    <reference ref_id="Microsoft Commerce Server 2002" ref_url="http://support.microsoft.com/lifecycle/?p1=1552" source="VENDOR" />
     <description>Product Microsoft Commerce Server 2002 not longer supported</description>
     <oval_repository>
       <dates>
@@ -24,9 +23,10 @@
         <status_change date="2014-09-22T04:00:38.203-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Microsoft Commerce Server 2002 is installed" definition_ref="oval:org.mitre.oval:def:15304"/>
+    <extend_definition comment="Microsoft Commerce Server 2002 is installed" definition_ref="oval:org.mitre.oval:def:15304" />
   </criteria>
 </definition>

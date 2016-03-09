@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28378" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28378" version="4">
   <metadata>
     <title>ELSA-2014-1873 -- libvirt security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1873.html" ref_id="ELSA-2014-1873"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" ref_id="CVE-2014-3633"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" ref_id="CVE-2014-3657"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7823" ref_id="CVE-2014-7823"/>
+    <reference ref_id="ELSA-2014-1873" ref_url="http://linux.oracle.com/errata/ELSA-2014-1873.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3633" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" source="CVE" />
+    <reference ref_id="CVE-2014-3657" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" source="CVE" />
+    <reference ref_id="CVE-2014-7823" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7823" source="CVE" />
     <description>[0.10.2-46.0.1.el6_6.2]
 - Replace docs/et.png in tarball with blank image
 
@@ -30,16 +29,17 @@
         <status_change date="2015-01-26T04:00:40.627-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libvirt is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:136009"/>
-      <criterion comment="libvirt-client is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135949"/>
-      <criterion comment="libvirt-devel is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135675"/>
-      <criterion comment="libvirt-python is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135974"/>
-      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135954"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libvirt is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:136009" />
+      <criterion comment="libvirt-client is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135949" />
+      <criterion comment="libvirt-devel is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135675" />
+      <criterion comment="libvirt-python is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135974" />
+      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-46.0.1.el6_6.2" test_ref="oval:org.mitre.oval:tst:135954" />
     </criteria>
   </criteria>
 </definition>

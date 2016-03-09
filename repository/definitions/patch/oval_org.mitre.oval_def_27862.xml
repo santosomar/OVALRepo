@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27862" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27862" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0152 -- kexec-tools security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kexec-tools</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0152.html" ref_id="ELSA-2012-0152"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3588" ref_id="CVE-2011-3588"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3589" ref_id="CVE-2011-3589"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3590" ref_id="CVE-2011-3590"/>
+    <reference ref_id="ELSA-2012-0152" ref_url="http://linux.oracle.com/errata/ELSA-2012-0152.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3588" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3588" source="CVE" />
+    <reference ref_id="CVE-2011-3589" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3589" source="CVE" />
+    <reference ref_id="CVE-2011-3590" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3590" source="CVE" />
     <description>[1.102pre-154.0.3]
 - mkdumprd.orig get packed, remove it.
 
@@ -43,10 +42,11 @@ Merge following patches from mkinitrd:
         <status_change date="2015-02-10T18:51:56.234-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="kexec-tools is earlier than 0:1.102pre-154.0.3.el5" test_ref="oval:org.mitre.oval:tst:132413"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="kexec-tools is earlier than 0:1.102pre-154.0.3.el5" test_ref="oval:org.mitre.oval:tst:132413" />
   </criteria>
 </definition>

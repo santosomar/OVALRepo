@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18533" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18533" version="6">
   <metadata>
     <title>DSA-1376-1 kdebase - programming error</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>kdebase</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1376-1" ref_id="DSA-1376-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4569" ref_id="CVE-2007-4569"/>
+    <reference ref_id="DSA-1376-1" ref_url="http://www.debian.org/security/dsa-1376-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-4569" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4569" source="CVE" />
     <description>iKees Huijgen discovered that under certain circumstances KDM, an X session manager for KDE, could be tricked into allowing user logins without a password.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-06-23T04:04:48.510-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="kdebase DPKG is earlier than 4:3.5.5a.dfsg.1-6etch1" test_ref="oval:org.mitre.oval:tst:86436"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="kdebase DPKG is earlier than 4:3.5.5a.dfsg.1-6etch1" test_ref="oval:org.mitre.oval:tst:86436" />
   </criteria>
 </definition>

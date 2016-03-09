@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7998" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7998" version="6">
   <metadata>
     <title>DSA-1481 python-cherrypy -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>python-cherrypy</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1481" ref_id="DSA-1481"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0252" ref_id="CVE-2008-0252"/>
+    <reference ref_id="DSA-1481" ref_url="http://www.debian.org/security/2008/dsa-1481" source="VENDOR" />
+    <reference ref_id="CVE-2008-0252" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0252" source="CVE" />
     <description>It was discovered that a directory traversal vulnerability in CherryPy, a pythonic, object-oriented web development framework, may lead to denial of service by deleting files through malicious session IDs in cookies. The old stable distribution (sarge) doesn't contain python-cherrypy.</description>
     <oval_repository>
       <dates>
@@ -24,11 +23,12 @@
         <status_change date="2014-06-23T04:09:42.921-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="python-cherrypy is earlier than 2.2.1-3etch1" test_ref="oval:org.mitre.oval:tst:14773"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="python-cherrypy is earlier than 2.2.1-3etch1" test_ref="oval:org.mitre.oval:tst:14773" />
   </criteria>
 </definition>

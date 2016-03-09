@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22813" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22813" version="8">
   <metadata>
     <title>ELSA-2010:0679: rpm security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>rpm</product>
     </affected>
-    <reference ref_id="ELSA-2010:0679-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0679.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-2059" ref_url="http://linux.oracle.com/cve/CVE-2010-2059.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0679-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0679.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-2059" ref_url="http://linux.oracle.com/cve/CVE-2010-2059.html" source="CVE" />
     <description>lib/fsm.c in RPM 4.8.0 and unspecified 4.7.x and 4.6.x versions, and RPM before 4.4.3, does not properly reset the metadata of an executable file during replacement of the file in an RPM package upgrade, which might allow local users to gain privileges by creating a hard link to a vulnerable (1) setuid or (2) setgid file.</description>
     <oval_repository>
       <dates>
@@ -24,18 +23,19 @@
         <status_change date="2014-05-26T04:02:19.851-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="rpm-devel is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103806"/>
-      <criterion comment="rpm-python is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103836"/>
-      <criterion comment="rpm is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:104231"/>
-      <criterion comment="rpm-libs is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103668"/>
-      <criterion comment="rpm-apidocs is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:104293"/>
-      <criterion comment="popt is earlier than 0:1.10.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103847"/>
-      <criterion comment="rpm-build is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103899"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="rpm-devel is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103806" />
+      <criterion comment="rpm-python is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103836" />
+      <criterion comment="rpm is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:104231" />
+      <criterion comment="rpm-libs is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103668" />
+      <criterion comment="rpm-apidocs is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:104293" />
+      <criterion comment="popt is earlier than 0:1.10.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103847" />
+      <criterion comment="rpm-build is earlier than 0:4.4.2.3-20.el5_5.1" test_ref="oval:org.mitre.oval:tst:103899" />
     </criteria>
   </criteria>
 </definition>

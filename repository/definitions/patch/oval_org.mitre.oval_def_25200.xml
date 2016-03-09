@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25200" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25200" version="6">
   <metadata>
     <title>ELSA-2014:0426: qemu-kvm security update (Moderate)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <product>qemu</product>
       <product>qemu-kvm</product>
     </affected>
-    <reference ref_id="ELSA-2014:0426-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0426.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-0142" ref_url="http://linux.oracle.com/cve/CVE-2014-0142.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0143" ref_url="http://linux.oracle.com/cve/CVE-2014-0143.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0144" ref_url="http://linux.oracle.com/cve/CVE-2014-0144.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0145" ref_url="http://linux.oracle.com/cve/CVE-2014-0145.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0146" ref_url="http://linux.oracle.com/cve/CVE-2014-0146.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0147" ref_url="http://linux.oracle.com/cve/CVE-2014-0147.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0148" ref_url="http://linux.oracle.com/cve/CVE-2014-0148.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0150" ref_url="http://linux.oracle.com/cve/CVE-2014-0150.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0426-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0426.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0142" ref_url="http://linux.oracle.com/cve/CVE-2014-0142.html" source="CVE" />
+    <reference ref_id="CVE-2014-0143" ref_url="http://linux.oracle.com/cve/CVE-2014-0143.html" source="CVE" />
+    <reference ref_id="CVE-2014-0144" ref_url="http://linux.oracle.com/cve/CVE-2014-0144.html" source="CVE" />
+    <reference ref_id="CVE-2014-0145" ref_url="http://linux.oracle.com/cve/CVE-2014-0145.html" source="CVE" />
+    <reference ref_id="CVE-2014-0146" ref_url="http://linux.oracle.com/cve/CVE-2014-0146.html" source="CVE" />
+    <reference ref_id="CVE-2014-0147" ref_url="http://linux.oracle.com/cve/CVE-2014-0147.html" source="CVE" />
+    <reference ref_id="CVE-2014-0148" ref_url="http://linux.oracle.com/cve/CVE-2014-0148.html" source="CVE" />
+    <reference ref_id="CVE-2014-0150" ref_url="http://linux.oracle.com/cve/CVE-2014-0150.html" source="CVE" />
     <description>KVM (Kernel-based Virtual Machine) is a full virtualization solution for
 Linux on AMD64 and Intel 64 systems. qemu-kvm is the user-space component
 for running virtual machines using KVM.
@@ -37,15 +36,16 @@ have shut down, start them again for this update to take effect.</description>
         <status_change date="2014-09-01T04:03:03.806-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="qemu-guest-agent is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115512"/>
-      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115617"/>
-      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:114671"/>
-      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115473"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="qemu-guest-agent is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115512" />
+      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115617" />
+      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:114671" />
+      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:115473" />
     </criteria>
   </criteria>
 </definition>

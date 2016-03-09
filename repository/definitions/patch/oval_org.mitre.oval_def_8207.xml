@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8207" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8207" version="6">
   <metadata>
     <title>DSA-1644 mplayer -- integer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>mplayer</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1644" ref_id="DSA-1644"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3827" ref_id="CVE-2008-3827"/>
+    <reference ref_id="DSA-1644" ref_url="http://www.debian.org/security/2008/dsa-1644" source="VENDOR" />
+    <reference ref_id="CVE-2008-3827" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3827" source="CVE" />
     <description>Felipe Andres Manzano discovered that mplayer, a multimedia player, is vulnerable to several integer overflows in the Real video stream demuxing code. These flaws could allow an attacker to cause a denial of service (a crash) or potentially execution of arbitrary code by supplying a maliciously crafted video file.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-06-23T04:10:22.586-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="mplayer-doc is earlier than 1.0~rc1-12etch5" test_ref="oval:org.mitre.oval:tst:17007"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="mplayer-doc is earlier than 1.0~rc1-12etch5" test_ref="oval:org.mitre.oval:tst:17007" />
       </criteria>
-      <criterion comment="mplayer is earlier than 1.0~rc1-12etch5" test_ref="oval:org.mitre.oval:tst:17243"/>
+      <criterion comment="mplayer is earlier than 1.0~rc1-12etch5" test_ref="oval:org.mitre.oval:tst:17243" />
     </criteria>
   </criteria>
 </definition>

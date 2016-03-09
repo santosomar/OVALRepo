@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7855" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7855" version="6">
   <metadata>
     <title>DSA-1944 request-tracker3.4 request-tracker3.6 -- session hijack</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>request-tracker3.4</product>
       <product>request-tracker3.6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1944" ref_id="DSA-1944"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3585" ref_id="CVE-2009-3585"/>
+    <reference ref_id="DSA-1944" ref_url="http://www.debian.org/security/2009/dsa-1944" source="VENDOR" />
+    <reference ref_id="CVE-2009-3585" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3585" source="CVE" />
     <description>Mikal Gule discovered that request-tracker, an extensible trouble-ticket tracking system, is prone to an attack, where an attacker with access to the same domain can hijack a user's RT session.</description>
     <oval_repository>
       <dates>
@@ -26,33 +25,34 @@
         <status_change date="2014-06-23T04:09:04.704-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="rt3.6-db-sqlite is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11777"/>
-        <criterion comment="rt3.6-db-postgresql is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11982"/>
-        <criterion comment="request-tracker3.6 is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11615"/>
-        <criterion comment="rt3.6-apache2 is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11592"/>
-        <criterion comment="rt3.6-db-mysql is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11973"/>
-        <criterion comment="rt3.6-clients is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11992"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="rt3.6-db-sqlite is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11777" />
+        <criterion comment="rt3.6-db-postgresql is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11982" />
+        <criterion comment="request-tracker3.6 is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11615" />
+        <criterion comment="rt3.6-apache2 is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11592" />
+        <criterion comment="rt3.6-db-mysql is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11973" />
+        <criterion comment="rt3.6-clients is earlier than 3.6.7-5+lenny3" test_ref="oval:org.mitre.oval:tst:11992" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="request-tracker3.4 is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:41392"/>
-        <criterion comment="rt3.4-clients is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:12032"/>
-        <criterion comment="rt3.4-apache is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:11061"/>
-        <criterion comment="rt3.6-apache2 is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11805"/>
-        <criterion comment="rt3.4-apache2 is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:11518"/>
-        <criterion comment="rt3.6-apache is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11630"/>
-        <criterion comment="request-tracker3.6 is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11813"/>
-        <criterion comment="rt3.6-clients is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11867"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="request-tracker3.4 is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:41392" />
+        <criterion comment="rt3.4-clients is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:12032" />
+        <criterion comment="rt3.4-apache is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:11061" />
+        <criterion comment="rt3.6-apache2 is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11805" />
+        <criterion comment="rt3.4-apache2 is earlier than 3.4.5-2+etch1" test_ref="oval:org.mitre.oval:tst:11518" />
+        <criterion comment="rt3.6-apache is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11630" />
+        <criterion comment="request-tracker3.6 is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11813" />
+        <criterion comment="rt3.6-clients is earlier than 3.6.1-4+etch1" test_ref="oval:org.mitre.oval:tst:11867" />
       </criteria>
     </criteria>
   </criteria>

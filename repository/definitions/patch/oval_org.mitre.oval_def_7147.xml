@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7147" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7147" version="7">
   <metadata>
     <title>DSA-2010 kvm -- privilege escalation/denial of service</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2010/dsa-2010" ref_id="DSA-2010"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0298" ref_id="CVE-2010-0298"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0306" ref_id="CVE-2010-0306"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0309" ref_id="CVE-2010-0309"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0419" ref_id="CVE-2010-0419"/>
+    <reference ref_id="DSA-2010" ref_url="http://www.debian.org/security/2010/dsa-2010" source="VENDOR" />
+    <reference ref_id="CVE-2010-0298" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0298" source="CVE" />
+    <reference ref_id="CVE-2010-0306" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0306" source="CVE" />
+    <reference ref_id="CVE-2010-0309" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0309" source="CVE" />
+    <reference ref_id="CVE-2010-0419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0419" source="CVE" />
     <description>Several local vulnerabilities have been discovered in kvm, a full virtualization system. The Common Vulnerabilities and Exposures project identifies the following problems: Gleb Natapov discovered issues in the KVM subsystem where missing permission checks permit a user in a guest system to denial of service a guest or gain escalated privileges with the guest. Marcelo Tosatti fixed an issue in the PIT emulation code in the KVM subsystem that allows privileged users in a guest domain to cause a denial of service of the host system. Paolo Bonzini found a bug in KVM that can be used to bypass proper permission checking while loading segment selectors. This potentially allows privileged guest users to execute privileged instructions on the host system.</description>
     <oval_repository>
       <dates>
@@ -27,21 +26,22 @@
         <status_change date="2014-06-23T04:08:07.298-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="kvm-source is earlier than 72+dfsg-5~lenny5" test_ref="oval:org.mitre.oval:tst:24786"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="kvm-source is earlier than 72+dfsg-5~lenny5" test_ref="oval:org.mitre.oval:tst:24786" />
       </criteria>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
         </criteria>
-        <criterion comment="kvm is earlier than 72+dfsg-5~lenny5" test_ref="oval:org.mitre.oval:tst:25412"/>
+        <criterion comment="kvm is earlier than 72+dfsg-5~lenny5" test_ref="oval:org.mitre.oval:tst:25412" />
       </criteria>
     </criteria>
   </criteria>

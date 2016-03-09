@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21941" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21941" version="31">
   <metadata>
     <title>RHSA-2011:1359: xorg-x11-server security update (Moderate)</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>CentOS Linux 6</platform>
       <product>xorg-x11-server</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1359-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1359.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1359"/>
-    <reference source="CVE" ref_id="CVE-2010-4818" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4818.html"/>
-    <reference source="CVE" ref_id="CVE-2010-4819" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4819.html"/>
+    <reference ref_id="RHSA-2011:1359-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1359.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1359" source="CESA" />
+    <reference ref_id="CVE-2010-4818" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4818.html" source="CVE" />
+    <reference ref_id="CVE-2010-4819" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4819.html" source="CVE" />
     <description>The ProcRenderAddGlyphs function in the Render extension (render/render.c) in X.Org xserver 1.7.7 and earlier allows local users to read arbitrary memory and possibly cause a denial of service (server crash) via unspecified vectors related to an "input sanitization flaw."</description>
     <oval_repository>
       <dates>
@@ -24,37 +23,38 @@
         <status_change date="2014-02-24T04:02:24.262-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98548"/>
-        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98052"/>
-        <criterion comment="xorg-x11-server is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98513"/>
-        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:97946"/>
-        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98353"/>
-        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98602"/>
-        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98218"/>
-        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98585"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98548" />
+        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98052" />
+        <criterion comment="xorg-x11-server is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98513" />
+        <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:97946" />
+        <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98353" />
+        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98602" />
+        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98218" />
+        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.76.el5_7.5" test_ref="oval:org.mitre.oval:tst:98585" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98416"/>
-        <criterion comment="xorg-x11-server-devel is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98092"/>
-        <criterion comment="xorg-x11-server-source is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98622"/>
-        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98509"/>
-        <criterion comment="xorg-x11-server is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:97660"/>
-        <criterion comment="xorg-x11-server-common is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98366"/>
-        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98518"/>
-        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:97703"/>
-        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98579"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98416" />
+        <criterion comment="xorg-x11-server-devel is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98092" />
+        <criterion comment="xorg-x11-server-source is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98622" />
+        <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98509" />
+        <criterion comment="xorg-x11-server is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:97660" />
+        <criterion comment="xorg-x11-server-common is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98366" />
+        <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98518" />
+        <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:97703" />
+        <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.7.7-29.el6_1.2" test_ref="oval:org.mitre.oval:tst:98579" />
       </criteria>
     </criteria>
   </criteria>

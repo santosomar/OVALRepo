@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23089" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23089" version="8">
   <metadata>
     <title>ELSA-2013:1213: gdm security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <product>gdm</product>
       <product>initscripts</product>
     </affected>
-    <reference ref_id="ELSA-2013:1213-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1213.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-4169" ref_url="http://linux.oracle.com/cve/CVE-2013-4169.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1213-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1213.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4169" ref_url="http://linux.oracle.com/cve/CVE-2013-4169.html" source="CVE" />
     <description>GNOME Display Manager (gdm) before 2.21.1 allows local users to change permissions of arbitrary directories via a symlink attack on /tmp/.X11-unix/.</description>
     <oval_repository>
       <dates>
@@ -25,14 +24,15 @@
         <status_change date="2014-05-26T04:03:21.573-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="initscripts is earlier than 0:8.45.42-2.el5_9.1" test_ref="oval:org.mitre.oval:tst:107388"/>
-      <criterion comment="gdm is earlier than 1:2.16.0-59.el5_9.1" test_ref="oval:org.mitre.oval:tst:107711"/>
-      <criterion comment="gdm-docs is earlier than 1:2.16.0-59.el5_9.1" test_ref="oval:org.mitre.oval:tst:107139"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="initscripts is earlier than 0:8.45.42-2.el5_9.1" test_ref="oval:org.mitre.oval:tst:107388" />
+      <criterion comment="gdm is earlier than 1:2.16.0-59.el5_9.1" test_ref="oval:org.mitre.oval:tst:107711" />
+      <criterion comment="gdm-docs is earlier than 1:2.16.0-59.el5_9.1" test_ref="oval:org.mitre.oval:tst:107139" />
     </criteria>
   </criteria>
 </definition>

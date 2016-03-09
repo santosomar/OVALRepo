@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25261" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25261" version="8">
   <metadata>
     <title>RHSA-2014:0786: kernel security, bug fix, and enhancement update (Important)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <platform>CentOS Linux 7</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0786-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0786.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0206" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0206.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1737" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1737.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1738" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1738.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2568" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2568.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2851" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2851.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3144" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3144.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3145" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3145.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3153" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3153.html"/>
+    <reference ref_id="RHSA-2014:0786-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0786.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0206" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0206.html" source="CVE" />
+    <reference ref_id="CVE-2014-1737" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1737.html" source="CVE" />
+    <reference ref_id="CVE-2014-1738" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1738.html" source="CVE" />
+    <reference ref_id="CVE-2014-2568" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2568.html" source="CVE" />
+    <reference ref_id="CVE-2014-2851" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2851.html" source="CVE" />
+    <reference ref_id="CVE-2014-3144" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3144.html" source="CVE" />
+    <reference ref_id="CVE-2014-3145" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3145.html" source="CVE" />
+    <reference ref_id="CVE-2014-3153" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3153.html" source="CVE" />
     <description>The kernel packages contain the Linux kernel, the core of any Linux
 operating system.
 
@@ -104,32 +103,33 @@ enhancements. The system must be rebooted for this update to take effect.</descr
         <status_change date="2014-09-08T04:01:28.457-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="RHEL 7">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="kernel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116020"/>
-        <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116155"/>
-        <criterion comment="kernel-tools is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116168"/>
-        <criterion comment="kernel-kdump-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115990"/>
-        <criterion comment="kernel-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116254"/>
-        <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116013"/>
-        <criterion comment="kernel-kdump is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115937"/>
-        <criterion comment="kernel-headers is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116189"/>
-        <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115627"/>
-        <criterion comment="kernel-doc is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115966"/>
-        <criterion comment="python-perf is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116137"/>
-        <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115792"/>
-        <criterion comment="kernel-debug is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115805"/>
-        <criterion comment="kernel-bootwrapper is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116246"/>
-        <criterion comment="perf is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116122"/>
+    <criteria comment="RHEL 7" operator="AND">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="kernel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116020" />
+        <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116155" />
+        <criterion comment="kernel-tools is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116168" />
+        <criterion comment="kernel-kdump-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115990" />
+        <criterion comment="kernel-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116254" />
+        <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116013" />
+        <criterion comment="kernel-kdump is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115937" />
+        <criterion comment="kernel-headers is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116189" />
+        <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115627" />
+        <criterion comment="kernel-doc is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115966" />
+        <criterion comment="python-perf is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116137" />
+        <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115792" />
+        <criterion comment="kernel-debug is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:115805" />
+        <criterion comment="kernel-bootwrapper is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116246" />
+        <criterion comment="perf is earlier than 0:3.10.0-123.4.2.el7" test_ref="oval:org.mitre.oval:tst:116122" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="CentOS 7">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
-      <criterion comment="kernel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:115764"/>
+    <criteria comment="CentOS 7" operator="AND">
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
+      <criterion comment="kernel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:115764" />
     </criteria>
   </criteria>
 </definition>

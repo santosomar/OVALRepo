@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27159" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27159" version="4">
   <metadata>
     <title>RHSA-2014:1397: rsyslog security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 7</platform>
       <product>rsyslog</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1397-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1397.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1397"/>
-    <reference source="CVE" ref_id="CVE-2014-3634" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3634.html"/>
+    <reference ref_id="RHSA-2014:1397-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1397.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1397" source="CESA" />
+    <reference ref_id="CVE-2014-3634" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3634.html" source="CVE" />
     <description>The rsyslog packages provide an enhanced, multi-threaded syslog daemon
 that supports writing to relational databases, syslog/TCP, RFC 3195,
 permitted sender lists, filtering on any message part, and fine grained
@@ -37,30 +36,31 @@ update, the rsyslog service will be restarted automatically.</description>
         <status_change date="2014-11-24T04:02:33.725-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 7 or Centos 7 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+    <criteria comment="Redhat 7 or Centos 7 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="rsyslog is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124605"/>
-      <criterion comment="rsyslog-crypto is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125292"/>
-      <criterion comment="rsyslog-doc is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124352"/>
-      <criterion comment="rsyslog-elasticsearch is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125019"/>
-      <criterion comment="rsyslog-gnutls is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124400"/>
-      <criterion comment="rsyslog-gssapi is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124697"/>
-      <criterion comment="rsyslog-libdbi is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124993"/>
-      <criterion comment="rsyslog-mmaudit is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125119"/>
-      <criterion comment="rsyslog-mmjsonparse is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125176"/>
-      <criterion comment="rsyslog-mmnormalize is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125110"/>
-      <criterion comment="rsyslog-mmsnmptrapd is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125096"/>
-      <criterion comment="rsyslog-mysql is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125083"/>
-      <criterion comment="rsyslog-pgsql is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125312"/>
-      <criterion comment="rsyslog-relp is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125100"/>
-      <criterion comment="rsyslog-snmp is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124924"/>
-      <criterion comment="rsyslog-udpspoof is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125141"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="rsyslog is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124605" />
+      <criterion comment="rsyslog-crypto is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125292" />
+      <criterion comment="rsyslog-doc is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124352" />
+      <criterion comment="rsyslog-elasticsearch is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125019" />
+      <criterion comment="rsyslog-gnutls is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124400" />
+      <criterion comment="rsyslog-gssapi is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124697" />
+      <criterion comment="rsyslog-libdbi is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124993" />
+      <criterion comment="rsyslog-mmaudit is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125119" />
+      <criterion comment="rsyslog-mmjsonparse is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125176" />
+      <criterion comment="rsyslog-mmnormalize is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125110" />
+      <criterion comment="rsyslog-mmsnmptrapd is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125096" />
+      <criterion comment="rsyslog-mysql is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125083" />
+      <criterion comment="rsyslog-pgsql is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125312" />
+      <criterion comment="rsyslog-relp is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125100" />
+      <criterion comment="rsyslog-snmp is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:124924" />
+      <criterion comment="rsyslog-udpspoof is earlier than 0:7.4.7-7.el7_0" test_ref="oval:org.mitre.oval:tst:125141" />
     </criteria>
   </criteria>
 </definition>

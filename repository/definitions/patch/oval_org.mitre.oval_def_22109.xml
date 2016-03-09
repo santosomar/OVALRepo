@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22109" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22109" version="6">
   <metadata>
     <title>RHSA-2011:1242: firefox security update (Important)</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>CentOS Linux 6</platform>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1242-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1242.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1242"/>
+    <reference ref_id="RHSA-2011:1242-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1242.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1242" source="CESA" />
     <description>Mozilla Firefox is an open source web browser. XULRunner provides the XUL
 Runtime environment for Mozilla Firefox.
 
@@ -39,24 +38,25 @@ for the changes to take effect.</description>
         <status_change date="2014-06-30T04:09:46.417-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.20-3.el5_7" test_ref="oval:org.mitre.oval:tst:98420"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.20-3.el5_7" test_ref="oval:org.mitre.oval:tst:97841"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.20-3.el5_7" test_ref="oval:org.mitre.oval:tst:98420" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.20-3.el5_7" test_ref="oval:org.mitre.oval:tst:97841" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.20-3.el6_1" test_ref="oval:org.mitre.oval:tst:98240"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.20-3.el6_1" test_ref="oval:org.mitre.oval:tst:98391"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.20-3.el6_1" test_ref="oval:org.mitre.oval:tst:98240" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.20-3.el6_1" test_ref="oval:org.mitre.oval:tst:98391" />
       </criteria>
     </criteria>
   </criteria>

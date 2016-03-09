@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23702" version="65" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23702" version="68">
   <metadata>
     <title>ELSA-2011:0471: firefox security update (Critical)</title>
     <affected family="unix">
@@ -7,22 +6,22 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference ref_id="ELSA-2011:0471-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0471.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-0065" ref_url="http://linux.oracle.com/cve/CVE-2011-0065.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0066" ref_url="http://linux.oracle.com/cve/CVE-2011-0066.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0067" ref_url="http://linux.oracle.com/cve/CVE-2011-0067.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0069" ref_url="http://linux.oracle.com/cve/CVE-2011-0069.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0070" ref_url="http://linux.oracle.com/cve/CVE-2011-0070.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0071" ref_url="http://linux.oracle.com/cve/CVE-2011-0071.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0072" ref_url="http://linux.oracle.com/cve/CVE-2011-0072.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0073" ref_url="http://linux.oracle.com/cve/CVE-2011-0073.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0074" ref_url="http://linux.oracle.com/cve/CVE-2011-0074.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0075" ref_url="http://linux.oracle.com/cve/CVE-2011-0075.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0077" ref_url="http://linux.oracle.com/cve/CVE-2011-0077.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0078" ref_url="http://linux.oracle.com/cve/CVE-2011-0078.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0080" ref_url="http://linux.oracle.com/cve/CVE-2011-0080.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0081" ref_url="http://linux.oracle.com/cve/CVE-2011-0081.html" source="CVE"/>
-    <reference ref_id="CVE-2011-1202" ref_url="http://linux.oracle.com/cve/CVE-2011-1202.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0471-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0471.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0065" ref_url="http://linux.oracle.com/cve/CVE-2011-0065.html" source="CVE" />
+    <reference ref_id="CVE-2011-0066" ref_url="http://linux.oracle.com/cve/CVE-2011-0066.html" source="CVE" />
+    <reference ref_id="CVE-2011-0067" ref_url="http://linux.oracle.com/cve/CVE-2011-0067.html" source="CVE" />
+    <reference ref_id="CVE-2011-0069" ref_url="http://linux.oracle.com/cve/CVE-2011-0069.html" source="CVE" />
+    <reference ref_id="CVE-2011-0070" ref_url="http://linux.oracle.com/cve/CVE-2011-0070.html" source="CVE" />
+    <reference ref_id="CVE-2011-0071" ref_url="http://linux.oracle.com/cve/CVE-2011-0071.html" source="CVE" />
+    <reference ref_id="CVE-2011-0072" ref_url="http://linux.oracle.com/cve/CVE-2011-0072.html" source="CVE" />
+    <reference ref_id="CVE-2011-0073" ref_url="http://linux.oracle.com/cve/CVE-2011-0073.html" source="CVE" />
+    <reference ref_id="CVE-2011-0074" ref_url="http://linux.oracle.com/cve/CVE-2011-0074.html" source="CVE" />
+    <reference ref_id="CVE-2011-0075" ref_url="http://linux.oracle.com/cve/CVE-2011-0075.html" source="CVE" />
+    <reference ref_id="CVE-2011-0077" ref_url="http://linux.oracle.com/cve/CVE-2011-0077.html" source="CVE" />
+    <reference ref_id="CVE-2011-0078" ref_url="http://linux.oracle.com/cve/CVE-2011-0078.html" source="CVE" />
+    <reference ref_id="CVE-2011-0080" ref_url="http://linux.oracle.com/cve/CVE-2011-0080.html" source="CVE" />
+    <reference ref_id="CVE-2011-0081" ref_url="http://linux.oracle.com/cve/CVE-2011-0081.html" source="CVE" />
+    <reference ref_id="CVE-2011-1202" ref_url="http://linux.oracle.com/cve/CVE-2011-1202.html" source="CVE" />
     <description>The xsltGenerateIdFunction function in functions.c in libxslt 1.1.26 and earlier, as used in Google Chrome before 10.0.648.127 and other products, allows remote attackers to obtain potentially sensitive information about heap memory addresses via an XML document containing a call to the XSLT generate-id XPath function.</description>
     <oval_repository>
       <dates>
@@ -39,14 +38,15 @@
         <status_change date="2014-05-26T04:05:13.029-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="firefox is earlier than 0:3.6.17-1.el6_0" test_ref="oval:org.mitre.oval:tst:108829"/>
-      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.17-4.el6_0" test_ref="oval:org.mitre.oval:tst:108469"/>
-      <criterion comment="xulrunner is earlier than 0:1.9.2.17-4.el6_0" test_ref="oval:org.mitre.oval:tst:108112"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="firefox is earlier than 0:3.6.17-1.el6_0" test_ref="oval:org.mitre.oval:tst:108829" />
+      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.17-4.el6_0" test_ref="oval:org.mitre.oval:tst:108469" />
+      <criterion comment="xulrunner is earlier than 0:1.9.2.17-4.el6_0" test_ref="oval:org.mitre.oval:tst:108112" />
     </criteria>
   </criteria>
 </definition>

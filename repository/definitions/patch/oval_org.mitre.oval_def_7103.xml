@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7103" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7103" version="8">
   <metadata>
     <title>DSA-2032 libpng -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>libpng</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2010/dsa-2032" ref_id="DSA-2032"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2042" ref_id="CVE-2009-2042"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0205" ref_id="CVE-2010-0205"/>
+    <reference ref_id="DSA-2032" ref_url="http://www.debian.org/security/2010/dsa-2032" source="VENDOR" />
+    <reference ref_id="CVE-2009-2042" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2042" source="CVE" />
+    <reference ref_id="CVE-2010-0205" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0205" source="CVE" />
     <description>Several vulnerabilities have been discovered in libpng, a library for reading and writing PNG files. The Common Vulnerabilities and Exposures project identifies the following problems: libpng does not properly parse 1-bit interlaced images with width values that are not divisible by 8, which causes libpng to include uninitialised bits in certain rows of a PNG file and might allow remote attackers to read portions of sensitive memory via "out-of-bounds pixels" in the file. libpng does not properly handle compressed ancillary-chunk data that has a disproportionately large uncompressed representation, which allows remote attackers to cause a denial of service via a crafted PNG file</description>
     <oval_repository>
       <dates>
@@ -25,32 +24,33 @@
         <status_change date="2014-06-23T04:08:05.817-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="libpng3 is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26889"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="libpng3 is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26889" />
       </criteria>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="libpng12-dev is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26982"/>
-          <criterion comment="libpng12-0 is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26975"/>
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="libpng12-dev is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26982" />
+          <criterion comment="libpng12-0 is earlier than 1.2.27-2+lenny3" test_ref="oval:org.mitre.oval:tst:26975" />
         </criteria>
       </criteria>
     </criteria>

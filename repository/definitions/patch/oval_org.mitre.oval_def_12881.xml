@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12881" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12881" version="8">
   <metadata>
     <title>DSA-1759-1 strongswan -- denial of service</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>strongswan</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00069.html" ref_id="DSA-1759-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0790" ref_id="CVE-2009-0790"/>
+    <reference ref_id="DSA-1759-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00069.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0790" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0790" source="CVE" />
     <description>Gerd v. Egidy discovered that the Pluto IKE daemon in strongswan, an IPSec implementation for linux, is prone to a denial of service attack via a malicious packet. For the stable distribution, this problem has been fixed in version 4.2.4-5+lenny1. For the oldstable distribution, this problem has been fixed in version 2.8.0+dfsg-1+etch1. For the testing distribution and the unstable distribution, this problem will be fixed soon. We recommend that you upgrade your strongswan packages.</description>
     <oval_repository>
       <dates>
@@ -25,30 +24,31 @@
         <status_change date="2014-06-23T04:01:02.199-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
       </criteria>
-      <criterion comment="strongswan DPKG is earlier than 4.2.4-5+lenny1" test_ref="oval:org.mitre.oval:tst:49258"/>
+      <criterion comment="strongswan DPKG is earlier than 4.2.4-5+lenny1" test_ref="oval:org.mitre.oval:tst:49258" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="strongswan DPKG is earlier than 2.8.0+dfsg-1+etch1" test_ref="oval:org.mitre.oval:tst:49168"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="strongswan DPKG is earlier than 2.8.0+dfsg-1+etch1" test_ref="oval:org.mitre.oval:tst:49168" />
     </criteria>
   </criteria>
 </definition>

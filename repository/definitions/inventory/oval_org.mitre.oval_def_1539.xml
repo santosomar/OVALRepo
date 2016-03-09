@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:1539" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:1539" version="4">
   <metadata>
     <title>Solaris 8 (SPARC) is installed</title>
     <affected family="unix">
       <platform>Sun Solaris 8</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:sun:sunos:5.8::sparc"/>
+    <reference ref_id="cpe:/o:sun:sunos:5.8::sparc" source="CPE" />
     <description>The operating system installed on the system is Sun Solaris 8 for SPARC.</description>
     <oval_repository>
       <dates>
@@ -17,10 +16,11 @@
         <status_change date="2007-08-01T22:26:14.211-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Solaris 8 Installed" test_ref="oval:org.mitre.oval:tst:3437"/>
-    <criterion comment="sparc architecture" test_ref="oval:org.mitre.oval:tst:3237"/>
+    <criterion comment="Solaris 8 Installed" test_ref="oval:org.mitre.oval:tst:3437" />
+    <criterion comment="sparc architecture" test_ref="oval:org.mitre.oval:tst:3237" />
   </criteria>
 </definition>

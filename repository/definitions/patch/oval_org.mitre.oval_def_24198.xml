@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24198" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24198" version="8">
   <metadata>
     <title>ELSA-2013:1452: vino security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>vino</product>
     </affected>
-    <reference ref_id="ELSA-2013:1452-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1452.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-5745" ref_url="http://linux.oracle.com/cve/CVE-2013-5745.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1452-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1452.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-5745" ref_url="http://linux.oracle.com/cve/CVE-2013-5745.html" source="CVE" />
     <description>The vino_server_client_data_pending function in vino-server.c in GNOME Vino 2.26.1, 2.32.1, 3.7.3, and earlier, and 3.8 when encryption is disabled, does not properly clear client data when an error causes the connection to close during authentication, which allows remote attackers to cause a denial of service (infinite loop, CPU and disk consumption) via multiple crafted requests during authentication.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-05-26T04:06:21.029-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="vino is earlier than 0:2.28.1-9.el6_4" test_ref="oval:org.mitre.oval:tst:112262"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="vino is earlier than 0:2.28.1-9.el6_4" test_ref="oval:org.mitre.oval:tst:112262" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="vino is earlier than 0:2.13.5-10.el5_10" test_ref="oval:org.mitre.oval:tst:112485"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="vino is earlier than 0:2.13.5-10.el5_10" test_ref="oval:org.mitre.oval:tst:112485" />
     </criteria>
   </criteria>
 </definition>

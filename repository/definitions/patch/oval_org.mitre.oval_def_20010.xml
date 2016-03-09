@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20010" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20010" version="6">
   <metadata>
     <title>DSA-2618-1 ircd-hybrid - denial of service</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>ircd-hybrid</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2618-1" ref_id="DSA-2618-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0238" ref_id="CVE-2013-0238"/>
+    <reference ref_id="DSA-2618-1" ref_url="http://www.debian.org/security/dsa-2618-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-0238" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0238" source="CVE" />
     <description>Bob Nomnomnom reported a Denial of Service vulnerability in IRCD-Hybrid, an Internet Relay Chat server. A remote attacker may use an error in the masks validation and crash the server.</description>
     <oval_repository>
       <dates>
@@ -25,14 +24,15 @@
         <status_change date="2014-06-23T04:06:22.337-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="ircd-hybrid DPKG is earlier than 1:7.2.2.dfsg.2-6.2+squeeze1" test_ref="oval:org.mitre.oval:tst:88472"/>
+    <criterion comment="ircd-hybrid DPKG is earlier than 1:7.2.2.dfsg.2-6.2+squeeze1" test_ref="oval:org.mitre.oval:tst:88472" />
   </criteria>
 </definition>

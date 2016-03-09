@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26810" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26810" version="7">
   <metadata>
     <title>ELSA-2014-1352 -- libvirt security and bug fix update</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1352.html" ref_id="ELSA-2014-1352"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" ref_id="CVE-2014-3633"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" ref_id="CVE-2014-3657"/>
+    <reference ref_id="ELSA-2014-1352" ref_url="http://linux.oracle.com/errata/ELSA-2014-1352.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3633" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" source="CVE" />
+    <reference ref_id="CVE-2014-3657" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" source="CVE" />
     <description>[1.1.1-29.0.1.el7_0.3]
 - Replace docs/et.png in tarball with blank image
 
@@ -32,31 +31,32 @@
         <status_change date="2014-12-08T04:00:23.049-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libvirt is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126119"/>
-      <criterion comment="libvirt-client is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126291"/>
-      <criterion comment="libvirt-daemon is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126430"/>
-      <criterion comment="libvirt-daemon-config-network is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126285"/>
-      <criterion comment="libvirt-daemon-config-nwfilter is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126471"/>
-      <criterion comment="libvirt-daemon-driver-interface is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126388"/>
-      <criterion comment="libvirt-daemon-driver-lxc is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126350"/>
-      <criterion comment="libvirt-daemon-driver-network is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126451"/>
-      <criterion comment="libvirt-daemon-driver-nodedev is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126463"/>
-      <criterion comment="libvirt-daemon-driver-nwfilter is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:125505"/>
-      <criterion comment="libvirt-daemon-driver-qemu is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126215"/>
-      <criterion comment="libvirt-daemon-driver-secret is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126305"/>
-      <criterion comment="libvirt-daemon-driver-storage is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126205"/>
-      <criterion comment="libvirt-daemon-kvm is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126314"/>
-      <criterion comment="libvirt-daemon-lxc is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126250"/>
-      <criterion comment="libvirt-devel is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126446"/>
-      <criterion comment="libvirt-docs is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126445"/>
-      <criterion comment="libvirt-lock-sanlock is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126449"/>
-      <criterion comment="libvirt-login-shell is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126158"/>
-      <criterion comment="libvirt-python is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126423"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libvirt is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126119" />
+      <criterion comment="libvirt-client is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126291" />
+      <criterion comment="libvirt-daemon is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126430" />
+      <criterion comment="libvirt-daemon-config-network is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126285" />
+      <criterion comment="libvirt-daemon-config-nwfilter is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126471" />
+      <criterion comment="libvirt-daemon-driver-interface is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126388" />
+      <criterion comment="libvirt-daemon-driver-lxc is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126350" />
+      <criterion comment="libvirt-daemon-driver-network is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126451" />
+      <criterion comment="libvirt-daemon-driver-nodedev is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126463" />
+      <criterion comment="libvirt-daemon-driver-nwfilter is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:125505" />
+      <criterion comment="libvirt-daemon-driver-qemu is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126215" />
+      <criterion comment="libvirt-daemon-driver-secret is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126305" />
+      <criterion comment="libvirt-daemon-driver-storage is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126205" />
+      <criterion comment="libvirt-daemon-kvm is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126314" />
+      <criterion comment="libvirt-daemon-lxc is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126250" />
+      <criterion comment="libvirt-devel is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126446" />
+      <criterion comment="libvirt-docs is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126445" />
+      <criterion comment="libvirt-lock-sanlock is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126449" />
+      <criterion comment="libvirt-login-shell is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126158" />
+      <criterion comment="libvirt-python is earlier than 0:1.1.1-29.0.1.el7_0.3" test_ref="oval:org.mitre.oval:tst:126423" />
     </criteria>
   </criteria>
 </definition>

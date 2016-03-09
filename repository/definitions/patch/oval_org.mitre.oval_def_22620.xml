@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22620" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22620" version="15">
   <metadata>
     <title>ELSA-2008:0300: bind security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bind</product>
     </affected>
-    <reference ref_id="ELSA-2008:0300-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0300.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-6283" ref_url="http://linux.oracle.com/cve/CVE-2007-6283.html" source="CVE"/>
-    <reference ref_id="CVE-2008-0122" ref_url="http://linux.oracle.com/cve/CVE-2008-0122.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0300-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0300.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6283" ref_url="http://linux.oracle.com/cve/CVE-2007-6283.html" source="CVE" />
+    <reference ref_id="CVE-2008-0122" ref_url="http://linux.oracle.com/cve/CVE-2008-0122.html" source="CVE" />
     <description>Off-by-one error in the inet_network function in libbind in ISC BIND 9.4.2 and earlier, as used in libc in FreeBSD 6.2 through 7.0-PRERELEASE, allows context-dependent attackers to cause a denial of service (crash) and possibly execute arbitrary code via crafted input that triggers memory corruption.</description>
     <oval_repository>
       <dates>
@@ -25,19 +24,20 @@
         <status_change date="2014-05-26T04:01:38.256-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="bind-utils is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101814"/>
-      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102113"/>
-      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102141"/>
-      <criterion comment="bind-devel is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101801"/>
-      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102004"/>
-      <criterion comment="bind is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101834"/>
-      <criterion comment="bind-libs is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102161"/>
-      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102122"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="bind-utils is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101814" />
+      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102113" />
+      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102141" />
+      <criterion comment="bind-devel is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101801" />
+      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102004" />
+      <criterion comment="bind is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:101834" />
+      <criterion comment="bind-libs is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102161" />
+      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.P1.el5" test_ref="oval:org.mitre.oval:tst:102122" />
     </criteria>
   </criteria>
 </definition>

@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23667" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23667" version="9">
   <metadata>
     <title>ELSA-2011:0472: nss security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>nss</product>
     </affected>
-    <reference ref_id="ELSA-2011:0472-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0472.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2011:0472-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0472.html" source="VENDOR" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the development of security-enabled client and server applications.
 This erratum blacklists a small number of HTTPS certificates by adding
@@ -33,16 +32,17 @@ restarted for the changes to take effect.</description>
         <status_change date="2014-05-26T04:05:08.206-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="nss-tools is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108781"/>
-      <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108684"/>
-      <criterion comment="nss-sysinit is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108762"/>
-      <criterion comment="nss is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108752"/>
-      <criterion comment="nss-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108814"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="nss-tools is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108781" />
+      <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108684" />
+      <criterion comment="nss-sysinit is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108762" />
+      <criterion comment="nss is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108752" />
+      <criterion comment="nss-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:108814" />
     </criteria>
   </criteria>
 </definition>

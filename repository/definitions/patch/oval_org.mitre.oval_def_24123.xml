@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24123" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24123" version="8">
   <metadata>
     <title>ELSA-2014:0018: libXfont security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>libXfont</product>
     </affected>
-    <reference ref_id="ELSA-2014:0018-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0018.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-6462" ref_url="http://linux.oracle.com/cve/CVE-2013-6462.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0018-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0018.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-6462" ref_url="http://linux.oracle.com/cve/CVE-2013-6462.html" source="CVE" />
     <description>Stack-based buffer overflow in the bdfReadCharacters function in bitmap/bdfread.c in X.Org libXfont 1.1 through 1.4.6 allows remote attackers to cause a denial of service (crash) or possibly execute arbitrary code via a long string in a character name in a BDF font file.</description>
     <oval_repository>
       <dates>
@@ -25,21 +24,22 @@
         <status_change date="2014-05-26T04:06:15.516-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="libXfont-devel is earlier than 0:1.2.2-1.0.5.el5_10" test_ref="oval:org.mitre.oval:tst:112770"/>
-        <criterion comment="libXfont is earlier than 0:1.2.2-1.0.5.el5_10" test_ref="oval:org.mitre.oval:tst:112797"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="libXfont-devel is earlier than 0:1.2.2-1.0.5.el5_10" test_ref="oval:org.mitre.oval:tst:112770" />
+        <criterion comment="libXfont is earlier than 0:1.2.2-1.0.5.el5_10" test_ref="oval:org.mitre.oval:tst:112797" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="libXfont-devel is earlier than 0:1.4.5-3.el6_5" test_ref="oval:org.mitre.oval:tst:112849"/>
-        <criterion comment="libXfont is earlier than 0:1.4.5-3.el6_5" test_ref="oval:org.mitre.oval:tst:111869"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="libXfont-devel is earlier than 0:1.4.5-3.el6_5" test_ref="oval:org.mitre.oval:tst:112849" />
+        <criterion comment="libXfont is earlier than 0:1.4.5-3.el6_5" test_ref="oval:org.mitre.oval:tst:111869" />
       </criteria>
     </criteria>
   </criteria>

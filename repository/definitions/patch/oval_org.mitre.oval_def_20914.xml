@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20914" version="55" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20914" version="56">
   <metadata>
     <title>RHSA-2012:0095: ghostscript security update (Moderate)</title>
     <affected family="unix">
@@ -9,12 +8,12 @@
       <platform>CentOS Linux 6</platform>
       <product>ghostscript</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0095-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0095.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0095"/>
-    <reference source="CVE" ref_id="CVE-2009-3743" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-3743.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2055" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2055.html"/>
-    <reference source="CVE" ref_id="CVE-2010-4054" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4054.html"/>
-    <reference source="CVE" ref_id="CVE-2010-4820" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4820.html"/>
+    <reference ref_id="RHSA-2012:0095-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0095.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0095" source="CESA" />
+    <reference ref_id="CVE-2009-3743" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-3743.html" source="CVE" />
+    <reference ref_id="CVE-2010-2055" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2055.html" source="CVE" />
+    <reference ref_id="CVE-2010-4054" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4054.html" source="CVE" />
+    <reference ref_id="CVE-2010-4820" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-4820.html" source="CVE" />
     <description>** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem.  When the candidate has been publicized, the details for this candidate will be provided.</description>
     <oval_repository>
       <dates>
@@ -26,30 +25,31 @@
         <status_change date="2014-02-24T04:00:37.555-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="ghostscript-gtk is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92780"/>
-        <criterion comment="ghostscript-devel is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:93020"/>
-        <criterion comment="ghostscript-doc is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92734"/>
-        <criterion comment="ghostscript is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92766"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="ghostscript-gtk is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92780" />
+        <criterion comment="ghostscript-devel is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:93020" />
+        <criterion comment="ghostscript-doc is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92734" />
+        <criterion comment="ghostscript is earlier than 0:8.70-11.el6_2.6" test_ref="oval:org.mitre.oval:tst:92766" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="ghostscript-gtk is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92620"/>
-        <criterion comment="ghostscript-devel is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92999"/>
-        <criterion comment="ghostscript is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92891"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="ghostscript-gtk is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92620" />
+        <criterion comment="ghostscript-devel is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92999" />
+        <criterion comment="ghostscript is earlier than 0:8.70-6.el5_7.6" test_ref="oval:org.mitre.oval:tst:92891" />
       </criteria>
     </criteria>
   </criteria>

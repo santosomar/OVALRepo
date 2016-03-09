@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21715" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21715" version="8">
   <metadata>
     <title>ELSA-2007:1114: samba security and bug fix update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>samba</product>
     </affected>
-    <reference ref_id="ELSA-2007:1114-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1114.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-6015" ref_url="http://linux.oracle.com/cve/CVE-2007-6015.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:1114-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1114.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6015" ref_url="http://linux.oracle.com/cve/CVE-2007-6015.html" source="CVE" />
     <description>Stack-based buffer overflow in the send_mailslot function in nmbd in Samba 3.0.0 through 3.0.27a, when the "domain logons" option is enabled, allows remote attackers to execute arbitrary code via a GETDC mailslot request composed of a long GETDC string following an offset username in a SAMLOGON logon request.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-05-26T04:00:14.358-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="samba-client is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101641"/>
-      <criterion comment="samba-common is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:100946"/>
-      <criterion comment="samba is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101686"/>
-      <criterion comment="samba-swat is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101531"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="samba-client is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101641" />
+      <criterion comment="samba-common is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:100946" />
+      <criterion comment="samba is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101686" />
+      <criterion comment="samba-swat is earlier than 0:3.0.25b-1.el5_1.4" test_ref="oval:org.mitre.oval:tst:101531" />
     </criteria>
   </criteria>
 </definition>

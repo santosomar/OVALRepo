@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29183" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29183" version="4">
   <metadata>
     <title>RHSA-2009:1126 -- thunderbird security update (Moderate)</title>
     <affected family="unix">
@@ -7,19 +6,19 @@
       <platform>CentOS Linux 5</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1126.html" ref_id="RHSA-2009:1126"/>
-    <reference source="CESA-2009:1126" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/016011.html" ref_id="CESA-2009:1126-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1303" ref_id="CVE-2009-1303"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1305" ref_id="CVE-2009-1305"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1306" ref_id="CVE-2009-1306"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1307" ref_id="CVE-2009-1307"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1308" ref_id="CVE-2009-1308"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1309" ref_id="CVE-2009-1309"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1392" ref_id="CVE-2009-1392"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1833" ref_id="CVE-2009-1833"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1836" ref_id="CVE-2009-1836"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1838" ref_id="CVE-2009-1838"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2210" ref_id="CVE-2009-2210"/>
+    <reference ref_id="RHSA-2009:1126" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1126.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1126-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/016011.html" source="CESA-2009:1126" />
+    <reference ref_id="CVE-2009-1303" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1303" source="CVE" />
+    <reference ref_id="CVE-2009-1305" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1305" source="CVE" />
+    <reference ref_id="CVE-2009-1306" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1306" source="CVE" />
+    <reference ref_id="CVE-2009-1307" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1307" source="CVE" />
+    <reference ref_id="CVE-2009-1308" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1308" source="CVE" />
+    <reference ref_id="CVE-2009-1309" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1309" source="CVE" />
+    <reference ref_id="CVE-2009-1392" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1392" source="CVE" />
+    <reference ref_id="CVE-2009-1833" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1833" source="CVE" />
+    <reference ref_id="CVE-2009-1836" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1836" source="CVE" />
+    <reference ref_id="CVE-2009-1838" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1838" source="CVE" />
+    <reference ref_id="CVE-2009-2210" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2210" source="CVE" />
     <description>An updated thunderbird package that fixes several security issues is now
 available for Red Hat Enterprise Linux 5.
 This update has been rated as having moderate security impact by the Red
@@ -37,18 +36,20 @@ CVE-2009-1838)</description>
         </submitted>
         <status_change date="2015-07-06T10:30:32.017-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:18.983-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:10.888-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="thunderbird is earlier than 0:2.0.0.22-2.el5_3" test_ref="oval:org.mitre.oval:tst:139169"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="thunderbird is earlier than 0:2.0.0.22-2.el5_3" test_ref="oval:org.mitre.oval:tst:139169" />
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="thunderbird is earlier than 0:2.0.0.22-2.el5.centos" test_ref="oval:org.mitre.oval:tst:139051"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="thunderbird is earlier than 0:2.0.0.22-2.el5.centos" test_ref="oval:org.mitre.oval:tst:139051" />
     </criteria>
   </criteria>
 </definition>

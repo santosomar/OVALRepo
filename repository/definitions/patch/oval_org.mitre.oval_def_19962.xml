@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19962" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19962" version="6">
   <metadata>
     <title>DSA-2537-1 typo3-src - several</title>
     <affected family="unix">
@@ -7,12 +6,12 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>typo3-src</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2537-1" ref_id="DSA-2537-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3527" ref_id="CVE-2012-3527"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3528" ref_id="CVE-2012-3528"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3529" ref_id="CVE-2012-3529"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3530" ref_id="CVE-2012-3530"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3531" ref_id="CVE-2012-3531"/>
+    <reference ref_id="DSA-2537-1" ref_url="http://www.debian.org/security/dsa-2537-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-3527" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3527" source="CVE" />
+    <reference ref_id="CVE-2012-3528" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3528" source="CVE" />
+    <reference ref_id="CVE-2012-3529" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3529" source="CVE" />
+    <reference ref_id="CVE-2012-3530" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3530" source="CVE" />
+    <reference ref_id="CVE-2012-3531" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3531" source="CVE" />
     <description>Several vulnerabilities were discovered in TYPO3, a content management system.</description>
     <oval_repository>
       <dates>
@@ -29,14 +28,15 @@
         <status_change date="2014-06-23T04:06:13.690-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="typo3-src DPKG is earlier than 0:4.3.9+dfsg1-1+squeeze5" test_ref="oval:org.mitre.oval:tst:89117"/>
+    <criterion comment="typo3-src DPKG is earlier than 0:4.3.9+dfsg1-1+squeeze5" test_ref="oval:org.mitre.oval:tst:89117" />
   </criteria>
 </definition>

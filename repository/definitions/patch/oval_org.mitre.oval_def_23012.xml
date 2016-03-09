@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23012" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23012" version="8">
   <metadata>
     <title>ELSA-2010:0787: glibc security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>glibc</product>
     </affected>
-    <reference ref_id="ELSA-2010:0787-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0787.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-3847" ref_url="http://linux.oracle.com/cve/CVE-2010-3847.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0787-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0787.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3847" ref_url="http://linux.oracle.com/cve/CVE-2010-3847.html" source="CVE" />
     <description>elf/dl-load.c in ld.so in the GNU C Library (aka glibc or libc6) through 2.11.2, and 2.12.x through 2.12.1, does not properly handle a value of $ORIGIN for the LD_AUDIT environment variable, which allows local users to gain privileges via a crafted dynamic shared object (DSO) located in an arbitrary directory.</description>
     <oval_repository>
       <dates>
@@ -24,17 +23,18 @@
         <status_change date="2014-05-26T04:03:10.450-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="glibc-headers is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104268"/>
-      <criterion comment="glibc-common is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104433"/>
-      <criterion comment="glibc-devel is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104216"/>
-      <criterion comment="glibc is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104315"/>
-      <criterion comment="nscd is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104330"/>
-      <criterion comment="glibc-utils is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104334"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="glibc-headers is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104268" />
+      <criterion comment="glibc-common is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104433" />
+      <criterion comment="glibc-devel is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104216" />
+      <criterion comment="glibc is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104315" />
+      <criterion comment="nscd is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104330" />
+      <criterion comment="glibc-utils is earlier than 0:2.5-49.el5_5.6" test_ref="oval:org.mitre.oval:tst:104334" />
     </criteria>
   </criteria>
 </definition>

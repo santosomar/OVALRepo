@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18489" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18489" version="8">
   <metadata>
     <title>DSA-2263-2 movabletype-opensource - several</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>movabletype-opensource</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2263-2" ref_id="DSA-2263-2"/>
+    <reference ref_id="DSA-2263-2" ref_url="http://www.debian.org/security/dsa-2263-2" source="VENDOR" />
     <description>It was discovered that Movable Type, a weblog publishing system, contains several security vulnerabilities:</description>
     <oval_repository>
       <dates>
@@ -28,10 +27,11 @@
         <status_change date="2014-06-23T04:04:39.154-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="movabletype-opensource DPKG is earlier than 4.2.3-1+lenny3" test_ref="oval:org.mitre.oval:tst:86338"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="movabletype-opensource DPKG is earlier than 4.2.3-1+lenny3" test_ref="oval:org.mitre.oval:tst:86338" />
   </criteria>
 </definition>

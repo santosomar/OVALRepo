@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22018" version="44" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22018" version="46">
   <metadata>
     <title>RHSA-2014:0015: openssl security update (Important)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 6</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0015-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0015.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0015"/>
-    <reference source="CVE" ref_id="CVE-2013-4353" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4353.html"/>
-    <reference source="CVE" ref_id="CVE-2013-6449" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6449.html"/>
-    <reference source="CVE" ref_id="CVE-2013-6450" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6450.html"/>
+    <reference ref_id="RHSA-2014:0015-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0015.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0015" source="CESA" />
+    <reference ref_id="CVE-2013-4353" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4353.html" source="CVE" />
+    <reference ref_id="CVE-2013-6449" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6449.html" source="CVE" />
+    <reference ref_id="CVE-2013-6450" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6450.html" source="CVE" />
     <description>The DTLS retransmission implementation in OpenSSL 1.0.0 before 1.0.0l and 1.0.1 before 1.0.1f does not properly maintain data structures for digest and encryption contexts, which might allow man-in-the-middle attackers to trigger the use of a different context and cause a denial of service (application crash) by interfering with packet delivery, related to ssl/d1_both.c and ssl/t1_enc.c.</description>
     <oval_repository>
       <dates>
@@ -28,18 +27,19 @@
         <status_change date="2014-06-30T04:09:41.947-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:99015"/>
-      <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98888"/>
-      <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98928"/>
-      <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98827"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:99015" />
+      <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98888" />
+      <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98928" />
+      <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.4" test_ref="oval:org.mitre.oval:tst:98827" />
     </criteria>
   </criteria>
 </definition>

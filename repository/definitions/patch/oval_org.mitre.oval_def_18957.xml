@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18957" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18957" version="8">
   <metadata>
     <title>DSA-1332-1 vlc</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>vlc</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1332-1" ref_id="DSA-1332-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3316" ref_id="CVE-2007-3316"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3467" ref_id="CVE-2007-3467"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3468" ref_id="CVE-2007-3468"/>
+    <reference ref_id="DSA-1332-1" ref_url="http://www.debian.org/security/dsa-1332-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-3316" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3316" source="CVE" />
+    <reference ref_id="CVE-2007-3467" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3467" source="CVE" />
+    <reference ref_id="CVE-2007-3468" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3468" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in the VideoLan multimedia player and streamer, which may lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -31,10 +30,11 @@
         <status_change date="2014-06-23T04:05:31.536-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="vlc DPKG is earlier than 0.8.6-svn20061012.debian-5etch1" test_ref="oval:org.mitre.oval:tst:86289"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="vlc DPKG is earlier than 0.8.6-svn20061012.debian-5etch1" test_ref="oval:org.mitre.oval:tst:86289" />
   </criteria>
 </definition>

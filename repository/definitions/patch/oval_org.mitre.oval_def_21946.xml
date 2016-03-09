@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21946" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21946" version="15">
   <metadata>
     <title>ELSA-2007:0965: ruby security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>ruby</product>
     </affected>
-    <reference ref_id="ELSA-2007:0965-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0965.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-5162" ref_url="http://linux.oracle.com/cve/CVE-2007-5162.html" source="CVE"/>
-    <reference ref_id="CVE-2007-5770" ref_url="http://linux.oracle.com/cve/CVE-2007-5770.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0965-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0965.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5162" ref_url="http://linux.oracle.com/cve/CVE-2007-5162.html" source="CVE" />
+    <reference ref_id="CVE-2007-5770" ref_url="http://linux.oracle.com/cve/CVE-2007-5770.html" source="CVE" />
     <description>The (1) Net::ftptls, (2) Net::telnets, (3) Net::imap, (4) Net::pop, and (5) Net::smtp libraries in Ruby 1.8.5 and 1.8.6 do not verify that the commonName (CN) field in a server certificate matches the domain name in a request sent over SSL, which makes it easier for remote attackers to intercept SSL transmissions via a man-in-the-middle attack or spoofed web site, different components than CVE-2007-5162.</description>
     <oval_repository>
       <dates>
@@ -25,20 +24,21 @@
         <status_change date="2014-05-26T04:00:43.621-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="ruby-docs is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101160"/>
-      <criterion comment="ruby-ri is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101581"/>
-      <criterion comment="ruby-mode is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100939"/>
-      <criterion comment="ruby-libs is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101483"/>
-      <criterion comment="ruby-tcltk is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100938"/>
-      <criterion comment="ruby-irb is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100985"/>
-      <criterion comment="ruby-rdoc is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101440"/>
-      <criterion comment="ruby is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101583"/>
-      <criterion comment="ruby-devel is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100647"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="ruby-docs is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101160" />
+      <criterion comment="ruby-ri is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101581" />
+      <criterion comment="ruby-mode is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100939" />
+      <criterion comment="ruby-libs is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101483" />
+      <criterion comment="ruby-tcltk is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100938" />
+      <criterion comment="ruby-irb is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100985" />
+      <criterion comment="ruby-rdoc is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101440" />
+      <criterion comment="ruby is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:101583" />
+      <criterion comment="ruby-devel is earlier than 0:1.8.5-5.el5_1.1" test_ref="oval:org.mitre.oval:tst:100647" />
     </criteria>
   </criteria>
 </definition>

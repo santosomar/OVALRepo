@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24324" version="9" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24324" version="13">
   <metadata>
     <title>ELSA-2014:0376: openssl security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>openssl</product>
     </affected>
-    <reference ref_id="ELSA-2014:0376-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0376.html" source="VENDOR"/>
-    <reference source="CESA" ref_id="CESA-2014:0160"/>
-    <reference ref_id="CVE-2014-0160" ref_url="http://linux.oracle.com/cve/CVE-2014-0160.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0376-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0376.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0160" source="CESA" />
+    <reference ref_id="CVE-2014-0160" ref_url="http://linux.oracle.com/cve/CVE-2014-0160.html" source="CVE" />
     <description>OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)
 and Transport Layer Security (TLS v1) protocols, as well as a
 full-strength, general purpose cryptography library.
@@ -50,29 +49,30 @@ SSL-enabled services) must be restarted or the system rebooted.</description>
         <status_change date="2014-07-21T04:01:13.683-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criteria operator="OR" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criterion comment="CentOS Linux 6.x is installed" test_ref="oval:org.mitre.oval:tst:80900"/>
+    <criteria comment="rpm test" operator="OR">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criterion comment="CentOS Linux 6.x is installed" test_ref="oval:org.mitre.oval:tst:80900" />
     </criteria>
-    <criteria operator="OR" comment="rpm test">
-      <criteria operator="AND" comment="rpm test">
-        <criterion comment="openssl-devel is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:115294"/>
-        <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113705"/>
+    <criteria comment="rpm test" operator="OR">
+      <criteria comment="rpm test" operator="AND">
+        <criterion comment="openssl-devel is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:115294" />
+        <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113705" />
       </criteria>
-      <criteria operator="AND" comment="rpm test">
-        <criterion comment="openssl is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:114659"/>
-        <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113286"/>
+      <criteria comment="rpm test" operator="AND">
+        <criterion comment="openssl is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:114659" />
+        <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113286" />
       </criteria>
-      <criteria operator="AND" comment="rpm test">
-        <criterion comment="openssl-static is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:115004"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113601"/>
+      <criteria comment="rpm test" operator="AND">
+        <criterion comment="openssl-static is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:115004" />
+        <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113601" />
       </criteria>
-      <criteria operator="AND" comment="rpm test">
-        <criterion comment="openssl-perl is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:114982"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113703"/>
+      <criteria comment="rpm test" operator="AND">
+        <criterion comment="openssl-perl is greater than or equal to 1.0.1e-15" test_ref="oval:org.mitre.oval:tst:114982" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.7" test_ref="oval:org.mitre.oval:tst:113703" />
       </criteria>
     </criteria>
   </criteria>

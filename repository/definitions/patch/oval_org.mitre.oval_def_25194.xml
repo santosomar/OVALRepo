@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25194" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25194" version="5">
   <metadata>
     <title>SUSE-RU-2014:0330-1 -- Recommended update for libopenssl</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>libopenssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140330-1.html" ref_id="SUSE-RU-2014:0330-1"/>
+    <reference ref_id="SUSE-RU-2014:0330-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140330-1.html" source="VENDOR" />
     <description>This update brings various enhancements for OpenSSL:
 
     * 
@@ -45,26 +44,27 @@ This allows parallel usage of OpenSSL 0.9.8j and OpenSSL
         <status_change date="2014-09-08T04:01:12.480-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libopenssl0_9_8 RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117579"/>
-        <criterion comment="openssl RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117182"/>
-        <criterion comment="libopenssl0_9_8-32bit RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117328"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libopenssl0_9_8 RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117579" />
+        <criterion comment="openssl RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117182" />
+        <criterion comment="libopenssl0_9_8-32bit RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117328" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libopenssl0_9_8-hmac RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117512"/>
-        <criterion comment="openssl-doc RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117532"/>
-        <criterion comment="libopenssl0_9_8-hmac-32bit RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117577"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libopenssl0_9_8-hmac RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117512" />
+        <criterion comment="openssl-doc RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117532" />
+        <criterion comment="libopenssl0_9_8-hmac-32bit RPM is earlier than 0:0.9.8j-0.52.1" test_ref="oval:org.mitre.oval:tst:117577" />
       </criteria>
     </criteria>
   </criteria>

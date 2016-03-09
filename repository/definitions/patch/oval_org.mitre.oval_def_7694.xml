@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7694" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7694" version="7">
   <metadata>
     <title>DSA-1523 ikiwiki -- cross-site scripting</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>ikiwiki</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1523" ref_id="DSA-1523"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0808" ref_id="CVE-2008-0808"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0809" ref_id="CVE-2008-0809"/>
+    <reference ref_id="DSA-1523" ref_url="http://www.debian.org/security/2008/dsa-1523" source="VENDOR" />
+    <reference ref_id="CVE-2008-0808" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0808" source="CVE" />
+    <reference ref_id="CVE-2008-0809" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0809" source="CVE" />
     <description>Josh Triplett discovered that ikiwiki did not block Javascript in URLs, leading to cross-site scripting vulnerabilities (CVE-2008-0808, CVE-2008-0809). The old stable distribution (sarge) did not contain an ikiwiki package.</description>
     <oval_repository>
       <dates>
@@ -30,11 +29,12 @@
         <status_change date="2014-06-23T04:08:45.677-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="ikiwiki is earlier than 1.33.4" test_ref="oval:org.mitre.oval:tst:19320"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="ikiwiki is earlier than 1.33.4" test_ref="oval:org.mitre.oval:tst:19320" />
   </criteria>
 </definition>

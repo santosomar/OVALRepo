@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12882" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12882" version="8">
   <metadata>
     <title>DSA-2263-1 movabletype-opensource -- several</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>movabletype-opensource</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00133.html" ref_id="DSA-2263-1"/>
+    <reference ref_id="DSA-2263-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00133.html" source="VENDOR" />
     <description>It was discovered that Movable Type, a weblog publishing system, contains several security vulnerabilities: A remote attacker could execute arbitrary code in a logged-in users" web browser. A remote attacker could read or modify the contents in the system under certain circumstances.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-06-23T04:01:02.552-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="movabletype-opensource DPKG is earlier than 4.3.5+dfsg-2+squeeze2" test_ref="oval:org.mitre.oval:tst:43758"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="movabletype-opensource DPKG is earlier than 4.3.5+dfsg-2+squeeze2" test_ref="oval:org.mitre.oval:tst:43758" />
   </criteria>
 </definition>

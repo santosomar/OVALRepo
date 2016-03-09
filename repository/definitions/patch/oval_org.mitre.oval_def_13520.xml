@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13520" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13520" version="8">
   <metadata>
     <title>DSA-1798-1 pango1.0 -- integer overflow</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>pango1.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00109.html" ref_id="DSA-1798-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1194" ref_id="CVE-2009-1194"/>
+    <reference ref_id="DSA-1798-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00109.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-1194" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1194" source="CVE" />
     <description>Will Drewry discovered that pango, a system for layout and rendering of internationalised text, is prone to an integer overflow via long glyphstrings. This could cause the execution of arbitrary code when displaying crafted data through an application using the pango library. For the stable distribution, this problem has been fixed in version 1.20.5-3+lenny1. For the oldstable distribution, this problem has been fixed in version 1.14.8-5+etch1. For the testing distribution and the unstable distribution , this problem has been fixed in version 1.24-1. We recommend that you upgrade your pango1.0 packages.</description>
     <oval_repository>
       <dates>
@@ -25,55 +24,56 @@
         <status_change date="2014-06-23T04:02:26.092-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="libpango1.0-doc DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51508"/>
-            <criterion comment="libpango1.0-common DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51919"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="libpango1.0-doc DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51508" />
+            <criterion comment="libpango1.0-common DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51919" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="libpango1.0-0 DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51803"/>
-            <criterion comment="libpango1.0-0-dbg DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51399"/>
-            <criterion comment="libpango1.0-dev DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51889"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="libpango1.0-0 DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51803" />
+            <criterion comment="libpango1.0-0-dbg DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51399" />
+            <criterion comment="libpango1.0-dev DPKG is earlier than 1.20.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:51889" />
           </criteria>
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="libpango1.0-doc DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51916"/>
-            <criterion comment="libpango1.0-common DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51844"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="libpango1.0-doc DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51916" />
+            <criterion comment="libpango1.0-common DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51844" />
           </criteria>
         </criteria>
-        <criterion comment="libpango1.0-0 DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51275"/>
-        <criterion comment="libpango1.0-0-dbg DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51800"/>
-        <criterion comment="libpango1.0-dev DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51527"/>
+        <criterion comment="libpango1.0-0 DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51275" />
+        <criterion comment="libpango1.0-0-dbg DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51800" />
+        <criterion comment="libpango1.0-dev DPKG is earlier than 1.14.8-5+etch1" test_ref="oval:org.mitre.oval:tst:51527" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27412" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27412" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1156 -- httpd security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>httpd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1156.html" ref_id="ELSA-2013-1156"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1896" ref_id="CVE-2013-1896"/>
+    <reference ref_id="ELSA-2013-1156" ref_url="http://linux.oracle.com/errata/ELSA-2013-1156.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1896" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1896" source="CVE" />
     <description>[2.2.15-29.0.1.el6_4]
 - replace index.html with Oracle's index page oracle_index.html
   update vstring in specfile
@@ -29,26 +28,27 @@
         <status_change date="2015-02-10T13:20:36.244-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="httpd is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128888"/>
-        <criterion comment="httpd-devel is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128676"/>
-        <criterion comment="httpd-manual is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129264"/>
-        <criterion comment="mod_ssl is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129243"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="httpd is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128888" />
+        <criterion comment="httpd-devel is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:128676" />
+        <criterion comment="httpd-manual is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129264" />
+        <criterion comment="mod_ssl is earlier than 0:2.2.3-82.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:129243" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="httpd is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128972"/>
-        <criterion comment="httpd-devel is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129219"/>
-        <criterion comment="httpd-manual is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128861"/>
-        <criterion comment="httpd-tools is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129240"/>
-        <criterion comment="mod_ssl is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129119"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="httpd is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128972" />
+        <criterion comment="httpd-devel is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129219" />
+        <criterion comment="httpd-manual is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:128861" />
+        <criterion comment="httpd-tools is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129240" />
+        <criterion comment="mod_ssl is earlier than 0:2.2.15-29.0.1.el6_4" test_ref="oval:org.mitre.oval:tst:129119" />
       </criteria>
     </criteria>
   </criteria>

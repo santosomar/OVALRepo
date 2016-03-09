@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27611" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27611" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0883 -- gnutls security update (important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>gnutls</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0883.html" ref_id="ELSA-2013-0883"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2116" ref_id="CVE-2013-2116"/>
+    <reference ref_id="ELSA-2013-0883" ref_url="http://linux.oracle.com/errata/ELSA-2013-0883.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-2116" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2116" source="CVE" />
     <description>[2.8.5-10.2]
 - fix CVE-2013-2116 - fix DoS regression in CVE-2013-1619
   upstream patch (#966754)</description>
@@ -26,24 +25,25 @@
         <status_change date="2015-02-10T16:19:57.367-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gnutls is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129491"/>
-        <criterion comment="gnutls-devel is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129350"/>
-        <criterion comment="gnutls-utils is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129483"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gnutls is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129491" />
+        <criterion comment="gnutls-devel is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129350" />
+        <criterion comment="gnutls-utils is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:129483" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gnutls is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129332"/>
-        <criterion comment="gnutls-devel is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129242"/>
-        <criterion comment="gnutls-guile is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129319"/>
-        <criterion comment="gnutls-utils is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129463"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gnutls is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129332" />
+        <criterion comment="gnutls-devel is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129242" />
+        <criterion comment="gnutls-guile is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129319" />
+        <criterion comment="gnutls-utils is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:129463" />
       </criteria>
     </criteria>
   </criteria>

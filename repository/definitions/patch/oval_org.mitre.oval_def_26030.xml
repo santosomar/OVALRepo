@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26030" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26030" version="7">
   <metadata>
     <title>RHSA-2014:1244: bind97 security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>bind97</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1244-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1244.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0591" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0591.html"/>
-    <reference source="CESA-2014:1244" ref_id="CESA-2014:1244" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020608.html"/>
+    <reference ref_id="RHSA-2014:1244-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1244.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0591" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0591.html" source="CVE" />
+    <reference ref_id="CESA-2014:1244" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020608.html" source="CESA-2014:1244" />
     <description>The Berkeley Internet Name Domain (BIND) is an implementation of the Domain
 Name System (DNS) protocols. It contains a DNS server (named), a resolver
 library with routines for applications to use when interfacing with DNS,
@@ -41,25 +40,26 @@ built with a different compiler or C library optimization).</description>
         <status_change date="2015-04-13T04:00:07.739-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="bind97 is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123907"/>
-        <criterion comment="bind97-chroot is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123810"/>
-        <criterion comment="bind97-devel is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123370"/>
-        <criterion comment="bind97-libs is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123726"/>
-        <criterion comment="bind97-utils is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123862"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="bind97 is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123907" />
+        <criterion comment="bind97-chroot is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123810" />
+        <criterion comment="bind97-devel is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123370" />
+        <criterion comment="bind97-libs is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123726" />
+        <criterion comment="bind97-utils is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:123862" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="bind97-debuginfo is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:138426"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="bind97-debuginfo is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:138426" />
     </criteria>
   </criteria>
 </definition>

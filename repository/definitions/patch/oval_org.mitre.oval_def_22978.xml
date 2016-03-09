@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22978" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22978" version="8">
   <metadata>
     <title>ELSA-2011:0345: qemu-kvm security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>qemu-kvm</product>
     </affected>
-    <reference ref_id="ELSA-2011:0345-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0345.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-0011" ref_url="http://linux.oracle.com/cve/CVE-2011-0011.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0345-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0345.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0011" ref_url="http://linux.oracle.com/cve/CVE-2011-0011.html" source="CVE" />
     <description>qemu-kvm before 0.11.0 disables VNC authentication when the password is cleared, which allows remote attackers to bypass authentication and establish VNC sessions.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:03:03.954-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108714"/>
-      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108530"/>
-      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108525"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108714" />
+      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108530" />
+      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.113.el6_0.8" test_ref="oval:org.mitre.oval:tst:108525" />
     </criteria>
   </criteria>
 </definition>

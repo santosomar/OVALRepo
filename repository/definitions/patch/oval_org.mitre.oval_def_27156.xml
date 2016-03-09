@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27156" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27156" version="5">
   <metadata>
     <title>RHSA-2012:1416 -- kdelibs security update (Critical)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 6</platform>
       <product>kdelibs</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1416.html" ref_id="RHSA-2012:1416"/>
-    <reference source="CESA-2012:1416" ref_url="http://lists.centos.org/pipermail/centos-announce/2012-October/018967.html" ref_id="CESA-2012:1416"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4512" ref_id="CVE-2012-4512"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4513" ref_id="CVE-2012-4513"/>
+    <reference ref_id="RHSA-2012:1416" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1416.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:1416" ref_url="http://lists.centos.org/pipermail/centos-announce/2012-October/018967.html" source="CESA-2012:1416" />
+    <reference ref_id="CVE-2012-4512" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4512" source="CVE" />
+    <reference ref_id="CVE-2012-4513" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4513" source="CVE" />
     <description>The kdelibs packages provide libraries for the K Desktop Environment
 (KDE). Konqueror is a web browser.
 
@@ -39,24 +38,25 @@ then log back in) for this update to take effect.</description>
         <status_change date="2014-12-08T04:00:40.240-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kdelibs is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126037"/>
-        <criterion comment="kdelibs-apidocs is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126142"/>
-        <criterion comment="kdelibs-common is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126181"/>
-        <criterion comment="kdelibs-devel is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:125190"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kdelibs is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126037" />
+        <criterion comment="kdelibs-apidocs is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126142" />
+        <criterion comment="kdelibs-common is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126181" />
+        <criterion comment="kdelibs-devel is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:125190" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="kdelibs-debuginfo is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126087"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="kdelibs-debuginfo is earlier than 0:4.3.4-14.el6_3.2" test_ref="oval:org.mitre.oval:tst:126087" />
     </criteria>
   </criteria>
 </definition>

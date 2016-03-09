@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28749" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28749" version="4">
   <metadata>
     <title>RHSA-2009:1335 -- openssl security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <platform>CentOS Linux 5</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1335.html" ref_id="RHSA-2009:1335"/>
-    <reference source="CESA-2009:1335" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-September/016149.html" ref_id="CESA-2009:1335-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7250" ref_id="CVE-2006-7250"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0590" ref_id="CVE-2009-0590"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1377" ref_id="CVE-2009-1377"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1378" ref_id="CVE-2009-1378"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1379" ref_id="CVE-2009-1379"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1386" ref_id="CVE-2009-1386"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1387" ref_id="CVE-2009-1387"/>
+    <reference ref_id="RHSA-2009:1335" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1335.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1335-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-September/016149.html" source="CESA-2009:1335" />
+    <reference ref_id="CVE-2006-7250" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7250" source="CVE" />
+    <reference ref_id="CVE-2009-0590" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0590" source="CVE" />
+    <reference ref_id="CVE-2009-1377" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1377" source="CVE" />
+    <reference ref_id="CVE-2009-1378" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1378" source="CVE" />
+    <reference ref_id="CVE-2009-1379" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1379" source="CVE" />
+    <reference ref_id="CVE-2009-1386" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1386" source="CVE" />
+    <reference ref_id="CVE-2009-1387" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1387" source="CVE" />
     <description>Updated openssl packages that fix several security issues, various bugs,
 and add enhancements are now available for Red Hat Enterprise Linux 5.
 This update has been rated as having moderate security impact by the Red
@@ -32,19 +31,21 @@ UDP).</description>
         </submitted>
         <status_change date="2015-07-06T11:17:09.167-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:31.597-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:25.869-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openssl-devel is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140853"/>
-      <criterion comment="openssl is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140488"/>
-      <criterion comment="openssl-perl is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140632"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openssl-devel is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140853" />
+      <criterion comment="openssl is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140488" />
+      <criterion comment="openssl-perl is earlier than 0:0.9.8e-12.el5" test_ref="oval:org.mitre.oval:tst:140632" />
     </criteria>
   </criteria>
 </definition>

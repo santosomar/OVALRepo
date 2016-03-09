@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7263" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7263" version="6">
   <metadata>
     <title>DSA-1846 kvm -- denial of service</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1846" ref_id="DSA-1846"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2287" ref_id="CVE-2009-2287"/>
+    <reference ref_id="DSA-1846" ref_url="http://www.debian.org/security/2009/dsa-1846" source="VENDOR" />
+    <reference ref_id="CVE-2009-2287" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2287" source="CVE" />
     <description>Matt T. Yourst discovered an issue in the kvm subsystem. Local users with permission to manipulate /dev/kvm can cause a denial of service (hang) by providing an invalid cr3 value to the KVM_SET_SREGS call.</description>
     <oval_repository>
       <dates>
@@ -24,21 +23,22 @@
         <status_change date="2014-06-23T04:08:15.776-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="kvm-source is earlier than 72+dfsg-5~lenny2" test_ref="oval:org.mitre.oval:tst:12674"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="kvm-source is earlier than 72+dfsg-5~lenny2" test_ref="oval:org.mitre.oval:tst:12674" />
       </criteria>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
         </criteria>
-        <criterion comment="kvm is earlier than 72+dfsg-5~lenny2" test_ref="oval:org.mitre.oval:tst:12799"/>
+        <criterion comment="kvm is earlier than 72+dfsg-5~lenny2" test_ref="oval:org.mitre.oval:tst:12799" />
       </criteria>
     </criteria>
   </criteria>

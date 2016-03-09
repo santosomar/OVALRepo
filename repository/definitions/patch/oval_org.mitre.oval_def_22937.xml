@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22937" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22937" version="8">
   <metadata>
     <title>ELSA-2010:0607: freetype security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>freetype</product>
     </affected>
-    <reference ref_id="ELSA-2010:0607-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0607.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-1797" ref_url="http://linux.oracle.com/cve/CVE-2010-1797.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0607-02" ref_url="http://linux.oracle.com/errata/ELSA-2010-0607.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-1797" ref_url="http://linux.oracle.com/cve/CVE-2010-1797.html" source="CVE" />
     <description>Multiple stack-based buffer overflows in the cff_decoder_parse_charstrings function in the CFF Type2 CharStrings interpreter in cff/cffgload.c in FreeType before 2.4.2, as used in Apple iOS before 4.0.2 on the iPhone and iPod touch and before 3.2.2 on the iPad, allow remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via crafted CFF opcodes in embedded fonts in a PDF document, as demonstrated by JailbreakMe. NOTE: some of these details are obtained from third party information.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:02:51.254-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="freetype is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104186"/>
-      <criterion comment="freetype-demos is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104105"/>
-      <criterion comment="freetype-devel is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104234"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="freetype is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104186" />
+      <criterion comment="freetype-demos is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104105" />
+      <criterion comment="freetype-devel is earlier than 0:2.2.1-26.el5_5" test_ref="oval:org.mitre.oval:tst:104234" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20823" version="42" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20823" version="43">
   <metadata>
     <title>RHSA-2012:1413: thunderbird security update (Important)</title>
     <affected family="unix">
@@ -9,11 +8,11 @@
       <platform>CentOS Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:1413-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1413.html"/>
-    <reference source="CESA" ref_id="CESA-2012:1413"/>
-    <reference source="CVE" ref_id="CVE-2012-4194" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4194.html"/>
-    <reference source="CVE" ref_id="CVE-2012-4195" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4195.html"/>
-    <reference source="CVE" ref_id="CVE-2012-4196" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4196.html"/>
+    <reference ref_id="RHSA-2012:1413-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1413.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:1413" source="CESA" />
+    <reference ref_id="CVE-2012-4194" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4194.html" source="CVE" />
+    <reference ref_id="CVE-2012-4195" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4195.html" source="CVE" />
+    <reference ref_id="CVE-2012-4196" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4196.html" source="CVE" />
     <description>Mozilla Firefox before 16.0.2, Firefox ESR 10.x before 10.0.10, Thunderbird before 16.0.2, Thunderbird ESR 10.x before 10.0.10, and SeaMonkey before 2.13.2 allow remote attackers to bypass the Same Origin Policy and read the Location object via a prototype property-injection attack that defeats certain protection mechanisms for this object.</description>
     <oval_repository>
       <dates>
@@ -25,24 +24,25 @@
         <status_change date="2014-02-24T04:00:35.485-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Redhat 5 section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:93889"/>
+    <criteria comment="Redhat 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el5_8" test_ref="oval:org.mitre.oval:tst:93889" />
     </criteria>
-    <criteria operator="AND" comment="Centos 5 section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el5.centos" test_ref="oval:org.mitre.oval:tst:94895"/>
+    <criteria comment="Centos 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el5.centos" test_ref="oval:org.mitre.oval:tst:94895" />
     </criteria>
-    <criteria operator="AND" comment="Redhat 6 section">
-      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:94753"/>
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+    <criteria comment="Redhat 6 section" operator="AND">
+      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el6_3" test_ref="oval:org.mitre.oval:tst:94753" />
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
     </criteria>
-    <criteria operator="AND" comment="Centos 6 section">
-      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el6.centos" test_ref="oval:org.mitre.oval:tst:94808"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Centos 6 section" operator="AND">
+      <criterion comment="thunderbird is earlier than 0:10.0.10-1.el6.centos" test_ref="oval:org.mitre.oval:tst:94808" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
   </criteria>
 </definition>

@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27678" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27678" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1580 -- kernel security, bug fix and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1580.html" ref_id="ELSA-2012-1580"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2100" ref_id="CVE-2012-2100"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2375" ref_id="CVE-2012-2375"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4444" ref_id="CVE-2012-4444"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4565" ref_id="CVE-2012-4565"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5517" ref_id="CVE-2012-5517"/>
+    <reference ref_id="ELSA-2012-1580" ref_url="http://linux.oracle.com/errata/ELSA-2012-1580.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-2100" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2100" source="CVE" />
+    <reference ref_id="CVE-2012-2375" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2375" source="CVE" />
+    <reference ref_id="CVE-2012-4444" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4444" source="CVE" />
+    <reference ref_id="CVE-2012-4565" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4565" source="CVE" />
+    <reference ref_id="CVE-2012-5517" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5517" source="CVE" />
     <description>[2.6.32-279.19.1.el6]
 - [drm] i915: dont clobber the pipe param in sanitize_modesetting (Frantisek Hrbata) [876549 857792]
 - [drm] i915: Sanitize BIOS debugging bits from PIPECONF (Frantisek Hrbata) [876549 857792]
@@ -38,20 +37,21 @@
         <status_change date="2015-02-10T12:49:41.878-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130751"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130634"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130133"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130288"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130822"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130714"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130590"/>
-      <criterion comment="perf is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130547"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130759"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130751" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130634" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130133" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130288" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130822" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130714" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130590" />
+      <criterion comment="perf is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130547" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-279.19.1.el6" test_ref="oval:org.mitre.oval:tst:130759" />
     </criteria>
   </criteria>
 </definition>

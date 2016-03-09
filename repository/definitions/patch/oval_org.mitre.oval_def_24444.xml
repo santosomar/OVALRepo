@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24444" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24444" version="5">
   <metadata>
     <title>RHSA-2014:0408: java-1.6.0-openjdk security and bug fix update (Important)</title>
     <affected family="unix">
@@ -9,27 +8,27 @@
       <platform>CentOS Linux 6</platform>
       <product>java-1.6.0-openjdk</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0408-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0408.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0408"/>
-    <reference source="CVE" ref_id="CVE-2014-0429" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0429.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0446" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0446.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0451" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0451.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0452" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0452.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0453" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0453.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0456" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0456.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0457" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0457.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0458" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0458.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0460" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0460.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0461" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0461.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1876" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1876.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2397" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2397.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2398" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2398.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2403" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2403.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2412" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2412.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2414" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2414.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2421" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2421.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2423" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2423.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2427" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2427.html"/>
+    <reference ref_id="RHSA-2014:0408-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0408.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0408" source="CESA" />
+    <reference ref_id="CVE-2014-0429" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0429.html" source="CVE" />
+    <reference ref_id="CVE-2014-0446" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0446.html" source="CVE" />
+    <reference ref_id="CVE-2014-0451" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0451.html" source="CVE" />
+    <reference ref_id="CVE-2014-0452" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0452.html" source="CVE" />
+    <reference ref_id="CVE-2014-0453" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0453.html" source="CVE" />
+    <reference ref_id="CVE-2014-0456" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0456.html" source="CVE" />
+    <reference ref_id="CVE-2014-0457" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0457.html" source="CVE" />
+    <reference ref_id="CVE-2014-0458" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0458.html" source="CVE" />
+    <reference ref_id="CVE-2014-0460" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0460.html" source="CVE" />
+    <reference ref_id="CVE-2014-0461" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0461.html" source="CVE" />
+    <reference ref_id="CVE-2014-1876" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1876.html" source="CVE" />
+    <reference ref_id="CVE-2014-2397" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2397.html" source="CVE" />
+    <reference ref_id="CVE-2014-2398" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2398.html" source="CVE" />
+    <reference ref_id="CVE-2014-2403" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2403.html" source="CVE" />
+    <reference ref_id="CVE-2014-2412" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2412.html" source="CVE" />
+    <reference ref_id="CVE-2014-2414" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2414.html" source="CVE" />
+    <reference ref_id="CVE-2014-2421" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2421.html" source="CVE" />
+    <reference ref_id="CVE-2014-2423" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2423.html" source="CVE" />
+    <reference ref_id="CVE-2014-2427" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2427.html" source="CVE" />
     <description>The java-1.6.0-openjdk packages provide the OpenJDK 6 Java Runtime
 Environment and the OpenJDK 6 Java Software Development Kit.
 
@@ -103,33 +102,34 @@ must be restarted for the update to take effect.</description>
         <status_change date="2014-06-09T04:00:39.626-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="java-1.6.0-openjdk-devel is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113830"/>
-        <criterion comment="java-1.6.0-openjdk is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113896"/>
-        <criterion comment="java-1.6.0-openjdk-demo is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:114024"/>
-        <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113056"/>
-        <criterion comment="java-1.6.0-openjdk-src is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:114041"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="java-1.6.0-openjdk-devel is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113830" />
+        <criterion comment="java-1.6.0-openjdk is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113896" />
+        <criterion comment="java-1.6.0-openjdk-demo is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:114024" />
+        <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:113056" />
+        <criterion comment="java-1.6.0-openjdk-src is earlier than 1:1.6.0.0-5.1.13.3.el5_10" test_ref="oval:org.mitre.oval:tst:114041" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="java-1.6.0-openjdk-devel is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113683"/>
-        <criterion comment="java-1.6.0-openjdk is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113861"/>
-        <criterion comment="java-1.6.0-openjdk-demo is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113650"/>
-        <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:114057"/>
-        <criterion comment="java-1.6.0-openjdk-src is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113912"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="java-1.6.0-openjdk-devel is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113683" />
+        <criterion comment="java-1.6.0-openjdk is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113861" />
+        <criterion comment="java-1.6.0-openjdk-demo is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113650" />
+        <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:114057" />
+        <criterion comment="java-1.6.0-openjdk-src is earlier than 1:1.6.0.0-5.1.13.3.el6_5" test_ref="oval:org.mitre.oval:tst:113912" />
       </criteria>
     </criteria>
   </criteria>

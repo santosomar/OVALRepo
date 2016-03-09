@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29242" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29242" version="4">
   <metadata>
     <title>SUSE-SU-2015:0979-1 -- Security update for dnsmasq (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 12</platform>
       <product>dnsmasq</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2015/suse-su-20150979-1.html" ref_id="SUSE-SU-2015:0979-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3294" ref_id="CVE-2015-3294"/>
+    <reference ref_id="SUSE-SU-2015:0979-1" ref_url="https://www.suse.com/support/update/announcement/2015/suse-su-20150979-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2015-3294" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3294" source="CVE" />
     <description>The DNS server dnsmasq was updated to fix one security issue and one
 non-security bug.
 The following vulnerability was fixed:
@@ -23,19 +22,21 @@ The following vulnerability was fixed:
         </submitted>
         <status_change date="2015-07-06T10:37:12.853-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:30.370-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:23.880-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="dnsmasq is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:140021"/>
-      <criterion comment="dnsmasq-debuginfo is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:139911"/>
-      <criterion comment="dnsmasq-debugsource is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:139784"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="dnsmasq is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:140021" />
+      <criterion comment="dnsmasq-debuginfo is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:139911" />
+      <criterion comment="dnsmasq-debugsource is earlier than 0:2.71-4.1" test_ref="oval:org.mitre.oval:tst:139784" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7977" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7977" version="7">
   <metadata>
     <title>DSA-1513 lighttpd -- information disclosure</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>lighttpd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1513" ref_id="DSA-1513"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1111" ref_id="CVE-2008-1111"/>
+    <reference ref_id="DSA-1513" ref_url="http://www.debian.org/security/2008/dsa-1513" source="VENDOR" />
+    <reference ref_id="CVE-2008-1111" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1111" source="CVE" />
     <description>It was discovered that lighttpd, a fast webserver with minimal memory footprint, would display the source to CGI scripts if their execution failed in some circumstances.</description>
     <oval_repository>
       <dates>
@@ -24,21 +23,22 @@
         <status_change date="2014-06-23T04:09:38.638-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="lighttpd-doc is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18247"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="lighttpd-doc is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18247" />
       </criteria>
-      <criterion comment="lighttpd-mod-mysql-vhost is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17974"/>
-      <criterion comment="lighttpd-mod-magnet is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18286"/>
-      <criterion comment="lighttpd is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17939"/>
-      <criterion comment="lighttpd-mod-cml is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18420"/>
-      <criterion comment="lighttpd-mod-webdav is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17991"/>
-      <criterion comment="lighttpd-mod-trigger-b4-dl is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17783"/>
+      <criterion comment="lighttpd-mod-mysql-vhost is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17974" />
+      <criterion comment="lighttpd-mod-magnet is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18286" />
+      <criterion comment="lighttpd is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17939" />
+      <criterion comment="lighttpd-mod-cml is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:18420" />
+      <criterion comment="lighttpd-mod-webdav is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17991" />
+      <criterion comment="lighttpd-mod-trigger-b4-dl is earlier than 1.4.13-4etch5" test_ref="oval:org.mitre.oval:tst:17783" />
     </criteria>
   </criteria>
 </definition>

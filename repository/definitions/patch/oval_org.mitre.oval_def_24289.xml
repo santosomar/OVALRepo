@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24289" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24289" version="7">
   <metadata>
     <title>ELSA-2014:0206: openldap security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>openldap</product>
     </affected>
-    <reference ref_id="ELSA-2014:0206-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0206.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-4449" ref_url="http://linux.oracle.com/cve/CVE-2013-4449.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0206-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0206.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4449" ref_url="http://linux.oracle.com/cve/CVE-2013-4449.html" source="CVE" />
     <description>OpenLDAP is an open source suite of Lightweight Directory Access Protocol
 (LDAP) applications and development tools. LDAP is a set of protocols used
 to access and maintain distributed directory information services over an
@@ -35,18 +34,19 @@ contain a backported patch to correct this issue.</description>
         <status_change date="2014-05-26T04:06:22.349-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="openldap-devel is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113219"/>
-      <criterion comment="openldap-servers-sql is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113399"/>
-      <criterion comment="openldap-clients is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:112586"/>
-      <criterion comment="openldap-servers is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113323"/>
-      <criterion comment="openldap-servers-overlays is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113549"/>
-      <criterion comment="compat-openldap is earlier than 0:2.3.43_2.2.29-27.el5_10" test_ref="oval:org.mitre.oval:tst:113321"/>
-      <criterion comment="openldap is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113546"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="openldap-devel is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113219" />
+      <criterion comment="openldap-servers-sql is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113399" />
+      <criterion comment="openldap-clients is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:112586" />
+      <criterion comment="openldap-servers is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113323" />
+      <criterion comment="openldap-servers-overlays is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113549" />
+      <criterion comment="compat-openldap is earlier than 0:2.3.43_2.2.29-27.el5_10" test_ref="oval:org.mitre.oval:tst:113321" />
+      <criterion comment="openldap is earlier than 0:2.3.43-27.el5_10" test_ref="oval:org.mitre.oval:tst:113546" />
     </criteria>
   </criteria>
 </definition>

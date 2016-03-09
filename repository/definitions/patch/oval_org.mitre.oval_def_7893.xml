@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7893" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7893" version="6">
   <metadata>
     <title>DSA-1474 exiv2 -- integer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>exiv2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1474" ref_id="DSA-1474"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6353" ref_id="CVE-2007-6353"/>
+    <reference ref_id="DSA-1474" ref_url="http://www.debian.org/security/2008/dsa-1474" source="VENDOR" />
+    <reference ref_id="CVE-2007-6353" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6353" source="CVE" />
     <description>Meder Kydyraliev discovered an integer overflow in the thumbnail handling of libexif, the EXIF/IPTC metadata manipulation library, which could result in the execution of arbitrary code. The old stable distribution (sarge) doesn't contain exiv2 packages.</description>
     <oval_repository>
       <dates>
@@ -24,18 +23,19 @@
         <status_change date="2014-06-23T04:09:14.042-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="libexiv2-doc is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13719"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="libexiv2-doc is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13719" />
       </criteria>
-      <criterion comment="exiv2 is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13968"/>
-      <criterion comment="libexiv2-0.10 is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13852"/>
-      <criterion comment="libexiv2-dev is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13823"/>
+      <criterion comment="exiv2 is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13968" />
+      <criterion comment="libexiv2-0.10 is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13852" />
+      <criterion comment="libexiv2-dev is earlier than 0.10-1.5" test_ref="oval:org.mitre.oval:tst:13823" />
     </criteria>
   </criteria>
 </definition>

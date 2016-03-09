@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12914" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12914" version="8">
   <metadata>
     <title>DSA-2225-1 asterisk -- several</title>
     <affected family="unix">
@@ -8,12 +7,12 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>asterisk</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00094.html" ref_id="DSA-2225-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1147" ref_id="CVE-2011-1147"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1174" ref_id="CVE-2011-1174"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1175" ref_id="CVE-2011-1175"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1507" ref_id="CVE-2011-1507"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1599" ref_id="CVE-2011-1599"/>
+    <reference ref_id="DSA-2225-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00094.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1147" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1147" source="CVE" />
+    <reference ref_id="CVE-2011-1174" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1174" source="CVE" />
+    <reference ref_id="CVE-2011-1175" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1175" source="CVE" />
+    <reference ref_id="CVE-2011-1507" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1507" source="CVE" />
+    <reference ref_id="CVE-2011-1599" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1599" source="CVE" />
     <description>Several vulnerabilities have been discovered in Asterisk, an Open Source PBX and telephony toolkit. CVE-2011-1147 Matthew Nicholson discovered that incorrect handling of UDPTL packets may lead to denial of service of the execution of arbitrary code. CVE-2011-1174 Blake Cornell discovered that incorrect connection handling in the manager interface may lead to denial of service. CVE-2011-1175 Blake Cornell and Chris May discovered that incorrect TCP connection handling may lead to denial of service. CVE-2011-1507 Tzafrir Cohen discovered that insufficient limitation of connection requests in several TCP based services may lead to denial of service. CVE-2011-1599 Matthew Nicholson discovered a privilege escalation vulnerability in the manager interface.</description>
     <oval_repository>
       <dates>
@@ -30,22 +29,23 @@
         <status_change date="2014-06-23T04:01:06.418-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="asterisk DPKG is earlier than 1:1.4.21.2~dfsg-3+lenny2.1" test_ref="oval:org.mitre.oval:tst:43839"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="asterisk DPKG is earlier than 1:1.4.21.2~dfsg-3+lenny2.1" test_ref="oval:org.mitre.oval:tst:43839" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="asterisk DPKG is earlier than 1:1.6.2.9-2+squeeze2" test_ref="oval:org.mitre.oval:tst:44018"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="asterisk DPKG is earlier than 1:1.6.2.9-2+squeeze2" test_ref="oval:org.mitre.oval:tst:44018" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27624" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27624" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1459 -- nspluginwrapper security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>nspluginwrapper</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1459.html" ref_id="ELSA-2012-1459"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2486" ref_id="CVE-2011-2486"/>
+    <reference ref_id="ELSA-2012-1459" ref_url="http://linux.oracle.com/errata/ELSA-2012-1459.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2486" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2486" source="CVE" />
     <description>[1.4.4-1]
 - Rebase the package to latest upstream
 - Added Adobe reader fix (#645599)</description>
@@ -25,10 +24,11 @@
         <status_change date="2015-02-10T14:20:01.560-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="nspluginwrapper is earlier than 0:1.4.4-1.el6_3" test_ref="oval:org.mitre.oval:tst:130599"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="nspluginwrapper is earlier than 0:1.4.4-1.el6_3" test_ref="oval:org.mitre.oval:tst:130599" />
   </criteria>
 </definition>

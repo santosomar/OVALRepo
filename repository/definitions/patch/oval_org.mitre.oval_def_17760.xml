@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17760" version="5" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:17760" version="6">
   <metadata>
     <title>DEPRECATED: USN-582-2 -- mozilla-thunderbird</title>
     <affected family="unix">
@@ -8,7 +7,7 @@
       <platform>Ubuntu 7.04</platform>
       <product>mozilla-thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-582-2/" ref_id="USN-582-2"/>
+    <reference ref_id="USN-582-2" ref_url="http://www.ubuntu.com/usn/usn-582-2/" source="VENDOR" />
     <description>USN-582-1 fixed several vulnerabilities in Thunderbird.</description>
     <oval_repository>
       <dates>
@@ -28,20 +27,21 @@
         <status_change date="2013-12-10T12:32:27.385-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.6.06.1" test_ref="oval:org.mitre.oval:tst:82374"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.6.06.1" test_ref="oval:org.mitre.oval:tst:82374" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.6.10.1" test_ref="oval:org.mitre.oval:tst:82260"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.6.10.1" test_ref="oval:org.mitre.oval:tst:82260" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.7.04.1" test_ref="oval:org.mitre.oval:tst:82547"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="mozilla-thunderbird DPKG is earlier than 1.5.0.13+1.5.0.15~prepatch080227-0ubuntu0.7.04.1" test_ref="oval:org.mitre.oval:tst:82547" />
     </criteria>
   </criteria>
 </definition>

@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27385" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27385" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0217 -- mingw32-libxml2 security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>mingw32-libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0217.html" ref_id="ELSA-2013-0217"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0841" ref_id="CVE-2012-0841"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3905" ref_id="CVE-2011-3905"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3919" ref_id="CVE-2011-3919"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4008" ref_id="CVE-2010-4008"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4494" ref_id="CVE-2010-4494"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0216" ref_id="CVE-2011-0216"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1944" ref_id="CVE-2011-1944"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2821" ref_id="CVE-2011-2821"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2834" ref_id="CVE-2011-2834"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3102" ref_id="CVE-2011-3102"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5134" ref_id="CVE-2012-5134"/>
+    <reference ref_id="ELSA-2013-0217" ref_url="http://linux.oracle.com/errata/ELSA-2013-0217.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0841" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0841" source="CVE" />
+    <reference ref_id="CVE-2011-3905" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3905" source="CVE" />
+    <reference ref_id="CVE-2011-3919" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3919" source="CVE" />
+    <reference ref_id="CVE-2010-4008" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4008" source="CVE" />
+    <reference ref_id="CVE-2010-4494" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4494" source="CVE" />
+    <reference ref_id="CVE-2011-0216" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0216" source="CVE" />
+    <reference ref_id="CVE-2011-1944" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1944" source="CVE" />
+    <reference ref_id="CVE-2011-2821" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2821" source="CVE" />
+    <reference ref_id="CVE-2011-2834" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2834" source="CVE" />
+    <reference ref_id="CVE-2011-3102" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3102" source="CVE" />
+    <reference ref_id="CVE-2012-5134" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5134" source="CVE" />
     <description>[2.7.6-6]
 - Synchronize patch-set with mainline-version.
 - Bump version to 5, 6.
@@ -50,13 +49,14 @@
         <status_change date="2015-02-10T12:41:30.969-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="mingw32-libxml2 is earlier than 0:2.7.6-6.el6_3" test_ref="oval:org.mitre.oval:tst:130261"/>
-      <criterion comment="mingw32-libxml2-static is earlier than 0:2.7.6-6.el6_3" test_ref="oval:org.mitre.oval:tst:130349"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="mingw32-libxml2 is earlier than 0:2.7.6-6.el6_3" test_ref="oval:org.mitre.oval:tst:130261" />
+      <criterion comment="mingw32-libxml2-static is earlier than 0:2.7.6-6.el6_3" test_ref="oval:org.mitre.oval:tst:130349" />
     </criteria>
   </criteria>
 </definition>

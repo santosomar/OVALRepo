@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20321" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20321" version="6">
   <metadata>
     <title>DSA-1305-1 icedove - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>icedove</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1305-1" ref_id="DSA-1305-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1558" ref_id="CVE-2007-1558"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2867" ref_id="CVE-2007-2867"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2868" ref_id="CVE-2007-2868"/>
+    <reference ref_id="DSA-1305-1" ref_url="http://www.debian.org/security/dsa-1305-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-1558" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1558" source="CVE" />
+    <reference ref_id="CVE-2007-2867" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2867" source="CVE" />
+    <reference ref_id="CVE-2007-2868" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2868" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in the Icedove mail client, an unbranded version of the Thunderbird client.</description>
     <oval_repository>
       <dates>
@@ -26,10 +25,11 @@
         <status_change date="2014-06-23T04:07:13.370-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="icedove DPKG is earlier than 0:1.5.0.12.dfsg1-0etch1" test_ref="oval:org.mitre.oval:tst:89326"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="icedove DPKG is earlier than 0:1.5.0.12.dfsg1-0etch1" test_ref="oval:org.mitre.oval:tst:89326" />
   </criteria>
 </definition>

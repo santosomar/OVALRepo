@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17802" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17802" version="8">
   <metadata>
     <title>USN-588-2 -- mysql-dfsg-5.0 regression</title>
     <affected family="unix">
       <platform>Ubuntu 6.06</platform>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-588-2/" ref_id="USN-588-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2692" ref_id="CVE-2007-2692"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7232" ref_id="CVE-2006-7232"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6303" ref_id="CVE-2007-6303"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0226" ref_id="CVE-2008-0226"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0227" ref_id="CVE-2008-0227"/>
+    <reference ref_id="USN-588-2" ref_url="http://www.ubuntu.com/usn/usn-588-2/" source="VENDOR" />
+    <reference ref_id="CVE-2007-2692" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2692" source="CVE" />
+    <reference ref_id="CVE-2006-7232" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7232" source="CVE" />
+    <reference ref_id="CVE-2007-6303" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6303" source="CVE" />
+    <reference ref_id="CVE-2008-0226" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0226" source="CVE" />
+    <reference ref_id="CVE-2008-0227" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0227" source="CVE" />
     <description>USN-588-1 fixed vulnerabilities in MySQL.</description>
     <oval_repository>
       <dates>
@@ -33,10 +32,11 @@
         <status_change date="2014-06-30T04:07:26.980-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-    <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.9" test_ref="oval:org.mitre.oval:tst:82558"/>
+    <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+    <criterion comment="mysql-server-5.0 DPKG is earlier than 5.0.22-0ubuntu6.06.9" test_ref="oval:org.mitre.oval:tst:82558" />
   </criteria>
 </definition>

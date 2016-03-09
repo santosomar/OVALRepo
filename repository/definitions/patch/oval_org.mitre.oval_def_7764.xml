@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7764" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7764" version="4">
   <metadata>
     <title>DSA-1624 liebxslt -- buffer overflows</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>libxslt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1624" ref_id="DSA-1624"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2935" ref_id="CVE-2008-2935"/>
+    <reference ref_id="DSA-1624" ref_url="http://www.debian.org/security/2008/dsa-1624" source="VENDOR" />
+    <reference ref_id="CVE-2008-2935" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2935" source="CVE" />
     <description>Chris Evans discovered that a buffer overflow in the RC4 functions of libexslt may lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-06-23T04:08:51.180-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="libxslt1-dev is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:13445"/>
-      <criterion comment="python-libxslt1 is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12895"/>
-      <criterion comment="libxslt1-dbg is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:13463"/>
-      <criterion comment="libxslt1.1 is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12831"/>
-      <criterion comment="xsltproc is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12963"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="libxslt1-dev is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:13445" />
+      <criterion comment="python-libxslt1 is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12895" />
+      <criterion comment="libxslt1-dbg is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:13463" />
+      <criterion comment="libxslt1.1 is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12831" />
+      <criterion comment="xsltproc is earlier than 1.1.19-3" test_ref="oval:org.mitre.oval:tst:12963" />
     </criteria>
   </criteria>
 </definition>

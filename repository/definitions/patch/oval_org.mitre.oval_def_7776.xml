@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7776" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7776" version="6">
   <metadata>
     <title>DSA-1520 smarty -- insufficient input sanitising</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 3.1</platform>
       <product>smarty</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1520" ref_id="DSA-1520"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1066" ref_id="CVE-2008-1066"/>
+    <reference ref_id="DSA-1520" ref_url="http://www.debian.org/security/2008/dsa-1520" source="VENDOR" />
+    <reference ref_id="CVE-2008-1066" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1066" source="CVE" />
     <description>It was discovered that the regex module in Smarty, a PHP templating engine, allows attackers to call arbitrary PHP functions via templates using the regex_replace plugin by a specially crafted search string.</description>
     <oval_repository>
       <dates>
@@ -25,18 +24,19 @@
         <status_change date="2014-06-23T04:08:52.820-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="smarty is earlier than 2.6.14-1etch1" test_ref="oval:org.mitre.oval:tst:19129"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="smarty is earlier than 2.6.14-1etch1" test_ref="oval:org.mitre.oval:tst:19129" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="smarty is earlier than 2.6.9-1sarge1" test_ref="oval:org.mitre.oval:tst:19069"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="smarty is earlier than 2.6.9-1sarge1" test_ref="oval:org.mitre.oval:tst:19069" />
     </criteria>
   </criteria>
 </definition>

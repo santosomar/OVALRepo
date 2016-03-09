@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20149" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20149" version="6">
   <metadata>
     <title>DSA-1677-1 cupsys - arbitrary code execution</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>cupsys</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1677-1" ref_id="DSA-1677-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5286" ref_id="CVE-2008-5286"/>
+    <reference ref_id="DSA-1677-1" ref_url="http://www.debian.org/security/dsa-1677-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-5286" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5286" source="CVE" />
     <description>An integer overflow has been discovered in the image validation code of cupsys, the Common UNIX Printing System. An attacker could trigger this bug by supplying a malicious graphic that could lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-06-23T04:06:49.818-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="cupsys DPKG is earlier than 0:1.2.7-4etch6" test_ref="oval:org.mitre.oval:tst:89170"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="cupsys DPKG is earlier than 0:1.2.7-4etch6" test_ref="oval:org.mitre.oval:tst:89170" />
   </criteria>
 </definition>

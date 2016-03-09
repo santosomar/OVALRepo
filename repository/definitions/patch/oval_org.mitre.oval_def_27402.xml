@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27402" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27402" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1173 -- kernel security and bug fix update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1173.html" ref_id="ELSA-2013-1173"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6544" ref_id="CVE-2012-6544"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2206" ref_id="CVE-2013-2206"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2224" ref_id="CVE-2013-2224"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2232" ref_id="CVE-2013-2232"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2237" ref_id="CVE-2013-2237"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2146" ref_id="CVE-2013-2146"/>
+    <reference ref_id="ELSA-2013-1173" ref_url="http://linux.oracle.com/errata/ELSA-2013-1173.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-6544" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6544" source="CVE" />
+    <reference ref_id="CVE-2013-2206" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2206" source="CVE" />
+    <reference ref_id="CVE-2013-2224" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2224" source="CVE" />
+    <reference ref_id="CVE-2013-2232" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2232" source="CVE" />
+    <reference ref_id="CVE-2013-2237" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2237" source="CVE" />
+    <reference ref_id="CVE-2013-2146" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2146" source="CVE" />
     <description>[2.6.32-358.18.1]
 - [x86] perf/x86: Fix offcore_rsp valid mask for SNB/IVB (Nikola Pajkovsky) [971314 971315] {CVE-2013-2146}
 - [net] br: fix schedule while atomic issue in br_features_recompute() (Jiri Pirko) [990464 980876]
@@ -60,20 +59,21 @@
         <status_change date="2015-02-10T12:22:34.444-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128832"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129036"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129108"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128722"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129062"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128664"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128976"/>
-      <criterion comment="perf is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128237"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128763"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128832" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129036" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129108" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128722" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:129062" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128664" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128976" />
+      <criterion comment="perf is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128237" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-358.18.1.el6" test_ref="oval:org.mitre.oval:tst:128763" />
     </criteria>
   </criteria>
 </definition>

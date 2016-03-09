@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18161" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18161" version="8">
   <metadata>
     <title>USN-1703-1 -- mysql-5.1, mysql-5.5, mysql-dfsg-5.1 vulnerabilities</title>
     <affected family="unix">
@@ -11,25 +10,25 @@
       <product>mysql-5.1</product>
       <product>mysql-dfsg-5.1</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1703-1/" ref_id="USN-1703-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0572" ref_id="CVE-2012-0572"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0574" ref_id="CVE-2012-0574"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0578" ref_id="CVE-2012-0578"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1702" ref_id="CVE-2012-1702"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1705" ref_id="CVE-2012-1705"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5060" ref_id="CVE-2012-5060"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5096" ref_id="CVE-2012-5096"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5611" ref_id="CVE-2012-5611"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5612" ref_id="CVE-2012-5612"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0367" ref_id="CVE-2013-0367"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0368" ref_id="CVE-2013-0368"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0371" ref_id="CVE-2013-0371"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0375" ref_id="CVE-2013-0375"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0383" ref_id="CVE-2013-0383"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0384" ref_id="CVE-2013-0384"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0385" ref_id="CVE-2013-0385"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0386" ref_id="CVE-2013-0386"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0389" ref_id="CVE-2013-0389"/>
+    <reference ref_id="USN-1703-1" ref_url="http://www.ubuntu.com/usn/usn-1703-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-0572" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0572" source="CVE" />
+    <reference ref_id="CVE-2012-0574" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0574" source="CVE" />
+    <reference ref_id="CVE-2012-0578" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0578" source="CVE" />
+    <reference ref_id="CVE-2012-1702" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1702" source="CVE" />
+    <reference ref_id="CVE-2012-1705" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1705" source="CVE" />
+    <reference ref_id="CVE-2012-5060" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5060" source="CVE" />
+    <reference ref_id="CVE-2012-5096" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5096" source="CVE" />
+    <reference ref_id="CVE-2012-5611" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5611" source="CVE" />
+    <reference ref_id="CVE-2012-5612" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5612" source="CVE" />
+    <reference ref_id="CVE-2013-0367" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0367" source="CVE" />
+    <reference ref_id="CVE-2013-0368" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0368" source="CVE" />
+    <reference ref_id="CVE-2013-0371" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0371" source="CVE" />
+    <reference ref_id="CVE-2013-0375" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0375" source="CVE" />
+    <reference ref_id="CVE-2013-0383" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0383" source="CVE" />
+    <reference ref_id="CVE-2013-0384" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0384" source="CVE" />
+    <reference ref_id="CVE-2013-0385" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0385" source="CVE" />
+    <reference ref_id="CVE-2013-0386" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0386" source="CVE" />
+    <reference ref_id="CVE-2013-0389" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0389" source="CVE" />
     <description>Several security issues were fixed in MySQL.</description>
     <oval_repository>
       <dates>
@@ -51,24 +50,25 @@
         <status_change date="2014-06-30T04:08:15.558-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.29-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85358"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.29-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85358" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.29-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85323"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="mysql-server-5.5 DPKG is earlier than 5.5.29-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85323" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.67-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:85406"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.67-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:85406" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.67-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:84878"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="mysql-server-5.1 DPKG is earlier than 5.1.67-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:84878" />
     </criteria>
   </criteria>
 </definition>

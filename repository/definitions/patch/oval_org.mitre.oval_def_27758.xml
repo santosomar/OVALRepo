@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27758" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27758" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1269 -- qpid security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <product>qpid-qmf</product>
       <product>qpid-tools</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1269.html" ref_id="ELSA-2012-1269"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2145" ref_id="CVE-2012-2145"/>
+    <reference ref_id="ELSA-2012-1269" ref_url="http://linux.oracle.com/errata/ELSA-2012-1269.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-2145" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2145" source="CVE" />
     <description>python-qpid
 [0.14-11]
 - BZs: 825078
@@ -61,21 +60,22 @@ qpid-tools
         <status_change date="2015-02-10T14:41:40.098-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="python-qpid is earlier than 0:0.14-11.el6_3" test_ref="oval:org.mitre.oval:tst:130313"/>
-      <criterion comment="qpid-cpp is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130400"/>
-      <criterion comment="qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130231"/>
-      <criterion comment="qpid-tools is earlier than 0:0.14-6.el6_3" test_ref="oval:org.mitre.oval:tst:131202"/>
-      <criterion comment="python-qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131125"/>
-      <criterion comment="qpid-cpp-client is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131085"/>
-      <criterion comment="qpid-cpp-client-ssl is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130487"/>
-      <criterion comment="qpid-cpp-server is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131154"/>
-      <criterion comment="qpid-cpp-server-ssl is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130341"/>
-      <criterion comment="ruby-qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131010"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="python-qpid is earlier than 0:0.14-11.el6_3" test_ref="oval:org.mitre.oval:tst:130313" />
+      <criterion comment="qpid-cpp is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130400" />
+      <criterion comment="qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130231" />
+      <criterion comment="qpid-tools is earlier than 0:0.14-6.el6_3" test_ref="oval:org.mitre.oval:tst:131202" />
+      <criterion comment="python-qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131125" />
+      <criterion comment="qpid-cpp-client is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131085" />
+      <criterion comment="qpid-cpp-client-ssl is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130487" />
+      <criterion comment="qpid-cpp-server is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131154" />
+      <criterion comment="qpid-cpp-server-ssl is earlier than 0:0.14-22.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130341" />
+      <criterion comment="ruby-qpid-qmf is earlier than 0:0.14-14.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131010" />
     </criteria>
   </criteria>
 </definition>

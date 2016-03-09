@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7621" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7621" version="6">
   <metadata>
     <title>DSA-1664 ekg -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>ekg</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1664" ref_id="DSA-1664"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4776" ref_id="CVE-2008-4776"/>
+    <reference ref_id="DSA-1664" ref_url="http://www.debian.org/security/2008/dsa-1664" source="VENDOR" />
+    <reference ref_id="CVE-2008-4776" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4776" source="CVE" />
     <description>It was discovered that ekg, a console Gadu Gadu client performs insufficient input sanitising in the code to parse contact descriptions, which may result in denial of service.</description>
     <oval_repository>
       <dates>
@@ -29,14 +28,15 @@
         <status_change date="2015-02-23T04:01:41.190-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="ekg is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12160"/>
-      <criterion comment="libgadu-dev is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12571"/>
-      <criterion comment="libgadu3 is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12168"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="ekg is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12160" />
+      <criterion comment="libgadu-dev is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12571" />
+      <criterion comment="libgadu3 is earlier than 1:1.7~rc2-1etch2" test_ref="oval:org.mitre.oval:tst:12168" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26887" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:26887" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1210 -- firefox security update (critical)</title>
     <affected family="unix">
@@ -8,31 +7,31 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1210.html" ref_id="ELSA-2012-1210"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1970" ref_id="CVE-2012-1970"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1972" ref_id="CVE-2012-1972"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1973" ref_id="CVE-2012-1973"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1974" ref_id="CVE-2012-1974"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1975" ref_id="CVE-2012-1975"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1976" ref_id="CVE-2012-1976"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3956" ref_id="CVE-2012-3956"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3957" ref_id="CVE-2012-3957"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3958" ref_id="CVE-2012-3958"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3959" ref_id="CVE-2012-3959"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3960" ref_id="CVE-2012-3960"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3961" ref_id="CVE-2012-3961"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3962" ref_id="CVE-2012-3962"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3963" ref_id="CVE-2012-3963"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3964" ref_id="CVE-2012-3964"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3966" ref_id="CVE-2012-3966"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3967" ref_id="CVE-2012-3967"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3968" ref_id="CVE-2012-3968"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3969" ref_id="CVE-2012-3969"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3970" ref_id="CVE-2012-3970"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3972" ref_id="CVE-2012-3972"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3976" ref_id="CVE-2012-3976"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3978" ref_id="CVE-2012-3978"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3980" ref_id="CVE-2012-3980"/>
+    <reference ref_id="ELSA-2012-1210" ref_url="http://linux.oracle.com/errata/ELSA-2012-1210.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-1970" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1970" source="CVE" />
+    <reference ref_id="CVE-2012-1972" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1972" source="CVE" />
+    <reference ref_id="CVE-2012-1973" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1973" source="CVE" />
+    <reference ref_id="CVE-2012-1974" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1974" source="CVE" />
+    <reference ref_id="CVE-2012-1975" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1975" source="CVE" />
+    <reference ref_id="CVE-2012-1976" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1976" source="CVE" />
+    <reference ref_id="CVE-2012-3956" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3956" source="CVE" />
+    <reference ref_id="CVE-2012-3957" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3957" source="CVE" />
+    <reference ref_id="CVE-2012-3958" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3958" source="CVE" />
+    <reference ref_id="CVE-2012-3959" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3959" source="CVE" />
+    <reference ref_id="CVE-2012-3960" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3960" source="CVE" />
+    <reference ref_id="CVE-2012-3961" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3961" source="CVE" />
+    <reference ref_id="CVE-2012-3962" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3962" source="CVE" />
+    <reference ref_id="CVE-2012-3963" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3963" source="CVE" />
+    <reference ref_id="CVE-2012-3964" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3964" source="CVE" />
+    <reference ref_id="CVE-2012-3966" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3966" source="CVE" />
+    <reference ref_id="CVE-2012-3967" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3967" source="CVE" />
+    <reference ref_id="CVE-2012-3968" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3968" source="CVE" />
+    <reference ref_id="CVE-2012-3969" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3969" source="CVE" />
+    <reference ref_id="CVE-2012-3970" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3970" source="CVE" />
+    <reference ref_id="CVE-2012-3972" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3972" source="CVE" />
+    <reference ref_id="CVE-2012-3976" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3976" source="CVE" />
+    <reference ref_id="CVE-2012-3978" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3978" source="CVE" />
+    <reference ref_id="CVE-2012-3980" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3980" source="CVE" />
     <description>firefox
 [10.0.7-1.0.1.el6_3]
 - Replace firefox-redhat-default-prefs.js with firefox-oracle-default-prefs.js
@@ -64,23 +63,24 @@ xulrunner
         <status_change date="2015-02-10T12:03:10.370-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:10.0.7-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131040"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.7-2.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131282"/>
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.7-2.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131235"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:10.0.7-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131040" />
+        <criterion comment="xulrunner is earlier than 0:10.0.7-2.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131282" />
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.7-2.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:131235" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130992"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131356"/>
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131336"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130992" />
+        <criterion comment="xulrunner is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131356" />
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.7-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131336" />
       </criteria>
     </criteria>
   </criteria>

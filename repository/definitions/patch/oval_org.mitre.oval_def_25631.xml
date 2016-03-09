@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25631" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25631" version="4">
   <metadata>
     <title>SUSE-RU-2013:0251-1 -- Recommended update for autofs</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>autofs</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130251-1.html" ref_id="SUSE-RU-2013:0251-1"/>
+    <reference ref_id="SUSE-RU-2013:0251-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130251-1.html" source="VENDOR" />
     <description>This update for AutoFS enables support to auto-mounting NFS
 volumes on IPv6  networks. Additionally, it includes the
 following fixes and improvements:
@@ -29,13 +28,14 @@ following fixes and improvements:
         <status_change date="2014-09-08T04:02:52.225-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="autofs RPM is earlier than 0:5.0.6-3.4.1" test_ref="oval:org.mitre.oval:tst:120982"/>
+    <criterion comment="autofs RPM is earlier than 0:5.0.6-3.4.1" test_ref="oval:org.mitre.oval:tst:120982" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28032" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28032" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2011-0554 -- python security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <product>python</product>
       <product>python-docs</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-0554.html" ref_id="ELSA-2011-0554"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3493" ref_id="CVE-2010-3493"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1015" ref_id="CVE-2011-1015"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1521" ref_id="CVE-2011-1521"/>
+    <reference ref_id="ELSA-2011-0554" ref_url="http://linux.oracle.com/errata/ELSA-2011-0554.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3493" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3493" source="CVE" />
+    <reference ref_id="CVE-2011-1015" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1015" source="CVE" />
+    <reference ref_id="CVE-2011-1521" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1521" source="CVE" />
     <description>python:
 [2.6.6-20]
 Resolves: CVE-2010-3493</description>
@@ -28,18 +27,19 @@ Resolves: CVE-2010-3493</description>
         <status_change date="2015-02-10T16:26:06.593-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="python is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:134024"/>
-      <criterion comment="python-docs is earlier than 0:2.6.6-2.el6" test_ref="oval:org.mitre.oval:tst:133907"/>
-      <criterion comment="python-devel is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133781"/>
-      <criterion comment="python-libs is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133450"/>
-      <criterion comment="python-test is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133697"/>
-      <criterion comment="python-tools is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:134077"/>
-      <criterion comment="tkinter is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133752"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="python is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:134024" />
+      <criterion comment="python-docs is earlier than 0:2.6.6-2.el6" test_ref="oval:org.mitre.oval:tst:133907" />
+      <criterion comment="python-devel is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133781" />
+      <criterion comment="python-libs is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133450" />
+      <criterion comment="python-test is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133697" />
+      <criterion comment="python-tools is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:134077" />
+      <criterion comment="tkinter is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:133752" />
     </criteria>
   </criteria>
 </definition>

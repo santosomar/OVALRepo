@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21626" version="42" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21626" version="44">
   <metadata>
     <title>RHSA-2011:0554: python security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <product>python</product>
       <product>python-docs</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:0554-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0554.html"/>
-    <reference source="CVE" ref_id="CVE-2010-3493" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3493.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1015" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1015.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1521" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1521.html"/>
+    <reference ref_id="RHSA-2011:0554-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0554.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3493" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3493.html" source="CVE" />
+    <reference ref_id="CVE-2011-1015" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1015.html" source="CVE" />
+    <reference ref_id="CVE-2011-1521" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1521.html" source="CVE" />
     <description>The urllib and urllib2 modules in Python 2.x before 2.7.2 and 3.x before 3.2.1 process Location headers that specify redirection to file: URLs, which makes it easier for remote attackers to obtain sensitive information or cause a denial of service (resource consumption) via a crafted URL, as demonstrated by the file:///etc/passwd and file:///dev/zero URLs.</description>
     <oval_repository>
       <dates>
@@ -22,18 +21,19 @@
         <status_change date="2014-02-24T04:01:49.460-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="python-docs is earlier than 0:2.6.6-2.el6" test_ref="oval:org.mitre.oval:tst:97840"/>
-      <criterion comment="python-devel is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97975"/>
-      <criterion comment="python-test is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97957"/>
-      <criterion comment="tkinter is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97773"/>
-      <criterion comment="python is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97659"/>
-      <criterion comment="python-libs is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97978"/>
-      <criterion comment="python-tools is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97952"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="python-docs is earlier than 0:2.6.6-2.el6" test_ref="oval:org.mitre.oval:tst:97840" />
+      <criterion comment="python-devel is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97975" />
+      <criterion comment="python-test is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97957" />
+      <criterion comment="tkinter is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97773" />
+      <criterion comment="python is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97659" />
+      <criterion comment="python-libs is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97978" />
+      <criterion comment="python-tools is earlier than 0:2.6.6-20.el6" test_ref="oval:org.mitre.oval:tst:97952" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18465" version="9" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18465" version="10">
   <metadata>
     <title>DSA-1630-1 fai-kernels linux-2.6 user-mode-linux - several vulnerabilities</title>
     <affected family="unix">
@@ -8,15 +7,15 @@
       <product>user-mode-linux</product>
       <product>linux-2.6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1630-1" ref_id="DSA-1630-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6282" ref_id="CVE-2007-6282"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0598" ref_id="CVE-2008-0598"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2729" ref_id="CVE-2008-2729"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2812" ref_id="CVE-2008-2812"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2826" ref_id="CVE-2008-2826"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2931" ref_id="CVE-2008-2931"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3272" ref_id="CVE-2008-3272"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3275" ref_id="CVE-2008-3275"/>
+    <reference ref_id="DSA-1630-1" ref_url="http://www.debian.org/security/dsa-1630-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-6282" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6282" source="CVE" />
+    <reference ref_id="CVE-2008-0598" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0598" source="CVE" />
+    <reference ref_id="CVE-2008-2729" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2729" source="CVE" />
+    <reference ref_id="CVE-2008-2812" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2812" source="CVE" />
+    <reference ref_id="CVE-2008-2826" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2826" source="CVE" />
+    <reference ref_id="CVE-2008-2931" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2931" source="CVE" />
+    <reference ref_id="CVE-2008-3272" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3272" source="CVE" />
+    <reference ref_id="CVE-2008-3275" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3275" source="CVE" />
     <description>Several vulnerabilities have been discovered in the Linux kernel that may lead to a denial of service or arbitrary code execution.</description>
     <oval_repository>
       <dates>
@@ -43,14 +42,15 @@
         <status_change date="2014-06-23T04:04:34.091-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="fai-kernels DPKG is earlier than 1.17+etch.22etch2" test_ref="oval:org.mitre.oval:tst:85786"/>
-      <criterion comment="user-mode-linux DPKG is earlier than 2.6.18-1um-2etch.22etch2" test_ref="oval:org.mitre.oval:tst:86586"/>
-      <criterion comment="linux-2.6 DPKG is earlier than 2.6.18.dfsg.1-22etch2" test_ref="oval:org.mitre.oval:tst:86631"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="fai-kernels DPKG is earlier than 1.17+etch.22etch2" test_ref="oval:org.mitre.oval:tst:85786" />
+      <criterion comment="user-mode-linux DPKG is earlier than 2.6.18-1um-2etch.22etch2" test_ref="oval:org.mitre.oval:tst:86586" />
+      <criterion comment="linux-2.6 DPKG is earlier than 2.6.18.dfsg.1-22etch2" test_ref="oval:org.mitre.oval:tst:86631" />
     </criteria>
   </criteria>
 </definition>

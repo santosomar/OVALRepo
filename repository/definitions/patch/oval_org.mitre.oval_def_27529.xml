@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27529" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27529" version="5">
   <metadata>
     <title>ELSA-2013-0519 -- openssh security, bug fix and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>openssh</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0519.html" ref_id="ELSA-2013-0519"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5536" ref_id="CVE-2012-5536"/>
+    <reference ref_id="ELSA-2013-0519" ref_url="http://linux.oracle.com/errata/ELSA-2013-0519.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-5536" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5536" source="CVE" />
     <description>[5.3p1-84.1]
 - Add a 'netcat mode' (ssh -W) (#860809)
 
@@ -32,17 +31,18 @@
         <status_change date="2014-12-15T04:02:10.548-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openssh is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130132"/>
-      <criterion comment="openssh-askpass is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130324"/>
-      <criterion comment="openssh-clients is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130379"/>
-      <criterion comment="openssh-ldap is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130299"/>
-      <criterion comment="openssh-server is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130020"/>
-      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-84.1.el6" test_ref="oval:org.mitre.oval:tst:129955"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openssh is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130132" />
+      <criterion comment="openssh-askpass is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130324" />
+      <criterion comment="openssh-clients is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130379" />
+      <criterion comment="openssh-ldap is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130299" />
+      <criterion comment="openssh-server is earlier than 0:5.3p1-84.1.el6" test_ref="oval:org.mitre.oval:tst:130020" />
+      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-84.1.el6" test_ref="oval:org.mitre.oval:tst:129955" />
     </criteria>
   </criteria>
 </definition>

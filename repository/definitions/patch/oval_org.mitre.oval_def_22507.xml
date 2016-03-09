@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22507" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22507" version="8">
   <metadata>
     <title>ELSA-2007:0696: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2007:0696-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0696.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-3456" ref_url="http://linux.oracle.com/cve/CVE-2007-3456.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0696-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0696.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-3456" ref_url="http://linux.oracle.com/cve/CVE-2007-3456.html" source="CVE" />
     <description>Integer overflow in Adobe Flash Player 9.0.45.0 and earlier might allow remote attackers to execute arbitrary code via a large length value for a (1) Long string or (2) XML variable type in a crafted (a) FLV or (b) SWF file, related to an "input validation error," including a signed comparison of values that are assumed to be non-negative.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:01:22.071-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="flash-plugin is earlier than 0:9.0.48.0-1.el5" test_ref="oval:org.mitre.oval:tst:101169"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="flash-plugin is earlier than 0:9.0.48.0-1.el5" test_ref="oval:org.mitre.oval:tst:101169" />
   </criteria>
 </definition>

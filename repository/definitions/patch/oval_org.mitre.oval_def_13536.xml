@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13536" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13536" version="6">
   <metadata>
     <title>DSA-1799-1 qemu -- several</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Debian 4.0</platform>
       <product>qemu</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00110.html" ref_id="DSA-1799-1"/>
+    <reference ref_id="DSA-1799-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00110.html" source="VENDOR" />
     <description>Several vulnerabilities have been discovered in the QEMU processor emulator. The Common Vulnerabilities and Exposures project identifies the following problems: CVE-2008-0928 Ian Jackson discovered that range checks of file operations on emulated disk devices were insufficiently enforced. CVE-2008-1945 It was discovered that an error in the format auto detection of removable media could lead to the disclosure of files in the host system. CVE-2008-4539 A buffer overflow has been found in the emulation of the Cirrus graphics adaptor. For the old stable distribution , these problems have been fixed in version 0.8.2-4etch3. For the stable distribution , these problems have been fixed in version 0.9.1-10lenny1. For the unstable distribution , these problems have been fixed in version 0.9.1+svn20081101-1. We recommend that you upgrade your qemu packages.</description>
     <oval_repository>
       <dates>
@@ -19,35 +18,36 @@
         <status_change date="2011-11-21T04:08:35.293-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="qemu DPKG is earlier than 0.9.1-10lenny1" test_ref="oval:org.mitre.oval:tst:49238"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="qemu DPKG is earlier than 0.9.1-10lenny1" test_ref="oval:org.mitre.oval:tst:49238" />
           </criteria>
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="qemu DPKG is earlier than 0.8.2-4etch3" test_ref="oval:org.mitre.oval:tst:49432"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="qemu DPKG is earlier than 0.8.2-4etch3" test_ref="oval:org.mitre.oval:tst:49432" />
           </criteria>
         </criteria>
       </criteria>

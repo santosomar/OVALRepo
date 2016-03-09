@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26108" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26108" version="4">
   <metadata>
     <title>SUSE-SU-2013:0517-1 -- Security update for PostgreSQL</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>PostgreSQL</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130517-1.html" ref_id="SUSE-SU-2013:0517-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0255" ref_id="CVE-2013-0255"/>
+    <reference ref_id="SUSE-SU-2013:0517-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130517-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0255" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0255" source="CVE" />
     <description>PostgreSQL has been updated to version 9.1.8 which fixes
 various bugs and  one security issue.</description>
     <oval_repository>
@@ -21,31 +20,32 @@ various bugs and  one security issue.</description>
         <status_change date="2014-09-08T04:03:52.165-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libecpg6 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120228"/>
-        <criterion comment="libpq5 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120686"/>
-        <criterion comment="postgresql RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120266"/>
-        <criterion comment="postgresql91 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120251"/>
-        <criterion comment="libpq5-32bit RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120025"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libecpg6 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120228" />
+        <criterion comment="libpq5 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120686" />
+        <criterion comment="postgresql RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120266" />
+        <criterion comment="postgresql91 RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120251" />
+        <criterion comment="libpq5-32bit RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120025" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="postgresql-contrib RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120515"/>
-        <criterion comment="postgresql-docs RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120100"/>
-        <criterion comment="postgresql-server RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120682"/>
-        <criterion comment="postgresql91-contrib RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120543"/>
-        <criterion comment="postgresql91-docs RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120479"/>
-        <criterion comment="postgresql91-server RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120688"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="postgresql-contrib RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120515" />
+        <criterion comment="postgresql-docs RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120100" />
+        <criterion comment="postgresql-server RPM is earlier than 0:8.3.23-0.4.1" test_ref="oval:org.mitre.oval:tst:120682" />
+        <criterion comment="postgresql91-contrib RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120543" />
+        <criterion comment="postgresql91-docs RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120479" />
+        <criterion comment="postgresql91-server RPM is earlier than 0:9.1.8-0.5.1" test_ref="oval:org.mitre.oval:tst:120688" />
       </criteria>
     </criteria>
   </criteria>

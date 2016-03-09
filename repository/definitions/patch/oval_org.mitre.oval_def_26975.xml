@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26975" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26975" version="5">
   <metadata>
     <title>RHSA-2012:0303 -- xorg-x11-server security and bug fix update (Low)</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 5</platform>
       <product>xorg-x11-server</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0303.html" ref_id="RHSA-2012:0303"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4028" ref_id="CVE-2011-4028"/>
+    <reference ref_id="RHSA-2012:0303" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0303.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4028" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4028" source="CVE" />
     <description>X.Org is an open source implementation of the X Window System. It provides
 the basic low-level functionality that full-fledged graphical user
 interfaces are designed upon.
@@ -93,19 +92,20 @@ must be restarted for this update to take effect.</description>
         <status_change date="2014-12-08T04:00:29.744-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="xorg-x11-server-debuginfo is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125465"/>
-      <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125868"/>
-      <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125839"/>
-      <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125726"/>
-      <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125768"/>
-      <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125780"/>
-      <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125436"/>
-      <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125488"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="xorg-x11-server-debuginfo is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125465" />
+      <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125868" />
+      <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125839" />
+      <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125726" />
+      <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125768" />
+      <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125780" />
+      <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125436" />
+      <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.90.el5" test_ref="oval:org.mitre.oval:tst:125488" />
     </criteria>
   </criteria>
 </definition>

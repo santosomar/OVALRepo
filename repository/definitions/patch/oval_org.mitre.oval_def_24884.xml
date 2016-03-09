@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24884" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24884" version="4">
   <metadata>
     <title>DSA-2954-1 dovecot - security update</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 7.0</platform>
       <product>dovecot</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2954-1" ref_id="DSA-2954-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3430" ref_id="CVE-2014-3430"/>
+    <reference ref_id="DSA-2954-1" ref_url="http://www.debian.org/security/dsa-2954-1" source="VENDOR" />
+    <reference ref_id="CVE-2014-3430" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3430" source="CVE" />
     <description>It was discovered that the Dovecot email server is vulnerable to a denial of service attack against imap/pop3-login processes due to incorrect handling of the closure of inactive SSL/TLS connections.</description>
     <oval_repository>
       <dates>
@@ -20,14 +19,15 @@
         <status_change date="2014-08-11T04:00:34.628-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="dovecot DPKG is earlier than 1:2.1.7-7+deb7u1" test_ref="oval:org.mitre.oval:tst:115275"/>
+    <criterion comment="dovecot DPKG is earlier than 1:2.1.7-7+deb7u1" test_ref="oval:org.mitre.oval:tst:115275" />
   </criteria>
 </definition>

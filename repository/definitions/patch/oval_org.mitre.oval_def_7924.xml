@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7924" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7924" version="6">
   <metadata>
     <title>DSA-1918 phpmyadmin -- several vulnerabilities</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>phpmyadmin</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1918" ref_id="DSA-1918"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3696" ref_id="CVE-2009-3696"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3697" ref_id="CVE-2009-3697"/>
+    <reference ref_id="DSA-1918" ref_url="http://www.debian.org/security/2009/dsa-1918" source="VENDOR" />
+    <reference ref_id="CVE-2009-3696" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3696" source="CVE" />
+    <reference ref_id="CVE-2009-3697" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3697" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in phpMyAdmin, a tool to administer MySQL over the web. The Common Vulnerabilities and Exposures project identifies the following problems: Cross-site scripting (XSS) vulnerability allows remote attackers to inject arbitrary web script or HTML via a crafted MySQL table name. SQL injection vulnerability in the PDF schema generator functionality allows remote attackers to execute arbitrary SQL commands. This issue does not apply to the version in Debian 4.0 Etch. Additionally, extra fortification has been added for the web based setup.php script. Although the shipped web server configuration should ensure that this script is protected, in practice this turned out not always to be the case. The config.inc.php file is not writable anymore by the webserver user. See README.Debian for details on how to enable the setup.php script if and when you need it.</description>
     <oval_repository>
       <dates>
@@ -26,18 +25,19 @@
         <status_change date="2014-06-23T04:09:28.180-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="phpmyadmin is earlier than 2.11.8.1-5+lenny3" test_ref="oval:org.mitre.oval:tst:15375"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="phpmyadmin is earlier than 2.11.8.1-5+lenny3" test_ref="oval:org.mitre.oval:tst:15375" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="phpmyadmin is earlier than 2.9.1.1-13" test_ref="oval:org.mitre.oval:tst:16110"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="phpmyadmin is earlier than 2.9.1.1-13" test_ref="oval:org.mitre.oval:tst:16110" />
     </criteria>
   </criteria>
 </definition>

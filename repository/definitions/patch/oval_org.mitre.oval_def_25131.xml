@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25131" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25131" version="6">
   <metadata>
     <title>ELSA-2012:0688: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2012:0688-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0688.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-0779" ref_url="http://linux.oracle.com/cve/CVE-2012-0779.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0688-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0688.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0779" ref_url="http://linux.oracle.com/cve/CVE-2012-0779.html" source="CVE" />
     <description>The flash-plugin package contains a Mozilla Firefox compatible Adobe Flash
 Player web browser plug-in.
 This update fixes one vulnerability in Adobe Flash Player. This
@@ -30,10 +29,11 @@ upgrades Flash Player to version 10.3.183.19.</description>
         <status_change date="2014-09-01T04:02:59.689-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="flash-plugin is earlier than 0:10.3.183.19-1.el6" test_ref="oval:org.mitre.oval:tst:115459"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="flash-plugin is earlier than 0:10.3.183.19-1.el6" test_ref="oval:org.mitre.oval:tst:115459" />
   </criteria>
 </definition>

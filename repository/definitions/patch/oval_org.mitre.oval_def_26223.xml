@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26223" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26223" version="6">
   <metadata>
     <title>DSA-2984-1 -- acpi-support - security update</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>acpi-support</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2984-1" ref_id="DSA-2984-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1419" ref_id="CVE-2014-1419"/>
+    <reference ref_id="DSA-2984-1" ref_url="http://www.debian.org/security/dsa-2984-1" source="VENDOR" />
+    <reference ref_id="CVE-2014-1419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1419" source="CVE" />
     <description>CESG discovered a root escalation flaw in the acpi-support package. An unprivileged user can inject the DBUS_SESSION_BUS_ADDRESS environment variable to run arbitrary commands as root user via the policy-funcs script.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-10-06T04:03:29.392-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="AND" comment="Debian 7">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Debian 7" operator="AND">
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
     </criteria>
-    <criterion comment="acpi-support DPKG is earlier than 0:0.140-5+deb7u1" test_ref="oval:org.mitre.oval:tst:120573"/>
+    <criterion comment="acpi-support DPKG is earlier than 0:0.140-5+deb7u1" test_ref="oval:org.mitre.oval:tst:120573" />
   </criteria>
 </definition>

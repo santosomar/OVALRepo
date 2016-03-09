@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27065" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27065" version="4">
   <metadata>
     <title>ELSA-2014-1143-1 -- kernel security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1143-1.html" ref_id="ELSA-2014-1143-1"/>
+    <reference ref_id="ELSA-2014-1143-1" ref_url="http://linux.oracle.com/errata/ELSA-2014-1143-1.html" source="VENDOR" />
     <description>kernel
 [2.6.18-371.12.1.0.1.el5]
 - ocfs2: dlm: fix recovery hung (Junxiao Bi) [orabug 13956772]
@@ -78,21 +77,22 @@ Chris Mason)
         <status_change date="2014-11-17T04:01:40.469-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124562"/>
-      <criterion comment="kernel-PAE RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124247"/>
-      <criterion comment="kernel-PAE-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124922"/>
-      <criterion comment="kernel-debug RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124462"/>
-      <criterion comment="kernel-debug-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124899"/>
-      <criterion comment="kernel-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124597"/>
-      <criterion comment="kernel-doc RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124630"/>
-      <criterion comment="kernel-headers RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124661"/>
-      <criterion comment="kernel-xen RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124858"/>
-      <criterion comment="kernel-xen-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124684"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124562" />
+      <criterion comment="kernel-PAE RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124247" />
+      <criterion comment="kernel-PAE-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124922" />
+      <criterion comment="kernel-debug RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124462" />
+      <criterion comment="kernel-debug-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124899" />
+      <criterion comment="kernel-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124597" />
+      <criterion comment="kernel-doc RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124630" />
+      <criterion comment="kernel-headers RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124661" />
+      <criterion comment="kernel-xen RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124858" />
+      <criterion comment="kernel-xen-devel RPM is earlier than 0:2.6.18-371.12.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:124684" />
     </criteria>
   </criteria>
 </definition>

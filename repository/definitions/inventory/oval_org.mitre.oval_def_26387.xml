@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26387" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:26387" version="6">
   <metadata>
     <title>Google SketchUp is installed</title>
     <affected family="windows">
@@ -13,7 +12,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>Google SketchUp</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:google:sketchup"/>
+    <reference ref_id="cpe:/a:google:sketchup" source="CPE" />
     <description>Google SketchUp is installed.</description>
     <oval_repository>
       <dates>
@@ -25,9 +24,10 @@
         <status_change date="2014-10-20T04:00:28.196-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Check if Google SketchUp is installed" test_ref="oval:org.mitre.oval:tst:122660"/>
+    <criterion comment="Check if Google SketchUp is installed" test_ref="oval:org.mitre.oval:tst:122660" />
   </criteria>
 </definition>

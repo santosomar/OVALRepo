@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17787" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17787" version="8">
   <metadata>
     <title>USN-1490-1 -- linux-lts-backport-natty vulnerabilities</title>
     <affected family="unix">
       <platform>Ubuntu 10.04</platform>
       <product>linux-lts-backport-natty</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1490-1/" ref_id="USN-1490-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2313" ref_id="CVE-2012-2313"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2319" ref_id="CVE-2012-2319"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2375" ref_id="CVE-2012-2375"/>
+    <reference ref_id="USN-1490-1" ref_url="http://www.ubuntu.com/usn/usn-1490-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-2313" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2313" source="CVE" />
+    <reference ref_id="CVE-2012-2319" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2319" source="CVE" />
+    <reference ref_id="CVE-2012-2375" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2375" source="CVE" />
     <description>Several security issues were fixed in the kernel.</description>
     <oval_repository>
       <dates>
@@ -31,15 +30,16 @@
         <status_change date="2014-06-30T04:07:25.546-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="linux-image-2.6.38-15-generic DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84205"/>
-      <criterion comment="linux-image-2.6.38-15-generic-pae DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84296"/>
-      <criterion comment="linux-image-2.6.38-15-server DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84067"/>
-      <criterion comment="linux-image-2.6.38-15-virtual DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:83540"/>
+    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="linux-image-2.6.38-15-generic DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84205" />
+      <criterion comment="linux-image-2.6.38-15-generic-pae DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84296" />
+      <criterion comment="linux-image-2.6.38-15-server DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:84067" />
+      <criterion comment="linux-image-2.6.38-15-virtual DPKG is earlier than 2.6.38-15.61~lucid1" test_ref="oval:org.mitre.oval:tst:83540" />
     </criteria>
   </criteria>
 </definition>

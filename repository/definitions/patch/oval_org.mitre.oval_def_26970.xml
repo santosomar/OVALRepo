@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26970" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26970" version="6">
   <metadata>
     <title>ELSA-2014-1244 -- bind97 security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bind97</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1244.html" ref_id="ELSA-2014-1244"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0591" ref_id="CVE-2014-0591"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4854" ref_id="CVE-2013-4854"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2266" ref_id="CVE-2013-2266"/>
+    <reference ref_id="ELSA-2014-1244" ref_url="http://linux.oracle.com/errata/ELSA-2014-1244.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0591" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0591" source="CVE" />
+    <reference ref_id="CVE-2013-4854" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4854" source="CVE" />
+    <reference ref_id="CVE-2013-2266" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2266" source="CVE" />
     <description>The Berkeley Internet Name Domain (BIND) is an implementation of the Domain
 Name System (DNS) protocols. It contains a DNS server (named), a resolver
 library with routines for applications to use when interfacing with DNS,
@@ -57,16 +56,17 @@ update, the BIND daemon (named) will be restarted automatically.</description>
         <status_change date="2015-02-23T04:00:50.661-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="bind97 RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124413"/>
-      <criterion comment="bind97-chroot RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124806"/>
-      <criterion comment="bind97-devel RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124816"/>
-      <criterion comment="bind97-libs RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124487"/>
-      <criterion comment="bind97-utils RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124849"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="bind97 RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124413" />
+      <criterion comment="bind97-chroot RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124806" />
+      <criterion comment="bind97-devel RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124816" />
+      <criterion comment="bind97-libs RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124487" />
+      <criterion comment="bind97-utils RPM is earlier than 32:9.7.0-21.P2.el5" test_ref="oval:org.mitre.oval:tst:124849" />
     </criteria>
   </criteria>
 </definition>

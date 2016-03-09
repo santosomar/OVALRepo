@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18466" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18466" version="8">
   <metadata>
     <title>DSA-1343-2 file</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>file</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1343-2" ref_id="DSA-1343-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2799" ref_id="CVE-2007-2799"/>
+    <reference ref_id="DSA-1343-2" ref_url="http://www.debian.org/security/dsa-1343-2" source="VENDOR" />
+    <reference ref_id="CVE-2007-2799" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2799" source="CVE" />
     <description>Colin Percival discovered an integer overflow in file, a file type classification tool, which may lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:04:34.644-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="file DPKG is earlier than 4.17-5etch3" test_ref="oval:org.mitre.oval:tst:86446"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="file DPKG is earlier than 4.17-5etch3" test_ref="oval:org.mitre.oval:tst:86446" />
   </criteria>
 </definition>

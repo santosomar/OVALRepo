@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8028" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8028" version="6">
   <metadata>
     <title>DSA-1488 phpbb2 -- several vulnerabilities</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>Debian GNU/Linux 3.1</platform>
       <product>phpbb2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1488" ref_id="DSA-1488"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4758" ref_id="CVE-2006-4758"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6839" ref_id="CVE-2006-6839"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6840" ref_id="CVE-2006-6840"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6508" ref_id="CVE-2006-6508"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6841" ref_id="CVE-2006-6841"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0471" ref_id="CVE-2008-0471"/>
+    <reference ref_id="DSA-1488" ref_url="http://www.debian.org/security/2008/dsa-1488" source="VENDOR" />
+    <reference ref_id="CVE-2006-4758" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4758" source="CVE" />
+    <reference ref_id="CVE-2006-6839" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6839" source="CVE" />
+    <reference ref_id="CVE-2006-6840" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6840" source="CVE" />
+    <reference ref_id="CVE-2006-6508" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6508" source="CVE" />
+    <reference ref_id="CVE-2006-6841" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6841" source="CVE" />
+    <reference ref_id="CVE-2008-0471" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0471" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in phpBB, a web based bulletin board. The Common Vulnerabilities and Exposures project identifies the following problems: Private messaging allowed cross site request forgery, making it possible to delete all private messages of a user by sending them to a crafted web page. Cross site request forgery enabled an attacker to perform various actions on behalf of a logged in user. (Applies to sarge only.) A negative start parameter could allow an attacker to create invalid output. (Applies to sarge only.) Redirection targets were not fully checked, leaving room for unauthorised external redirections via a phpBB forum. (Applies to sarge only.) An authenticated forum administrator may upload files of any type by using specially crafted filenames. (Applies to sarge only.)</description>
     <oval_repository>
       <dates>
@@ -30,25 +29,26 @@
         <status_change date="2014-06-23T04:09:49.551-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="phpbb2-languages is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14813"/>
-        <criterion comment="phpbb2 is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14997"/>
-        <criterion comment="phpbb2-conf-mysql is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14972"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="phpbb2-languages is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14813" />
+        <criterion comment="phpbb2 is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14997" />
+        <criterion comment="phpbb2-conf-mysql is earlier than 2.0.21-7" test_ref="oval:org.mitre.oval:tst:14972" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="phpbb2 is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14962"/>
-        <criterion comment="phpbb2-languages is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14848"/>
-        <criterion comment="phpbb2-conf-mysql is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14810"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="phpbb2 is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14962" />
+        <criterion comment="phpbb2-languages is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14848" />
+        <criterion comment="phpbb2-conf-mysql is earlier than 2.0.13-6sarge4" test_ref="oval:org.mitre.oval:tst:14810" />
       </criteria>
     </criteria>
   </criteria>

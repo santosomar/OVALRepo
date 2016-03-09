@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8605" version="4" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:8605" version="5">
   <metadata>
     <title>Apache HTTP Server 2.0.x is installed on the system</title>
     <affected family="windows">
@@ -11,7 +10,7 @@
       <platform>Microsoft Windows 7</platform>
       <product>Apache</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:apache:http_server:2.0"/>
+    <reference ref_id="cpe:/a:apache:http_server:2.0" source="CPE" />
     <description>Apache HTTP Server 2.0.x is installed on the system</description>
     <oval_repository>
       <dates>
@@ -28,9 +27,10 @@
         <status_change date="2013-07-08T04:03:01.715-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="Check for the Apache HTTP Server 2.0 installation." test_ref="oval:org.mitre.oval:tst:21126"/>
+    <criterion comment="Check for the Apache HTTP Server 2.0 installation." test_ref="oval:org.mitre.oval:tst:21126" />
   </criteria>
 </definition>

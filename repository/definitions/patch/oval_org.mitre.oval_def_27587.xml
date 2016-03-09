@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27587" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27587" version="7">
   <metadata>
     <title>ELSA-2010-2008 -- Unbreakable enterprise kernel security update (important)</title>
     <affected family="unix">
@@ -13,9 +12,9 @@
       <product>kernel-headers</product>
       <product>ofa</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-2008.html" ref_id="ELSA-2010-2008"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2942" ref_id="CVE-2010-2942"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2943" ref_id="CVE-2010-2943"/>
+    <reference ref_id="ELSA-2010-2008" ref_url="http://linux.oracle.com/errata/ELSA-2010-2008.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-2942" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2942" source="CVE" />
+    <reference ref_id="CVE-2010-2943" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2943" source="CVE" />
     <description>[2.6.32-100.20.1.el5] - [fs] xfs: return inode fork offset in bulkstat for fsr
           (Dave Chinner) - [fs] xfs: always use iget in bulkstat (Dave Chinner) {CVE-2010-2943} -
           [fs] xfs: validate untrusted inode numbers during lookup (Dave Chinner) {CVE-2 010-2943} -
@@ -37,19 +36,20 @@
         <status_change date="2015-03-16T04:01:24.828-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134831"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134605"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:133982"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134779"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:133983"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134614"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134975"/>
-      <criterion comment="ofa-2.6.32-100.20.1.el5 is earlier than 0:1.5.1-4.0.20" test_ref="oval:org.mitre.oval:tst:134962"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134831" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134605" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:133982" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134779" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:133983" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134614" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-100.20.1.el5" test_ref="oval:org.mitre.oval:tst:134975" />
+      <criterion comment="ofa-2.6.32-100.20.1.el5 is earlier than 0:1.5.1-4.0.20" test_ref="oval:org.mitre.oval:tst:134962" />
     </criteria>
   </criteria>
 </definition>

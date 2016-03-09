@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26805" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26805" version="7">
   <metadata>
     <title>RHSA-2014:1552: openssh security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 6</platform>
       <product>openssh</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1552-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1552.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2532" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2532.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2653" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2653.html"/>
-    <reference source="CESA-2014:1552" ref_id="CESA-2014:1552" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001318.html"/>
+    <reference ref_id="RHSA-2014:1552-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1552.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2532" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2532.html" source="CVE" />
+    <reference ref_id="CVE-2014-2653" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2653.html" source="CVE" />
+    <reference ref_id="CESA-2014:1552" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001318.html" source="CESA-2014:1552" />
     <description>OpenSSH is OpenBSD's SSH (Secure Shell) protocol implementation.
 These packages include the core files necessary for both the OpenSSH client
 and server.
@@ -89,26 +88,27 @@ enhancements.</description>
         <status_change date="2015-04-13T04:00:12.180-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssh is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125098"/>
-        <criterion comment="openssh-askpass is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125378"/>
-        <criterion comment="openssh-clients is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125037"/>
-        <criterion comment="openssh-ldap is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124984"/>
-        <criterion comment="openssh-server is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124560"/>
-        <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-104.el6" test_ref="oval:org.mitre.oval:tst:125340"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssh is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125098" />
+        <criterion comment="openssh-askpass is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125378" />
+        <criterion comment="openssh-clients is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125037" />
+        <criterion comment="openssh-ldap is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124984" />
+        <criterion comment="openssh-server is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124560" />
+        <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-104.el6" test_ref="oval:org.mitre.oval:tst:125340" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="openssh-debuginfo is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:138319"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="openssh-debuginfo is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:138319" />
     </criteria>
   </criteria>
 </definition>

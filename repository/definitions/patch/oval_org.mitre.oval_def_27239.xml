@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27239" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27239" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0122 -- tcl security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>tcl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0122.html" ref_id="ELSA-2013-0122"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4772" ref_id="CVE-2007-4772"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6067" ref_id="CVE-2007-6067"/>
+    <reference ref_id="ELSA-2013-0122" ref_url="http://linux.oracle.com/errata/ELSA-2013-0122.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-4772" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4772" source="CVE" />
+    <reference ref_id="CVE-2007-6067" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6067" source="CVE" />
     <description>[8.4.13-6]
 
 - Fixed infinite loop in regex NFA optimization code
@@ -40,14 +39,15 @@
         <status_change date="2015-02-10T17:12:35.567-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="tcl is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:129715"/>
-      <criterion comment="tcl-devel is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:130706"/>
-      <criterion comment="tcl-html is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:130291"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="tcl is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:129715" />
+      <criterion comment="tcl-devel is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:130706" />
+      <criterion comment="tcl-html is earlier than 0:8.4.13-6.el5" test_ref="oval:org.mitre.oval:tst:130291" />
     </criteria>
   </criteria>
 </definition>

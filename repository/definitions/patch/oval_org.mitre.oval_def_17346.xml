@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17346" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17346" version="8">
   <metadata>
     <title>USN-1680-1 -- MoinMoin vulnerabilities</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>moin</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1680-1/" ref_id="usn-1680-1"/>
+    <reference ref_id="usn-1680-1" ref_url="http://www.ubuntu.com/usn/usn-1680-1/" source="VENDOR" />
     <description>MoinMoin could be made to run programs and overwrite files.</description>
     <oval_repository>
       <dates>
@@ -26,28 +25,29 @@
         <status_change date="2013-12-16T04:00:21.693-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81224"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:81224" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:81355"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:81355" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu1.11.10.2" test_ref="oval:org.mitre.oval:tst:81565"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="python-moinmoin DPKG is earlier than 1.9.3-1ubuntu1.11.10.2" test_ref="oval:org.mitre.oval:tst:81565" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="python-moinmoin DPKG is earlier than 1.9.2-2ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81563"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="python-moinmoin DPKG is earlier than 1.9.2-2ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81563" />
     </criteria>
   </criteria>
 </definition>

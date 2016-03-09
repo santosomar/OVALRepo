@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28263" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28263" version="4">
   <metadata>
     <title>ELSA-2014-3094 -- bash security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bash</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-3094.html" ref_id="ELSA-2014-3094"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6277" ref_id="CVE-2014-6277"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6278" ref_id="CVE-2014-6278"/>
+    <reference ref_id="ELSA-2014-3094" ref_url="http://linux.oracle.com/errata/ELSA-2014-3094.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-6277" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6277" source="CVE" />
+    <reference ref_id="CVE-2014-6278" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6278" source="CVE" />
     <description>[3.2-33.4.0.1]
 - Fix segfaults from CVE-2014-6277 and CVE-2014-6278 completely. [orabug 19905421]</description>
     <oval_repository>
@@ -21,10 +20,11 @@
         <status_change date="2015-01-26T04:00:31.308-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="bash is earlier than 0:3.2-33.el5_11.4.0.1" test_ref="oval:org.mitre.oval:tst:136037"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="bash is earlier than 0:3.2-33.el5_11.4.0.1" test_ref="oval:org.mitre.oval:tst:136037" />
   </criteria>
 </definition>

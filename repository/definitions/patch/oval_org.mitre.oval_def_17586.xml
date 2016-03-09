@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17586" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17586" version="8">
   <metadata>
     <title>DSA-2627-1 nginx - information leak</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>nginx</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2627-1" ref_id="DSA-2627-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4929" ref_id="CVE-2012-4929"/>
-    <description>Juliano Rizzo and Thai Duong discovered a weakness in the TLS/SSL protocol when using compression. This side channel attack, dubbed &lt;q>CRIME&lt;/q>, allows eavesdroppers to gather information to recover the original plaintext in the protocol. This update to nginx disables SSL compression.</description>
+    <reference ref_id="DSA-2627-1" ref_url="http://www.debian.org/security/dsa-2627-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-4929" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4929" source="CVE" />
+    <description>Juliano Rizzo and Thai Duong discovered a weakness in the TLS/SSL protocol when using compression. This side channel attack, dubbed &lt;q&gt;CRIME&lt;/q&gt;, allows eavesdroppers to gather information to recover the original plaintext in the protocol. This update to nginx disables SSL compression.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:12">
@@ -30,14 +29,15 @@
         <status_change date="2014-06-23T04:03:48.923-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="nginx DPKG is earlier than 0.7.67-3+squeeze3" test_ref="oval:org.mitre.oval:tst:86433"/>
+    <criterion comment="nginx DPKG is earlier than 0.7.67-3+squeeze3" test_ref="oval:org.mitre.oval:tst:86433" />
   </criteria>
 </definition>

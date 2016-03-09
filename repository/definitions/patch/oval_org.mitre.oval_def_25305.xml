@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25305" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25305" version="4">
   <metadata>
     <title>SUSE-SU-2014:0570-1 -- Security update for nagios</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>nagios</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140570-1.html" ref_id="SUSE-SU-2014:0570-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1878" ref_id="CVE-2014-1878"/>
+    <reference ref_id="SUSE-SU-2014:0570-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140570-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-1878" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1878" source="CVE" />
     <description>The monitoring service Nagios has been updated to fix
 potential buffer  overflows in its CGI scripts.
 (CVE-2014-1878)
@@ -16,7 +15,7 @@ Security Issue reference:
 
     * CVE-2014-1878
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1878
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:14:12">
@@ -27,13 +26,14 @@ Security Issue reference:
         <status_change date="2014-09-08T04:01:43.284-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="nagios RPM is earlier than 0:3.0.6-1.25.36.1" test_ref="oval:org.mitre.oval:tst:117195"/>
-      <criterion comment="nagios-www RPM is earlier than 0:3.0.6-1.25.36.1" test_ref="oval:org.mitre.oval:tst:117040"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="nagios RPM is earlier than 0:3.0.6-1.25.36.1" test_ref="oval:org.mitre.oval:tst:117195" />
+      <criterion comment="nagios-www RPM is earlier than 0:3.0.6-1.25.36.1" test_ref="oval:org.mitre.oval:tst:117040" />
     </criteria>
   </criteria>
 </definition>

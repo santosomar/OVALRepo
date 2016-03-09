@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22493" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22493" version="8">
   <metadata>
     <title>ELSA-2008:0812: RealPlayer security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>RealPlayer</product>
     </affected>
-    <reference ref_id="ELSA-2008:0812-03" ref_url="http://linux.oracle.com/errata/ELSA-2008-0812.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-5400" ref_url="http://linux.oracle.com/cve/CVE-2007-5400.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0812-03" ref_url="http://linux.oracle.com/errata/ELSA-2008-0812.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5400" ref_url="http://linux.oracle.com/cve/CVE-2007-5400.html" source="CVE" />
     <description>Heap-based buffer overflow in the Shockwave Flash (SWF) frame handling in RealNetworks RealPlayer 10.5 Build 6.0.12.1483 might allow remote attackers to execute arbitrary code via a crafted SWF file.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-05-26T04:01:20.441-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="RealPlayer is earlier than 0:10.0.9-4.el5" test_ref="oval:org.mitre.oval:tst:102009"/>
-      <criterion comment="RealPlayer-uninstall is earlier than 0:10.0.9-4.el5" test_ref="oval:org.mitre.oval:tst:102386"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="RealPlayer is earlier than 0:10.0.9-4.el5" test_ref="oval:org.mitre.oval:tst:102009" />
+      <criterion comment="RealPlayer-uninstall is earlier than 0:10.0.9-4.el5" test_ref="oval:org.mitre.oval:tst:102386" />
     </criteria>
   </criteria>
 </definition>

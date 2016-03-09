@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20267" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20267" version="6">
   <metadata>
     <title>DSA-1484-1 xulrunner - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1484-1" ref_id="DSA-1484-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0412" ref_id="CVE-2008-0412"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0413" ref_id="CVE-2008-0413"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0414" ref_id="CVE-2008-0414"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0415" ref_id="CVE-2008-0415"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0416" ref_id="CVE-2008-0416"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0417" ref_id="CVE-2008-0417"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0418" ref_id="CVE-2008-0418"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0419" ref_id="CVE-2008-0419"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0591" ref_id="CVE-2008-0591"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0592" ref_id="CVE-2008-0592"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0593" ref_id="CVE-2008-0593"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0594" ref_id="CVE-2008-0594"/>
+    <reference ref_id="DSA-1484-1" ref_url="http://www.debian.org/security/dsa-1484-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-0412" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0412" source="CVE" />
+    <reference ref_id="CVE-2008-0413" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0413" source="CVE" />
+    <reference ref_id="CVE-2008-0414" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0414" source="CVE" />
+    <reference ref_id="CVE-2008-0415" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0415" source="CVE" />
+    <reference ref_id="CVE-2008-0416" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0416" source="CVE" />
+    <reference ref_id="CVE-2008-0417" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0417" source="CVE" />
+    <reference ref_id="CVE-2008-0418" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0418" source="CVE" />
+    <reference ref_id="CVE-2008-0419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0419" source="CVE" />
+    <reference ref_id="CVE-2008-0591" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0591" source="CVE" />
+    <reference ref_id="CVE-2008-0592" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0592" source="CVE" />
+    <reference ref_id="CVE-2008-0593" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0593" source="CVE" />
+    <reference ref_id="CVE-2008-0594" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0594" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in Xulrunner, a runtime environment for XUL applications.</description>
     <oval_repository>
       <dates>
@@ -35,10 +34,11 @@
         <status_change date="2014-06-23T04:07:06.918-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="xulrunner DPKG is earlier than 0:1.8.0.15~pre080131b-0etch1" test_ref="oval:org.mitre.oval:tst:89293"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="xulrunner DPKG is earlier than 0:1.8.0.15~pre080131b-0etch1" test_ref="oval:org.mitre.oval:tst:89293" />
   </criteria>
 </definition>

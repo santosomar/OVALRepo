@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28314" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28314" version="4">
   <metadata>
     <title>SUSE-SU-2014:1615-1 -- Security update for pidgin (moderate)</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Desktop 12</platform>
       <product>pidgin</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141615-1.html" ref_id="SUSE-SU-2014:1615-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3698" ref_id="CVE-2014-3698"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3696" ref_id="CVE-2014-3696"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3695" ref_id="CVE-2014-3695"/>
+    <reference ref_id="SUSE-SU-2014:1615-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141615-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3698" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3698" source="CVE" />
+    <reference ref_id="CVE-2014-3696" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3696" source="CVE" />
+    <reference ref_id="CVE-2014-3695" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3695" source="CVE" />
     <description>This pidgin security update fixes the following issues:
 
 - bnc#902408: remote information leak via crafted XMPP message.
@@ -27,23 +26,24 @@
         <status_change date="2015-02-23T04:01:15.827-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="finch is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137106"/>
-      <criterion comment="finch-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137510"/>
-      <criterion comment="libpurple is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136950"/>
-      <criterion comment="libpurple-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137440"/>
-      <criterion comment="libpurple-meanwhile is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136548"/>
-      <criterion comment="libpurple-meanwhile-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137433"/>
-      <criterion comment="libpurple-tcl is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137061"/>
-      <criterion comment="libpurple-tcl-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137332"/>
-      <criterion comment="pidgin is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137496"/>
-      <criterion comment="pidgin-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137293"/>
-      <criterion comment="pidgin-debugsource is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136756"/>
-      <criterion comment="libpurple-lang is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137115"/>
+    <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="finch is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137106" />
+      <criterion comment="finch-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137510" />
+      <criterion comment="libpurple is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136950" />
+      <criterion comment="libpurple-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137440" />
+      <criterion comment="libpurple-meanwhile is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136548" />
+      <criterion comment="libpurple-meanwhile-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137433" />
+      <criterion comment="libpurple-tcl is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137061" />
+      <criterion comment="libpurple-tcl-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137332" />
+      <criterion comment="pidgin is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137496" />
+      <criterion comment="pidgin-debuginfo is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137293" />
+      <criterion comment="pidgin-debugsource is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:136756" />
+      <criterion comment="libpurple-lang is earlier than 0:2.10.9-8.1" test_ref="oval:org.mitre.oval:tst:137115" />
     </criteria>
   </criteria>
 </definition>

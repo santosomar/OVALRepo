@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23903" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23903" version="10">
   <metadata>
     <title>ELSA-2012:0874: mysql security and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>mysql</product>
     </affected>
-    <reference ref_id="ELSA-2012:0874-04" ref_url="http://linux.oracle.com/errata/ELSA-2012-0874.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-2102" ref_url="http://linux.oracle.com/cve/CVE-2012-2102.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0874-04" ref_url="http://linux.oracle.com/errata/ELSA-2012-0874.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-2102" ref_url="http://linux.oracle.com/cve/CVE-2012-2102.html" source="CVE" />
     <description>MySQL 5.1.x before 5.1.62 and 5.5.x before 5.5.22 allows remote authenticated users to cause a denial of service (assertion failure and mysqld abort) by deleting a record and using HANDLER READ NEXT.</description>
     <oval_repository>
       <dates>
@@ -24,19 +23,20 @@
         <status_change date="2014-05-26T04:05:46.762-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110483"/>
-      <criterion comment="mysql-server is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:109796"/>
-      <criterion comment="mysql-bench is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110573"/>
-      <criterion comment="mysql-embedded is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110051"/>
-      <criterion comment="mysql-libs is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110567"/>
-      <criterion comment="mysql-test is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:109934"/>
-      <criterion comment="mysql is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110462"/>
-      <criterion comment="mysql-devel is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110576"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110483" />
+      <criterion comment="mysql-server is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:109796" />
+      <criterion comment="mysql-bench is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110573" />
+      <criterion comment="mysql-embedded is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110051" />
+      <criterion comment="mysql-libs is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110567" />
+      <criterion comment="mysql-test is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:109934" />
+      <criterion comment="mysql is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110462" />
+      <criterion comment="mysql-devel is earlier than 0:5.1.61-4.el6" test_ref="oval:org.mitre.oval:tst:110576" />
     </criteria>
   </criteria>
 </definition>

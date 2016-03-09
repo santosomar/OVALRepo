@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:14577" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:14577" version="8">
   <metadata>
     <title>DSA-2386-1 openttd -- several</title>
     <affected family="unix">
@@ -8,10 +7,10 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>openttd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00010.html" ref_id="DSA-2386-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3341" ref_id="CVE-2011-3341"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3342" ref_id="CVE-2011-3342"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3343" ref_id="CVE-2011-3343"/>
+    <reference ref_id="DSA-2386-1" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00010.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3341" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3341" source="CVE" />
+    <reference ref_id="CVE-2011-3342" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3342" source="CVE" />
+    <reference ref_id="CVE-2011-3343" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3343" source="CVE" />
     <description>Several vulnerabilities have been discovered in openttd, a transport business simulation game. Multiple buffer overflows and off-by-one errors allow remote attackers to cause denial of service.</description>
     <oval_repository>
       <dates>
@@ -28,22 +27,23 @@
         <status_change date="2014-06-23T04:03:10.241-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="openttd DPKG is earlier than 0.6.2-1+lenny4" test_ref="oval:org.mitre.oval:tst:78538"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="openttd DPKG is earlier than 0.6.2-1+lenny4" test_ref="oval:org.mitre.oval:tst:78538" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="openttd DPKG is earlier than 1.0.4-4" test_ref="oval:org.mitre.oval:tst:78455"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="openttd DPKG is earlier than 1.0.4-4" test_ref="oval:org.mitre.oval:tst:78455" />
     </criteria>
   </criteria>
 </definition>

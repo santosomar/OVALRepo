@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28059" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28059" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1005 -- sysstat security, bug fix, and enhancement update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>sysstat</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1005.html" ref_id="ELSA-2011-1005"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3852" ref_id="CVE-2007-3852"/>
+    <reference ref_id="ELSA-2011-1005" ref_url="http://linux.oracle.com/errata/ELSA-2011-1005.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-3852" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3852" source="CVE" />
     <description>[7.0.2-11]
 - Related: #716959                                                                                                                                                                                             
   fix cve-2007-3852 - sysstat insecure temporary file usage
@@ -76,10 +75,11 @@
         <status_change date="2015-02-10T17:28:07.174-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="sysstat is earlier than 0:7.0.2-11.el5" test_ref="oval:org.mitre.oval:tst:133434"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="sysstat is earlier than 0:7.0.2-11.el5" test_ref="oval:org.mitre.oval:tst:133434" />
   </criteria>
 </definition>

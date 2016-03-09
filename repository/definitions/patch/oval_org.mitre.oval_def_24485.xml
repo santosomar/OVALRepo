@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24485" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24485" version="9">
   <metadata>
     <title>RHSA-2014:0923: kernel security update (Important)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 7</platform>
       <product>kernel</product>
     </affected>
-    <reference ref_id="RHSA-2014:0923-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0923.html" source="VENDOR"/>
-    <reference ref_id="CESA-2014:0923" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020446.html" source="CESA-2014:0923"/>
-    <reference ref_id="CVE-2014-4699" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4699.html" source="CVE"/>
-    <reference ref_id="CVE-2014-4943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4943.html" source="CVE"/>
+    <reference ref_id="RHSA-2014:0923-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0923.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0923" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020446.html" source="CESA-2014:0923" />
+    <reference ref_id="CVE-2014-4699" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4699.html" source="CVE" />
+    <reference ref_id="CVE-2014-4943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4943.html" source="CVE" />
     <description>The kernel packages contain the Linux kernel, the core of any Linux
 operating system.
 
@@ -50,38 +49,39 @@ rebooted for this update to take effect.</description>
         <status_change date="2014-12-01T04:00:18.504-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 7 and CentOS Linux 7 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116245"/>
-        <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115815"/>
-        <criterion comment="kernel-debug is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116269"/>
-        <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115833"/>
-        <criterion comment="kernel-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116117"/>
-        <criterion comment="kernel-doc is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115679"/>
-        <criterion comment="kernel-headers is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116238"/>
-        <criterion comment="kernel-tools is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116118"/>
-        <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116298"/>
-        <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116312"/>
-        <criterion comment="perf is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115940"/>
-        <criterion comment="python-perf is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115865"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116245" />
+        <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115815" />
+        <criterion comment="kernel-debug is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116269" />
+        <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115833" />
+        <criterion comment="kernel-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116117" />
+        <criterion comment="kernel-doc is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115679" />
+        <criterion comment="kernel-headers is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116238" />
+        <criterion comment="kernel-tools is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116118" />
+        <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116298" />
+        <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:116312" />
+        <criterion comment="perf is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115940" />
+        <criterion comment="python-perf is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:115865" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel-debug-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135247"/>
-        <criterion comment="kernel-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135073"/>
-        <criterion comment="kernel-debuginfo-common-x86_64 is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135355"/>
-        <criterion comment="kernel-tools-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135319"/>
-        <criterion comment="perf-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135163"/>
-        <criterion comment="python-perf-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135165"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel-debug-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135247" />
+        <criterion comment="kernel-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135073" />
+        <criterion comment="kernel-debuginfo-common-x86_64 is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135355" />
+        <criterion comment="kernel-tools-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135319" />
+        <criterion comment="perf-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135163" />
+        <criterion comment="python-perf-debuginfo is earlier than 0:3.10.0-123.4.4.el7" test_ref="oval:org.mitre.oval:tst:135165" />
       </criteria>
     </criteria>
   </criteria>

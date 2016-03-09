@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23915" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23915" version="15">
   <metadata>
     <title>ELSA-2013:0551: acroread security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>acroread</product>
     </affected>
-    <reference ref_id="ELSA-2013:0551-02" ref_url="http://linux.oracle.com/errata/ELSA-2013-0551.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-0640" ref_url="http://linux.oracle.com/cve/CVE-2013-0640.html" source="CVE"/>
-    <reference ref_id="CVE-2013-0641" ref_url="http://linux.oracle.com/cve/CVE-2013-0641.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0551-02" ref_url="http://linux.oracle.com/errata/ELSA-2013-0551.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0640" ref_url="http://linux.oracle.com/cve/CVE-2013-0640.html" source="CVE" />
+    <reference ref_id="CVE-2013-0641" ref_url="http://linux.oracle.com/cve/CVE-2013-0641.html" source="CVE" />
     <description>Buffer overflow in Adobe Reader and Acrobat 9.x before 9.5.4, 10.x before 10.1.6, and 11.x before 11.0.02 allows remote attackers to execute arbitrary code via a crafted PDF document, as exploited in the wild in February 2013.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:05:49.461-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="acroread is earlier than 0:9.5.4-1.el6" test_ref="oval:org.mitre.oval:tst:111763"/>
-      <criterion comment="acroread-plugin is earlier than 0:9.5.4-1.el6" test_ref="oval:org.mitre.oval:tst:111748"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="acroread is earlier than 0:9.5.4-1.el6" test_ref="oval:org.mitre.oval:tst:111763" />
+      <criterion comment="acroread-plugin is earlier than 0:9.5.4-1.el6" test_ref="oval:org.mitre.oval:tst:111748" />
     </criteria>
   </criteria>
 </definition>

@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21959" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21959" version="6">
   <metadata>
     <title>RHSA-2011:1248: ca-certificates security update (Important)</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>ca-certificates</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1248-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1248.html"/>
+    <reference ref_id="RHSA-2011:1248-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1248.html" source="VENDOR" />
     <description>This package contains the set of CA certificates chosen by the Mozilla
 Foundation for use with the Internet Public Key Infrastructure (PKI).
 
@@ -33,10 +32,11 @@ restarted for the changes to take effect.</description>
         <status_change date="2014-06-30T04:09:41.749-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="ca-certificates is earlier than 0:2010.63-3.el6_1.5" test_ref="oval:org.mitre.oval:tst:97850"/>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+    <criterion comment="ca-certificates is earlier than 0:2010.63-3.el6_1.5" test_ref="oval:org.mitre.oval:tst:97850" />
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
   </criteria>
 </definition>

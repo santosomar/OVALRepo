@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20735" version="73" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20735" version="74">
   <metadata>
     <title>RHSA-2013:0169: vino security update (Moderate)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>CentOS Linux 6</platform>
       <product>vino</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2013:0169-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0169.html"/>
-    <reference source="CESA" ref_id="CESA-2013:0169"/>
-    <reference source="CVE" ref_id="CVE-2011-0904" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0904.html"/>
-    <reference source="CVE" ref_id="CVE-2011-0905" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0905.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1164" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1164.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1165" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1165.html"/>
-    <reference source="CVE" ref_id="CVE-2012-4429" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4429.html"/>
+    <reference ref_id="RHSA-2013:0169-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0169.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:0169" source="CESA" />
+    <reference ref_id="CVE-2011-0904" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0904.html" source="CVE" />
+    <reference ref_id="CVE-2011-0905" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-0905.html" source="CVE" />
+    <reference ref_id="CVE-2011-1164" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1164.html" source="CVE" />
+    <reference ref_id="CVE-2011-1165" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1165.html" source="CVE" />
+    <reference ref_id="CVE-2012-4429" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4429.html" source="CVE" />
     <description>Vino 2.28, 2.32, 3.4.2, and earlier allows remote attackers to read clipboard activity by listening on TCP port 5900.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-02-17T04:00:30.253-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="vino is earlier than 0:2.28.1-8.el6_3" test_ref="oval:org.mitre.oval:tst:89490"/>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criterion comment="vino is earlier than 0:2.28.1-8.el6_3" test_ref="oval:org.mitre.oval:tst:89490" />
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
   </criteria>
 </definition>

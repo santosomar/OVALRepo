@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22699" version="33" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22699" version="35">
   <metadata>
     <title>ELSA-2008:0209: thunderbird security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>thunderbird</product>
     </affected>
-    <reference ref_id="ELSA-2008:0209-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0209.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-1233" ref_url="http://linux.oracle.com/cve/CVE-2008-1233.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1234" ref_url="http://linux.oracle.com/cve/CVE-2008-1234.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1235" ref_url="http://linux.oracle.com/cve/CVE-2008-1235.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1236" ref_url="http://linux.oracle.com/cve/CVE-2008-1236.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1237" ref_url="http://linux.oracle.com/cve/CVE-2008-1237.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1238" ref_url="http://linux.oracle.com/cve/CVE-2008-1238.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1241" ref_url="http://linux.oracle.com/cve/CVE-2008-1241.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0209-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0209.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-1233" ref_url="http://linux.oracle.com/cve/CVE-2008-1233.html" source="CVE" />
+    <reference ref_id="CVE-2008-1234" ref_url="http://linux.oracle.com/cve/CVE-2008-1234.html" source="CVE" />
+    <reference ref_id="CVE-2008-1235" ref_url="http://linux.oracle.com/cve/CVE-2008-1235.html" source="CVE" />
+    <reference ref_id="CVE-2008-1236" ref_url="http://linux.oracle.com/cve/CVE-2008-1236.html" source="CVE" />
+    <reference ref_id="CVE-2008-1237" ref_url="http://linux.oracle.com/cve/CVE-2008-1237.html" source="CVE" />
+    <reference ref_id="CVE-2008-1238" ref_url="http://linux.oracle.com/cve/CVE-2008-1238.html" source="CVE" />
+    <reference ref_id="CVE-2008-1241" ref_url="http://linux.oracle.com/cve/CVE-2008-1241.html" source="CVE" />
     <description>GUI overlay vulnerability in Mozilla Firefox before 2.0.0.13 and SeaMonkey before 1.1.9 allows remote attackers to spoof form elements and redirect user inputs via a borderless XUL pop-up window from a background tab.</description>
     <oval_repository>
       <dates>
@@ -30,10 +29,11 @@
         <status_change date="2014-05-26T04:01:53.431-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="thunderbird is earlier than 0:1.5.0.12-11.el5_1" test_ref="oval:org.mitre.oval:tst:101766"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="thunderbird is earlier than 0:1.5.0.12-11.el5_1" test_ref="oval:org.mitre.oval:tst:101766" />
   </criteria>
 </definition>

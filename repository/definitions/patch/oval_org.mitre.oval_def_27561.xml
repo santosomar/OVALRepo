@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27561" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27561" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0571 -- kernel security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0571.html" ref_id="ELSA-2012-0571"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4086" ref_id="CVE-2011-4086"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1601" ref_id="CVE-2012-1601"/>
+    <reference ref_id="ELSA-2012-0571" ref_url="http://linux.oracle.com/errata/ELSA-2012-0571.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4086" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4086" source="CVE" />
+    <reference ref_id="CVE-2012-1601" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1601" source="CVE" />
     <description>[2.6.32-220.17.1.el6]
 - [scsi] fcoe: Do not switch context in vport_delete callback (Neil Horman) [809388 806119]
 
@@ -35,7 +34,7 @@
 
 [2.6.32-220.14.1.el6]
 - [net] fix vlan gro path (Jiri Pirko) [810454 720611]
-- [virt] VMX: vmx_set_cr0 expects kvm->srcu locked (Marcelo Tosatti) [808206 807507] {CVE-2012-1601}
+- [virt] VMX: vmx_set_cr0 expects kvm-&gt;srcu locked (Marcelo Tosatti) [808206 807507] {CVE-2012-1601}
 - [virt] KVM: Ensure all vcpus are consistent with in-kernel irqchip settings (Marcelo Tosatti) [808206 807507] {CVE-2012-1601}
 - [scsi] fcoe: Move destroy_work to a private work queue (Neil Horman) [809388 806119]
 - [fs] jbd2: clear BH_Delay &amp; BH_Unwritten in journal_unmap_buffer (Eric Sandeen) [749727 748713] {CVE-2011-4086}
@@ -65,20 +64,21 @@
         <status_change date="2015-02-10T12:48:46.567-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132003"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132200"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:131580"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:131287"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132085"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132110"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132233"/>
-      <criterion comment="perf is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132250"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132194"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132003" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132200" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:131580" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:131287" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132085" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132110" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132233" />
+      <criterion comment="perf is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132250" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-220.17.1.el6" test_ref="oval:org.mitre.oval:tst:132194" />
     </criteria>
   </criteria>
 </definition>

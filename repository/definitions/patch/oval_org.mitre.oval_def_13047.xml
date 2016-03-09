@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13047" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13047" version="8">
   <metadata>
     <title>DSA-2265-1 perl -- lack of tainted flag propagation</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>perl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00135.html" ref_id="DSA-2265-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1487" ref_id="CVE-2011-1487"/>
+    <reference ref_id="DSA-2265-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00135.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1487" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1487" source="CVE" />
     <description>Mark Martinec discovered that Perl incorrectly clears the tainted flag on values returned by case conversion functions such as &amp;quot;lc&amp;quot;. This may expose preexisting vulnerabilities in applications which use these functions while processing untrusted input. No such applications are known at this stage. Such applications will cease to work when this security update is applied because taint checks are designed to prevent such unsafe use of untrusted input data.</description>
     <oval_repository>
       <dates>
@@ -26,22 +25,23 @@
         <status_change date="2014-06-23T04:01:29.444-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="perl DPKG is earlier than 5.10.0-19lenny4" test_ref="oval:org.mitre.oval:tst:44085"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="perl DPKG is earlier than 5.10.0-19lenny4" test_ref="oval:org.mitre.oval:tst:44085" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="perl DPKG is earlier than 5.10.1-17squeeze1" test_ref="oval:org.mitre.oval:tst:44040"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="perl DPKG is earlier than 5.10.1-17squeeze1" test_ref="oval:org.mitre.oval:tst:44040" />
     </criteria>
   </criteria>
 </definition>

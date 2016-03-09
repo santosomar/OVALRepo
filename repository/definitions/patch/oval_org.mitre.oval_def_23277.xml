@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23277" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23277" version="15">
   <metadata>
     <title>ELSA-2011:0422: postfix security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>postfix</product>
     </affected>
-    <reference ref_id="ELSA-2011:0422-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0422.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-2937" ref_url="http://linux.oracle.com/cve/CVE-2008-2937.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0411" ref_url="http://linux.oracle.com/cve/CVE-2011-0411.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0422-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0422.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-2937" ref_url="http://linux.oracle.com/cve/CVE-2008-2937.html" source="CVE" />
+    <reference ref_id="CVE-2011-0411" ref_url="http://linux.oracle.com/cve/CVE-2011-0411.html" source="CVE" />
     <description>The STARTTLS implementation in Postfix 2.4.x before 2.4.16, 2.5.x before 2.5.12, 2.6.x before 2.6.9, and 2.7.x before 2.7.3 does not properly restrict I/O buffering, which allows man-in-the-middle attackers to insert commands into encrypted SMTP sessions by sending a cleartext command that is processed after TLS is in place, related to a "plaintext command injection" attack.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:03:55.400-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="postfix-pflogsumm is earlier than 2:2.3.3-2.2.el5_6" test_ref="oval:org.mitre.oval:tst:104826"/>
-      <criterion comment="postfix is earlier than 2:2.3.3-2.2.el5_6" test_ref="oval:org.mitre.oval:tst:104697"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="postfix-pflogsumm is earlier than 2:2.3.3-2.2.el5_6" test_ref="oval:org.mitre.oval:tst:104826" />
+      <criterion comment="postfix is earlier than 2:2.3.3-2.2.el5_6" test_ref="oval:org.mitre.oval:tst:104697" />
     </criteria>
   </criteria>
 </definition>

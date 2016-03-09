@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21366" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21366" version="6">
   <metadata>
     <title>RHSA-2012:0518: openssl security update (Important)</title>
     <affected family="unix">
@@ -11,9 +10,9 @@
       <product>openssl097a</product>
       <product>openssl098e</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0518-02" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0518.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0518"/>
-    <reference source="CVE" ref_id="CVE-2012-2110" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-2110.html"/>
+    <reference ref_id="RHSA-2012:0518-02" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0518.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0518" source="CESA" />
+    <reference ref_id="CVE-2012-2110" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-2110.html" source="CVE" />
     <description>The asn1_d2i_read_bio function in crypto/asn1/a_d2i_fp.c in OpenSSL before 0.9.8v, 1.0.0 before 1.0.0i, and 1.0.1 before 1.0.1a does not properly interpret integer data, which allows remote attackers to conduct buffer overflow attacks, and cause a denial of service (memory corruption) or possibly have unspecified other impact, via crafted DER data, as demonstrated by an X.509 certificate or an RSA public key.</description>
     <oval_repository>
       <dates>
@@ -25,40 +24,41 @@
         <status_change date="2014-02-24T04:01:16.651-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="openssl-devel is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:92802"/>
-        <criterion comment="openssl-perl is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:93327"/>
-        <criterion comment="openssl is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:93345"/>
-        <criterion comment="openssl097a is earlier than 0:0.9.7a-11.el5_8.2" test_ref="oval:org.mitre.oval:tst:93396"/>
-      </criteria>
-    </criteria>
-    <criteria operator="AND" comment="Redhat 6 and Centos 6 section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
-      </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="openssl-devel is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93126"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:92825"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93186"/>
-        <criterion comment="openssl is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93154"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="openssl-devel is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:92802" />
+        <criterion comment="openssl-perl is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:93327" />
+        <criterion comment="openssl is earlier than 0:0.9.8e-22.el5_8.3" test_ref="oval:org.mitre.oval:tst:93345" />
+        <criterion comment="openssl097a is earlier than 0:0.9.7a-11.el5_8.2" test_ref="oval:org.mitre.oval:tst:93396" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Centos 6 section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
-      <criterion comment="openssl098e is earlier than 0:0.9.8e-17.el6.centos.2" test_ref="oval:org.mitre.oval:tst:94870"/>
+    <criteria comment="Redhat 6 and Centos 6 section" operator="AND">
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
+      </criteria>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="openssl-devel is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93126" />
+        <criterion comment="openssl-static is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:92825" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93186" />
+        <criterion comment="openssl is earlier than 0:1.0.0-20.el6_2.4" test_ref="oval:org.mitre.oval:tst:93154" />
+      </criteria>
     </criteria>
-    <criteria operator="AND" comment="Redhat 6 section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="openssl098e is earlier than 0:0.9.8e-17.el6_2.2" test_ref="oval:org.mitre.oval:tst:93183"/>
+    <criteria comment="Centos 6 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
+      <criterion comment="openssl098e is earlier than 0:0.9.8e-17.el6.centos.2" test_ref="oval:org.mitre.oval:tst:94870" />
+    </criteria>
+    <criteria comment="Redhat 6 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="openssl098e is earlier than 0:0.9.8e-17.el6_2.2" test_ref="oval:org.mitre.oval:tst:93183" />
     </criteria>
   </criteria>
 </definition>

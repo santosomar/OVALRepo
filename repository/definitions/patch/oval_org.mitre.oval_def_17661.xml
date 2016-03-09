@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17661" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17661" version="8">
   <metadata>
     <title>USN-645-3 -- firefox-3.0, xulrunner-1.9 regression</title>
     <affected family="unix">
@@ -7,23 +6,23 @@
       <product>firefox-3.0</product>
       <product>xulrunner-1.9</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-645-3/" ref_id="USN-645-3"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0016" ref_id="CVE-2008-0016"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3835" ref_id="CVE-2008-3835"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3836" ref_id="CVE-2008-3836"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3837" ref_id="CVE-2008-3837"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4058" ref_id="CVE-2008-4058"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4059" ref_id="CVE-2008-4059"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4060" ref_id="CVE-2008-4060"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4061" ref_id="CVE-2008-4061"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4062" ref_id="CVE-2008-4062"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4063" ref_id="CVE-2008-4063"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4064" ref_id="CVE-2008-4064"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4065" ref_id="CVE-2008-4065"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4066" ref_id="CVE-2008-4066"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4067" ref_id="CVE-2008-4067"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4068" ref_id="CVE-2008-4068"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4069" ref_id="CVE-2008-4069"/>
+    <reference ref_id="USN-645-3" ref_url="http://www.ubuntu.com/usn/usn-645-3/" source="VENDOR" />
+    <reference ref_id="CVE-2008-0016" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0016" source="CVE" />
+    <reference ref_id="CVE-2008-3835" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3835" source="CVE" />
+    <reference ref_id="CVE-2008-3836" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3836" source="CVE" />
+    <reference ref_id="CVE-2008-3837" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3837" source="CVE" />
+    <reference ref_id="CVE-2008-4058" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4058" source="CVE" />
+    <reference ref_id="CVE-2008-4059" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4059" source="CVE" />
+    <reference ref_id="CVE-2008-4060" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4060" source="CVE" />
+    <reference ref_id="CVE-2008-4061" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4061" source="CVE" />
+    <reference ref_id="CVE-2008-4062" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4062" source="CVE" />
+    <reference ref_id="CVE-2008-4063" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4063" source="CVE" />
+    <reference ref_id="CVE-2008-4064" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4064" source="CVE" />
+    <reference ref_id="CVE-2008-4065" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4065" source="CVE" />
+    <reference ref_id="CVE-2008-4066" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4066" source="CVE" />
+    <reference ref_id="CVE-2008-4067" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4067" source="CVE" />
+    <reference ref_id="CVE-2008-4068" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4068" source="CVE" />
+    <reference ref_id="CVE-2008-4069" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4069" source="CVE" />
     <description>USN-645-1 fixed vulnerabilities in Firefox and xulrunner.</description>
     <oval_repository>
       <dates>
@@ -45,13 +44,14 @@
         <status_change date="2014-06-30T04:07:08.389-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="firefox DPKG is earlier than 3.0.3+build1+nobinonly-0ubuntu0.8.04.1" test_ref="oval:org.mitre.oval:tst:82668"/>
-      <criterion comment="xulrunner-1.9 DPKG is earlier than 1.9.0.3+build1+nobinonly-0ubuntu0.8.04.1" test_ref="oval:org.mitre.oval:tst:83175"/>
+    <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="firefox DPKG is earlier than 3.0.3+build1+nobinonly-0ubuntu0.8.04.1" test_ref="oval:org.mitre.oval:tst:82668" />
+      <criterion comment="xulrunner-1.9 DPKG is earlier than 1.9.0.3+build1+nobinonly-0ubuntu0.8.04.1" test_ref="oval:org.mitre.oval:tst:83175" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23027" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23027" version="9">
   <metadata>
     <title>ELSA-2013:0128: conga security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>conga</product>
     </affected>
-    <reference ref_id="ELSA-2013:0128-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0128.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-3359" ref_url="http://linux.oracle.com/cve/CVE-2012-3359.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0128-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0128.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3359" ref_url="http://linux.oracle.com/cve/CVE-2012-3359.html" source="CVE" />
     <description>Luci in Red Hat Conga stores the user's username and password in a Base64 encoded string in the __ac session cookie, which allows attackers to gain privileges by accessing this cookie.  NOTE: this issue has been SPLIT due to different vulnerability types. Use CVE-2013-7347 for the incorrect enforcement of a user timeout.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:03:13.052-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="ricci is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:106703"/>
-      <criterion comment="luci is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:106887"/>
-      <criterion comment="conga is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:107072"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="ricci is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:106703" />
+      <criterion comment="luci is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:106887" />
+      <criterion comment="conga is earlier than 0:0.12.2-64.el5" test_ref="oval:org.mitre.oval:tst:107072" />
     </criteria>
   </criteria>
 </definition>

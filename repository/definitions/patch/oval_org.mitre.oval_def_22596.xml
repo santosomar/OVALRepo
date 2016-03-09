@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22596" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22596" version="19">
   <metadata>
     <title>ELSA-2007:1082: firefox security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>firefox</product>
     </affected>
-    <reference ref_id="ELSA-2007:1082-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1082.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-5947" ref_url="http://linux.oracle.com/cve/CVE-2007-5947.html" source="CVE"/>
-    <reference ref_id="CVE-2007-5959" ref_url="http://linux.oracle.com/cve/CVE-2007-5959.html" source="CVE"/>
-    <reference ref_id="CVE-2007-5960" ref_url="http://linux.oracle.com/cve/CVE-2007-5960.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:1082-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1082.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5947" ref_url="http://linux.oracle.com/cve/CVE-2007-5947.html" source="CVE" />
+    <reference ref_id="CVE-2007-5959" ref_url="http://linux.oracle.com/cve/CVE-2007-5959.html" source="CVE" />
+    <reference ref_id="CVE-2007-5960" ref_url="http://linux.oracle.com/cve/CVE-2007-5960.html" source="CVE" />
     <description>Mozilla Firefox before 2.0.0.10 and SeaMonkey before 1.1.7 sets the Referer header to the window or frame in which script is running, instead of the address of the content that initiated the script, which allows remote attackers to spoof HTTP Referer headers and bypass Referer-based CSRF protection schemes by setting window.location and using a modal alert dialog that causes the wrong Referer to be sent.</description>
     <oval_repository>
       <dates>
@@ -26,13 +25,14 @@
         <status_change date="2014-05-26T04:01:34.581-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="firefox-devel is earlier than 0:1.5.0.12-7.el5" test_ref="oval:org.mitre.oval:tst:100803"/>
-      <criterion comment="firefox is earlier than 0:1.5.0.12-7.el5" test_ref="oval:org.mitre.oval:tst:101406"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="firefox-devel is earlier than 0:1.5.0.12-7.el5" test_ref="oval:org.mitre.oval:tst:100803" />
+      <criterion comment="firefox is earlier than 0:1.5.0.12-7.el5" test_ref="oval:org.mitre.oval:tst:101406" />
     </criteria>
   </criteria>
 </definition>

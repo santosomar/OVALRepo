@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25198" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25198" version="6">
   <metadata>
     <title>ELSA-2014:0742: thunderbird security update (Important)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference ref_id="ELSA-2014:0742-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0742.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-1533" ref_url="http://linux.oracle.com/cve/CVE-2014-1533.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1538" ref_url="http://linux.oracle.com/cve/CVE-2014-1538.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1541" ref_url="http://linux.oracle.com/cve/CVE-2014-1541.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0742-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0742.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-1533" ref_url="http://linux.oracle.com/cve/CVE-2014-1533.html" source="CVE" />
+    <reference ref_id="CVE-2014-1538" ref_url="http://linux.oracle.com/cve/CVE-2014-1538.html" source="CVE" />
+    <reference ref_id="CVE-2014-1541" ref_url="http://linux.oracle.com/cve/CVE-2014-1541.html" source="CVE" />
     <description>Mozilla Thunderbird is a standalone mail and newsgroup client.
 Several flaws were found in the processing of malformed web content. A web
 page containing malicious content could cause Thunderbird to crash or,
@@ -44,16 +43,17 @@ to take effect.</description>
         <status_change date="2014-09-01T04:03:03.591-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="thunderbird is earlier than 0:24.6.0-1.el5_10" test_ref="oval:org.mitre.oval:tst:115644"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="thunderbird is earlier than 0:24.6.0-1.el5_10" test_ref="oval:org.mitre.oval:tst:115644" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="thunderbird is earlier than 0:24.6.0-1.el6_5" test_ref="oval:org.mitre.oval:tst:115405"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="thunderbird is earlier than 0:24.6.0-1.el6_5" test_ref="oval:org.mitre.oval:tst:115405" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22637" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22637" version="8">
   <metadata>
     <title>ELSA-2008:0032: libxml2 security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>libxml2</product>
     </affected>
-    <reference ref_id="ELSA-2008:0032-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0032.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-6284" ref_url="http://linux.oracle.com/cve/CVE-2007-6284.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0032-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0032.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6284" ref_url="http://linux.oracle.com/cve/CVE-2007-6284.html" source="CVE" />
     <description>The xmlCurrentChar function in libxml2 before 2.6.31 allows context-dependent attackers to cause a denial of service (infinite loop) via XML containing invalid UTF-8 sequences.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:01:40.761-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101692"/>
-      <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101667"/>
-      <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101021"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101692" />
+      <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101667" />
+      <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.2.1" test_ref="oval:org.mitre.oval:tst:101021" />
     </criteria>
   </criteria>
 </definition>

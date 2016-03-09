@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17986" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17986" version="8">
   <metadata>
     <title>DSA-2536-1 otrs2 - cross-site scripting</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>otrs2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2536-1" ref_id="DSA-2536-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2582" ref_id="CVE-2012-2582"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4600" ref_id="CVE-2012-4600"/>
+    <reference ref_id="DSA-2536-1" ref_url="http://www.debian.org/security/dsa-2536-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-2582" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2582" source="CVE" />
+    <reference ref_id="CVE-2012-4600" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4600" source="CVE" />
     <description>It was discovered that Open Ticket Request System (OTRS), a ticket request system, contains a cross-site scripting vulnerability when email messages are viewed using Internet Explorer. This update also improves the HTML security filter to detect tag nesting.</description>
     <oval_repository>
       <dates>
@@ -31,14 +30,15 @@
         <status_change date="2014-06-23T04:03:55.963-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="otrs2 DPKG is earlier than 2.4.9+dfsg1-3+squeeze3" test_ref="oval:org.mitre.oval:tst:86392"/>
+    <criterion comment="otrs2 DPKG is earlier than 2.4.9+dfsg1-3+squeeze3" test_ref="oval:org.mitre.oval:tst:86392" />
   </criteria>
 </definition>

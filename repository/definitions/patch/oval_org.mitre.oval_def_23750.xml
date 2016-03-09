@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23750" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23750" version="8">
   <metadata>
     <title>ELSA-2011:1317: cyrus-imapd security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>cyrus-imapd</product>
     </affected>
-    <reference ref_id="ELSA-2011:1317-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1317.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-3208" ref_url="http://linux.oracle.com/cve/CVE-2011-3208.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1317-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1317.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3208" ref_url="http://linux.oracle.com/cve/CVE-2011-3208.html" source="CVE" />
     <description>Stack-based buffer overflow in the split_wildmats function in nntpd.c in nntpd in Cyrus IMAP Server before 2.3.17 and 2.4.x before 2.4.11 allows remote attackers to execute arbitrary code via a crafted NNTP command.</description>
     <oval_repository>
       <dates>
@@ -25,24 +24,25 @@
         <status_change date="2014-05-26T04:05:20.676-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="cyrus-imapd-devel is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109024"/>
-        <criterion comment="cyrus-imapd-perl is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109379"/>
-        <criterion comment="cyrus-imapd-utils is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:108988"/>
-        <criterion comment="cyrus-imapd is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109144"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="cyrus-imapd-devel is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109024" />
+        <criterion comment="cyrus-imapd-perl is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109379" />
+        <criterion comment="cyrus-imapd-utils is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:108988" />
+        <criterion comment="cyrus-imapd is earlier than 0:2.3.7-12.el5_7.1" test_ref="oval:org.mitre.oval:tst:109144" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="cyrus-imapd-devel is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109074"/>
-        <criterion comment="cyrus-imapd-utils is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109258"/>
-        <criterion comment="cyrus-imapd is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109125"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="cyrus-imapd-devel is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109074" />
+        <criterion comment="cyrus-imapd-utils is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109258" />
+        <criterion comment="cyrus-imapd is earlier than 0:2.3.16-6.el6_1.3" test_ref="oval:org.mitre.oval:tst:109125" />
       </criteria>
     </criteria>
   </criteria>

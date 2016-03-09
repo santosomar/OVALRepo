@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23557" version="7" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:23557" version="8">
   <metadata>
     <title>DEPRECATED: ELSA-2013:1409: xinetd security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>xinetd</product>
     </affected>
-    <reference ref_id="ELSA-2013:1409-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1409.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-4342" ref_url="http://linux.oracle.com/cve/CVE-2013-4342.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1409-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1409.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4342" ref_url="http://linux.oracle.com/cve/CVE-2013-4342.html" source="CVE" />
     <description>xinetd does not enforce the user and group configuration directives for TCPMUX services, which causes these services to be run as root and makes it easier for remote attackers to gain privileges by leveraging another vulnerability in a service.</description>
     <oval_repository>
       <dates>
@@ -29,16 +28,17 @@
         <status_change date="2014-07-11T17:50:11.441-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="xinetd is earlier than 2:2.3.14-39.el6_4" test_ref="oval:org.mitre.oval:tst:107429"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="xinetd is earlier than 2:2.3.14-39.el6_4" test_ref="oval:org.mitre.oval:tst:107429" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="xinetd is earlier than 2:2.3.14-20.el5_10" test_ref="oval:org.mitre.oval:tst:107637"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="xinetd is earlier than 2:2.3.14-20.el5_10" test_ref="oval:org.mitre.oval:tst:107637" />
     </criteria>
   </criteria>
 </definition>

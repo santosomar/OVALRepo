@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23694" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23694" version="15">
   <metadata>
     <title>ELSA-2012:0011: acroread security update (Critical)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Oracle Linux 5</platform>
       <product>acroread</product>
     </affected>
-    <reference ref_id="ELSA-2012:0011-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0011.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-2462" ref_url="http://linux.oracle.com/cve/CVE-2011-2462.html" source="CVE"/>
-    <reference ref_id="CVE-2011-4369" ref_url="http://linux.oracle.com/cve/CVE-2011-4369.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0011-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0011.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2462" ref_url="http://linux.oracle.com/cve/CVE-2011-2462.html" source="CVE" />
+    <reference ref_id="CVE-2011-4369" ref_url="http://linux.oracle.com/cve/CVE-2011-4369.html" source="CVE" />
     <description>Unspecified vulnerability in the PRC component in Adobe Reader and Acrobat 9.x before 9.4.7 on Windows, Adobe Reader and Acrobat 9.x through 9.4.6 on Mac OS X, Adobe Reader and Acrobat 10.x through 10.1.1 on Windows and Mac OS X, and Adobe Reader 9.x through 9.4.6 on UNIX allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via unknown vectors, as exploited in the wild in December 2011.</description>
     <oval_repository>
       <dates>
@@ -26,21 +25,22 @@
         <status_change date="2014-05-26T04:05:12.625-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="acroread is earlier than 0:9.4.7-1.el5" test_ref="oval:org.mitre.oval:tst:109271"/>
-        <criterion comment="acroread-plugin is earlier than 0:9.4.7-1.el5" test_ref="oval:org.mitre.oval:tst:109602"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="acroread is earlier than 0:9.4.7-1.el5" test_ref="oval:org.mitre.oval:tst:109271" />
+        <criterion comment="acroread-plugin is earlier than 0:9.4.7-1.el5" test_ref="oval:org.mitre.oval:tst:109602" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="acroread is earlier than 0:9.4.7-1.el6" test_ref="oval:org.mitre.oval:tst:109590"/>
-        <criterion comment="acroread-plugin is earlier than 0:9.4.7-1.el6" test_ref="oval:org.mitre.oval:tst:109216"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="acroread is earlier than 0:9.4.7-1.el6" test_ref="oval:org.mitre.oval:tst:109590" />
+        <criterion comment="acroread-plugin is earlier than 0:9.4.7-1.el6" test_ref="oval:org.mitre.oval:tst:109216" />
       </criteria>
     </criteria>
   </criteria>

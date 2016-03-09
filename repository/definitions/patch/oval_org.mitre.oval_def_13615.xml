@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13615" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13615" version="9">
   <metadata>
     <title>DSA-1979-1 lintian -- multiple</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>lintian</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00015.html" ref_id="DSA-1979-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4013" ref_id="CVE-2009-4013"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4014" ref_id="CVE-2009-4014"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4015" ref_id="CVE-2009-4015"/>
+    <reference ref_id="DSA-1979-1" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00015.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-4013" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4013" source="CVE" />
+    <reference ref_id="CVE-2009-4014" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4014" source="CVE" />
+    <reference ref_id="CVE-2009-4015" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4015" source="CVE" />
     <description>Multiple vulnerabilities have been discovered in lintian, a Debian package checker. The following Common Vulnerabilities and Exposures project ids have been assigned to identify them: CVE-2009-4013: missing control files sanitation Control field names and values were not sanitised before using them in certain operations that could lead to directory traversals. Patch systems" control files were not sanitised before using them in certain operations that could lead to directory traversals. An attacker could exploit these vulnerabilities to overwrite arbitrary files or disclose system information. CVE-2009-4014: format string vulnerabilities Multiple check scripts and the Lintian::Schedule module were using user-provided input as part of the sprintf/printf format string. CVE-2009-4015: arbitrary command execution File names were not properly escaped when passing them as arguments to certain commands, allowing the execution of other commands as pipes or as a set of shell commands. For the oldstable distribution, these problems have been fixed in version 1.23.28+etch1. For the stable distribution, these problems have been fixed in version 1.24.2.1+lenny1. For the testing distribution, these problems will be fixed soon. For the unstable distribution, these problems have been fixed in version 2.3.2 We recommend that you upgrade your lintian packages.</description>
     <oval_repository>
       <dates>
@@ -32,18 +31,19 @@
         <status_change date="2014-06-23T04:02:42.819-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="lintian DPKG is earlier than 1.24.2.1+lenny1" test_ref="oval:org.mitre.oval:tst:46468"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="lintian DPKG is earlier than 1.24.2.1+lenny1" test_ref="oval:org.mitre.oval:tst:46468" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="lintian DPKG is earlier than 1.23.28+etch1" test_ref="oval:org.mitre.oval:tst:46571"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="lintian DPKG is earlier than 1.23.28+etch1" test_ref="oval:org.mitre.oval:tst:46571" />
     </criteria>
   </criteria>
 </definition>

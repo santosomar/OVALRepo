@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7454" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7454" version="5">
   <metadata>
     <title>DSA-1839 gst-plugins-good0.10 -- integer overflow</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>gst-plugins-good0.10</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1839" ref_id="DSA-1839"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1932" ref_id="CVE-2009-1932"/>
+    <reference ref_id="DSA-1839" ref_url="http://www.debian.org/security/2009/dsa-1839" source="VENDOR" />
+    <reference ref_id="CVE-2009-1932" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1932" source="CVE" />
     <description>It has been discovered that gst-plugins-good0.10, the GStreamer plugins from the "good" set, are prone to an integer overflow, when processing a large PNG file. This could lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -25,61 +24,62 @@
         <status_change date="2014-06-23T04:08:27.423-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="gstreamer0.10-plugins-good-doc is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14690"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="gstreamer0.10-plugins-good-doc is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14690" />
         </criteria>
-        <criteria operator="AND" comment="Architecture dependent section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture dependent section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="gstreamer0.10-plugins-good is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14811"/>
-            <criterion comment="gstreamer0.10-esd is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14521"/>
-            <criterion comment="gstreamer0.10-plugins-good-dbg is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14834"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="gstreamer0.10-plugins-good is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14811" />
+            <criterion comment="gstreamer0.10-esd is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14521" />
+            <criterion comment="gstreamer0.10-plugins-good-dbg is earlier than 0.10.8-4.1~lenny2" test_ref="oval:org.mitre.oval:tst:14834" />
           </criteria>
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="gstreamer0.10-plugins-good-doc is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14857"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="gstreamer0.10-plugins-good-doc is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14857" />
         </criteria>
-        <criteria operator="AND" comment="Architecture dependent section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
+        <criteria comment="Architecture dependent section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="gstreamer0.10-plugins-good is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14850"/>
-            <criterion comment="gstreamer0.10-esd is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14673"/>
-            <criterion comment="gstreamer0.10-plugins-good-dbg is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14591"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="gstreamer0.10-plugins-good is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14850" />
+            <criterion comment="gstreamer0.10-esd is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14673" />
+            <criterion comment="gstreamer0.10-plugins-good-dbg is earlier than 0.10.4-4+etch1" test_ref="oval:org.mitre.oval:tst:14591" />
           </criteria>
         </criteria>
       </criteria>

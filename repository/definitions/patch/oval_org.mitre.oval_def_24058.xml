@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24058" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24058" version="7">
   <metadata>
     <title>ELSA-2013:0666: Oracle Java SE 6 - notification of end of public updates (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>java-1.6.0-sun</product>
     </affected>
-    <reference ref_id="ELSA-2013:0666-02" ref_url="http://linux.oracle.com/errata/ELSA-2013-0666.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2013:0666-02" ref_url="http://linux.oracle.com/errata/ELSA-2013-0666.html" source="VENDOR" />
     <description>Oracle Java SE version 6 includes the Oracle Java Runtime Environment and
 the Oracle Java Software Development Kit.
 Oracle Java SE 6 will not receive updates after February 28, 2013. The
@@ -38,17 +37,18 @@ packages.</description>
         <status_change date="2014-05-26T04:06:09.997-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="java-1.6.0-sun-jdbc is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111834"/>
-      <criterion comment="java-1.6.0-sun is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111671"/>
-      <criterion comment="java-1.6.0-sun-plugin is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111718"/>
-      <criterion comment="java-1.6.0-sun-devel is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111819"/>
-      <criterion comment="java-1.6.0-sun-demo is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111224"/>
-      <criterion comment="java-1.6.0-sun-src is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111767"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="java-1.6.0-sun-jdbc is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111834" />
+      <criterion comment="java-1.6.0-sun is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111671" />
+      <criterion comment="java-1.6.0-sun-plugin is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111718" />
+      <criterion comment="java-1.6.0-sun-devel is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111819" />
+      <criterion comment="java-1.6.0-sun-demo is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111224" />
+      <criterion comment="java-1.6.0-sun-src is earlier than 1:1.6.0.43-1jpp.4.el6_4" test_ref="oval:org.mitre.oval:tst:111767" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19861" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19861" version="6">
   <metadata>
     <title>DSA-2508-1 kfreebsd-8 - privilege escalation</title>
     <affected family="unix">
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>kfreebsd-8</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2508-1" ref_id="DSA-2508-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0217" ref_id="CVE-2012-0217"/>
+    <reference ref_id="DSA-2508-1" ref_url="http://www.debian.org/security/dsa-2508-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-0217" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0217" source="CVE" />
     <description>Rafal Wojtczuk from Bromium discovered that FreeBSD wasn't handling correctly uncanonical return addresses on Intel amd64 CPUs, allowing privilege escalation to kernel for local users.</description>
     <oval_repository>
       <dates>
@@ -24,11 +23,12 @@
         <status_change date="2014-06-23T04:05:58.992-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
-    <criterion comment="kfreebsd-8 DPKG is earlier than 0:8.1+dfsg-8+squeeze3" test_ref="oval:org.mitre.oval:tst:88328"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
+    <criterion comment="kfreebsd-8 DPKG is earlier than 0:8.1+dfsg-8+squeeze3" test_ref="oval:org.mitre.oval:tst:88328" />
   </criteria>
 </definition>

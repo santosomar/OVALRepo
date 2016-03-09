@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27117" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27117" version="5">
   <metadata>
     <title>ELSA-2014-0917 -- nss and nspr security, bug fix, and enhancement update (critical)</title>
     <affected family="unix">
@@ -8,13 +7,13 @@
       <product>nss</product>
       <product>nss-util</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0917.html" ref_id="ELSA-2014-0917"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1740" ref_id="CVE-2013-1740"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1490" ref_id="CVE-2014-1490"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1491" ref_id="CVE-2014-1491"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1492" ref_id="CVE-2014-1492"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1544" ref_id="CVE-2014-1544"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1545" ref_id="CVE-2014-1545"/>
+    <reference ref_id="ELSA-2014-0917" ref_url="http://linux.oracle.com/errata/ELSA-2014-0917.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1740" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1740" source="CVE" />
+    <reference ref_id="CVE-2014-1490" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1490" source="CVE" />
+    <reference ref_id="CVE-2014-1491" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1491" source="CVE" />
+    <reference ref_id="CVE-2014-1492" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1492" source="CVE" />
+    <reference ref_id="CVE-2014-1544" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1544" source="CVE" />
+    <reference ref_id="CVE-2014-1545" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1545" source="CVE" />
     <description>nspr
 [4.10.6-1]
 - Rebase to nspr-4.10.6
@@ -54,20 +53,21 @@ nss-util
         <status_change date="2014-12-15T04:00:51.360-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="nspr is earlier than 0:4.10.6-1.el6_5" test_ref="oval:org.mitre.oval:tst:127123"/>
-      <criterion comment="nss is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127322"/>
-      <criterion comment="nss-util is earlier than 0:3.16.1-1.el6_5" test_ref="oval:org.mitre.oval:tst:126612"/>
-      <criterion comment="nspr-devel is earlier than 0:4.10.6-1.el6_5" test_ref="oval:org.mitre.oval:tst:126786"/>
-      <criterion comment="nss-devel is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127227"/>
-      <criterion comment="nss-pkcs11-devel is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127184"/>
-      <criterion comment="nss-sysinit is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:126929"/>
-      <criterion comment="nss-tools is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127384"/>
-      <criterion comment="nss-util-devel is earlier than 0:3.16.1-1.el6_5" test_ref="oval:org.mitre.oval:tst:127301"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="nspr is earlier than 0:4.10.6-1.el6_5" test_ref="oval:org.mitre.oval:tst:127123" />
+      <criterion comment="nss is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127322" />
+      <criterion comment="nss-util is earlier than 0:3.16.1-1.el6_5" test_ref="oval:org.mitre.oval:tst:126612" />
+      <criterion comment="nspr-devel is earlier than 0:4.10.6-1.el6_5" test_ref="oval:org.mitre.oval:tst:126786" />
+      <criterion comment="nss-devel is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127227" />
+      <criterion comment="nss-pkcs11-devel is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127184" />
+      <criterion comment="nss-sysinit is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:126929" />
+      <criterion comment="nss-tools is earlier than 0:3.16.1-4.0.1.el6_5" test_ref="oval:org.mitre.oval:tst:127384" />
+      <criterion comment="nss-util-devel is earlier than 0:3.16.1-1.el6_5" test_ref="oval:org.mitre.oval:tst:127301" />
     </criteria>
   </criteria>
 </definition>

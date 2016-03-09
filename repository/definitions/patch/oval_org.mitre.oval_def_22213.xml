@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22213" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22213" version="15">
   <metadata>
     <title>ELSA-2009:1102: cscope security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>cscope</product>
     </affected>
-    <reference ref_id="ELSA-2009:1102-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1102.html" source="VENDOR"/>
-    <reference ref_id="CVE-2004-2541" ref_url="http://linux.oracle.com/cve/CVE-2004-2541.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0148" ref_url="http://linux.oracle.com/cve/CVE-2009-0148.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1102-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1102.html" source="VENDOR" />
+    <reference ref_id="CVE-2004-2541" ref_url="http://linux.oracle.com/cve/CVE-2004-2541.html" source="CVE" />
+    <reference ref_id="CVE-2009-0148" ref_url="http://linux.oracle.com/cve/CVE-2009-0148.html" source="CVE" />
     <description>Multiple buffer overflows in Cscope before 15.7a allow remote attackers to execute arbitrary code via long strings in input such as (1) source-code tokens and (2) pathnames, related to integer overflows in some cases. NOTE: this issue exists because of an incomplete fix for CVE-2004-2541.</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2014-05-26T04:00:58.801-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="cscope is earlier than 0:15.5-15.1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102552"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="cscope is earlier than 0:15.5-15.1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102552" />
   </criteria>
 </definition>

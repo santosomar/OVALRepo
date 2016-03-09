@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7904" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7904" version="5">
   <metadata>
     <title>DSA-1742 libsndfile -- integer overflow</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>libsndfile</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1742" ref_id="DSA-1742"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0186" ref_id="CVE-2009-0186"/>
+    <reference ref_id="DSA-1742" ref_url="http://www.debian.org/security/2009/dsa-1742" source="VENDOR" />
+    <reference ref_id="CVE-2009-0186" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0186" source="CVE" />
     <description>Alan Rad Pop discovered that libsndfile, a library to read and write sampled audio data, is prone to an integer overflow. This causes a heap-based buffer overflow when processing crafted CAF description chunks possibly leading to arbitrary code execution.</description>
     <oval_repository>
       <dates>
@@ -25,35 +24,36 @@
         <status_change date="2014-06-23T04:09:15.987-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libsndfile1 is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:19881"/>
-        <criterion comment="libsndfile1-dev is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:20068"/>
-        <criterion comment="sndfile-programs is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:20007"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libsndfile1 is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:19881" />
+        <criterion comment="libsndfile1-dev is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:20068" />
+        <criterion comment="sndfile-programs is earlier than 1.0.17-4+lenny1" test_ref="oval:org.mitre.oval:tst:20007" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libsndfile1 is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:20059"/>
-        <criterion comment="libsndfile1-dev is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:19903"/>
-        <criterion comment="sndfile-programs is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:20051"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libsndfile1 is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:20059" />
+        <criterion comment="libsndfile1-dev is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:19903" />
+        <criterion comment="sndfile-programs is earlier than 1.0.16-2+etch1" test_ref="oval:org.mitre.oval:tst:20051" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21581" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21581" version="6">
   <metadata>
     <title>RHSA-2012:0884: openssh security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>openssh</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0884-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0884.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0884"/>
-    <reference source="CVE" ref_id="CVE-2011-5000" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-5000.html"/>
+    <reference ref_id="RHSA-2012:0884-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0884.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0884" source="CESA" />
+    <reference ref_id="CVE-2011-5000" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-5000.html" source="CVE" />
     <description>The ssh_gssapi_parse_ename function in gss-serv.c in OpenSSH 5.8 and earlier, when gssapi-with-mic authentication is enabled, allows remote authenticated users to cause a denial of service (memory consumption) via a large value in a certain length field.  NOTE: there may be limited scenarios in which this issue is relevant.</description>
     <oval_repository>
       <dates>
@@ -21,20 +20,21 @@
         <status_change date="2014-02-24T04:01:44.112-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="openssh-askpass is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93494"/>
-      <criterion comment="openssh-server is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93842"/>
-      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9-81.el6" test_ref="oval:org.mitre.oval:tst:93589"/>
-      <criterion comment="openssh-clients is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93815"/>
-      <criterion comment="openssh-ldap is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93971"/>
-      <criterion comment="openssh is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93915"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="openssh-askpass is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93494" />
+      <criterion comment="openssh-server is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93842" />
+      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9-81.el6" test_ref="oval:org.mitre.oval:tst:93589" />
+      <criterion comment="openssh-clients is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93815" />
+      <criterion comment="openssh-ldap is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93971" />
+      <criterion comment="openssh is earlier than 0:5.3p1-81.el6" test_ref="oval:org.mitre.oval:tst:93915" />
     </criteria>
   </criteria>
 </definition>

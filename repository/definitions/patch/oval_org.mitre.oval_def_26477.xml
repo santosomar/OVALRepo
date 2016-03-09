@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26477" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26477" version="4">
   <metadata>
     <title>RHSA-2014:1172: procmail security update (Important)</title>
     <affected family="unix">
@@ -11,9 +10,9 @@
       <platform>CentOS Linux 7</platform>
       <product>procmail</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1172-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1172.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1172"/>
-    <reference source="CVE" ref_id="CVE-2014-3618" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3618.html"/>
+    <reference ref_id="RHSA-2014:1172-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1172.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1172" source="CESA" />
+    <reference ref_id="CVE-2014-3618" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3618.html" source="CVE" />
     <description>The procmail program is used for local mail delivery. In addition to just
 delivering mail, procmail can be used for automatic filtering, presorting,
 and other mail handling jobs.
@@ -35,29 +34,30 @@ contain a backported patch to correct this issue.</description>
         <status_change date="2014-11-10T04:01:27.293-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Redhat 5 section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="procmail is earlier than 0:3.22-17.1.2" test_ref="oval:org.mitre.oval:tst:123250"/>
+    <criteria comment="Redhat 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="procmail is earlier than 0:3.22-17.1.2" test_ref="oval:org.mitre.oval:tst:123250" />
     </criteria>
-    <criteria operator="AND" comment="Centos 5 section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="procmail is earlier than 0:3.22-17.1.2.el5_10" test_ref="oval:org.mitre.oval:tst:123831"/>
+    <criteria comment="Centos 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="procmail is earlier than 0:3.22-17.1.2.el5_10" test_ref="oval:org.mitre.oval:tst:123831" />
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="procmail is earlier than 0:3.22-25.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:123631"/>
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criterion comment="procmail is earlier than 0:3.22-25.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:123631" />
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="procmail is earlier than 0:3.22-34.el7_0.1" test_ref="oval:org.mitre.oval:tst:123381"/>
-      <criteria operator="OR" comment="Redhat 7 or Centos 7 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criterion comment="procmail is earlier than 0:3.22-34.el7_0.1" test_ref="oval:org.mitre.oval:tst:123381" />
+      <criteria comment="Redhat 7 or Centos 7 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
     </criteria>
   </criteria>

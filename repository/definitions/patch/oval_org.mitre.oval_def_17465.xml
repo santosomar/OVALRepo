@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17465" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17465" version="8">
   <metadata>
     <title>USN-1482-1 -- clamav vulnerabilities</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>Ubuntu 10.04</platform>
       <product>clamav</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1482-1/" ref_id="USN-1482-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1457" ref_id="CVE-2012-1457"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1459" ref_id="CVE-2012-1459"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1458" ref_id="CVE-2012-1458"/>
+    <reference ref_id="USN-1482-1" ref_url="http://www.ubuntu.com/usn/usn-1482-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-1457" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1457" source="CVE" />
+    <reference ref_id="CVE-2012-1459" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1459" source="CVE" />
+    <reference ref_id="CVE-2012-1458" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1458" source="CVE" />
     <description>ClamAV could improperly detect malware if it opened a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -34,39 +33,40 @@
         <status_change date="2014-06-30T04:06:40.516-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84207"/>
-        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:83936"/>
-        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84285"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84207" />
+        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:83936" />
+        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84285" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84218"/>
-        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84284"/>
-        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84305"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84218" />
+        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84284" />
+        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84305" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83953"/>
-        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83904"/>
-        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83889"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="clamav DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83953" />
+        <criterion comment="clamav-daemon DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83904" />
+        <criterion comment="libclamav6 DPKG is earlier than 0.97.5+dfsg-1ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:83889" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="clamav DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84229"/>
-        <criterion comment="clamav-daemon DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84014"/>
-        <criterion comment="libclamav6 DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84194"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="clamav DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84229" />
+        <criterion comment="clamav-daemon DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84014" />
+        <criterion comment="libclamav6 DPKG is earlier than 0.96.5+dfsg-1ubuntu1.10.04.4" test_ref="oval:org.mitre.oval:tst:84194" />
       </criteria>
     </criteria>
   </criteria>

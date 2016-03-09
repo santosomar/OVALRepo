@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17415" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17415" version="8">
   <metadata>
     <title>USN-522-1 -- openssl vulnerabilities</title>
     <affected family="unix">
@@ -8,9 +7,9 @@
       <platform>Ubuntu 7.04</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-522-1/" ref_id="USN-522-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3108" ref_id="CVE-2007-3108"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5135" ref_id="CVE-2007-5135"/>
+    <reference ref_id="USN-522-1" ref_url="http://www.ubuntu.com/usn/usn-522-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-3108" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3108" source="CVE" />
+    <reference ref_id="CVE-2007-5135" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5135" source="CVE" />
     <description>It was discovered that OpenSSL did not correctly perform Montgomery multiplications.</description>
     <oval_repository>
       <dates>
@@ -32,20 +31,21 @@
         <status_change date="2014-06-30T04:06:37.483-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8a-7ubuntu0.4" test_ref="oval:org.mitre.oval:tst:81144"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8a-7ubuntu0.4" test_ref="oval:org.mitre.oval:tst:81144" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8b-2ubuntu2.1" test_ref="oval:org.mitre.oval:tst:82062"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8b-2ubuntu2.1" test_ref="oval:org.mitre.oval:tst:82062" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8c-4ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82085"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="libssl0.9.8 DPKG is earlier than 0.9.8c-4ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82085" />
     </criteria>
   </criteria>
 </definition>

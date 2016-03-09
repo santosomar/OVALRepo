@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22818" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22818" version="15">
   <metadata>
     <title>ELSA-2010:0533: pcsc-lite security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>pcsc-lite</product>
     </affected>
-    <reference ref_id="ELSA-2010:0533-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0533.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-4901" ref_url="http://linux.oracle.com/cve/CVE-2009-4901.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0407" ref_url="http://linux.oracle.com/cve/CVE-2010-0407.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0533-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0533.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-4901" ref_url="http://linux.oracle.com/cve/CVE-2009-4901.html" source="CVE" />
+    <reference ref_id="CVE-2010-0407" ref_url="http://linux.oracle.com/cve/CVE-2010-0407.html" source="CVE" />
     <description>Multiple buffer overflows in the MSGFunctionDemarshall function in winscard_svc.c in the PC/SC Smart Card daemon (aka PCSCD) in MUSCLE PCSC-Lite before 1.5.4 allow local users to gain privileges via crafted message data, which is improperly demarshalled.</description>
     <oval_repository>
       <dates>
@@ -25,15 +24,16 @@
         <status_change date="2014-07-21T04:00:53.688-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="pcsc-lite-libs is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:103937"/>
-      <criterion comment="pcsc-lite-doc is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104024"/>
-      <criterion comment="pcsc-lite is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104027"/>
-      <criterion comment="pcsc-lite-devel is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104041"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="pcsc-lite-libs is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:103937" />
+      <criterion comment="pcsc-lite-doc is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104024" />
+      <criterion comment="pcsc-lite is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104027" />
+      <criterion comment="pcsc-lite-devel is earlier than 0:1.4.4-4.el5_5" test_ref="oval:org.mitre.oval:tst:104041" />
     </criteria>
   </criteria>
 </definition>

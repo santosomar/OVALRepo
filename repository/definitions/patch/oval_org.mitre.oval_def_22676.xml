@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22676" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22676" version="7">
   <metadata>
     <title>ELSA-2008:1045: java-1.6.0-bea security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>java-1.6.0-bea</product>
     </affected>
-    <reference ref_id="ELSA-2008:1045-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-1045.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2008:1045-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-1045.html" source="VENDOR" />
     <description>The BEA WebLogic JRockit JRE and SDK contains BEA WebLogic JRockit Virtual
 Machine and is certified for the Java™ 2 Platform, Standard Edition,
 v1.6.0.
@@ -58,13 +57,14 @@ vulnerabilities.</description>
         <status_change date="2014-05-26T04:01:48.548-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="java-1.6.0-bea-uninstall is earlier than 1:1.6.0.03-1jpp.6.el5" test_ref="oval:org.mitre.oval:tst:102737"/>
-      <criterion comment="java-1.6.0-bea is earlier than 1:1.6.0.03-1jpp.6.el5" test_ref="oval:org.mitre.oval:tst:102316"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="java-1.6.0-bea-uninstall is earlier than 1:1.6.0.03-1jpp.6.el5" test_ref="oval:org.mitre.oval:tst:102737" />
+      <criterion comment="java-1.6.0-bea is earlier than 1:1.6.0.03-1jpp.6.el5" test_ref="oval:org.mitre.oval:tst:102316" />
     </criteria>
   </criteria>
 </definition>

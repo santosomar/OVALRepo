@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:14936" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:14936" version="8">
   <metadata>
     <title>DSA-2427-1 imagemagick -- several</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>imagemagick</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00055.html" ref_id="DSA-2427-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0247" ref_id="CVE-2012-0247"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0248" ref_id="CVE-2012-0248"/>
+    <reference ref_id="DSA-2427-1" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00055.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0247" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0247" source="CVE" />
+    <reference ref_id="CVE-2012-0248" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0248" source="CVE" />
     <description>Two security vulnerabilities related to EXIF processing were discovered in ImageMagick, a suite of programs to manipulate images: CVE-2012-0247 When parsing a maliciously crafted image with incorrect offset and count in the ResolutionUnit tag in EXIF IFD0, ImageMagick writes two bytes to an invalid address. CVE-2012-0248 Parsing a maliciously crafted image with an IFD whose all IOP tags value offsets point to the beginning of the IFD itself results in an endless loop and a denial of service.</description>
     <oval_repository>
       <dates>
@@ -26,15 +25,16 @@
         <status_change date="2014-06-23T04:03:18.643-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="imagemagick DPKG is earlier than 6.6.0.4-3+squeeze1" test_ref="oval:org.mitre.oval:tst:78490"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="imagemagick DPKG is earlier than 6.6.0.4-3+squeeze1" test_ref="oval:org.mitre.oval:tst:78490" />
   </criteria>
 </definition>

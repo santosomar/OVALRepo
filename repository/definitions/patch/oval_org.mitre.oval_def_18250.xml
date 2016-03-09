@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18250" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18250" version="6">
   <metadata>
     <title>DSA-1358-1 asterisk</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>asterisk</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1358-1" ref_id="DSA-1358-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1306" ref_id="CVE-2007-1306"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1561" ref_id="CVE-2007-1561"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2294" ref_id="CVE-2007-2294"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2297" ref_id="CVE-2007-2297"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2488" ref_id="CVE-2007-2488"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3762" ref_id="CVE-2007-3762"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3763" ref_id="CVE-2007-3763"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3764" ref_id="CVE-2007-3764"/>
+    <reference ref_id="DSA-1358-1" ref_url="http://www.debian.org/security/dsa-1358-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-1306" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1306" source="CVE" />
+    <reference ref_id="CVE-2007-1561" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1561" source="CVE" />
+    <reference ref_id="CVE-2007-2294" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2294" source="CVE" />
+    <reference ref_id="CVE-2007-2297" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2297" source="CVE" />
+    <reference ref_id="CVE-2007-2488" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2488" source="CVE" />
+    <reference ref_id="CVE-2007-3762" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3762" source="CVE" />
+    <reference ref_id="CVE-2007-3763" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3763" source="CVE" />
+    <reference ref_id="CVE-2007-3764" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3764" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in Asterisk, a free software PBX and telephony toolkit.</description>
     <oval_repository>
       <dates>
@@ -31,10 +30,11 @@
         <status_change date="2014-06-23T04:04:11.247-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="asterisk DPKG is earlier than 1:1.2.13~dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:86632"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="asterisk DPKG is earlier than 1:1.2.13~dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:86632" />
   </criteria>
 </definition>

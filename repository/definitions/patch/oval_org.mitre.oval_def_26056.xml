@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26056" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26056" version="4">
   <metadata>
     <title>SUSE-RU-2013:0761-1 -- Recommended update for kdelibs4</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>kdelibs4</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130761-1.html" ref_id="SUSE-RU-2013:0761-1"/>
+    <reference ref_id="SUSE-RU-2013:0761-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130761-1.html" source="VENDOR" />
     <description>This update for kdelibs4 provides the following fixes:
 
     * Fix services not showing up in context menu when
@@ -23,26 +22,27 @@ multiple files are selected. (bnc#809065)
         <status_change date="2014-09-08T04:03:50.043-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kdelibs4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120128"/>
-        <criterion comment="kdelibs4-core RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120107"/>
-        <criterion comment="libkde4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120231"/>
-        <criterion comment="libkdecore4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120211"/>
-        <criterion comment="libkde4-32bit RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120285"/>
-        <criterion comment="libkdecore4-32bit RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120202"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kdelibs4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120128" />
+        <criterion comment="kdelibs4-core RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120107" />
+        <criterion comment="libkde4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120231" />
+        <criterion comment="libkdecore4 RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120211" />
+        <criterion comment="libkde4-32bit RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120285" />
+        <criterion comment="libkdecore4-32bit RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120202" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criterion comment="kdelibs4-doc RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120272"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criterion comment="kdelibs4-doc RPM is earlier than 0:4.3.5-0.10.1" test_ref="oval:org.mitre.oval:tst:120272" />
     </criteria>
   </criteria>
 </definition>

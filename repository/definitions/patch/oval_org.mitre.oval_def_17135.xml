@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17135" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17135" version="8">
   <metadata>
     <title>USN-509-1 -- linux-source-2.6.17 vulnerabilities</title>
     <affected family="unix">
       <platform>Ubuntu 6.10</platform>
       <product>linux-source-2.6.17</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-509-1/" ref_id="USN-509-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3104" ref_id="CVE-2007-3104"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3105" ref_id="CVE-2007-3105"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3513" ref_id="CVE-2007-3513"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3848" ref_id="CVE-2007-3848"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3851" ref_id="CVE-2007-3851"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4308" ref_id="CVE-2007-4308"/>
+    <reference ref_id="USN-509-1" ref_url="http://www.ubuntu.com/usn/usn-509-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-3104" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3104" source="CVE" />
+    <reference ref_id="CVE-2007-3105" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3105" source="CVE" />
+    <reference ref_id="CVE-2007-3513" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3513" source="CVE" />
+    <reference ref_id="CVE-2007-3848" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3848" source="CVE" />
+    <reference ref_id="CVE-2007-3851" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3851" source="CVE" />
+    <reference ref_id="CVE-2007-4308" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4308" source="CVE" />
     <description>A flaw in the sysfs_readdir function allowed a local user to cause a denial of service by dereferencing a NULL pointer.</description>
     <oval_repository>
       <dates>
@@ -34,24 +33,25 @@
         <status_change date="2014-06-30T04:06:16.205-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="linux-image-2.6.17-12-386 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81832"/>
-      <criterion comment="linux-image-2.6.17-12-generic DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81941"/>
-      <criterion comment="linux-image-2.6.17-12-hppa32 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81215"/>
-      <criterion comment="linux-image-2.6.17-12-hppa64 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81784"/>
-      <criterion comment="linux-image-2.6.17-12-itanium DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81968"/>
-      <criterion comment="linux-image-2.6.17-12-mckinley DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81865"/>
-      <criterion comment="linux-image-2.6.17-12-powerpc DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81324"/>
-      <criterion comment="linux-image-2.6.17-12-powerpc-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81024"/>
-      <criterion comment="linux-image-2.6.17-12-powerpc64-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81678"/>
-      <criterion comment="linux-image-2.6.17-12-server DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81635"/>
-      <criterion comment="linux-image-2.6.17-12-server-bigiron DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81958"/>
-      <criterion comment="linux-image-2.6.17-12-sparc64 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81730"/>
-      <criterion comment="linux-image-2.6.17-12-sparc64-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81381"/>
+    <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="linux-image-2.6.17-12-386 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81832" />
+      <criterion comment="linux-image-2.6.17-12-generic DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81941" />
+      <criterion comment="linux-image-2.6.17-12-hppa32 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81215" />
+      <criterion comment="linux-image-2.6.17-12-hppa64 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81784" />
+      <criterion comment="linux-image-2.6.17-12-itanium DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81968" />
+      <criterion comment="linux-image-2.6.17-12-mckinley DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81865" />
+      <criterion comment="linux-image-2.6.17-12-powerpc DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81324" />
+      <criterion comment="linux-image-2.6.17-12-powerpc-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81024" />
+      <criterion comment="linux-image-2.6.17-12-powerpc64-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81678" />
+      <criterion comment="linux-image-2.6.17-12-server DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81635" />
+      <criterion comment="linux-image-2.6.17-12-server-bigiron DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81958" />
+      <criterion comment="linux-image-2.6.17-12-sparc64 DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81730" />
+      <criterion comment="linux-image-2.6.17-12-sparc64-smp DPKG is earlier than 2.6.17.1-12.40" test_ref="oval:org.mitre.oval:tst:81381" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20473" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20473" version="6">
   <metadata>
     <title>DSA-1341-2 bind9 - DNS cache poisoning vulnerability</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>bind9</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1341-2" ref_id="DSA-1341-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2926" ref_id="CVE-2007-2926"/>
+    <reference ref_id="DSA-1341-2" ref_url="http://www.debian.org/security/dsa-1341-2" source="VENDOR" />
+    <reference ref_id="CVE-2007-2926" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2926" source="CVE" />
     <description>This update provides fixed packages for the oldstable distribution (sarge). For reference the original advisory text.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-06-23T04:07:23.929-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="bind9 DPKG is earlier than 1:9.3.4-2etch1" test_ref="oval:org.mitre.oval:tst:89203"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="bind9 DPKG is earlier than 1:9.3.4-2etch1" test_ref="oval:org.mitre.oval:tst:89203" />
   </criteria>
 </definition>

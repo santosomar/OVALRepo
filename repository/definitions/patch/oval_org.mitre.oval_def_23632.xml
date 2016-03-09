@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23632" version="37" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23632" version="41">
   <metadata>
     <title>ELSA-2014:0164: mysql security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>mysql</product>
     </affected>
-    <reference ref_id="ELSA-2014:0164-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0164.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-5908" ref_url="http://linux.oracle.com/cve/CVE-2013-5908.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0001" ref_url="http://linux.oracle.com/cve/CVE-2014-0001.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0386" ref_url="http://linux.oracle.com/cve/CVE-2014-0386.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0393" ref_url="http://linux.oracle.com/cve/CVE-2014-0393.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0401" ref_url="http://linux.oracle.com/cve/CVE-2014-0401.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0402" ref_url="http://linux.oracle.com/cve/CVE-2014-0402.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0412" ref_url="http://linux.oracle.com/cve/CVE-2014-0412.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0437" ref_url="http://linux.oracle.com/cve/CVE-2014-0437.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0164-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0164.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-5908" ref_url="http://linux.oracle.com/cve/CVE-2013-5908.html" source="CVE" />
+    <reference ref_id="CVE-2014-0001" ref_url="http://linux.oracle.com/cve/CVE-2014-0001.html" source="CVE" />
+    <reference ref_id="CVE-2014-0386" ref_url="http://linux.oracle.com/cve/CVE-2014-0386.html" source="CVE" />
+    <reference ref_id="CVE-2014-0393" ref_url="http://linux.oracle.com/cve/CVE-2014-0393.html" source="CVE" />
+    <reference ref_id="CVE-2014-0401" ref_url="http://linux.oracle.com/cve/CVE-2014-0401.html" source="CVE" />
+    <reference ref_id="CVE-2014-0402" ref_url="http://linux.oracle.com/cve/CVE-2014-0402.html" source="CVE" />
+    <reference ref_id="CVE-2014-0412" ref_url="http://linux.oracle.com/cve/CVE-2014-0412.html" source="CVE" />
+    <reference ref_id="CVE-2014-0437" ref_url="http://linux.oracle.com/cve/CVE-2014-0437.html" source="CVE" />
     <description>Unspecified vulnerability in the MySQL Server component in Oracle MySQL 5.1.72 and earlier, 5.5.34 and earlier, and 5.6.14 and earlier allows remote authenticated users to affect availability via unknown vectors related to Optimizer.</description>
     <oval_repository>
       <dates>
@@ -31,19 +30,20 @@
         <status_change date="2014-05-26T04:05:01.261-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="mysql-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112536"/>
-      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112603"/>
-      <criterion comment="mysql-test is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112618"/>
-      <criterion comment="mysql-server is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112403"/>
-      <criterion comment="mysql-embedded is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112871"/>
-      <criterion comment="mysql is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112884"/>
-      <criterion comment="mysql-bench is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112605"/>
-      <criterion comment="mysql-libs is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112322"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="mysql-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112536" />
+      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112603" />
+      <criterion comment="mysql-test is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112618" />
+      <criterion comment="mysql-server is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112403" />
+      <criterion comment="mysql-embedded is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112871" />
+      <criterion comment="mysql is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112884" />
+      <criterion comment="mysql-bench is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112605" />
+      <criterion comment="mysql-libs is earlier than 0:5.1.73-3.el6_5" test_ref="oval:org.mitre.oval:tst:112322" />
     </criteria>
   </criteria>
 </definition>

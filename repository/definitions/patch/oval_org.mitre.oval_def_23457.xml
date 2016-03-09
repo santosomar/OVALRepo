@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23457" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23457" version="8">
   <metadata>
     <title>ELSA-2011:0324: logwatch security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>logwatch</product>
     </affected>
-    <reference ref_id="ELSA-2011:0324-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0324.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1018" ref_url="http://linux.oracle.com/cve/CVE-2011-1018.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0324-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0324.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1018" ref_url="http://linux.oracle.com/cve/CVE-2011-1018.html" source="CVE" />
     <description>logwatch.pl in Logwatch 7.3.6 allows remote attackers to execute arbitrary commands via shell metacharacters in a log file name, as demonstrated via a crafted username to a Samba server.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:04:27.234-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="logwatch is earlier than 0:7.3.6-49.el6" test_ref="oval:org.mitre.oval:tst:108608"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="logwatch is earlier than 0:7.3.6-49.el6" test_ref="oval:org.mitre.oval:tst:108608" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28585" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28585" version="4">
   <metadata>
     <title>SUSE-SU-2014:1652-1 -- Security update for cpio (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 12</platform>
       <product>cpio</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141652-1.html" ref_id="SUSE-SU-2014:1652-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9112" ref_id="CVE-2014-9112"/>
+    <reference ref_id="SUSE-SU-2014:1652-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141652-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-9112" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9112" source="CVE" />
     <description>This cpio security update fixes the following buffer overflow issue and
 two non security issues:
 
@@ -25,22 +24,23 @@ two non security issues:
         <status_change date="2015-02-23T04:01:28.523-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 12 and SUSE Linux Enterprise Desktop 12 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
       </criteria>
-      <criterion comment="cpio-lang is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137353"/>
+      <criterion comment="cpio-lang is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137353" />
     </criteria>
     <criteria comment="SUSE Linux Enterprise Desktop 12 release section">
-      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="cpio is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137190"/>
-        <criterion comment="cpio-debuginfo is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137324"/>
-        <criterion comment="cpio-debugsource is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137422"/>
+      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="cpio is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137190" />
+        <criterion comment="cpio-debuginfo is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137324" />
+        <criterion comment="cpio-debugsource is earlier than 0:2.11-29.1" test_ref="oval:org.mitre.oval:tst:137422" />
       </criteria>
     </criteria>
   </criteria>

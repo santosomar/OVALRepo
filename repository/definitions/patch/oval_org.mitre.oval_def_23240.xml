@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23240" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23240" version="9">
   <metadata>
     <title>ELSA-2012:0313: samba security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>samba</product>
     </affected>
-    <reference ref_id="ELSA-2012:0313-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0313.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-0926" ref_url="http://linux.oracle.com/cve/CVE-2010-0926.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0313-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0313.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0926" ref_url="http://linux.oracle.com/cve/CVE-2010-0926.html" source="CVE" />
     <description>The default configuration of smbd in Samba before 3.3.11, 3.4.x before 3.4.6, and 3.5.x before 3.5.0rc3, when a writable share exists, allows remote authenticated users to leverage a directory traversal vulnerability, and access arbitrary files, by using the symlink command in smbclient to create a symlink containing .. (dot dot) sequences, related to the combination of the unix extensions and wide links options.</description>
     <oval_repository>
       <dates>
@@ -24,17 +23,18 @@
         <status_change date="2014-05-26T04:03:49.800-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libsmbclient is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105871"/>
-      <criterion comment="samba is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105961"/>
-      <criterion comment="samba-swat is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105822"/>
-      <criterion comment="samba-client is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105935"/>
-      <criterion comment="samba-common is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105002"/>
-      <criterion comment="libsmbclient-devel is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105836"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libsmbclient is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105871" />
+      <criterion comment="samba is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105961" />
+      <criterion comment="samba-swat is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105822" />
+      <criterion comment="samba-client is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105935" />
+      <criterion comment="samba-common is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105002" />
+      <criterion comment="libsmbclient-devel is earlier than 0:3.0.33-3.37.el5" test_ref="oval:org.mitre.oval:tst:105836" />
     </criteria>
   </criteria>
 </definition>

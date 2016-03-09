@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27222" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27222" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1418 -- kdelibs security update (critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kdelibs</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1418.html" ref_id="ELSA-2012-1418"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4513" ref_id="CVE-2012-4513"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4512" ref_id="CVE-2012-4512"/>
+    <reference ref_id="ELSA-2012-1418" ref_url="http://linux.oracle.com/errata/ELSA-2012-1418.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-4513" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4513" source="CVE" />
+    <reference ref_id="CVE-2012-4512" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4512" source="CVE" />
     <description>[6:4.3.4-19.0.1]
 
 - rebuild it with new rules
@@ -64,15 +63,16 @@
         <status_change date="2015-02-10T19:18:33.227-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kdelibs is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129641"/>
-      <criterion comment="kdelibs-apidocs is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129970"/>
-      <criterion comment="kdelibs-common is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129349"/>
-      <criterion comment="kdelibs-devel is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129930"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kdelibs is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129641" />
+      <criterion comment="kdelibs-apidocs is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129970" />
+      <criterion comment="kdelibs-common is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129349" />
+      <criterion comment="kdelibs-devel is earlier than 0:4.3.4-19.0.1.el6" test_ref="oval:org.mitre.oval:tst:129930" />
     </criteria>
   </criteria>
 </definition>

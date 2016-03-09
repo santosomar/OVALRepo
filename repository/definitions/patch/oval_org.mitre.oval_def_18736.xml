@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18736" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18736" version="8">
   <metadata>
     <title>DSA-1646-2 squid - array bounds check</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>squid</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1646-2" ref_id="DSA-1646-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1612" ref_id="CVE-2008-1612"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6239" ref_id="CVE-2007-6239"/>
-    <description>A weakness has been discovered in squid, a caching proxy server. The flaw was introduced upstream in response to &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-6239">CVE-2007-6239&lt;/a>, and announced by Debian in &lt;a href="dsa-1482">DSA-1482-1&lt;/a>. The flaw involves an over-aggressive bounds check on an array resize, and could be exploited by an authorised client to induce a denial of service condition against squid.</description>
+    <reference ref_id="DSA-1646-2" ref_url="http://www.debian.org/security/dsa-1646-2" source="VENDOR" />
+    <reference ref_id="CVE-2008-1612" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1612" source="CVE" />
+    <reference ref_id="CVE-2007-6239" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6239" source="CVE" />
+    <description>A weakness has been discovered in squid, a caching proxy server. The flaw was introduced upstream in response to &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-6239"&gt;CVE-2007-6239&lt;/a&gt;, and announced by Debian in &lt;a href="dsa-1482"&gt;DSA-1482-1&lt;/a&gt;. The flaw involves an over-aggressive bounds check on an array resize, and could be exploited by an authorised client to induce a denial of service condition against squid.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:13:06">
@@ -30,10 +29,11 @@
         <status_change date="2014-06-23T04:05:19.698-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="squid DPKG is earlier than 2.6.5-6etch4" test_ref="oval:org.mitre.oval:tst:86558"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="squid DPKG is earlier than 2.6.5-6etch4" test_ref="oval:org.mitre.oval:tst:86558" />
   </criteria>
 </definition>

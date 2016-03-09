@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28107" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28107" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-0999 -- rsync security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>rsync</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-0999.html" ref_id="ELSA-2011-0999"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6200" ref_id="CVE-2007-6200"/>
+    <reference ref_id="ELSA-2011-0999" ref_url="http://linux.oracle.com/errata/ELSA-2011-0999.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6200" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6200" source="CVE" />
     <description>[3.0.6-4]
 - fix #700450 - free parsed hostnames
 - fix #575022 - set TZ variable after chroot
@@ -45,10 +44,11 @@
         <status_change date="2015-02-10T17:19:27.950-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="rsync is earlier than 0:3.0.6-4.el5" test_ref="oval:org.mitre.oval:tst:133502"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="rsync is earlier than 0:3.0.6-4.el5" test_ref="oval:org.mitre.oval:tst:133502" />
   </criteria>
 </definition>

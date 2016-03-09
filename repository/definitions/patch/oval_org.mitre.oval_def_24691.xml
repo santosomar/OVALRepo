@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24691" version="14" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24691" version="18">
   <metadata>
     <title>ELSA-2014:0342: wireshark security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>wireshark</product>
     </affected>
-    <reference ref_id="ELSA-2014:0342-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0342.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-6336" ref_url="http://linux.oracle.com/cve/CVE-2013-6336.html" source="CVE"/>
-    <reference ref_id="CVE-2013-6337" ref_url="http://linux.oracle.com/cve/CVE-2013-6337.html" source="CVE"/>
-    <reference ref_id="CVE-2013-6338" ref_url="http://linux.oracle.com/cve/CVE-2013-6338.html" source="CVE"/>
-    <reference ref_id="CVE-2013-6339" ref_url="http://linux.oracle.com/cve/CVE-2013-6339.html" source="CVE"/>
-    <reference ref_id="CVE-2013-6340" ref_url="http://linux.oracle.com/cve/CVE-2013-6340.html" source="CVE"/>
-    <reference ref_id="CVE-2013-7112" ref_url="http://linux.oracle.com/cve/CVE-2013-7112.html" source="CVE"/>
-    <reference ref_id="CVE-2013-7114" ref_url="http://linux.oracle.com/cve/CVE-2013-7114.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2281" ref_url="http://linux.oracle.com/cve/CVE-2014-2281.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2283" ref_url="http://linux.oracle.com/cve/CVE-2014-2283.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2299" ref_url="http://linux.oracle.com/cve/CVE-2014-2299.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0342-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0342.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-6336" ref_url="http://linux.oracle.com/cve/CVE-2013-6336.html" source="CVE" />
+    <reference ref_id="CVE-2013-6337" ref_url="http://linux.oracle.com/cve/CVE-2013-6337.html" source="CVE" />
+    <reference ref_id="CVE-2013-6338" ref_url="http://linux.oracle.com/cve/CVE-2013-6338.html" source="CVE" />
+    <reference ref_id="CVE-2013-6339" ref_url="http://linux.oracle.com/cve/CVE-2013-6339.html" source="CVE" />
+    <reference ref_id="CVE-2013-6340" ref_url="http://linux.oracle.com/cve/CVE-2013-6340.html" source="CVE" />
+    <reference ref_id="CVE-2013-7112" ref_url="http://linux.oracle.com/cve/CVE-2013-7112.html" source="CVE" />
+    <reference ref_id="CVE-2013-7114" ref_url="http://linux.oracle.com/cve/CVE-2013-7114.html" source="CVE" />
+    <reference ref_id="CVE-2014-2281" ref_url="http://linux.oracle.com/cve/CVE-2014-2281.html" source="CVE" />
+    <reference ref_id="CVE-2014-2283" ref_url="http://linux.oracle.com/cve/CVE-2014-2283.html" source="CVE" />
+    <reference ref_id="CVE-2014-2299" ref_url="http://linux.oracle.com/cve/CVE-2014-2299.html" source="CVE" />
     <description>Wireshark is a network protocol analyzer. It is used to capture and browse
 the traffic running on a computer network.
 Two flaws were found in Wireshark. If Wireshark read a malformed packet off
@@ -43,14 +42,15 @@ of Wireshark must be restarted for the update to take effect.</description>
         <status_change date="2014-05-26T04:06:28.903-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="wireshark-gnome is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113732"/>
-      <criterion comment="wireshark is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113738"/>
-      <criterion comment="wireshark-devel is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113699"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="wireshark-gnome is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113732" />
+      <criterion comment="wireshark is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113738" />
+      <criterion comment="wireshark-devel is earlier than 0:1.8.10-7.el6_5" test_ref="oval:org.mitre.oval:tst:113699" />
     </criteria>
   </criteria>
 </definition>

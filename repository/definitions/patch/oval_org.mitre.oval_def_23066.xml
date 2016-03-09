@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23066" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23066" version="21">
   <metadata>
     <title>ELSA-2012:0745: python security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>python</product>
     </affected>
-    <reference ref_id="ELSA-2012:0745-00" ref_url="http://linux.oracle.com/errata/ELSA-2012-0745.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-4940" ref_url="http://linux.oracle.com/cve/CVE-2011-4940.html" source="CVE"/>
-    <reference ref_id="CVE-2011-4944" ref_url="http://linux.oracle.com/cve/CVE-2011-4944.html" source="CVE"/>
-    <reference ref_id="CVE-2012-1150" ref_url="http://linux.oracle.com/cve/CVE-2012-1150.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0745-00" ref_url="http://linux.oracle.com/errata/ELSA-2012-0745.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4940" ref_url="http://linux.oracle.com/cve/CVE-2011-4940.html" source="CVE" />
+    <reference ref_id="CVE-2011-4944" ref_url="http://linux.oracle.com/cve/CVE-2011-4944.html" source="CVE" />
+    <reference ref_id="CVE-2012-1150" ref_url="http://linux.oracle.com/cve/CVE-2012-1150.html" source="CVE" />
     <description>Python before 2.6.8, 2.7.x before 2.7.3, 3.x before 3.1.5, and 3.2.x before 3.2.3 computes hash values without restricting the ability to trigger hash collisions predictably, which allows context-dependent attackers to cause a denial of service (CPU consumption) via crafted input to an application that maintains a hash table.</description>
     <oval_repository>
       <dates>
@@ -26,16 +25,17 @@
         <status_change date="2014-05-26T04:03:18.235-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="python-devel is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106608"/>
-      <criterion comment="python-libs is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106200"/>
-      <criterion comment="python is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106357"/>
-      <criterion comment="tkinter is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106410"/>
-      <criterion comment="python-tools is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:105840"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="python-devel is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106608" />
+      <criterion comment="python-libs is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106200" />
+      <criterion comment="python is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106357" />
+      <criterion comment="tkinter is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:106410" />
+      <criterion comment="python-tools is earlier than 0:2.4.3-46.el5_8.2" test_ref="oval:org.mitre.oval:tst:105840" />
     </criteria>
   </criteria>
 </definition>

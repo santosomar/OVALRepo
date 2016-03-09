@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18289" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18289" version="6">
   <metadata>
     <title>USN-1790-1 -- libav vulnerabilities</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>Ubuntu 12.04</platform>
       <product>libav</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1790-1/" ref_id="USN-1790-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0894" ref_id="CVE-2013-0894"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2277" ref_id="CVE-2013-2277"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2495" ref_id="CVE-2013-2495"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2496" ref_id="CVE-2013-2496"/>
+    <reference ref_id="USN-1790-1" ref_url="http://www.ubuntu.com/usn/usn-1790-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-0894" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0894" source="CVE" />
+    <reference ref_id="CVE-2013-2277" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2277" source="CVE" />
+    <reference ref_id="CVE-2013-2495" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2495" source="CVE" />
+    <reference ref_id="CVE-2013-2496" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2496" source="CVE" />
     <description>Libav could be made to crash or run programs as your login if it opened a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -28,21 +27,22 @@
         <status_change date="2014-06-30T04:08:32.125-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libavcodec53 DPKG is earlier than 6:0.8.6-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85654"/>
-        <criterion comment="libavformat53 DPKG is earlier than 6:0.8.6-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85560"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libavcodec53 DPKG is earlier than 6:0.8.6-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85654" />
+        <criterion comment="libavformat53 DPKG is earlier than 6:0.8.6-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:85560" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libavcodec53 DPKG is earlier than 4:0.8.6-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85249"/>
-        <criterion comment="libavformat53 DPKG is earlier than 4:0.8.6-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85811"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libavcodec53 DPKG is earlier than 4:0.8.6-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85249" />
+        <criterion comment="libavformat53 DPKG is earlier than 4:0.8.6-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:85811" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21822" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21822" version="7">
   <metadata>
     <title>RHSA-2011:0324: logwatch security update (Important)</title>
     <affected family="unix">
@@ -8,9 +7,9 @@
       <platform>CentOS Linux 5</platform>
       <product>logwatch</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:0324-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0324.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1018" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1018.html"/>
-    <reference source="CESA-2011:0324" ref_url="http://lists.centos.org/pipermail/centos-announce/2011-April/017365.html" ref_id="CESA-2011:0324-CentOS 5"/>
+    <reference ref_id="RHSA-2011:0324-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0324.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1018" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1018.html" source="CVE" />
+    <reference ref_id="CESA-2011:0324-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2011-April/017365.html" source="CESA-2011:0324" />
     <description>logwatch.pl in Logwatch 7.3.6 allows remote attackers to execute arbitrary commands via shell metacharacters in a log file name, as demonstrated via a crafted username to a Samba server.</description>
     <oval_repository>
       <dates>
@@ -27,19 +26,20 @@
         <status_change date="2015-03-09T04:01:16.298-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criterion comment="logwatch is earlier than 0:7.3-9.el5_6" test_ref="oval:org.mitre.oval:tst:137653"/>
+      <criterion comment="logwatch is earlier than 0:7.3-9.el5_6" test_ref="oval:org.mitre.oval:tst:137653" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="logwatch is earlier than 0:7.3.6-49.el6" test_ref="oval:org.mitre.oval:tst:97039"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="logwatch is earlier than 0:7.3.6-49.el6" test_ref="oval:org.mitre.oval:tst:97039" />
     </criteria>
   </criteria>
 </definition>

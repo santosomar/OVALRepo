@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13618" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13618" version="7">
   <metadata>
     <title>DSA-1805-1 pidgin -- several</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>pidgin</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00117.html" ref_id="DSA-1805-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1373" ref_id="CVE-2009-1373"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1375" ref_id="CVE-2009-1375"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1376" ref_id="CVE-2009-1376"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2927" ref_id="CVE-2008-2927"/>
+    <reference ref_id="DSA-1805-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00117.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-1373" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1373" source="CVE" />
+    <reference ref_id="CVE-2009-1375" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1375" source="CVE" />
+    <reference ref_id="CVE-2009-1376" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1376" source="CVE" />
+    <reference ref_id="CVE-2008-2927" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2927" source="CVE" />
     <description>Several vulnerabilities have been discovered in Pidgin, a graphical multi-protocol instant messaging client. The Common Vulnerabilities and Exposures project identifies the following problems: CVE-2009-1373 A buffer overflow in the Jabber file transfer code may lead to denial of service or the execution of arbitrary code. CVE-2009-1375 Memory corruption in an internal library may lead to denial of service. CVE-2009-1376 The patch provided for the security issue tracked as CVE-2008-2927 - integer overflows in the MSN protocol handler - was found to be incomplete. The old stable distribution is affected under the source package name gaim. However, due to build problems the updated packages couldn't be released along with the stable version. It will be released once the build problem is resolved. For the stable distribution, these problems have been fixed in version 2.4.3-4lenny2. For the unstable distribution, these problems have been fixed in version 2.5.6-1. We recommend that you upgrade your pidgin packages.</description>
     <oval_repository>
       <dates>
@@ -27,41 +26,42 @@
         <status_change date="2014-06-23T04:02:43.637-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="libpurple-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:47937"/>
-          <criterion comment="finch-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48192"/>
-          <criterion comment="pidgin-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48660"/>
-          <criterion comment="libpurple-bin DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48914"/>
-          <criterion comment="pidgin-data DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48680"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="libpurple-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:47937" />
+          <criterion comment="finch-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48192" />
+          <criterion comment="pidgin-dev DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48660" />
+          <criterion comment="libpurple-bin DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48914" />
+          <criterion comment="pidgin-data DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48680" />
         </criteria>
       </criteria>
-      <criteria operator="AND" comment="Architecture depended section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture depended section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+          <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="finch DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48746"/>
-          <criterion comment="pidgin-dbg DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48556"/>
-          <criterion comment="pidgin DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48862"/>
-          <criterion comment="libpurple0 DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48512"/>
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="finch DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48746" />
+          <criterion comment="pidgin-dbg DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48556" />
+          <criterion comment="pidgin DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48862" />
+          <criterion comment="libpurple0 DPKG is earlier than 2.4.3-4lenny2" test_ref="oval:org.mitre.oval:tst:48512" />
         </criteria>
       </criteria>
     </criteria>

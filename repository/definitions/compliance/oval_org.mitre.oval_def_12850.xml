@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12850" version="8" class="compliance">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="compliance" id="oval:org.mitre.oval:def:12850" version="9">
   <metadata>
     <title>Disable Javascript Functions to Raise or Lower Windows</title>
     <affected family="windows">
@@ -14,7 +13,7 @@
       <platform>Microsoft Windows Server 2012</platform>
       <product>Mozilla Firefox</product>
     </affected>
-    <reference ref_id="7" ref_url="http://www.cert.org/tech_tips/securing_browser/" source="SCERT Securing Your Web Browser"/>
+    <reference ref_id="7" ref_url="http://www.cert.org/tech_tips/securing_browser/" source="SCERT Securing Your Web Browser" />
     <description>Prevent Javascript from raising or lowering windows</description>
     <oval_repository>
       <dates>
@@ -39,10 +38,11 @@
         <status_change date="2012-12-31T04:00:21.011-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <extend_definition comment="Mozilla Firefox is installed" definition_ref="oval:org.mitre.oval:def:6562"/>
-    <criterion comment="Prevent Javascript from raising or lowering windows" test_ref="oval:org.mitre.oval:tst:43823"/>
+    <extend_definition comment="Mozilla Firefox is installed" definition_ref="oval:org.mitre.oval:def:6562" />
+    <criterion comment="Prevent Javascript from raising or lowering windows" test_ref="oval:org.mitre.oval:tst:43823" />
   </criteria>
 </definition>

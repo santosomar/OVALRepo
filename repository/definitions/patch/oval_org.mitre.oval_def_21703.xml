@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21703" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21703" version="8">
   <metadata>
     <title>ELSA-2007:0740: bind security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>bind</product>
     </affected>
-    <reference ref_id="ELSA-2007:0740-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0740.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-2926" ref_url="http://linux.oracle.com/cve/CVE-2007-2926.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0740-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0740.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-2926" ref_url="http://linux.oracle.com/cve/CVE-2007-2926.html" source="CVE" />
     <description>ISC BIND 9 through 9.5.0a5 uses a weak random number generator during generation of DNS query ids when answering resolver questions or sending NOTIFY messages to slave name servers, which makes it easier for remote attackers to guess the next query id and perform DNS cache poisoning.</description>
     <oval_repository>
       <dates>
@@ -24,19 +23,20 @@
         <status_change date="2014-05-26T04:00:11.926-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="bind-chroot is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101372"/>
-      <criterion comment="bind-libbind-devel is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101329"/>
-      <criterion comment="bind-devel is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101262"/>
-      <criterion comment="bind-utils is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:100457"/>
-      <criterion comment="bind-sdb is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101350"/>
-      <criterion comment="bind is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101209"/>
-      <criterion comment="bind-libs is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101161"/>
-      <criterion comment="caching-nameserver is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101088"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="bind-chroot is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101372" />
+      <criterion comment="bind-libbind-devel is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101329" />
+      <criterion comment="bind-devel is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101262" />
+      <criterion comment="bind-utils is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:100457" />
+      <criterion comment="bind-sdb is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101350" />
+      <criterion comment="bind is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101209" />
+      <criterion comment="bind-libs is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101161" />
+      <criterion comment="caching-nameserver is earlier than 30:9.3.3-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:101088" />
     </criteria>
   </criteria>
 </definition>

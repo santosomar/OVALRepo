@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27791" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27791" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0126 -- kvm security and bug fix update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0126.html" ref_id="ELSA-2010-0126"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3722" ref_id="CVE-2009-3722"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0419" ref_id="CVE-2010-0419"/>
+    <reference ref_id="ELSA-2010-0126" ref_url="http://linux.oracle.com/errata/ELSA-2010-0126.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-3722" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3722" source="CVE" />
+    <reference ref_id="CVE-2010-0419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0419" source="CVE" />
     <description>[kvm-83-105.0.1.el5_4.27]
 - Add kvm-add-oracle-workaround-for-libvirt-bug.patch
 
@@ -56,15 +55,16 @@
         <status_change date="2015-02-10T19:11:35.106-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kvm is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134644"/>
-      <criterion comment="kmod-kvm is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:135283"/>
-      <criterion comment="kvm-qemu-img is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134915"/>
-      <criterion comment="kvm-tools is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134929"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kvm is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134644" />
+      <criterion comment="kmod-kvm is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:135283" />
+      <criterion comment="kvm-qemu-img is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134915" />
+      <criterion comment="kvm-tools is earlier than 0:83-105.0.1.el5_4.27" test_ref="oval:org.mitre.oval:tst:134929" />
     </criteria>
   </criteria>
 </definition>

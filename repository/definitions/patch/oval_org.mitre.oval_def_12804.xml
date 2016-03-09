@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12804" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12804" version="7">
   <metadata>
     <title>DSA-2103-1 smbind -- sql injection</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>smbind</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00149.html" ref_id="DSA-2103-1"/>
+    <reference ref_id="DSA-2103-1" ref_url="http://lists.debian.org/debian-security-announce/2010/msg00149.html" source="VENDOR" />
     <description>It was discovered that smbind, a PHP-based tool for managing DNS zones for BIND, does not properly validating input. An unauthenticated remote attacker could execute arbitrary SQL commands or gain access to the admin account. For the stable distribution, this problem has been fixed in version 0.4.7-3+lenny1. For the unstable distribution, this problem has been fixed in version 0.4.7-5, and will migrate to the testing distribution shortly. We recommend that you upgrade your smbind package.</description>
     <oval_repository>
       <dates>
@@ -23,11 +22,12 @@
         <status_change date="2014-06-23T04:00:52.859-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="smbind DPKG is earlier than 0.4.7-3+lenny1" test_ref="oval:org.mitre.oval:tst:43464"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="smbind DPKG is earlier than 0.4.7-3+lenny1" test_ref="oval:org.mitre.oval:tst:43464" />
   </criteria>
 </definition>

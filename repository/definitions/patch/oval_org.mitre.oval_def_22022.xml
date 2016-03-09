@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22022" version="94" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22022" version="95">
   <metadata>
     <title>RHSA-2010:0919: php security update (Moderate)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <platform>CentOS Linux 5</platform>
       <product>php</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2010:0919-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0919.html"/>
-    <reference source="CESA" ref_id="CESA-2010:0919"/>
-    <reference source="CVE" ref_id="CVE-2009-5016" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-5016.html"/>
-    <reference source="CVE" ref_id="CVE-2010-0397" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0397.html"/>
-    <reference source="CVE" ref_id="CVE-2010-1128" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1128.html"/>
-    <reference source="CVE" ref_id="CVE-2010-1917" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1917.html"/>
-    <reference source="CVE" ref_id="CVE-2010-2531" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2531.html"/>
-    <reference source="CVE" ref_id="CVE-2010-3065" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3065.html"/>
-    <reference source="CVE" ref_id="CVE-2010-3870" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3870.html"/>
+    <reference ref_id="RHSA-2010:0919-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0919.html" source="VENDOR" />
+    <reference ref_id="CESA-2010:0919" source="CESA" />
+    <reference ref_id="CVE-2009-5016" ref_url="https://www.redhat.com/security/data/cve/CVE-2009-5016.html" source="CVE" />
+    <reference ref_id="CVE-2010-0397" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-0397.html" source="CVE" />
+    <reference ref_id="CVE-2010-1128" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1128.html" source="CVE" />
+    <reference ref_id="CVE-2010-1917" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1917.html" source="CVE" />
+    <reference ref_id="CVE-2010-2531" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-2531.html" source="CVE" />
+    <reference ref_id="CVE-2010-3065" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3065.html" source="CVE" />
+    <reference ref_id="CVE-2010-3870" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3870.html" source="CVE" />
     <description>The utf8_decode function in PHP before 5.3.4 does not properly handle non-shortest form UTF-8 encoding and ill-formed subsequences in UTF-8 data, which makes it easier for remote attackers to bypass cross-site scripting (XSS) and SQL injection protection mechanisms via a crafted string.</description>
     <oval_repository>
       <dates>
@@ -27,33 +26,34 @@
         <status_change date="2014-02-24T04:02:33.522-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="php-common is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99858"/>
-      <criterion comment="php-soap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99951"/>
-      <criterion comment="php-odbc is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99875"/>
-      <criterion comment="php-gd is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99873"/>
-      <criterion comment="php-mysql is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99753"/>
-      <criterion comment="php is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99828"/>
-      <criterion comment="php-xmlrpc is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99846"/>
-      <criterion comment="php-cli is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99484"/>
-      <criterion comment="php-mbstring is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99818"/>
-      <criterion comment="php-pgsql is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:100002"/>
-      <criterion comment="php-xml is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99796"/>
-      <criterion comment="php-dba is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:100017"/>
-      <criterion comment="php-devel is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99961"/>
-      <criterion comment="php-bcmath is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99934"/>
-      <criterion comment="php-ncurses is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99920"/>
-      <criterion comment="php-imap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99879"/>
-      <criterion comment="php-snmp is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99682"/>
-      <criterion comment="php-ldap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99959"/>
-      <criterion comment="php-pdo is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99918"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="php-common is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99858" />
+      <criterion comment="php-soap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99951" />
+      <criterion comment="php-odbc is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99875" />
+      <criterion comment="php-gd is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99873" />
+      <criterion comment="php-mysql is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99753" />
+      <criterion comment="php is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99828" />
+      <criterion comment="php-xmlrpc is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99846" />
+      <criterion comment="php-cli is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99484" />
+      <criterion comment="php-mbstring is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99818" />
+      <criterion comment="php-pgsql is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:100002" />
+      <criterion comment="php-xml is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99796" />
+      <criterion comment="php-dba is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:100017" />
+      <criterion comment="php-devel is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99961" />
+      <criterion comment="php-bcmath is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99934" />
+      <criterion comment="php-ncurses is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99920" />
+      <criterion comment="php-imap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99879" />
+      <criterion comment="php-snmp is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99682" />
+      <criterion comment="php-ldap is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99959" />
+      <criterion comment="php-pdo is earlier than 0:5.1.6-27.el5_5.3" test_ref="oval:org.mitre.oval:tst:99918" />
     </criteria>
   </criteria>
 </definition>

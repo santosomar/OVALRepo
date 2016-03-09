@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22161" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22161" version="5">
   <metadata>
     <title>RHSA-2011:1109: foomatic security update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>foomatic</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1109-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1109.html"/>
-    <reference source="CESA" ref_id="CESA-2011:1109"/>
-    <reference source="CVE" ref_id="CVE-2011-2697" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2697.html"/>
+    <reference ref_id="RHSA-2011:1109-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1109.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:1109" source="CESA" />
+    <reference ref_id="CVE-2011-2697" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-2697.html" source="CVE" />
     <description>foomatic-rip-hplip in HP Linux Imaging and Printing (HPLIP) 3.11.5 allows remote attackers to execute arbitrary code via a crafted *FoomaticRIPCommandLine field in a .ppd file.</description>
     <oval_repository>
       <dates>
@@ -21,13 +20,14 @@
         <status_change date="2014-02-24T04:02:51.511-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criterion comment="foomatic is earlier than 0:3.0.2-38.3.el5_7.1" test_ref="oval:org.mitre.oval:tst:98263"/>
+    <criterion comment="foomatic is earlier than 0:3.0.2-38.3.el5_7.1" test_ref="oval:org.mitre.oval:tst:98263" />
   </criteria>
 </definition>

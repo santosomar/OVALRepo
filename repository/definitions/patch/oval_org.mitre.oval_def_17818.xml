@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17818" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17818" version="6">
   <metadata>
     <title>USN-1430-4 -- apparmor update</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>apparmor</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1430-4/" ref_id="USN-1430-4"/>
+    <reference ref_id="USN-1430-4" ref_url="http://www.ubuntu.com/usn/usn-1430-4/" source="VENDOR" />
     <description>This update provides updates for the AppArmor profile abstractions.</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2013-12-16T04:00:49.587-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="apparmor DPKG is earlier than 2.7.102-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83959"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="apparmor DPKG is earlier than 2.7.102-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83959" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="apparmor DPKG is earlier than 2.7.0~beta1+bzr1774-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:84189"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="apparmor DPKG is earlier than 2.7.0~beta1+bzr1774-1ubuntu2.1" test_ref="oval:org.mitre.oval:tst:84189" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="apparmor DPKG is earlier than 2.6.1-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:84161"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="apparmor DPKG is earlier than 2.6.1-0ubuntu3.1" test_ref="oval:org.mitre.oval:tst:84161" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="apparmor DPKG is earlier than 2.5.1-0ubuntu0.10.04.4" test_ref="oval:org.mitre.oval:tst:84122"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="apparmor DPKG is earlier than 2.5.1-0ubuntu0.10.04.4" test_ref="oval:org.mitre.oval:tst:84122" />
     </criteria>
   </criteria>
 </definition>

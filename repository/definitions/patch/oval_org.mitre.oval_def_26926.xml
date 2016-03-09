@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26926" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26926" version="5">
   <metadata>
     <title>ELSA-2014-0771 -- kernel security and bug fix update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0771.html" ref_id="ELSA-2014-0771"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3153" ref_id="CVE-2014-3153"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1737" ref_id="CVE-2014-1737"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1738" ref_id="CVE-2014-1738"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6378" ref_id="CVE-2013-6378"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0203" ref_id="CVE-2014-0203"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1874" ref_id="CVE-2014-1874"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2039" ref_id="CVE-2014-2039"/>
+    <reference ref_id="ELSA-2014-0771" ref_url="http://linux.oracle.com/errata/ELSA-2014-0771.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3153" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3153" source="CVE" />
+    <reference ref_id="CVE-2014-1737" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1737" source="CVE" />
+    <reference ref_id="CVE-2014-1738" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1738" source="CVE" />
+    <reference ref_id="CVE-2013-6378" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6378" source="CVE" />
+    <reference ref_id="CVE-2014-0203" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0203" source="CVE" />
+    <reference ref_id="CVE-2014-1874" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1874" source="CVE" />
+    <reference ref_id="CVE-2014-2039" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2039" source="CVE" />
     <description>[2.6.32-431.20.3]
 - [kernel] futex: Make lookup_pi_state more robust (Jerome Marchand) [1104516 1104517] {CVE-2014-3153}
 - [kernel] futex: Always cleanup owner tid in unlock_pi (Jerome Marchand) [1104516 1104517] {CVE-2014-3153}
@@ -39,21 +38,22 @@
         <status_change date="2014-12-15T04:00:30.399-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127415"/>
-      <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127450"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127606"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127315"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127564"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127334"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127292"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:126881"/>
-      <criterion comment="perf is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127296"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127202"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127415" />
+      <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127450" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127606" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127315" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127564" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127334" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127292" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:126881" />
+      <criterion comment="perf is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127296" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-431.20.3.el6" test_ref="oval:org.mitre.oval:tst:127202" />
     </criteria>
   </criteria>
 </definition>

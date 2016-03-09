@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25237" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25237" version="4">
   <metadata>
     <title>SUSE-SU-2014:0319-1 -- Security update for gnutls</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>gnutls</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140319-1.html" ref_id="SUSE-SU-2014:0319-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0092" ref_id="CVE-2014-0092"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5138" ref_id="CVE-2009-5138"/>
+    <reference ref_id="SUSE-SU-2014:0319-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140319-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0092" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0092" source="CVE" />
+    <reference ref_id="CVE-2009-5138" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5138" source="CVE" />
     <description>The GnuTLS library received a critical security fix and
 other updates:
 
@@ -32,23 +31,24 @@ fixed  (bnc#835760).</description>
         <status_change date="2014-09-08T04:01:23.408-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gnutls RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117460"/>
-        <criterion comment="libgnutls26 RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117601"/>
-        <criterion comment="libgnutls26-32bit RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117547"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gnutls RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117460" />
+        <criterion comment="libgnutls26 RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117601" />
+        <criterion comment="libgnutls26-32bit RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117547" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criterion comment="libgnutls-extra26 RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117468"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criterion comment="libgnutls-extra26 RPM is earlier than 0:2.4.1-24.39.49.1" test_ref="oval:org.mitre.oval:tst:117468" />
     </criteria>
   </criteria>
 </definition>

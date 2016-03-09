@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23487" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23487" version="10">
   <metadata>
     <title>ELSA-2013:0883: gnutls security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>gnutls</product>
     </affected>
-    <reference ref_id="ELSA-2013:0883-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0883.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-2116" ref_url="http://linux.oracle.com/cve/CVE-2013-2116.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0883-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0883.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-2116" ref_url="http://linux.oracle.com/cve/CVE-2013-2116.html" source="CVE" />
     <description>The _gnutls_ciphertext2compressed function in lib/gnutls_cipher.c in GnuTLS 2.12.23 allows remote attackers to cause a denial of service (buffer over-read and crash) via a crafted padding length.  NOTE: this might be due to an incorrect fix for CVE-2013-0169.</description>
     <oval_repository>
       <dates>
@@ -25,24 +24,25 @@
         <status_change date="2014-05-26T04:04:32.091-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="gnutls is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107534"/>
-        <criterion comment="gnutls-devel is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107569"/>
-        <criterion comment="gnutls-utils is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107352"/>
-        <criterion comment="gnutls-guile is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107494"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="gnutls is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107534" />
+        <criterion comment="gnutls-devel is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107569" />
+        <criterion comment="gnutls-utils is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107352" />
+        <criterion comment="gnutls-guile is earlier than 0:2.8.5-10.el6_4.2" test_ref="oval:org.mitre.oval:tst:107494" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="gnutls is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107425"/>
-        <criterion comment="gnutls-devel is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107400"/>
-        <criterion comment="gnutls-utils is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107318"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="gnutls is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107425" />
+        <criterion comment="gnutls-devel is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107400" />
+        <criterion comment="gnutls-utils is earlier than 0:1.4.1-10.el5_9.2" test_ref="oval:org.mitre.oval:tst:107318" />
       </criteria>
     </criteria>
   </criteria>

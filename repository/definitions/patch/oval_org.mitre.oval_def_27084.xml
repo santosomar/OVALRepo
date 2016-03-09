@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27084" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27084" version="10">
   <metadata>
     <title>ELSA-2014-1652 -- openssl security update</title>
     <affected family="unix">
@@ -11,9 +10,9 @@
       <product>openssl-static</product>
       <product>openssl-libs</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1652.html" ref_id="ELSA-2014-1652"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3513" ref_id="CVE-2014-3513"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3567" ref_id="CVE-2014-3567"/>
+    <reference ref_id="ELSA-2014-1652" ref_url="http://linux.oracle.com/errata/ELSA-2014-1652.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3513" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3513" source="CVE" />
+    <reference ref_id="CVE-2014-3567" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3567" source="CVE" />
     <description>[1.0.1e-30.2]
 - fix CVE-2014-3567 - memory leak when handling session tickets
 - fix CVE-2014-3513 - memory leak in srtp support
@@ -102,26 +101,27 @@
         <status_change date="2015-02-23T04:00:53.737-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126012"/>
-        <criterion comment="openssl-devel is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126322"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126272"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:125458"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126012" />
+        <criterion comment="openssl-devel is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126322" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:126272" />
+        <criterion comment="openssl-static is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:125458" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 7 release section">
-      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125977"/>
-        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125518"/>
-        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:126242"/>
-        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:126029"/>
-        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125708"/>
+      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125977" />
+        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125518" />
+        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:126242" />
+        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:126029" />
+        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125708" />
       </criteria>
     </criteria>
   </criteria>

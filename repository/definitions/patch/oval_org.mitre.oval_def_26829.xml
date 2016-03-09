@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26829" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26829" version="6">
   <metadata>
     <title>RHSA-2014:1652: openssl security update (Important)</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>CentOS Linux 7</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1652-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1652.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1652"/>
-    <reference source="CVE" ref_id="CVE-2014-3513" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3513.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3567" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3567.html"/>
+    <reference ref_id="RHSA-2014:1652-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1652.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1652" source="CESA" />
+    <reference ref_id="CVE-2014-3513" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3513.html" source="CVE" />
+    <reference ref_id="CVE-2014-3567" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3567.html" source="CVE" />
     <description>OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL),
 Transport Layer Security (TLS), and Datagram Transport Layer Security
 (DTLS) protocols, as well as a full-strength, general purpose cryptography
@@ -60,32 +59,33 @@ SSL-enabled services) must be restarted or the system rebooted.</description>
         <status_change date="2014-11-24T04:00:57.821-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 7 or Centos 7 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Redhat 7 or Centos 7 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124930"/>
-        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124834"/>
-        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124864"/>
-        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125085"/>
-        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125405"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124930" />
+        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124834" />
+        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:124864" />
+        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125085" />
+        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.6" test_ref="oval:org.mitre.oval:tst:125405" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="openssl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124925"/>
-        <criterion comment="openssl-devel is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124881"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:125398"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124481"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="openssl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124925" />
+        <criterion comment="openssl-devel is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124881" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:125398" />
+        <criterion comment="openssl-static is earlier than 0:1.0.1e-30.el6_6.2" test_ref="oval:org.mitre.oval:tst:124481" />
       </criteria>
     </criteria>
   </criteria>

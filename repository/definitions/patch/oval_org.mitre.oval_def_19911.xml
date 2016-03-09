@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19911" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19911" version="6">
   <metadata>
     <title>DSA-1906-1 clamav - end-of-life announcement</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Debian GNU/Linux 5.0</platform>
       <product>clamav</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1906-1" ref_id="DSA-1906-1"/>
+    <reference ref_id="DSA-1906-1" ref_url="http://www.debian.org/security/dsa-1906-1" source="VENDOR" />
     <description>Security support for clamav, an anti-virus utility for Unix, has been discontinued for the stable distribution (lenny) and the oldstable distribution (etch). Clamav Upstream has stopped supporting the releases in etch and lenny. Also, it is not easily possible to receive signature updates for the virus scanner with our released versions anymore.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-06-23T04:06:05.396-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="clamav DPKG is earlier than 0:&lt;end-of-life> (upstream has discontinued providing virus signatures for versions prior to 0.95)" test_ref="oval:org.mitre.oval:tst:89075"/>
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="clamav DPKG is earlier than 0:&lt;end-of-life&gt; (upstream has discontinued providing virus signatures for versions prior to 0.95)" test_ref="oval:org.mitre.oval:tst:89075" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="clamav DPKG is earlier than 0:&lt;end-of-life> (upstream has discontinued providing virus signatures for versions prior to 0.95)" test_ref="oval:org.mitre.oval:tst:89177"/>
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="clamav DPKG is earlier than 0:&lt;end-of-life&gt; (upstream has discontinued providing virus signatures for versions prior to 0.95)" test_ref="oval:org.mitre.oval:tst:89177" />
     </criteria>
   </criteria>
 </definition>

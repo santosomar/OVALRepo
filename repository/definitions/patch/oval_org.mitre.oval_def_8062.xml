@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8062" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8062" version="6">
   <metadata>
     <title>DSA-1562 iceape -- programming error</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>iceape</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1562" ref_id="DSA-1562"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1380" ref_id="CVE-2008-1380"/>
+    <reference ref_id="DSA-1562" ref_url="http://www.debian.org/security/2008/dsa-1562" source="VENDOR" />
+    <reference ref_id="CVE-2008-1380" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1380" source="CVE" />
     <description>It was discovered that crashes in the JavaScript engine of Iceape, an unbranded version of the Seamonkey internet suite could potentially lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -24,34 +23,35 @@
         <status_change date="2014-06-23T04:09:55.256-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="mozilla-calendar is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20193"/>
-          <criterion comment="mozilla-chatzilla is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20236"/>
-          <criterion comment="iceape is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19918"/>
-          <criterion comment="iceape-chatzilla is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20113"/>
-          <criterion comment="mozilla is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20103"/>
-          <criterion comment="mozilla-psm is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19764"/>
-          <criterion comment="mozilla-mailnews is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19934"/>
-          <criterion comment="mozilla-dom-inspector is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19661"/>
-          <criterion comment="mozilla-js-debugger is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19353"/>
-          <criterion comment="mozilla-browser is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20181"/>
-          <criterion comment="mozilla-dev is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19648"/>
-          <criterion comment="iceape-dev is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20209"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="mozilla-calendar is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20193" />
+          <criterion comment="mozilla-chatzilla is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20236" />
+          <criterion comment="iceape is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19918" />
+          <criterion comment="iceape-chatzilla is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20113" />
+          <criterion comment="mozilla is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20103" />
+          <criterion comment="mozilla-psm is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19764" />
+          <criterion comment="mozilla-mailnews is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19934" />
+          <criterion comment="mozilla-dom-inspector is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19661" />
+          <criterion comment="mozilla-js-debugger is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19353" />
+          <criterion comment="mozilla-browser is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20181" />
+          <criterion comment="mozilla-dev is earlier than 1.8+1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19648" />
+          <criterion comment="iceape-dev is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20209" />
         </criteria>
       </criteria>
-      <criterion comment="iceape-dbg is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20342"/>
-      <criterion comment="iceape-dom-inspector is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19815"/>
-      <criterion comment="iceape-mailnews is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20090"/>
-      <criterion comment="iceape-browser is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20016"/>
-      <criterion comment="iceape-calendar is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19935"/>
-      <criterion comment="iceape-gnome-support is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20183"/>
+      <criterion comment="iceape-dbg is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20342" />
+      <criterion comment="iceape-dom-inspector is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19815" />
+      <criterion comment="iceape-mailnews is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20090" />
+      <criterion comment="iceape-browser is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20016" />
+      <criterion comment="iceape-calendar is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:19935" />
+      <criterion comment="iceape-gnome-support is earlier than 1.0.13~pre080323b-0etch3" test_ref="oval:org.mitre.oval:tst:20183" />
     </criteria>
   </criteria>
 </definition>

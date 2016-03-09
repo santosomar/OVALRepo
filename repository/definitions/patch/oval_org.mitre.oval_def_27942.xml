@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27942" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27942" version="5">
   <metadata>
     <title>ELSA-2011-1749 -- libxml2 security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1749.html" ref_id="ELSA-2011-1749"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4008" ref_id="CVE-2010-4008"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4494" ref_id="CVE-2010-4494"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0216" ref_id="CVE-2011-0216"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1944" ref_id="CVE-2011-1944"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2821" ref_id="CVE-2011-2821"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2834" ref_id="CVE-2011-2834"/>
+    <reference ref_id="ELSA-2011-1749" ref_url="http://linux.oracle.com/errata/ELSA-2011-1749.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-4008" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4008" source="CVE" />
+    <reference ref_id="CVE-2010-4494" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4494" source="CVE" />
+    <reference ref_id="CVE-2011-0216" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0216" source="CVE" />
+    <reference ref_id="CVE-2011-1944" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1944" source="CVE" />
+    <reference ref_id="CVE-2011-2821" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2821" source="CVE" />
+    <reference ref_id="CVE-2011-2834" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2834" source="CVE" />
     <description>[2.7.6-4.0.1.el6]
 - Update doc/redhat.gif in tarball
 - Add libxml2-oracle-enterprise.patch and update logos in tarball
@@ -38,15 +37,16 @@
         <status_change date="2014-12-15T04:03:15.758-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libxml2 is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:133100"/>
-      <criterion comment="libxml2-devel is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:132999"/>
-      <criterion comment="libxml2-python is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:132966"/>
-      <criterion comment="libxml2-static is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:133027"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libxml2 is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:133100" />
+      <criterion comment="libxml2-devel is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:132999" />
+      <criterion comment="libxml2-python is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:132966" />
+      <criterion comment="libxml2-static is earlier than 0:2.7.6-4.0.1.el6" test_ref="oval:org.mitre.oval:tst:133027" />
     </criteria>
   </criteria>
 </definition>

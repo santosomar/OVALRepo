@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17907" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17907" version="6">
   <metadata>
     <title>USN-1247-1 -- nova vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 11.10</platform>
       <product>nova</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1247-1/" ref_id="USN-1247-1"/>
+    <reference ref_id="USN-1247-1" ref_url="http://www.ubuntu.com/usn/usn-1247-1/" source="VENDOR" />
     <description>Nova could be made to expose sensitive information.</description>
     <oval_repository>
       <dates>
@@ -23,10 +22,11 @@
         <status_change date="2013-12-16T04:00:55.971-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-    <criterion comment="python-nova DPKG is earlier than 2011.3-0ubuntu6.2" test_ref="oval:org.mitre.oval:tst:83045"/>
+    <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+    <criterion comment="python-nova DPKG is earlier than 2011.3-0ubuntu6.2" test_ref="oval:org.mitre.oval:tst:83045" />
   </criteria>
 </definition>

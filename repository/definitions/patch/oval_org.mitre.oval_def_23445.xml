@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23445" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23445" version="7">
   <metadata>
     <title>ELSA-2013:0214: nss and nspr security, bug fix, and enhancement update (Important)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <product>nss</product>
       <product>nspr</product>
     </affected>
-    <reference ref_id="ELSA-2013:0214-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0214.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2013:0214-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0214.html" source="VENDOR" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the cross-platform development of security-enabled client and server
 applications. Netscape Portable Runtime (NSPR) provides platform
@@ -40,17 +39,18 @@ to take effect.</description>
         <status_change date="2014-05-26T04:04:25.354-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="nspr-devel is earlier than 0:4.9.2-2.el5_9" test_ref="oval:org.mitre.oval:tst:106780"/>
-      <criterion comment="nspr is earlier than 0:4.9.2-2.el5_9" test_ref="oval:org.mitre.oval:tst:107023"/>
-      <criterion comment="nss is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106893"/>
-      <criterion comment="nss-devel is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106635"/>
-      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106959"/>
-      <criterion comment="nss-tools is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:107111"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="nspr-devel is earlier than 0:4.9.2-2.el5_9" test_ref="oval:org.mitre.oval:tst:106780" />
+      <criterion comment="nspr is earlier than 0:4.9.2-2.el5_9" test_ref="oval:org.mitre.oval:tst:107023" />
+      <criterion comment="nss is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106893" />
+      <criterion comment="nss-devel is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106635" />
+      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:106959" />
+      <criterion comment="nss-tools is earlier than 0:3.13.6-3.el5_9" test_ref="oval:org.mitre.oval:tst:107111" />
     </criteria>
   </criteria>
 </definition>

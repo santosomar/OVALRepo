@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25938" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25938" version="4">
   <metadata>
     <title>SUSE-RU-2013:1138-1 -- Recommended update for release-notes-sles</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>release-notes-sles</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20131138-1.html" ref_id="SUSE-RU-2013:1138-1"/>
+    <reference ref_id="SUSE-RU-2013:1138-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20131138-1.html" source="VENDOR" />
     <description>* Version 11.2.0.46 (bnc#815270) contains the
 following: o Updated entries:
                 + Video and Stream Processing (bnc#818303,
@@ -26,10 +25,11 @@ FCoE (bnc#818299, via fate#311801)
         <status_change date="2014-09-08T04:03:40.923-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criterion comment="release-notes-sles RPM is earlier than 0:11.2.0.46-0.14.1" test_ref="oval:org.mitre.oval:tst:119193"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criterion comment="release-notes-sles RPM is earlier than 0:11.2.0.46-0.14.1" test_ref="oval:org.mitre.oval:tst:119193" />
   </criteria>
 </definition>

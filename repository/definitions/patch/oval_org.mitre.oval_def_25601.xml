@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25601" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25601" version="4">
   <metadata>
     <title>SUSE-SU-2013:1214-1 -- Security update for KVM</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>KVM</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131214-1.html" ref_id="SUSE-SU-2013:1214-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2007" ref_id="CVE-2013-2007"/>
+    <reference ref_id="SUSE-SU-2013:1214-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131214-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-2007" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2007" source="CVE" />
     <description>This update fixes a file permission issue with qga (the
 QEMU Guest Agent)  from the qemu/kvm package and includes
 several bug-fixes.
@@ -20,7 +19,7 @@ Security Issues:
 
     * CVE-2013-2007
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2007
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:30:40">
@@ -31,13 +30,14 @@ Security Issues:
         <status_change date="2014-09-08T04:02:48.268-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="kvm RPM is earlier than 0:0.15.1-0.27.1" test_ref="oval:org.mitre.oval:tst:119257"/>
+    <criterion comment="kvm RPM is earlier than 0:0.15.1-0.27.1" test_ref="oval:org.mitre.oval:tst:119257" />
   </criteria>
 </definition>

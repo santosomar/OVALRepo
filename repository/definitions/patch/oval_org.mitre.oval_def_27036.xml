@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27036" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27036" version="4">
   <metadata>
     <title>SUSE-SU-2014:1221-1 -- Security update for wireshark</title>
     <affected family="unix">
@@ -7,23 +6,23 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>wireshark</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141221-1.html" ref_id="SUSE-SU-2014:1221-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6421" ref_id="CVE-2014-6421"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6422" ref_id="CVE-2014-6422"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6423" ref_id="CVE-2014-6423"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6424" ref_id="CVE-2014-6424"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6427" ref_id="CVE-2014-6427"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6428" ref_id="CVE-2014-6428"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6429" ref_id="CVE-2014-6429"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6430" ref_id="CVE-2014-6430"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6431" ref_id="CVE-2014-6431"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6432" ref_id="CVE-2014-6432"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5161" ref_id="CVE-2014-5161"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5162" ref_id="CVE-2014-5162"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5163" ref_id="CVE-2014-5163"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5164" ref_id="CVE-2014-5164"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5165" ref_id="CVE-2014-5165"/>
-    <description><![CDATA[The wireshark package was upgraded to 1.10.10 from 1.8.x as 1.8 was
+    <reference ref_id="SUSE-SU-2014:1221-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141221-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-6421" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6421" source="CVE" />
+    <reference ref_id="CVE-2014-6422" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6422" source="CVE" />
+    <reference ref_id="CVE-2014-6423" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6423" source="CVE" />
+    <reference ref_id="CVE-2014-6424" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6424" source="CVE" />
+    <reference ref_id="CVE-2014-6427" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6427" source="CVE" />
+    <reference ref_id="CVE-2014-6428" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6428" source="CVE" />
+    <reference ref_id="CVE-2014-6429" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6429" source="CVE" />
+    <reference ref_id="CVE-2014-6430" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6430" source="CVE" />
+    <reference ref_id="CVE-2014-6431" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6431" source="CVE" />
+    <reference ref_id="CVE-2014-6432" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6432" source="CVE" />
+    <reference ref_id="CVE-2014-5161" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5161" source="CVE" />
+    <reference ref_id="CVE-2014-5162" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5162" source="CVE" />
+    <reference ref_id="CVE-2014-5163" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5163" source="CVE" />
+    <reference ref_id="CVE-2014-5164" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5164" source="CVE" />
+    <reference ref_id="CVE-2014-5165" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5165" source="CVE" />
+    <description>The wireshark package was upgraded to 1.10.10 from 1.8.x as 1.8 was
 discontinued.
 This update fixes vulnerabilities that could allow an attacker to crash
 Wireshark or make it become unresponsive by sending specific packets onto
@@ -46,40 +45,40 @@ are running. It also contains a number of other bug fixes.
       CVE-2014-5165, bnc#889899)
 Further bug fixes as listed in:
 https://www.wireshark.org/docs/relnotes/wireshark-1.10.10.html
-<https://www.wireshark.org/docs/relnotes/wireshark-1.10.10.html> and
+&lt;https://www.wireshark.org/docs/relnotes/wireshark-1.10.10.html&gt; and
 https://www.wireshark.org/docs/relnotes/wireshark-1.10.9.html
-<https://www.wireshark.org/docs/relnotes/wireshark-1.10.9.html> .
+&lt;https://www.wireshark.org/docs/relnotes/wireshark-1.10.9.html&gt; .
 Security Issues:
     * CVE-2014-5161
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5161>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5161&gt;
     * CVE-2014-5162
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5162>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5162&gt;
     * CVE-2014-5163
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5163>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5163&gt;
     * CVE-2014-5164
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5164>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5164&gt;
     * CVE-2014-5165
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5165>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5165&gt;
     * CVE-2014-6421
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6421>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6421&gt;
     * CVE-2014-6422
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6422>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6422&gt;
     * CVE-2014-6423
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6423>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6423&gt;
     * CVE-2014-6424
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6424>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6424&gt;
     * CVE-2014-6427
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6427>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6427&gt;
     * CVE-2014-6428
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6428>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6428&gt;
     * CVE-2014-6429
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6429>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6429&gt;
     * CVE-2014-6430
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6430>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6430&gt;
     * CVE-2014-6431
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6431>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6431&gt;
     * CVE-2014-6432
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6432>]]></description>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6432&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-10-14T11:43:22">
@@ -90,13 +89,14 @@ Security Issues:
         <status_change date="2014-12-01T04:00:53.111-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="wireshark RPM is earlier than 0:1.10.10-0.2.1" test_ref="oval:org.mitre.oval:tst:124985"/>
+    <criterion comment="wireshark RPM is earlier than 0:1.10.10-0.2.1" test_ref="oval:org.mitre.oval:tst:124985" />
   </criteria>
 </definition>

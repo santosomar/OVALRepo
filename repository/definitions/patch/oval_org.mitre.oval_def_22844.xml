@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22844" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22844" version="15">
   <metadata>
     <title>ELSA-2009:1341: cman security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>cman</product>
     </affected>
-    <reference ref_id="ELSA-2009:1341-02" ref_url="http://linux.oracle.com/errata/ELSA-2009-1341.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-4579" ref_url="http://linux.oracle.com/cve/CVE-2008-4579.html" source="CVE"/>
-    <reference ref_id="CVE-2008-6552" ref_url="http://linux.oracle.com/cve/CVE-2008-6552.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1341-02" ref_url="http://linux.oracle.com/errata/ELSA-2009-1341.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-4579" ref_url="http://linux.oracle.com/cve/CVE-2008-4579.html" source="CVE" />
+    <reference ref_id="CVE-2008-6552" ref_url="http://linux.oracle.com/cve/CVE-2008-6552.html" source="CVE" />
     <description>Red Hat Cluster Project 2.x allows local users to modify or overwrite arbitrary files via symlink attacks on files in /tmp, involving unspecified components in Resource Group Manager (aka rgmanager) before 2.03.09-1, gfs2-utils before 2.03.09-1, and CMAN - The Cluster Manager before 2.03.09-1 on Fedora 9.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:02:26.922-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="cman is earlier than 0:2.0.115-1.el5" test_ref="oval:org.mitre.oval:tst:103021"/>
-      <criterion comment="cman-devel is earlier than 0:2.0.115-1.el5" test_ref="oval:org.mitre.oval:tst:103372"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="cman is earlier than 0:2.0.115-1.el5" test_ref="oval:org.mitre.oval:tst:103021" />
+      <criterion comment="cman-devel is earlier than 0:2.0.115-1.el5" test_ref="oval:org.mitre.oval:tst:103372" />
     </criteria>
   </criteria>
 </definition>

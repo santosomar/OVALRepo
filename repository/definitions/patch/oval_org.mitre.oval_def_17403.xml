@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17403" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17403" version="8">
   <metadata>
     <title>USN-1425-1 -- linux vulnerabilities</title>
     <affected family="unix">
       <platform>Ubuntu 10.04</platform>
       <product>linux</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1425-1/" ref_id="USN-1425-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4347" ref_id="CVE-2011-4347"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0045" ref_id="CVE-2012-0045"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1090" ref_id="CVE-2012-1090"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1097" ref_id="CVE-2012-1097"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4398" ref_id="CVE-2012-4398"/>
+    <reference ref_id="USN-1425-1" ref_url="http://www.ubuntu.com/usn/usn-1425-1/" source="VENDOR" />
+    <reference ref_id="CVE-2011-4347" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4347" source="CVE" />
+    <reference ref_id="CVE-2012-0045" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0045" source="CVE" />
+    <reference ref_id="CVE-2012-1090" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1090" source="CVE" />
+    <reference ref_id="CVE-2012-1097" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1097" source="CVE" />
+    <reference ref_id="CVE-2012-4398" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4398" source="CVE" />
     <description>Several security issues were fixed in the kernel.</description>
     <oval_repository>
       <dates>
@@ -33,25 +32,26 @@
         <status_change date="2014-06-30T04:06:36.606-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="linux-image-2.6.32-41-386 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83368"/>
-      <criterion comment="linux-image-2.6.32-41-generic DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:84022"/>
-      <criterion comment="linux-image-2.6.32-41-generic-pae DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83309"/>
-      <criterion comment="linux-image-2.6.32-41-ia64 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83863"/>
-      <criterion comment="linux-image-2.6.32-41-lpia DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83957"/>
-      <criterion comment="linux-image-2.6.32-41-powerpc DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83955"/>
-      <criterion comment="linux-image-2.6.32-41-powerpc-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83600"/>
-      <criterion comment="linux-image-2.6.32-41-powerpc64-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:84054"/>
-      <criterion comment="linux-image-2.6.32-41-preempt DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83710"/>
-      <criterion comment="linux-image-2.6.32-41-server DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83934"/>
-      <criterion comment="linux-image-2.6.32-41-sparc64 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83824"/>
-      <criterion comment="linux-image-2.6.32-41-sparc64-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83938"/>
-      <criterion comment="linux-image-2.6.32-41-versatile DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83808"/>
-      <criterion comment="linux-image-2.6.32-41-virtual DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83831"/>
+    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="linux-image-2.6.32-41-386 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83368" />
+      <criterion comment="linux-image-2.6.32-41-generic DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:84022" />
+      <criterion comment="linux-image-2.6.32-41-generic-pae DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83309" />
+      <criterion comment="linux-image-2.6.32-41-ia64 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83863" />
+      <criterion comment="linux-image-2.6.32-41-lpia DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83957" />
+      <criterion comment="linux-image-2.6.32-41-powerpc DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83955" />
+      <criterion comment="linux-image-2.6.32-41-powerpc-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83600" />
+      <criterion comment="linux-image-2.6.32-41-powerpc64-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:84054" />
+      <criterion comment="linux-image-2.6.32-41-preempt DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83710" />
+      <criterion comment="linux-image-2.6.32-41-server DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83934" />
+      <criterion comment="linux-image-2.6.32-41-sparc64 DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83824" />
+      <criterion comment="linux-image-2.6.32-41-sparc64-smp DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83938" />
+      <criterion comment="linux-image-2.6.32-41-versatile DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83808" />
+      <criterion comment="linux-image-2.6.32-41-virtual DPKG is earlier than 2.6.32-41.88" test_ref="oval:org.mitre.oval:tst:83831" />
     </criteria>
   </criteria>
 </definition>

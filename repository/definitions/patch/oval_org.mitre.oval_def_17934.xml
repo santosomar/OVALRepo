@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17934" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17934" version="8">
   <metadata>
     <title>USN-1637-1 -- tomcat6 vulnerabilities</title>
     <affected family="unix">
@@ -8,11 +7,11 @@
       <platform>Ubuntu 10.04</platform>
       <product>tomcat6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1637-1/" ref_id="USN-1637-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2733" ref_id="CVE-2012-2733"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5885" ref_id="CVE-2012-5885"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5886" ref_id="CVE-2012-5886"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5887" ref_id="CVE-2012-5887"/>
+    <reference ref_id="USN-1637-1" ref_url="http://www.ubuntu.com/usn/usn-1637-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-2733" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2733" source="CVE" />
+    <reference ref_id="CVE-2012-5885" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5885" source="CVE" />
+    <reference ref_id="CVE-2012-5886" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5886" source="CVE" />
+    <reference ref_id="CVE-2012-5887" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5887" source="CVE" />
     <description>Several security issues were fixed in Apache Tomcat.</description>
     <oval_repository>
       <dates>
@@ -34,20 +33,21 @@
         <status_change date="2014-07-07T04:00:42.703-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.35-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:85035"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.35-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:85035" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.32-5ubuntu1.3" test_ref="oval:org.mitre.oval:tst:85029"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.32-5ubuntu1.3" test_ref="oval:org.mitre.oval:tst:85029" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.24-2ubuntu1.11" test_ref="oval:org.mitre.oval:tst:85096"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libtomcat6-java DPKG is earlier than 6.0.24-2ubuntu1.11" test_ref="oval:org.mitre.oval:tst:85096" />
     </criteria>
   </criteria>
 </definition>

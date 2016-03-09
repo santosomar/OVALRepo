@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27153" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27153" version="4">
   <metadata>
     <title>RHSA-2013:1752 -- 389-ds-base security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>389-ds-base</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1752.html" ref_id="RHSA-2013:1752"/>
-    <reference source="CESA-2013:1752" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2013-November/001123.html" ref_id="CESA-2013:1752"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4485" ref_id="CVE-2013-4485"/>
+    <reference ref_id="RHSA-2013:1752" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1752.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:1752" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2013-November/001123.html" source="CESA-2013:1752" />
+    <reference ref_id="CVE-2013-4485" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4485" source="CVE" />
     <description>The 389 Directory Server is an LDAPv3 compliant server. The base packages
 include the Lightweight Directory Access Protocol (LDAP) server and
 command-line utilities for server administration.
@@ -33,23 +32,24 @@ this update, the 389 server service will be restarted automatically.</descriptio
         <status_change date="2014-12-08T04:00:40.092-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="389-ds-base is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:126107"/>
-        <criterion comment="389-ds-base-devel is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:125962"/>
-        <criterion comment="389-ds-base-libs is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:126081"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="389-ds-base is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:126107" />
+        <criterion comment="389-ds-base-devel is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:125962" />
+        <criterion comment="389-ds-base-libs is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:126081" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="389-ds-base-debuginfo is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:125586"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="389-ds-base-debuginfo is earlier than 0:1.2.11.15-30.el6_5" test_ref="oval:org.mitre.oval:tst:125586" />
     </criteria>
   </criteria>
 </definition>

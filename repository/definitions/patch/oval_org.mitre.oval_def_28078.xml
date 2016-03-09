@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28078" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28078" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1458 -- bind security update (important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>bind</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1458.html" ref_id="ELSA-2011-1458"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4313" ref_id="CVE-2011-4313"/>
+    <reference ref_id="ELSA-2011-1458" ref_url="http://linux.oracle.com/errata/ELSA-2011-1458.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4313" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4313" source="CVE" />
     <description>[32:9.7.3-2.3.P3]
 - fix DOS against recursive servers (#754398)
 
@@ -31,31 +30,32 @@
         <status_change date="2015-02-10T14:29:04.238-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="bind is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:132293"/>
-        <criterion comment="bind-chroot is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133291"/>
-        <criterion comment="bind-devel is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133018"/>
-        <criterion comment="bind-libbind-devel is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:132539"/>
-        <criterion comment="bind-libs is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133282"/>
-        <criterion comment="bind-sdb is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133070"/>
-        <criterion comment="bind-utils is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133086"/>
-        <criterion comment="caching-nameserver is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133236"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="bind is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:132293" />
+        <criterion comment="bind-chroot is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133291" />
+        <criterion comment="bind-devel is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133018" />
+        <criterion comment="bind-libbind-devel is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:132539" />
+        <criterion comment="bind-libs is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133282" />
+        <criterion comment="bind-sdb is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133070" />
+        <criterion comment="bind-utils is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133086" />
+        <criterion comment="caching-nameserver is earlier than 0:9.3.6-16.P1.el5_7.1" test_ref="oval:org.mitre.oval:tst:133236" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="bind is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:133047"/>
-        <criterion comment="bind-chroot is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132897"/>
-        <criterion comment="bind-devel is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132964"/>
-        <criterion comment="bind-libs is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:133063"/>
-        <criterion comment="bind-sdb is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132873"/>
-        <criterion comment="bind-utils is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132320"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="bind is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:133047" />
+        <criterion comment="bind-chroot is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132897" />
+        <criterion comment="bind-devel is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132964" />
+        <criterion comment="bind-libs is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:133063" />
+        <criterion comment="bind-sdb is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132873" />
+        <criterion comment="bind-utils is earlier than 0:9.7.3-2.el6_1.P3.3" test_ref="oval:org.mitre.oval:tst:132320" />
       </criteria>
     </criteria>
   </criteria>

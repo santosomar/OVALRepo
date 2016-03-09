@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23566" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23566" version="7">
   <metadata>
     <title>ELSA-2013:1402: Adobe Reader - notification of end of updates (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>acroread</product>
     </affected>
-    <reference ref_id="ELSA-2013:1402-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-1402.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2013:1402-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-1402.html" source="VENDOR" />
     <description>Adobe Reader allows users to view and print documents in Portable Document
 Format (PDF). Adobe Reader 9 reached the end of its support cycle on June
 26, 2013, and will not receive any more security updates. Future versions
@@ -35,13 +34,14 @@ page.</description>
         <status_change date="2014-05-26T04:04:48.585-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="acroread-plugin is earlier than 0:9.5.5-1.el6_4.1" test_ref="oval:org.mitre.oval:tst:112112"/>
-      <criterion comment="acroread is earlier than 0:9.5.5-1.el6_4.1" test_ref="oval:org.mitre.oval:tst:112443"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="acroread-plugin is earlier than 0:9.5.5-1.el6_4.1" test_ref="oval:org.mitre.oval:tst:112112" />
+      <criterion comment="acroread is earlier than 0:9.5.5-1.el6_4.1" test_ref="oval:org.mitre.oval:tst:112443" />
     </criteria>
   </criteria>
 </definition>

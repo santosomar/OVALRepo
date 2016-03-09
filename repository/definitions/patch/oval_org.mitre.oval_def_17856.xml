@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17856" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17856" version="8">
   <metadata>
     <title>USN-685-1 -- net-snmp vulnerabilities</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>Ubuntu 8.10</platform>
       <product>net-snmp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-685-1/" ref_id="USN-685-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0960" ref_id="CVE-2008-0960"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2292" ref_id="CVE-2008-2292"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4309" ref_id="CVE-2008-4309"/>
+    <reference ref_id="USN-685-1" ref_url="http://www.ubuntu.com/usn/usn-685-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-0960" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0960" source="CVE" />
+    <reference ref_id="CVE-2008-2292" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2292" source="CVE" />
+    <reference ref_id="CVE-2008-4309" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4309" source="CVE" />
     <description>Wes Hardaker discovered that the SNMP service did not correctly validate HMAC authentication requests.</description>
     <oval_repository>
       <dates>
@@ -34,33 +33,34 @@
         <status_change date="2014-07-21T04:00:35.307-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libsnmp-perl DPKG is earlier than 5.2.1.2-4ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83340"/>
-        <criterion comment="libsnmp9 DPKG is earlier than 5.2.1.2-4ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83727"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libsnmp-perl DPKG is earlier than 5.2.1.2-4ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83340" />
+        <criterion comment="libsnmp9 DPKG is earlier than 5.2.1.2-4ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83727" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libsnmp-perl DPKG is earlier than 5.3.1-6ubuntu2.2" test_ref="oval:org.mitre.oval:tst:83770"/>
-        <criterion comment="libsnmp10 DPKG is earlier than 5.3.1-6ubuntu2.2" test_ref="oval:org.mitre.oval:tst:83292"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libsnmp-perl DPKG is earlier than 5.3.1-6ubuntu2.2" test_ref="oval:org.mitre.oval:tst:83770" />
+        <criterion comment="libsnmp10 DPKG is earlier than 5.3.1-6ubuntu2.2" test_ref="oval:org.mitre.oval:tst:83292" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libsnmp-perl DPKG is earlier than 5.4.1~dfsg-4ubuntu4.2" test_ref="oval:org.mitre.oval:tst:82792"/>
-        <criterion comment="libsnmp15 DPKG is earlier than 5.4.1~dfsg-4ubuntu4.2" test_ref="oval:org.mitre.oval:tst:83589"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libsnmp-perl DPKG is earlier than 5.4.1~dfsg-4ubuntu4.2" test_ref="oval:org.mitre.oval:tst:82792" />
+        <criterion comment="libsnmp15 DPKG is earlier than 5.4.1~dfsg-4ubuntu4.2" test_ref="oval:org.mitre.oval:tst:83589" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.10 is installed" definition_ref="oval:org.mitre.oval:def:13306"/>
-      <criterion comment="libsnmp15 DPKG is earlier than 5.4.1~dfsg-7.1ubuntu6.1" test_ref="oval:org.mitre.oval:tst:83682"/>
+      <extend_definition comment="Ubuntu 8.10 is installed" definition_ref="oval:org.mitre.oval:def:13306" />
+      <criterion comment="libsnmp15 DPKG is earlier than 5.4.1~dfsg-7.1ubuntu6.1" test_ref="oval:org.mitre.oval:tst:83682" />
     </criteria>
   </criteria>
 </definition>

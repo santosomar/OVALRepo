@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23611" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23611" version="9">
   <metadata>
     <title>ELSA-2011:1819: dhcp security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>dhcp</product>
     </affected>
-    <reference ref_id="ELSA-2011:1819-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1819.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-4539" ref_url="http://linux.oracle.com/cve/CVE-2011-4539.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1819-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1819.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4539" ref_url="http://linux.oracle.com/cve/CVE-2011-4539.html" source="CVE" />
     <description>dhcpd in ISC DHCP 4.x before 4.2.3-P1 and 4.1-ESV before 4.1-ESV-R4 does not properly handle regular expressions in dhcpd.conf, which allows remote attackers to cause a denial of service (daemon crash) via a crafted request packet.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-05-26T04:04:57.769-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="dhcp-devel is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109686"/>
-      <criterion comment="dhclient is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109671"/>
-      <criterion comment="dhcp is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109388"/>
-      <criterion comment="dhcp-common is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109493"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="dhcp-devel is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109686" />
+      <criterion comment="dhclient is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109671" />
+      <criterion comment="dhcp is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109388" />
+      <criterion comment="dhcp-common is earlier than 12:4.1.1-25.P1.el6_2.1" test_ref="oval:org.mitre.oval:tst:109493" />
     </criteria>
   </criteria>
 </definition>

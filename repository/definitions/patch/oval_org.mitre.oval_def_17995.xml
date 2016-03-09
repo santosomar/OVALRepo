@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17995" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17995" version="8">
   <metadata>
     <title>DSA-2442-2 openarena - UDP traffic amplification</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>openarena</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2442-2" ref_id="DSA-2442-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5077" ref_id="CVE-2010-5077"/>
-    <description>It has been discovered that spoofed &lt;q>getstatus&lt;/q> UDP requests are being sent by attackers to servers for use with games derived from the Quake 3 engine (such as openarena). These servers respond with a packet flood to the victim whose IP address was impersonated by the attackers, causing a denial of service.</description>
+    <reference ref_id="DSA-2442-2" ref_url="http://www.debian.org/security/dsa-2442-2" source="VENDOR" />
+    <reference ref_id="CVE-2010-5077" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5077" source="CVE" />
+    <description>It has been discovered that spoofed &lt;q&gt;getstatus&lt;/q&gt; UDP requests are being sent by attackers to servers for use with games derived from the Quake 3 engine (such as openarena). These servers respond with a packet flood to the victim whose IP address was impersonated by the attackers, causing a denial of service.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:39">
@@ -30,14 +29,15 @@
         <status_change date="2014-06-23T04:03:56.831-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="openarena DPKG is earlier than 0.8.5-5+squeeze3" test_ref="oval:org.mitre.oval:tst:86295"/>
+    <criterion comment="openarena DPKG is earlier than 0.8.5-5+squeeze3" test_ref="oval:org.mitre.oval:tst:86295" />
   </criteria>
 </definition>

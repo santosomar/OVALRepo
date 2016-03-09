@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22271" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22271" version="30">
   <metadata>
     <title>RHSA-2010:0788: pidgin security update (Moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 5</platform>
       <product>pidgin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2010:0788-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0788.html"/>
-    <reference source="CESA" ref_id="CESA-2010:0788"/>
-    <reference source="CVE" ref_id="CVE-2010-1624" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1624.html"/>
-    <reference source="CVE" ref_id="CVE-2010-3711" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3711.html"/>
+    <reference ref_id="RHSA-2010:0788-01" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0788.html" source="VENDOR" />
+    <reference ref_id="CESA-2010:0788" source="CESA" />
+    <reference ref_id="CVE-2010-1624" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1624.html" source="CVE" />
+    <reference ref_id="CVE-2010-3711" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-3711.html" source="CVE" />
     <description>libpurple in Pidgin before 2.7.4 does not properly validate the return value of the purple_base64_decode function, which allows remote authenticated users to cause a denial of service (NULL pointer dereference and application crash) via a crafted message, related to the plugins for MSN, MySpaceIM, XMPP, and Yahoo! and the NTLM authentication support.</description>
     <oval_repository>
       <dates>
@@ -22,23 +21,24 @@
         <status_change date="2014-02-24T04:03:01.524-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="libpurple-perl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99809"/>
-      <criterion comment="finch is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99782"/>
-      <criterion comment="libpurple is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99521"/>
-      <criterion comment="pidgin is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99787"/>
-      <criterion comment="pidgin-perl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99778"/>
-      <criterion comment="libpurple-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99504"/>
-      <criterion comment="pidgin-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99661"/>
-      <criterion comment="finch-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99503"/>
-      <criterion comment="libpurple-tcl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:98903"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="libpurple-perl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99809" />
+      <criterion comment="finch is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99782" />
+      <criterion comment="libpurple is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99521" />
+      <criterion comment="pidgin is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99787" />
+      <criterion comment="pidgin-perl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99778" />
+      <criterion comment="libpurple-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99504" />
+      <criterion comment="pidgin-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99661" />
+      <criterion comment="finch-devel is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:99503" />
+      <criterion comment="libpurple-tcl is earlier than 0:2.6.6-5.el5_5" test_ref="oval:org.mitre.oval:tst:98903" />
     </criteria>
   </criteria>
 </definition>

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18701" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18701" version="8">
   <metadata>
     <title>DSA-1473-1 scponly - arbitrary code execution</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>scponly</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1473-1" ref_id="DSA-1473-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6350" ref_id="CVE-2007-6350"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6415" ref_id="CVE-2007-6415"/>
-    <description>Joachim Breitner discovered that Subversion support in scponly is inherently insecure, allowing execution of arbitrary commands. Further investigation showed that rsync and Unison support suffer from similar issues. This set of issues has been assigned &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-6350">CVE-2007-6350&lt;/a>.</description>
+    <reference ref_id="DSA-1473-1" ref_url="http://www.debian.org/security/dsa-1473-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-6350" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6350" source="CVE" />
+    <reference ref_id="CVE-2007-6415" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6415" source="CVE" />
+    <description>Joachim Breitner discovered that Subversion support in scponly is inherently insecure, allowing execution of arbitrary commands. Further investigation showed that rsync and Unison support suffer from similar issues. This set of issues has been assigned &lt;a href="http://security-tracker.debian.org/tracker/CVE-2007-6350"&gt;CVE-2007-6350&lt;/a&gt;.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:13:30">
@@ -30,10 +29,11 @@
         <status_change date="2014-06-23T04:05:15.097-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="scponly DPKG is earlier than 4.6-1etch1" test_ref="oval:org.mitre.oval:tst:86344"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="scponly DPKG is earlier than 4.6-1etch1" test_ref="oval:org.mitre.oval:tst:86344" />
   </criteria>
 </definition>

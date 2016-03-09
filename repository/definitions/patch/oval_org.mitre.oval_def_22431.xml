@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22431" version="8" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22431" version="9">
   <metadata>
     <title>RHSA-2014:0174: piranha security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>piranha</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0174-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0174.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0174"/>
-    <reference source="CVE" ref_id="CVE-2013-6492" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6492.html"/>
+    <reference ref_id="RHSA-2014:0174-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0174.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0174" source="CESA" />
+    <reference ref_id="CVE-2013-6492" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6492.html" source="CVE" />
     <description>The Piranha Configuration Tool in Piranha 0.8.6 does not properly restrict access to webpages, which allows remote attackers to bypass authentication and read or modify the LVS configuration via an HTTP POST request.</description>
     <oval_repository>
       <dates>
@@ -31,13 +30,14 @@
         <status_change date="2014-07-07T04:00:55.367-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criterion comment="piranha is earlier than 0:0.8.4-26.el5_10.1" test_ref="oval:org.mitre.oval:tst:100501"/>
+    <criterion comment="piranha is earlier than 0:0.8.4-26.el5_10.1" test_ref="oval:org.mitre.oval:tst:100501" />
   </criteria>
 </definition>

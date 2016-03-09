@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8099" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8099" version="5">
   <metadata>
     <title>DSA-1777 git-core -- file permission error</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>git-core</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1777" ref_id="DSA-1777"/>
+    <reference ref_id="DSA-1777" ref_url="http://www.debian.org/security/2009/dsa-1777" source="VENDOR" />
     <description>Peter Palfrader discovered that in the Git revision control system, on some architectures files under /usr/share/git-core/templates/ were owned by a non-root user. This allows a user with that uid on the local system to write to these files and possibly escalate their privileges. This issue only affects the DEC Alpha and MIPS (big and little endian) architectures.</description>
     <oval_repository>
       <dates>
@@ -24,62 +23,63 @@
         <status_change date="2014-06-23T04:10:02.784-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="gitweb is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18916"/>
-            <criterion comment="git-arch is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18756"/>
-            <criterion comment="gitk is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18132"/>
-            <criterion comment="git-gui is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18647"/>
-            <criterion comment="git-daemon-run is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18935"/>
-            <criterion comment="git-doc is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18952"/>
-            <criterion comment="git-svn is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18788"/>
-            <criterion comment="git-cvs is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18901"/>
-            <criterion comment="git-email is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18814"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="gitweb is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18916" />
+            <criterion comment="git-arch is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18756" />
+            <criterion comment="gitk is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18132" />
+            <criterion comment="git-gui is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18647" />
+            <criterion comment="git-daemon-run is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18935" />
+            <criterion comment="git-doc is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18952" />
+            <criterion comment="git-svn is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18788" />
+            <criterion comment="git-cvs is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18901" />
+            <criterion comment="git-email is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18814" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture dependent section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture dependent section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criterion comment="git-core is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18914"/>
+          <criterion comment="git-core is earlier than 1.5.6.5-3+lenny1" test_ref="oval:org.mitre.oval:tst:18914" />
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="gitweb is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18454"/>
-            <criterion comment="git-arch is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18760"/>
-            <criterion comment="gitk is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18552"/>
-            <criterion comment="git-daemon-run is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18882"/>
-            <criterion comment="git-doc is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18679"/>
-            <criterion comment="git-svn is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:19008"/>
-            <criterion comment="git-cvs is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:19041"/>
-            <criterion comment="git-email is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18795"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="gitweb is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18454" />
+            <criterion comment="git-arch is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18760" />
+            <criterion comment="gitk is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18552" />
+            <criterion comment="git-daemon-run is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18882" />
+            <criterion comment="git-doc is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18679" />
+            <criterion comment="git-svn is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:19008" />
+            <criterion comment="git-cvs is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:19041" />
+            <criterion comment="git-email is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18795" />
           </criteria>
         </criteria>
-        <criterion comment="git-core is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18944"/>
+        <criterion comment="git-core is earlier than 1.4.4.4-4+etch2" test_ref="oval:org.mitre.oval:tst:18944" />
       </criteria>
     </criteria>
   </criteria>

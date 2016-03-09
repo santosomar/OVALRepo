@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28095" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28095" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0858 -- bzip2 security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>bzip2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0858.html" ref_id="ELSA-2010-0858"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0405" ref_id="CVE-2010-0405"/>
+    <reference ref_id="ELSA-2010-0858" ref_url="http://linux.oracle.com/errata/ELSA-2010-0858.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0405" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0405" source="CVE" />
     <description>[1.0.5-7]
 - Resolves: #632268
   integer overflow flaw in BZ2_decompress - CVE-2010-0405
@@ -26,14 +25,15 @@
         <status_change date="2015-02-10T19:38:44.110-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="bzip2 is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134063"/>
-      <criterion comment="bzip2-devel is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134460"/>
-      <criterion comment="bzip2-libs is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134445"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="bzip2 is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134063" />
+      <criterion comment="bzip2-devel is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134460" />
+      <criterion comment="bzip2-libs is earlier than 0:1.0.5-7.el6_0" test_ref="oval:org.mitre.oval:tst:134445" />
     </criteria>
   </criteria>
 </definition>

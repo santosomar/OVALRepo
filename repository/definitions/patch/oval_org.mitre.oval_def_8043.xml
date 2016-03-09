@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8043" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8043" version="7">
   <metadata>
     <title>DSA-1836 fckeditor -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>fckeditor</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1836" ref_id="DSA-1836"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2265" ref_id="CVE-2009-2265"/>
+    <reference ref_id="DSA-1836" ref_url="http://www.debian.org/security/2009/dsa-1836" source="VENDOR" />
+    <reference ref_id="CVE-2009-2265" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2265" source="CVE" />
     <description>Vinny Guido discovered that multiple input sanitising vulnerabilities in Fckeditor, a rich text web editor component, may lead to the execution of arbitrary code. The old stable distribution (etch) doesn't contain fckeditor.</description>
     <oval_repository>
       <dates>
@@ -29,11 +28,12 @@
         <status_change date="2015-02-23T04:01:49.209-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="fckeditor is earlier than 1:2.6.2-1lenny1" test_ref="oval:org.mitre.oval:tst:14661"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="fckeditor is earlier than 1:2.6.2-1lenny1" test_ref="oval:org.mitre.oval:tst:14661" />
   </criteria>
 </definition>

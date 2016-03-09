@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26570" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26570" version="10">
   <metadata>
     <title>ELSA-2014-1388 -- cups security and bug fix update</title>
     <affected family="unix">
@@ -10,12 +9,12 @@
       <product>cups-lpd</product>
       <product>cups-php</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1388.html" ref_id="ELSA-2014-1388"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2856" ref_id="CVE-2014-2856"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3537" ref_id="CVE-2014-3537"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5029" ref_id="CVE-2014-5029"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5030" ref_id="CVE-2014-5030"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5031" ref_id="CVE-2014-5031"/>
+    <reference ref_id="ELSA-2014-1388" ref_url="http://linux.oracle.com/errata/ELSA-2014-1388.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2856" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2856" source="CVE" />
+    <reference ref_id="CVE-2014-3537" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3537" source="CVE" />
+    <reference ref_id="CVE-2014-5029" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5029" source="CVE" />
+    <reference ref_id="CVE-2014-5030" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5030" source="CVE" />
+    <reference ref_id="CVE-2014-5031" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5031" source="CVE" />
     <description>[1:1.4.2-67]
 - Revert change to whitelist /rss/ resources, as this was not used
   upstream.
@@ -107,16 +106,17 @@
         <status_change date="2015-02-23T04:00:48.967-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="cups is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126263"/>
-      <criterion comment="cups-devel is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126207"/>
-      <criterion comment="cups-libs is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126329"/>
-      <criterion comment="cups-lpd is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126186"/>
-      <criterion comment="cups-php is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126209"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="cups is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126263" />
+      <criterion comment="cups-devel is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126207" />
+      <criterion comment="cups-libs is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126329" />
+      <criterion comment="cups-lpd is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126186" />
+      <criterion comment="cups-php is earlier than 1:1.4.2-67.el6" test_ref="oval:org.mitre.oval:tst:126209" />
     </criteria>
   </criteria>
 </definition>

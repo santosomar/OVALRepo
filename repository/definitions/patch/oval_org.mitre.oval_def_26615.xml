@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26615" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26615" version="4">
   <metadata>
     <title>ELSA-2014-3076 -- bash security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>bash</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-3076.html" ref_id="ELSA-2014-3076"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7169" ref_id="CVE-2014-7169"/>
+    <reference ref_id="ELSA-2014-3076" ref_url="http://linux.oracle.com/errata/ELSA-2014-3076.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-7169" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7169" source="CVE" />
     <description>[4.2.45-5.2.0.1]
 - Preliminary fix for CVE-2014-7169</description>
     <oval_repository>
@@ -20,13 +19,14 @@
         <status_change date="2014-11-17T04:00:39.791-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="bash RPM is earlier than 0:4.2.45-5.el7_0.2.0.1" test_ref="oval:org.mitre.oval:tst:124848"/>
-      <criterion comment="bash-doc RPM is earlier than 0:4.2.45-5.el7_0.2.0.1" test_ref="oval:org.mitre.oval:tst:124737"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="bash RPM is earlier than 0:4.2.45-5.el7_0.2.0.1" test_ref="oval:org.mitre.oval:tst:124848" />
+      <criterion comment="bash-doc RPM is earlier than 0:4.2.45-5.el7_0.2.0.1" test_ref="oval:org.mitre.oval:tst:124737" />
     </criteria>
   </criteria>
 </definition>

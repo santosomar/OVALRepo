@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27350" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27350" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1475 -- postgresql and postgresql84 security update (moderate)</title>
     <affected family="unix">
@@ -8,9 +7,9 @@
       <product>postgresql84</product>
       <product>postgresql</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1475.html" ref_id="ELSA-2013-1475"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0255" ref_id="CVE-2013-0255"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1900" ref_id="CVE-2013-1900"/>
+    <reference ref_id="ELSA-2013-1475" ref_url="http://linux.oracle.com/errata/ELSA-2013-1475.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0255" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0255" source="CVE" />
+    <reference ref_id="CVE-2013-1900" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1900" source="CVE" />
     <description>[8.4.18-1]
 - Update to PostgreSQL 8.4.18, for various fixes described at
   http://www.postgresql.org/docs/8.4/static/release-8-4-14.html
@@ -33,39 +32,40 @@
         <status_change date="2015-02-10T11:38:03.560-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="postgresql84 is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128748"/>
-        <criterion comment="postgresql84-contrib is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128777"/>
-        <criterion comment="postgresql84-devel is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128557"/>
-        <criterion comment="postgresql84-docs is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128375"/>
-        <criterion comment="postgresql84-libs is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128634"/>
-        <criterion comment="postgresql84-plperl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128217"/>
-        <criterion comment="postgresql84-plpython is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128629"/>
-        <criterion comment="postgresql84-pltcl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128760"/>
-        <criterion comment="postgresql84-python is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128798"/>
-        <criterion comment="postgresql84-server is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128620"/>
-        <criterion comment="postgresql84-tcl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128119"/>
-        <criterion comment="postgresql84-test is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128316"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="postgresql84 is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128748" />
+        <criterion comment="postgresql84-contrib is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128777" />
+        <criterion comment="postgresql84-devel is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128557" />
+        <criterion comment="postgresql84-docs is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128375" />
+        <criterion comment="postgresql84-libs is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128634" />
+        <criterion comment="postgresql84-plperl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128217" />
+        <criterion comment="postgresql84-plpython is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128629" />
+        <criterion comment="postgresql84-pltcl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128760" />
+        <criterion comment="postgresql84-python is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128798" />
+        <criterion comment="postgresql84-server is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128620" />
+        <criterion comment="postgresql84-tcl is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128119" />
+        <criterion comment="postgresql84-test is earlier than 0:8.4.18-1.el5_10" test_ref="oval:org.mitre.oval:tst:128316" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="postgresql is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128723"/>
-        <criterion comment="postgresql-contrib is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128726"/>
-        <criterion comment="postgresql-devel is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128528"/>
-        <criterion comment="postgresql-docs is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128650"/>
-        <criterion comment="postgresql-libs is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128735"/>
-        <criterion comment="postgresql-plperl is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128785"/>
-        <criterion comment="postgresql-plpython is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128350"/>
-        <criterion comment="postgresql-pltcl is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128535"/>
-        <criterion comment="postgresql-server is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128684"/>
-        <criterion comment="postgresql-test is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128561"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="postgresql is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128723" />
+        <criterion comment="postgresql-contrib is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128726" />
+        <criterion comment="postgresql-devel is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128528" />
+        <criterion comment="postgresql-docs is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128650" />
+        <criterion comment="postgresql-libs is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128735" />
+        <criterion comment="postgresql-plperl is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128785" />
+        <criterion comment="postgresql-plpython is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128350" />
+        <criterion comment="postgresql-pltcl is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128535" />
+        <criterion comment="postgresql-server is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128684" />
+        <criterion comment="postgresql-test is earlier than 0:8.4.18-1.el6_4" test_ref="oval:org.mitre.oval:tst:128561" />
       </criteria>
     </criteria>
   </criteria>

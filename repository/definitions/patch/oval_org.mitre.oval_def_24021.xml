@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24021" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24021" version="8">
   <metadata>
     <title>ELSA-2013:0884: libtirpc security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libtirpc</product>
     </affected>
-    <reference ref_id="ELSA-2013:0884-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0884.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-1950" ref_url="http://linux.oracle.com/cve/CVE-2013-1950.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0884-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0884.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1950" ref_url="http://linux.oracle.com/cve/CVE-2013-1950.html" source="CVE" />
     <description>The svc_dg_getargs function in libtirpc 0.2.3 and earlier allows remote attackers to cause a denial of service (rpcbind crash) via a Sun RPC request with crafted arguments that trigger a free of an invalid pointer.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-05-26T04:06:05.965-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libtirpc-devel is earlier than 0:0.2.1-6.el6_4" test_ref="oval:org.mitre.oval:tst:112115"/>
-      <criterion comment="libtirpc is earlier than 0:0.2.1-6.el6_4" test_ref="oval:org.mitre.oval:tst:111162"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libtirpc-devel is earlier than 0:0.2.1-6.el6_4" test_ref="oval:org.mitre.oval:tst:112115" />
+      <criterion comment="libtirpc is earlier than 0:0.2.1-6.el6_4" test_ref="oval:org.mitre.oval:tst:111162" />
     </criteria>
   </criteria>
 </definition>

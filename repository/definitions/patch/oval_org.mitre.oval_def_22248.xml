@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22248" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22248" version="8">
   <metadata>
     <title>ELSA-2008:0389: nss_ldap security and bug fix update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>nss_ldap</product>
     </affected>
-    <reference ref_id="ELSA-2008:0389-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0389.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-5794" ref_url="http://linux.oracle.com/cve/CVE-2007-5794.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0389-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0389.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5794" ref_url="http://linux.oracle.com/cve/CVE-2007-5794.html" source="CVE" />
     <description>Race condition in nss_ldap, when used in applications that are linked against the pthread library and fork after a call to nss_ldap, might send user data to the wrong process because of improper handling of the LDAP connection. NOTE: this issue was originally reported for Dovecot with the wrong mailboxes being returned, but other applications might also be affected.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:01:00.882-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="nss_ldap is earlier than 0:253-12.el5" test_ref="oval:org.mitre.oval:tst:101994"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="nss_ldap is earlier than 0:253-12.el5" test_ref="oval:org.mitre.oval:tst:101994" />
   </criteria>
 </definition>

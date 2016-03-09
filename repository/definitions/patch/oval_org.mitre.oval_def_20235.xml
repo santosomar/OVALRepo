@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20235" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20235" version="6">
   <metadata>
     <title>DSA-2016-1 drupal6 - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>drupal6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2016-1" ref_id="DSA-2016-1"/>
+    <reference ref_id="DSA-2016-1" ref_url="http://www.debian.org/security/dsa-2016-1" source="VENDOR" />
     <description>Several vulnerabilities (SA-CORE-2010-001) have been discovered in drupal6, a fully-featured content management framework.</description>
     <oval_repository>
       <dates>
@@ -23,10 +22,11 @@
         <status_change date="2014-06-23T04:07:03.371-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="drupal6 DPKG is earlier than 0:6.6-3lenny5" test_ref="oval:org.mitre.oval:tst:88369"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="drupal6 DPKG is earlier than 0:6.6-3lenny5" test_ref="oval:org.mitre.oval:tst:88369" />
   </criteria>
 </definition>

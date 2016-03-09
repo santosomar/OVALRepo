@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26124" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26124" version="4">
   <metadata>
     <title>SUSE-SU-2013:0669-1 -- Security update for systemtap</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>systemtap</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130669-1.html" ref_id="SUSE-SU-2013:0669-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0875" ref_id="CVE-2012-0875"/>
+    <reference ref_id="SUSE-SU-2013:0669-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130669-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0875" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0875" source="CVE" />
     <description>This collective update for systemtap provides the following
 fixes:
 
@@ -22,7 +21,7 @@ Security Issue reference:
 
     * CVE-2012-0875
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0875
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:38:25">
@@ -33,13 +32,14 @@ Security Issue reference:
         <status_change date="2014-09-08T04:03:52.740-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="systemtap RPM is earlier than 0:1.5-0.9.1" test_ref="oval:org.mitre.oval:tst:120461"/>
-      <criterion comment="systemtap-server RPM is earlier than 0:1.5-0.9.1" test_ref="oval:org.mitre.oval:tst:120492"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="systemtap RPM is earlier than 0:1.5-0.9.1" test_ref="oval:org.mitre.oval:tst:120461" />
+      <criterion comment="systemtap-server RPM is earlier than 0:1.5-0.9.1" test_ref="oval:org.mitre.oval:tst:120492" />
     </criteria>
   </criteria>
 </definition>

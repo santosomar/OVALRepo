@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27436" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27436" version="4">
   <metadata>
     <title>ELSA-2012-0305 -- boost security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>boost</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0305.html" ref_id="ELSA-2012-0305"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0171" ref_id="CVE-2008-0171"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0172" ref_id="CVE-2008-0172"/>
+    <reference ref_id="ELSA-2012-0305" ref_url="http://linux.oracle.com/errata/ELSA-2012-0305.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-0171" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0171" source="CVE" />
+    <reference ref_id="CVE-2008-0172" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0172" source="CVE" />
     <description>[1.33.1-15]
 - Fix bugs in parsing invalid regexps
 - Resolves: #766755
@@ -35,14 +34,15 @@
         <status_change date="2014-12-15T04:01:51.253-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="boost is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132129"/>
-      <criterion comment="boost-devel is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132363"/>
-      <criterion comment="boost-doc is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132442"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="boost is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132129" />
+      <criterion comment="boost-devel is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132363" />
+      <criterion comment="boost-doc is earlier than 0:1.33.1-15.el5" test_ref="oval:org.mitre.oval:tst:132442" />
     </criteria>
   </criteria>
 </definition>

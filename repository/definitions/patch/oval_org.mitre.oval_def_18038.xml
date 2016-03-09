@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18038" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18038" version="8">
   <metadata>
     <title>USN-1784-1 -- libxslt vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>libxslt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1784-1/" ref_id="USN-1784-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6139" ref_id="CVE-2012-6139"/>
+    <reference ref_id="USN-1784-1" ref_url="http://www.ubuntu.com/usn/usn-1784-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-6139" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6139" source="CVE" />
     <description>Applications using libxslt could be made to crash if they processed a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -33,28 +32,29 @@
         <status_change date="2014-07-07T04:00:43.343-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-14ubuntu0.1" test_ref="oval:org.mitre.oval:tst:85694"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-14ubuntu0.1" test_ref="oval:org.mitre.oval:tst:85694" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-8ubuntu1.3" test_ref="oval:org.mitre.oval:tst:85353"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-8ubuntu1.3" test_ref="oval:org.mitre.oval:tst:85353" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-7ubuntu0.2" test_ref="oval:org.mitre.oval:tst:85652"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-7ubuntu0.2" test_ref="oval:org.mitre.oval:tst:85652" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85787"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.26-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85787" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.22-1ubuntu1.4" test_ref="oval:org.mitre.oval:tst:85726"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libxslt1.1 DPKG is earlier than 1.1.22-1ubuntu1.4" test_ref="oval:org.mitre.oval:tst:85726" />
     </criteria>
   </criteria>
 </definition>

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27476" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27476" version="4">
   <metadata>
     <title>ELSA-2013-1353 -- sudo security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1353.html" ref_id="ELSA-2013-1353"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1775" ref_id="CVE-2013-1775"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1776" ref_id="CVE-2013-1776"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2776" ref_id="CVE-2013-2776"/>
+    <reference ref_id="ELSA-2013-1353" ref_url="http://linux.oracle.com/errata/ELSA-2013-1353.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1775" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1775" source="CVE" />
+    <reference ref_id="CVE-2013-1776" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1776" source="CVE" />
+    <reference ref_id="CVE-2013-2776" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2776" source="CVE" />
     <description>[1.7.2p1-28]
 
 - backported fixes for CVE-2013-1775 CVE-2013-1776 CVE-2013-2776 CVE-2013-2777
@@ -25,10 +24,11 @@
         <status_change date="2014-12-15T04:02:01.449-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="sudo is earlier than 0:1.7.2p1-28.el5" test_ref="oval:org.mitre.oval:tst:128985"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="sudo is earlier than 0:1.7.2p1-28.el5" test_ref="oval:org.mitre.oval:tst:128985" />
   </criteria>
 </definition>

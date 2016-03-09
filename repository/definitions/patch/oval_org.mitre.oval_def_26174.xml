@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26174" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26174" version="4">
   <metadata>
     <title>SUSE-SU-2013:0373-1 -- Security update for flash-player</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>SUSE Linux Enterprise Desktop 10</platform>
       <product>flash-player</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130373-1.html" ref_id="SUSE-SU-2013:0373-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0504" ref_id="CVE-2013-0504"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0643" ref_id="CVE-2013-0643"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0648" ref_id="CVE-2013-0648"/>
+    <reference ref_id="SUSE-SU-2013:0373-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130373-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0504" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0504" source="CVE" />
+    <reference ref_id="CVE-2013-0643" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0643" source="CVE" />
+    <reference ref_id="CVE-2013-0648" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0648" source="CVE" />
     <description>flash-player has been updated to 11.2.202.273 security
 update, which fixes  several critical security bugs that
 could have been used by remote  attackers to execute code.
@@ -21,7 +20,7 @@ More information can be found on:
 https://www.adobe.com/support/security/bulletins/apsb13-08.h
 tml
 &lt;https://www.adobe.com/support/security/bulletins/apsb13-08.
-html></description>
+html&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:41:17">
@@ -32,20 +31,21 @@ html></description>
         <status_change date="2014-09-08T04:03:54.602-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Desktop 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="flash-player RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120919"/>
-        <criterion comment="flash-player-gnome RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120179"/>
-        <criterion comment="flash-player-kde4 RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120670"/>
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="flash-player RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120919" />
+        <criterion comment="flash-player-gnome RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120179" />
+        <criterion comment="flash-player-kde4 RPM is earlier than 0:11.2.202.273-0.3.1" test_ref="oval:org.mitre.oval:tst:120670" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Desktop 10 release section">
-      <extend_definition comment="SUSE Linux Enterprise Desktop 10 is installed" definition_ref="oval:org.mitre.oval:def:2106"/>
-      <criterion comment="flash-player RPM is earlier than 0:11.2.202.273-0.5.1" test_ref="oval:org.mitre.oval:tst:120905"/>
+      <extend_definition comment="SUSE Linux Enterprise Desktop 10 is installed" definition_ref="oval:org.mitre.oval:def:2106" />
+      <criterion comment="flash-player RPM is earlier than 0:11.2.202.273-0.5.1" test_ref="oval:org.mitre.oval:tst:120905" />
     </criteria>
   </criteria>
 </definition>

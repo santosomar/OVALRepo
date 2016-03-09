@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27143" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27143" version="4">
   <metadata>
     <title>SUSE-SU-2014:1278-1 -- Security update for kvm</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141278-1.html" ref_id="SUSE-SU-2014:1278-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0223" ref_id="CVE-2014-0223"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3461" ref_id="CVE-2014-3461"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0222" ref_id="CVE-2014-0222"/>
+    <reference ref_id="SUSE-SU-2014:1278-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141278-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0223" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0223" source="CVE" />
+    <reference ref_id="CVE-2014-3461" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3461" source="CVE" />
+    <reference ref_id="CVE-2014-0222" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0222" source="CVE" />
     <description>kvm has been updated to fix issues in the embedded qemu:
     *
       CVE-2014-0223: An integer overflow flaw was found in the QEMU block
@@ -39,11 +38,11 @@ Non-security bugs fixed:
       newer -cpu types (bnc#886535)
 Security Issues:
     * CVE-2014-0222
-      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0222>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0222&gt;
     * CVE-2014-0223
-      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0223>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0223&gt;
     * CVE-2014-3461
-      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3461></description>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3461&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-10-14T11:42:14">
@@ -54,13 +53,14 @@ Security Issues:
         <status_change date="2014-12-01T04:00:57.987-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="kvm RPM is earlier than 0:1.4.2-0.17.1" test_ref="oval:org.mitre.oval:tst:125426"/>
+    <criterion comment="kvm RPM is earlier than 0:1.4.2-0.17.1" test_ref="oval:org.mitre.oval:tst:125426" />
   </criteria>
 </definition>

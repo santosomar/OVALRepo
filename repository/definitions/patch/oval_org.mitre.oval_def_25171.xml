@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25171" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25171" version="8">
   <metadata>
     <title>ELSA-2014:0625: openssl security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>openssl</product>
     </affected>
-    <reference ref_id="ELSA-2014:0625-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0625.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-5298" ref_url="http://linux.oracle.com/cve/CVE-2010-5298.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0195" ref_url="http://linux.oracle.com/cve/CVE-2014-0195.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0198" ref_url="http://linux.oracle.com/cve/CVE-2014-0198.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0221" ref_url="http://linux.oracle.com/cve/CVE-2014-0221.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0224" ref_url="http://linux.oracle.com/cve/CVE-2014-0224.html" source="CVE"/>
-    <reference ref_id="CVE-2014-3470" ref_url="http://linux.oracle.com/cve/CVE-2014-3470.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0625-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0625.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-5298" ref_url="http://linux.oracle.com/cve/CVE-2010-5298.html" source="CVE" />
+    <reference ref_id="CVE-2014-0195" ref_url="http://linux.oracle.com/cve/CVE-2014-0195.html" source="CVE" />
+    <reference ref_id="CVE-2014-0198" ref_url="http://linux.oracle.com/cve/CVE-2014-0198.html" source="CVE" />
+    <reference ref_id="CVE-2014-0221" ref_url="http://linux.oracle.com/cve/CVE-2014-0221.html" source="CVE" />
+    <reference ref_id="CVE-2014-0224" ref_url="http://linux.oracle.com/cve/CVE-2014-0224.html" source="CVE" />
+    <reference ref_id="CVE-2014-3470" ref_url="http://linux.oracle.com/cve/CVE-2014-3470.html" source="CVE" />
     <description>OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)
 and Transport Layer Security (TLS v1) protocols, as well as a
 full-strength, general purpose cryptography library.
@@ -62,15 +61,16 @@ SSL-enabled services) must be restarted or the system rebooted.</description>
         <status_change date="2014-09-01T04:03:01.419-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115360"/>
-      <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115340"/>
-      <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115474"/>
-      <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115376"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115360" />
+      <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115340" />
+      <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115474" />
+      <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.14" test_ref="oval:org.mitre.oval:tst:115376" />
     </criteria>
   </criteria>
 </definition>

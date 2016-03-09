@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25284" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25284" version="4">
   <metadata>
     <title>SUSE-SU-2014:0631-1 -- Security update for pam</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>pam</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140631-1.html" ref_id="SUSE-SU-2014:0631-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2583" ref_id="CVE-2014-2583"/>
+    <reference ref_id="SUSE-SU-2014:0631-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140631-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2583" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2583" source="CVE" />
     <description>This update changes the broken default behavior of
 pam_pwhistory to not  enforce checks when the root user
 requests password changes. In order to  enforce pwhistory
@@ -32,17 +31,18 @@ enforcement when resetting non-root user's password</description>
         <status_change date="2014-09-08T04:01:34.661-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="pam RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116733"/>
-      <criterion comment="pam-doc RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116732"/>
-      <criterion comment="pam-32bit RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116680"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="pam RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116733" />
+      <criterion comment="pam-doc RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116732" />
+      <criterion comment="pam-32bit RPM is earlier than 0:1.1.5-0.12.1" test_ref="oval:org.mitre.oval:tst:116680" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28626" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:28626" version="4">
   <metadata>
     <title>Splunk is installed</title>
     <affected family="windows">
@@ -15,7 +14,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>Splunk</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:splunk:splunk"/>
+    <reference ref_id="cpe:/a:splunk:splunk" source="CPE" />
     <description>Splunk is installed</description>
     <oval_repository>
       <dates>
@@ -27,9 +26,10 @@
         <status_change date="2015-05-04T04:00:17.918-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Splunk is installed" test_ref="oval:org.mitre.oval:tst:138093"/>
+    <criterion comment="Splunk is installed" test_ref="oval:org.mitre.oval:tst:138093" />
   </criteria>
 </definition>

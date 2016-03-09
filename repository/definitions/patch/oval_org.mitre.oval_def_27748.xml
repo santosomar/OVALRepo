@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27748" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27748" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0162 -- openssl security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0162.html" ref_id="ELSA-2010-0162"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0433" ref_id="CVE-2010-0433"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3245" ref_id="CVE-2009-3245"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555" ref_id="CVE-2009-3555"/>
+    <reference ref_id="ELSA-2010-0162" ref_url="http://linux.oracle.com/errata/ELSA-2010-0162.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0433" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0433" source="CVE" />
+    <reference ref_id="CVE-2009-3245" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3245" source="CVE" />
+    <reference ref_id="CVE-2009-3555" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555" source="CVE" />
     <description>[0.9.8e-12.6]
 - fix CVE-2009-3245 - add missing bn_wexpand return checks (#570924)
 
@@ -42,14 +41,15 @@
         <status_change date="2015-02-10T19:24:25.951-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openssl is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:134773"/>
-      <criterion comment="openssl-devel is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:135228"/>
-      <criterion comment="openssl-perl is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:135263"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openssl is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:134773" />
+      <criterion comment="openssl-devel is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:135228" />
+      <criterion comment="openssl-perl is earlier than 0:0.9.8e-12.el5_4.6" test_ref="oval:org.mitre.oval:tst:135263" />
     </criteria>
   </criteria>
 </definition>

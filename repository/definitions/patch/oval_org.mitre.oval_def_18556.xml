@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18556" version="8" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18556" version="9">
   <metadata>
     <title>DSA-2695-1 chromium-browser - several</title>
     <affected family="unix">
@@ -7,20 +6,20 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>chromium-browser</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2695-1" ref_id="DSA-2695-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2837" ref_id="CVE-2013-2837"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2838" ref_id="CVE-2013-2838"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2839" ref_id="CVE-2013-2839"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2840" ref_id="CVE-2013-2840"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2841" ref_id="CVE-2013-2841"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2842" ref_id="CVE-2013-2842"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2843" ref_id="CVE-2013-2843"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2844" ref_id="CVE-2013-2844"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2845" ref_id="CVE-2013-2845"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2846" ref_id="CVE-2013-2846"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2847" ref_id="CVE-2013-2847"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2848" ref_id="CVE-2013-2848"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2849" ref_id="CVE-2013-2849"/>
+    <reference ref_id="DSA-2695-1" ref_url="http://www.debian.org/security/dsa-2695-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-2837" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2837" source="CVE" />
+    <reference ref_id="CVE-2013-2838" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2838" source="CVE" />
+    <reference ref_id="CVE-2013-2839" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2839" source="CVE" />
+    <reference ref_id="CVE-2013-2840" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2840" source="CVE" />
+    <reference ref_id="CVE-2013-2841" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2841" source="CVE" />
+    <reference ref_id="CVE-2013-2842" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2842" source="CVE" />
+    <reference ref_id="CVE-2013-2843" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2843" source="CVE" />
+    <reference ref_id="CVE-2013-2844" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2844" source="CVE" />
+    <reference ref_id="CVE-2013-2845" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2845" source="CVE" />
+    <reference ref_id="CVE-2013-2846" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2846" source="CVE" />
+    <reference ref_id="CVE-2013-2847" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2847" source="CVE" />
+    <reference ref_id="CVE-2013-2848" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2848" source="CVE" />
+    <reference ref_id="CVE-2013-2849" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2849" source="CVE" />
     <description>Several vulnerabilities have been discovered in the Chromium web browser. Multiple use-after-free, out-of-bounds read, memory safety, and cross-site scripting issues were discovered and corrected.</description>
     <oval_repository>
       <dates>
@@ -45,14 +44,15 @@
         <status_change date="2014-06-23T04:04:51.350-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="chromium-browser DPKG is earlier than 27.0.1453.93-1~deb7u1" test_ref="oval:org.mitre.oval:tst:85848"/>
+    <criterion comment="chromium-browser DPKG is earlier than 27.0.1453.93-1~deb7u1" test_ref="oval:org.mitre.oval:tst:85848" />
   </criteria>
 </definition>

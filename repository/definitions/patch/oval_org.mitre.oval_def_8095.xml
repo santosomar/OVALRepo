@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8095" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8095" version="6">
   <metadata>
     <title>DSA-1601 wordpress -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>wordpress</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1601" ref_id="DSA-1601"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1599" ref_id="CVE-2007-1599"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0664" ref_id="CVE-2008-0664"/>
+    <reference ref_id="DSA-1601" ref_url="http://www.debian.org/security/2008/dsa-1601" source="VENDOR" />
+    <reference ref_id="CVE-2007-1599" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1599" source="CVE" />
+    <reference ref_id="CVE-2008-0664" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0664" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in Wordpress, the weblog manager. The Common Vulnerabilities and Exposures project identifies the following problems: WordPress allows remote attackers to redirect authenticated users to other websites and potentially obtain sensitive information. The XML-RPC implementation, when registration is enabled, allows remote attackers to edit posts of other blog users.</description>
     <oval_repository>
       <dates>
@@ -25,11 +24,12 @@
         <status_change date="2014-06-23T04:10:02.071-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="wordpress is earlier than 2.0.10-1etch3" test_ref="oval:org.mitre.oval:tst:18748"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="wordpress is earlier than 2.0.10-1etch3" test_ref="oval:org.mitre.oval:tst:18748" />
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23233" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23233" version="8">
   <metadata>
     <title>ELSA-2012:0310: nfs-utils security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>nfs-utils</product>
     </affected>
-    <reference ref_id="ELSA-2012:0310-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0310.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1749" ref_url="http://linux.oracle.com/cve/CVE-2011-1749.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0310-03" ref_url="http://linux.oracle.com/errata/ELSA-2012-0310.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1749" ref_url="http://linux.oracle.com/cve/CVE-2011-1749.html" source="CVE" />
     <description>The nfs_addmntent function in support/nfs/nfs_mntent.c in the mount.nsf tool in nfs-utils before 1.2.4 attempts to append to the /etc/mtab file without first checking whether resource limits would interfere, which allows local users to corrupt this file via a process with a small RLIMIT_FSIZE value, a related issue to CVE-2011-1089.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:03:48.661-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="nfs-utils is earlier than 1:1.0.9-60.el5" test_ref="oval:org.mitre.oval:tst:105568"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="nfs-utils is earlier than 1:1.0.9-60.el5" test_ref="oval:org.mitre.oval:tst:105568" />
   </criteria>
 </definition>

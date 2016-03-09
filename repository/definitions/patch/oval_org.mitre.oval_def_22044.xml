@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22044" version="41" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22044" version="43">
   <metadata>
     <title>ELSA-2008:0976: thunderbird security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>thunderbird</product>
     </affected>
-    <reference ref_id="ELSA-2008:0976-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0976.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-5014" ref_url="http://linux.oracle.com/cve/CVE-2008-5014.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5016" ref_url="http://linux.oracle.com/cve/CVE-2008-5016.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5017" ref_url="http://linux.oracle.com/cve/CVE-2008-5017.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5018" ref_url="http://linux.oracle.com/cve/CVE-2008-5018.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5021" ref_url="http://linux.oracle.com/cve/CVE-2008-5021.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5012" ref_url="http://linux.oracle.com/cve/CVE-2008-5012.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5022" ref_url="http://linux.oracle.com/cve/CVE-2008-5022.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5024" ref_url="http://linux.oracle.com/cve/CVE-2008-5024.html" source="CVE"/>
-    <reference ref_id="CVE-2008-5052" ref_url="http://linux.oracle.com/cve/CVE-2008-5052.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0976-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0976.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-5014" ref_url="http://linux.oracle.com/cve/CVE-2008-5014.html" source="CVE" />
+    <reference ref_id="CVE-2008-5016" ref_url="http://linux.oracle.com/cve/CVE-2008-5016.html" source="CVE" />
+    <reference ref_id="CVE-2008-5017" ref_url="http://linux.oracle.com/cve/CVE-2008-5017.html" source="CVE" />
+    <reference ref_id="CVE-2008-5018" ref_url="http://linux.oracle.com/cve/CVE-2008-5018.html" source="CVE" />
+    <reference ref_id="CVE-2008-5021" ref_url="http://linux.oracle.com/cve/CVE-2008-5021.html" source="CVE" />
+    <reference ref_id="CVE-2008-5012" ref_url="http://linux.oracle.com/cve/CVE-2008-5012.html" source="CVE" />
+    <reference ref_id="CVE-2008-5022" ref_url="http://linux.oracle.com/cve/CVE-2008-5022.html" source="CVE" />
+    <reference ref_id="CVE-2008-5024" ref_url="http://linux.oracle.com/cve/CVE-2008-5024.html" source="CVE" />
+    <reference ref_id="CVE-2008-5052" ref_url="http://linux.oracle.com/cve/CVE-2008-5052.html" source="CVE" />
     <description>The AppendAttributeValue function in the JavaScript engine in Mozilla Firefox 2.x before 2.0.0.18, Thunderbird 2.x before 2.0.0.18, and SeaMonkey 1.x before 1.1.13 allows remote attackers to cause a denial of service (crash) via unknown vectors that trigger memory corruption, as demonstrated by e4x/extensions/regress-410192.js.</description>
     <oval_repository>
       <dates>
@@ -32,10 +31,11 @@
         <status_change date="2014-05-26T04:00:51.425-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="thunderbird is earlier than 0:2.0.0.18-1.el5" test_ref="oval:org.mitre.oval:tst:101993"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="thunderbird is earlier than 0:2.0.0.18-1.el5" test_ref="oval:org.mitre.oval:tst:101993" />
   </criteria>
 </definition>

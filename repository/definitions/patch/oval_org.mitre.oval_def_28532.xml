@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28532" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28532" version="4">
   <metadata>
     <title>RHSA-2014:2021 -- jasper security update (Important)</title>
     <affected family="unix">
@@ -9,12 +8,12 @@
       <platform>CentOS Linux 7</platform>
       <product>jasper</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-2021.html" ref_id="RHSA-2014:2021"/>
-    <reference source="CESA-2014:2021-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020847.html" ref_id="CESA-2014:2021-CentOS 6"/>
-    <reference source="CESA-2014:2021-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020848.html" ref_id="CESA-2014:2021-CentOS 7"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8137" ref_id="CVE-2014-8137"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8138" ref_id="CVE-2014-8138"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9029" ref_id="CVE-2014-9029"/>
+    <reference ref_id="RHSA-2014:2021" ref_url="https://rhn.redhat.com/errata/RHSA-2014-2021.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:2021-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020847.html" source="CESA-2014:2021-CentOS 6" />
+    <reference ref_id="CESA-2014:2021-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020848.html" source="CESA-2014:2021-CentOS 7" />
+    <reference ref_id="CVE-2014-8137" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8137" source="CVE" />
+    <reference ref_id="CVE-2014-8138" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8138" source="CVE" />
+    <reference ref_id="CVE-2014-9029" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9029" source="CVE" />
     <description>JasPer is an implementation of Part 1 of the JPEG 2000 image compression
 standard.
 
@@ -48,40 +47,41 @@ the JasPer libraries must be restarted for the update to take effect.</descripti
         <status_change date="2015-02-23T04:01:26.519-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="jasper is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137205"/>
-        <criterion comment="jasper-devel is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137282"/>
-        <criterion comment="jasper-libs is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137294"/>
-        <criterion comment="jasper-utils is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:136997"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="jasper is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137205" />
+        <criterion comment="jasper-devel is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137282" />
+        <criterion comment="jasper-libs is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137294" />
+        <criterion comment="jasper-utils is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:136997" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="jasper-debuginfo is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137323"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="jasper-debuginfo is earlier than 0:1.900.1-16.el6_6.2" test_ref="oval:org.mitre.oval:tst:137323" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 and CentOS Linux 7 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="jasper is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137067"/>
-        <criterion comment="jasper-devel is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:136928"/>
-        <criterion comment="jasper-libs is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137333"/>
-        <criterion comment="jasper-utils is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137388"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="jasper is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137067" />
+        <criterion comment="jasper-devel is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:136928" />
+        <criterion comment="jasper-libs is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137333" />
+        <criterion comment="jasper-utils is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137388" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criterion comment="jasper-debuginfo is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137351"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criterion comment="jasper-debuginfo is earlier than 0:1.900.1-26.el7_0.2" test_ref="oval:org.mitre.oval:tst:137351" />
     </criteria>
   </criteria>
 </definition>

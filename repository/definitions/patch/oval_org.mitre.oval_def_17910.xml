@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17910" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17910" version="6">
   <metadata>
     <title>USN-1504-1 -- qt4-x11 vulnerabilities</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Ubuntu 10.04</platform>
       <product>qt4-x11</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1504-1/" ref_id="USN-1504-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5076" ref_id="CVE-2010-5076"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3193" ref_id="CVE-2011-3193"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3194" ref_id="CVE-2011-3194"/>
+    <reference ref_id="USN-1504-1" ref_url="http://www.ubuntu.com/usn/usn-1504-1/" source="VENDOR" />
+    <reference ref_id="CVE-2010-5076" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5076" source="CVE" />
+    <reference ref_id="CVE-2011-3193" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3193" source="CVE" />
+    <reference ref_id="CVE-2011-3194" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3194" source="CVE" />
     <description>Qt Applications could be made to crash or run programs as your login if they opened specially crafted files.</description>
     <oval_repository>
       <dates>
@@ -27,21 +26,22 @@
         <status_change date="2014-06-30T04:07:43.773-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libqt4-network DPKG is earlier than 4:4.7.2-0ubuntu6.4" test_ref="oval:org.mitre.oval:tst:84234"/>
-        <criterion comment="libqtgui4 DPKG is earlier than 4:4.7.2-0ubuntu6.4" test_ref="oval:org.mitre.oval:tst:84029"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libqt4-network DPKG is earlier than 4:4.7.2-0ubuntu6.4" test_ref="oval:org.mitre.oval:tst:84234" />
+        <criterion comment="libqtgui4 DPKG is earlier than 4:4.7.2-0ubuntu6.4" test_ref="oval:org.mitre.oval:tst:84029" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libqt4-network DPKG is earlier than 4:4.6.2-0ubuntu5.4" test_ref="oval:org.mitre.oval:tst:84445"/>
-        <criterion comment="libqtgui4 DPKG is earlier than 4:4.6.2-0ubuntu5.4" test_ref="oval:org.mitre.oval:tst:84321"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libqt4-network DPKG is earlier than 4:4.6.2-0ubuntu5.4" test_ref="oval:org.mitre.oval:tst:84445" />
+        <criterion comment="libqtgui4 DPKG is earlier than 4:4.6.2-0ubuntu5.4" test_ref="oval:org.mitre.oval:tst:84321" />
       </criteria>
     </criteria>
   </criteria>

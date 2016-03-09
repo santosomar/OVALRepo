@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17819" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17819" version="8">
   <metadata>
     <title>USN-1509-2 -- ubufox update</title>
     <affected family="unix">
@@ -9,26 +8,26 @@
       <platform>Ubuntu 10.04</platform>
       <product>ubufox</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1509-2/" ref_id="USN-1509-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1948" ref_id="CVE-2012-1948"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1949" ref_id="CVE-2012-1949"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1950" ref_id="CVE-2012-1950"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1951" ref_id="CVE-2012-1951"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1952" ref_id="CVE-2012-1952"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1953" ref_id="CVE-2012-1953"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1954" ref_id="CVE-2012-1954"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1955" ref_id="CVE-2012-1955"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1957" ref_id="CVE-2012-1957"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1958" ref_id="CVE-2012-1958"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1959" ref_id="CVE-2012-1959"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1960" ref_id="CVE-2012-1960"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1961" ref_id="CVE-2012-1961"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1962" ref_id="CVE-2012-1962"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1963" ref_id="CVE-2012-1963"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1964" ref_id="CVE-2012-1964"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1965" ref_id="CVE-2012-1965"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1966" ref_id="CVE-2012-1966"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1967" ref_id="CVE-2012-1967"/>
+    <reference ref_id="USN-1509-2" ref_url="http://www.ubuntu.com/usn/usn-1509-2/" source="VENDOR" />
+    <reference ref_id="CVE-2012-1948" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1948" source="CVE" />
+    <reference ref_id="CVE-2012-1949" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1949" source="CVE" />
+    <reference ref_id="CVE-2012-1950" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1950" source="CVE" />
+    <reference ref_id="CVE-2012-1951" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1951" source="CVE" />
+    <reference ref_id="CVE-2012-1952" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1952" source="CVE" />
+    <reference ref_id="CVE-2012-1953" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1953" source="CVE" />
+    <reference ref_id="CVE-2012-1954" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1954" source="CVE" />
+    <reference ref_id="CVE-2012-1955" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1955" source="CVE" />
+    <reference ref_id="CVE-2012-1957" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1957" source="CVE" />
+    <reference ref_id="CVE-2012-1958" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1958" source="CVE" />
+    <reference ref_id="CVE-2012-1959" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1959" source="CVE" />
+    <reference ref_id="CVE-2012-1960" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1960" source="CVE" />
+    <reference ref_id="CVE-2012-1961" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1961" source="CVE" />
+    <reference ref_id="CVE-2012-1962" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1962" source="CVE" />
+    <reference ref_id="CVE-2012-1963" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1963" source="CVE" />
+    <reference ref_id="CVE-2012-1964" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1964" source="CVE" />
+    <reference ref_id="CVE-2012-1965" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1965" source="CVE" />
+    <reference ref_id="CVE-2012-1966" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1966" source="CVE" />
+    <reference ref_id="CVE-2012-1967" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1967" source="CVE" />
     <description>This update provides compatible ubufox packages for the latest Firefox.</description>
     <oval_repository>
       <dates>
@@ -50,35 +49,36 @@
         <status_change date="2014-06-30T04:07:28.681-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84313"/>
-        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:83793"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:84313" />
+        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:83793" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84520"/>
-        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:83966"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:84520" />
+        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:83966" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:84301"/>
-        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:84323"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:84301" />
+        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:84323" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:83768"/>
-        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:84501"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="ubufox DPKG is earlier than 2.1.1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:83768" />
+        <criterion comment="xul-ext-ubufox DPKG is earlier than 2.1.1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:84501" />
       </criteria>
     </criteria>
   </criteria>

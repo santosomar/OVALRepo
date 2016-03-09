@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24306" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24306" version="10">
   <metadata>
     <title>ELSA-2014:0305: samba security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>samba</product>
     </affected>
-    <reference ref_id="ELSA-2014:0305-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0305.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-0213" ref_url="http://linux.oracle.com/cve/CVE-2013-0213.html" source="CVE"/>
-    <reference ref_id="CVE-2013-0214" ref_url="http://linux.oracle.com/cve/CVE-2013-0214.html" source="CVE"/>
-    <reference ref_id="CVE-2013-4124" ref_url="http://linux.oracle.com/cve/CVE-2013-4124.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0305-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0305.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0213" ref_url="http://linux.oracle.com/cve/CVE-2013-0213.html" source="CVE" />
+    <reference ref_id="CVE-2013-0214" ref_url="http://linux.oracle.com/cve/CVE-2013-0214.html" source="CVE" />
+    <reference ref_id="CVE-2013-4124" ref_url="http://linux.oracle.com/cve/CVE-2013-4124.html" source="CVE" />
     <description>Samba is an open-source implementation of the Server Message Block (SMB) or
 Common Internet File System (CIFS) protocol, which allows PC-compatible
 machines to share files, printers, and other information.
@@ -47,17 +46,18 @@ update, the smb service will be restarted automatically.</description>
         <status_change date="2014-05-26T04:06:22.447-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="samba-swat is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113533"/>
-      <criterion comment="libsmbclient-devel is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113159"/>
-      <criterion comment="libsmbclient is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113458"/>
-      <criterion comment="samba-client is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:112674"/>
-      <criterion comment="samba is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113347"/>
-      <criterion comment="samba-common is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113269"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="samba-swat is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113533" />
+      <criterion comment="libsmbclient-devel is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113159" />
+      <criterion comment="libsmbclient is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113458" />
+      <criterion comment="samba-client is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:112674" />
+      <criterion comment="samba is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113347" />
+      <criterion comment="samba-common is earlier than 0:3.0.33-3.40.el5_10" test_ref="oval:org.mitre.oval:tst:113269" />
     </criteria>
   </criteria>
 </definition>

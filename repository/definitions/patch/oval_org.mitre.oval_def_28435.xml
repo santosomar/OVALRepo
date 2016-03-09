@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28435" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28435" version="4">
   <metadata>
     <title>RHSA-2014:1870 -- libXfont security update (Important)</title>
     <affected family="unix">
@@ -9,12 +8,12 @@
       <platform>CentOS Linux 7</platform>
       <product>libXfont</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1870.html" ref_id="RHSA-2014:1870"/>
-    <reference source="CESA-2014:1870-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020768.html" ref_id="CESA-2014:1870-CentOS 6"/>
-    <reference source="CESA-2014:1870-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020769.html" ref_id="CESA-2014:1870-CentOS 7"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0209" ref_id="CVE-2014-0209"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0210" ref_id="CVE-2014-0210"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0211" ref_id="CVE-2014-0211"/>
+    <reference ref_id="RHSA-2014:1870" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1870.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1870-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020768.html" source="CESA-2014:1870-CentOS 6" />
+    <reference ref_id="CESA-2014:1870-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020769.html" source="CESA-2014:1870-CentOS 7" />
+    <reference ref_id="CVE-2014-0209" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0209" source="CVE" />
+    <reference ref_id="CVE-2014-0210" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0210" source="CVE" />
+    <reference ref_id="CVE-2014-0211" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0211" source="CVE" />
     <description>The libXfont packages provide the X.Org libXfont runtime library. X.Org is
 an open source implementation of the X Window System.
 
@@ -44,36 +43,37 @@ must be restarted for the update to take effect.</description>
         <status_change date="2015-01-26T04:00:44.441-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libXfont is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:136177"/>
-        <criterion comment="libXfont-devel is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:136081"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libXfont is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:136177" />
+        <criterion comment="libXfont-devel is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:136081" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="libXfont-debuginfo is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:135927"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="libXfont-debuginfo is earlier than 0:1.4.5-4.el6_6" test_ref="oval:org.mitre.oval:tst:135927" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 and CentOS Linux 7 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libXfont is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:136011"/>
-        <criterion comment="libXfont-devel is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:136003"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libXfont is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:136011" />
+        <criterion comment="libXfont-devel is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:136003" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criterion comment="libXfont-debuginfo is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:135699"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criterion comment="libXfont-debuginfo is earlier than 0:1.4.7-2.el7_0" test_ref="oval:org.mitre.oval:tst:135699" />
     </criteria>
   </criteria>
 </definition>

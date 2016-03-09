@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27773" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27773" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0810 -- busybox security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>busybox</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0810.html" ref_id="ELSA-2012-0810"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2716" ref_id="CVE-2011-2716"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1168" ref_id="CVE-2006-1168"/>
+    <reference ref_id="ELSA-2012-0810" ref_url="http://linux.oracle.com/errata/ELSA-2012-0810.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2716" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2716" source="CVE" />
+    <reference ref_id="CVE-2006-1168" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1168" source="CVE" />
     <description>[1:1.15.1-15]
 - Fix btrfs support to findfs and related applets
 - Resolves: #751927
@@ -41,13 +40,14 @@
         <status_change date="2015-02-10T17:00:27.217-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="busybox is earlier than 0:1.15.1-15.el6" test_ref="oval:org.mitre.oval:tst:131330"/>
-      <criterion comment="busybox-petitboot is earlier than 0:1.15.1-15.el6" test_ref="oval:org.mitre.oval:tst:131025"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="busybox is earlier than 0:1.15.1-15.el6" test_ref="oval:org.mitre.oval:tst:131330" />
+      <criterion comment="busybox-petitboot is earlier than 0:1.15.1-15.el6" test_ref="oval:org.mitre.oval:tst:131025" />
     </criteria>
   </criteria>
 </definition>

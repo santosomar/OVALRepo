@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25177" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25177" version="6">
   <metadata>
     <title>SUSE-SU-2014:0638-1 -- Security update for Mozilla Firefox</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>Mozilla Firefox</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140638-1.html" ref_id="SUSE-SU-2014:0638-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1518" ref_id="CVE-2014-1518"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1523" ref_id="CVE-2014-1523"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1524" ref_id="CVE-2014-1524"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1529" ref_id="CVE-2014-1529"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1530" ref_id="CVE-2014-1530"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1531" ref_id="CVE-2014-1531"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1532" ref_id="CVE-2014-1532"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1492" ref_id="CVE-2014-1492"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1520" ref_id="CVE-2014-1520"/>
+    <reference ref_id="SUSE-SU-2014:0638-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140638-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-1518" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1518" source="CVE" />
+    <reference ref_id="CVE-2014-1523" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1523" source="CVE" />
+    <reference ref_id="CVE-2014-1524" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1524" source="CVE" />
+    <reference ref_id="CVE-2014-1529" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1529" source="CVE" />
+    <reference ref_id="CVE-2014-1530" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1530" source="CVE" />
+    <reference ref_id="CVE-2014-1531" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1531" source="CVE" />
+    <reference ref_id="CVE-2014-1532" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1532" source="CVE" />
+    <reference ref_id="CVE-2014-1492" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1492" source="CVE" />
+    <reference ref_id="CVE-2014-1520" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1520" source="CVE" />
     <description>This Mozilla Firefox and Mozilla NSS update to 24.5.0esr fixes the
 following several security and non-security issues:
 
@@ -55,26 +54,27 @@ name. See the last bullet point in RFC 6125, Section 7.2.
         <status_change date="2015-03-16T04:00:25.641-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="MozillaFirefox RPM is earlier than 0:24.5.0esr-0.8.1" test_ref="oval:org.mitre.oval:tst:116716"/>
-      <criterion comment="MozillaFirefox-branding-SLED RPM is earlier than 0:24-0.7.36" test_ref="oval:org.mitre.oval:tst:116567"/>
-      <criterion comment="MozillaFirefox-translations RPM is earlier than 0:24.5.0esr-0.8.1" test_ref="oval:org.mitre.oval:tst:116449"/>
-      <criterion comment="libfreebl3 RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116209"/>
-      <criterion comment="libsoftokn3 RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116241"/>
-      <criterion comment="mozilla-nspr RPM is earlier than 0:4.10.4-0.3.1" test_ref="oval:org.mitre.oval:tst:116689"/>
-      <criterion comment="mozilla-nss RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116605"/>
-      <criterion comment="mozilla-nss-tools RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116643"/>
-      <criterion comment="libfreebl3-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116406"/>
-      <criterion comment="libsoftokn3-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116724"/>
-      <criterion comment="mozilla-nspr-32bit RPM is earlier than 0:4.10.4-0.3.1" test_ref="oval:org.mitre.oval:tst:116621"/>
-      <criterion comment="mozilla-nss-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116736"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="MozillaFirefox RPM is earlier than 0:24.5.0esr-0.8.1" test_ref="oval:org.mitre.oval:tst:116716" />
+      <criterion comment="MozillaFirefox-branding-SLED RPM is earlier than 0:24-0.7.36" test_ref="oval:org.mitre.oval:tst:116567" />
+      <criterion comment="MozillaFirefox-translations RPM is earlier than 0:24.5.0esr-0.8.1" test_ref="oval:org.mitre.oval:tst:116449" />
+      <criterion comment="libfreebl3 RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116209" />
+      <criterion comment="libsoftokn3 RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116241" />
+      <criterion comment="mozilla-nspr RPM is earlier than 0:4.10.4-0.3.1" test_ref="oval:org.mitre.oval:tst:116689" />
+      <criterion comment="mozilla-nss RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116605" />
+      <criterion comment="mozilla-nss-tools RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116643" />
+      <criterion comment="libfreebl3-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116406" />
+      <criterion comment="libsoftokn3-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116724" />
+      <criterion comment="mozilla-nspr-32bit RPM is earlier than 0:4.10.4-0.3.1" test_ref="oval:org.mitre.oval:tst:116621" />
+      <criterion comment="mozilla-nss-32bit RPM is earlier than 0:3.16-0.8.1" test_ref="oval:org.mitre.oval:tst:116736" />
     </criteria>
   </criteria>
 </definition>

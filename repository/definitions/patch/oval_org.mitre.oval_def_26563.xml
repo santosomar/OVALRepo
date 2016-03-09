@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26563" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26563" version="4">
   <metadata>
     <title>SUSE-RU-2014:1101-1 -- Recommended update for SLE Virtualization Tools</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>SLE Virtualization Tools</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20141101-1.html" ref_id="SUSE-RU-2014:1101-1"/>
+    <reference ref_id="SUSE-RU-2014:1101-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20141101-1.html" source="VENDOR" />
     <description>This collective update provides fixes and enhancements for SLE
 Virtualization Tools.
 
@@ -48,29 +47,30 @@ vm-install:
         <status_change date="2014-11-10T04:01:32.423-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124385"/>
-        <criterion comment="libvirt-client RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124285"/>
-        <criterion comment="libvirt-doc RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124202"/>
-        <criterion comment="libvirt-python RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124344"/>
-        <criterion comment="libvirt-client-32bit RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124307"/>
-        <criterion comment="virt-manager RPM is earlier than 0:0.9.4-0.23.1" test_ref="oval:org.mitre.oval:tst:124249"/>
-        <criterion comment="vm-install RPM is earlier than 0:0.6.29-0.7.2" test_ref="oval:org.mitre.oval:tst:124351"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124385" />
+        <criterion comment="libvirt-client RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124285" />
+        <criterion comment="libvirt-doc RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124202" />
+        <criterion comment="libvirt-python RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124344" />
+        <criterion comment="libvirt-client-32bit RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124307" />
+        <criterion comment="virt-manager RPM is earlier than 0:0.9.4-0.23.1" test_ref="oval:org.mitre.oval:tst:124249" />
+        <criterion comment="vm-install RPM is earlier than 0:0.6.29-0.7.2" test_ref="oval:org.mitre.oval:tst:124351" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-lock-sanlock RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124334"/>
-        <criterion comment="perl-Sys-Virt RPM is earlier than 0:1.0.5-0.7.2" test_ref="oval:org.mitre.oval:tst:124364"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-lock-sanlock RPM is earlier than 0:1.0.5.9-0.11.2" test_ref="oval:org.mitre.oval:tst:124334" />
+        <criterion comment="perl-Sys-Virt RPM is earlier than 0:1.0.5-0.7.2" test_ref="oval:org.mitre.oval:tst:124364" />
       </criteria>
     </criteria>
   </criteria>

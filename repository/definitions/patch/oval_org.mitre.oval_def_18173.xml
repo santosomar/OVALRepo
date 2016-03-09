@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18173" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18173" version="8">
   <metadata>
     <title>DSA-2507-1 openjdk-6 - several</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>openjdk-6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2507-1" ref_id="DSA-2507-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1711" ref_id="CVE-2012-1711"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1713" ref_id="CVE-2012-1713"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1716" ref_id="CVE-2012-1716"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1717" ref_id="CVE-2012-1717"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1718" ref_id="CVE-2012-1718"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1719" ref_id="CVE-2012-1719"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1723" ref_id="CVE-2012-1723"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1724" ref_id="CVE-2012-1724"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1725" ref_id="CVE-2012-1725"/>
+    <reference ref_id="DSA-2507-1" ref_url="http://www.debian.org/security/dsa-2507-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-1711" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1711" source="CVE" />
+    <reference ref_id="CVE-2012-1713" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1713" source="CVE" />
+    <reference ref_id="CVE-2012-1716" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1716" source="CVE" />
+    <reference ref_id="CVE-2012-1717" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1717" source="CVE" />
+    <reference ref_id="CVE-2012-1718" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1718" source="CVE" />
+    <reference ref_id="CVE-2012-1719" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1719" source="CVE" />
+    <reference ref_id="CVE-2012-1723" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1723" source="CVE" />
+    <reference ref_id="CVE-2012-1724" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1724" source="CVE" />
+    <reference ref_id="CVE-2012-1725" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1725" source="CVE" />
     <description>Several vulnerabilities have been discovered in OpenJDK, an implementation of the Oracle Java platform.</description>
     <oval_repository>
       <dates>
@@ -38,14 +37,15 @@
         <status_change date="2014-06-23T04:04:07.894-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="openjdk-6 DPKG is earlier than 6b18-1.8.13-0+squeeze2" test_ref="oval:org.mitre.oval:tst:86378"/>
+    <criterion comment="openjdk-6 DPKG is earlier than 6b18-1.8.13-0+squeeze2" test_ref="oval:org.mitre.oval:tst:86378" />
   </criteria>
 </definition>

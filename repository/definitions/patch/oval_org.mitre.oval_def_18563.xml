@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18563" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18563" version="8">
   <metadata>
     <title>DSA-2499-1 icedove - several</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>icedove</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2499-1" ref_id="DSA-2499-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1937" ref_id="CVE-2012-1937"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1939" ref_id="CVE-2012-1939"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1940" ref_id="CVE-2012-1940"/>
-    <description><![CDATA[Several vulnerabilities have been discovered in Icedove, the Debian version of the Mozilla Thunderbird mail/news client. There were miscellaneous memory safety hazards (<a href="http://security-tracker.debian.org/tracker/CVE-2012-1937">CVE-2012-1937</a>, <a href="http://security-tracker.debian.org/tracker/CVE-2012-1939">CVE-2012-1939</a>) and a use-after-free issue (<a href="http://security-tracker.debian.org/tracker/CVE-2012-1940">CVE-2012-1940</a>).]]></description>
+    <reference ref_id="DSA-2499-1" ref_url="http://www.debian.org/security/dsa-2499-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-1937" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1937" source="CVE" />
+    <reference ref_id="CVE-2012-1939" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1939" source="CVE" />
+    <reference ref_id="CVE-2012-1940" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1940" source="CVE" />
+    <description>Several vulnerabilities have been discovered in Icedove, the Debian version of the Mozilla Thunderbird mail/news client. There were miscellaneous memory safety hazards (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2012-1937"&gt;CVE-2012-1937&lt;/a&gt;, &lt;a href="http://security-tracker.debian.org/tracker/CVE-2012-1939"&gt;CVE-2012-1939&lt;/a&gt;) and a use-after-free issue (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2012-1940"&gt;CVE-2012-1940&lt;/a&gt;).</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:31">
@@ -32,14 +31,15 @@
         <status_change date="2014-06-23T04:04:52.865-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="icedove DPKG is earlier than 3.0.11-1+squeeze11" test_ref="oval:org.mitre.oval:tst:86406"/>
+    <criterion comment="icedove DPKG is earlier than 3.0.11-1+squeeze11" test_ref="oval:org.mitre.oval:tst:86406" />
   </criteria>
 </definition>

@@ -1,31 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26799" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26799" version="4">
   <metadata>
     <title>SUSE-SU-2014:1105-1 -- Security update for the Linux Kernel</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>the Linux Kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141105-1.html" ref_id="SUSE-SU-2014:1105-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0055" ref_id="CVE-2014-0055"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0077" ref_id="CVE-2014-0077"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1739" ref_id="CVE-2014-1739"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2706" ref_id="CVE-2014-2706"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2851" ref_id="CVE-2014-2851"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3144" ref_id="CVE-2014-3144"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3145" ref_id="CVE-2014-3145"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917" ref_id="CVE-2014-3917"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4508" ref_id="CVE-2014-4508"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4652" ref_id="CVE-2014-4652"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4653" ref_id="CVE-2014-4653"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4654" ref_id="CVE-2014-4654"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4655" ref_id="CVE-2014-4655"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4656" ref_id="CVE-2014-4656"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4667" ref_id="CVE-2014-4667"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4699" ref_id="CVE-2014-4699"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5077" ref_id="CVE-2014-5077"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4299" ref_id="CVE-2013-4299"/>
-    <description><![CDATA[The SUSE Linux Enterprise Server 11 SP2 LTSS received a roll up update to
+    <reference ref_id="SUSE-SU-2014:1105-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141105-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0055" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0055" source="CVE" />
+    <reference ref_id="CVE-2014-0077" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0077" source="CVE" />
+    <reference ref_id="CVE-2014-1739" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1739" source="CVE" />
+    <reference ref_id="CVE-2014-2706" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2706" source="CVE" />
+    <reference ref_id="CVE-2014-2851" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2851" source="CVE" />
+    <reference ref_id="CVE-2014-3144" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3144" source="CVE" />
+    <reference ref_id="CVE-2014-3145" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3145" source="CVE" />
+    <reference ref_id="CVE-2014-3917" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917" source="CVE" />
+    <reference ref_id="CVE-2014-4508" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4508" source="CVE" />
+    <reference ref_id="CVE-2014-4652" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4652" source="CVE" />
+    <reference ref_id="CVE-2014-4653" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4653" source="CVE" />
+    <reference ref_id="CVE-2014-4654" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4654" source="CVE" />
+    <reference ref_id="CVE-2014-4655" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4655" source="CVE" />
+    <reference ref_id="CVE-2014-4656" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4656" source="CVE" />
+    <reference ref_id="CVE-2014-4667" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4667" source="CVE" />
+    <reference ref_id="CVE-2014-4699" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4699" source="CVE" />
+    <reference ref_id="CVE-2014-5077" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5077" source="CVE" />
+    <reference ref_id="CVE-2013-4299" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4299" source="CVE" />
+    <description>The SUSE Linux Enterprise Server 11 SP2 LTSS received a roll up update to
 fix several security and non-security issues.
 
 The following security issues have been fixed:
@@ -173,41 +172,41 @@ The following bugs have been fixed:
 Security Issues:
 
     * CVE-2013-4299
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4299>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4299&gt;
     * CVE-2014-0055
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0055>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0055&gt;
     * CVE-2014-0077
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0077>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0077&gt;
     * CVE-2014-1739
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1739>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1739&gt;
     * CVE-2014-2706
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2706>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2706&gt;
     * CVE-2014-2851
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2851>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2851&gt;
     * CVE-2014-3144
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3144>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3144&gt;
     * CVE-2014-3145
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3145>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3145&gt;
     * CVE-2014-3917
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3917&gt;
     * CVE-2014-4508
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4508>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4508&gt;
     * CVE-2014-4652
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4652>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4652&gt;
     * CVE-2014-4653
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4653>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4653&gt;
     * CVE-2014-4654
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4654>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4654&gt;
     * CVE-2014-4655
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4655>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4655&gt;
     * CVE-2014-4656
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4656>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4656&gt;
     * CVE-2014-4667
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4667>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4667&gt;
     * CVE-2014-4699
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4699>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4699&gt;
     * CVE-2014-5077
-      <http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5077>]]></description>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5077&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-09-26T10:49:45">
@@ -218,31 +217,32 @@ Security Issues:
         <status_change date="2014-11-10T04:02:00.764-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel-default RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124118"/>
-      <criterion comment="kernel-default-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124361"/>
-      <criterion comment="kernel-default-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123921"/>
-      <criterion comment="kernel-source RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124281"/>
-      <criterion comment="kernel-syms RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124024"/>
-      <criterion comment="kernel-trace RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123955"/>
-      <criterion comment="kernel-trace-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124119"/>
-      <criterion comment="kernel-trace-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124308"/>
-      <criterion comment="kernel-ec2 RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124232"/>
-      <criterion comment="kernel-ec2-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123699"/>
-      <criterion comment="kernel-ec2-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123923"/>
-      <criterion comment="kernel-xen RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124359"/>
-      <criterion comment="kernel-xen-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124265"/>
-      <criterion comment="kernel-xen-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124025"/>
-      <criterion comment="xen-kmp-default RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124244"/>
-      <criterion comment="xen-kmp-trace RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124256"/>
-      <criterion comment="kernel-pae RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123672"/>
-      <criterion comment="kernel-pae-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124055"/>
-      <criterion comment="kernel-pae-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124290"/>
-      <criterion comment="xen-kmp-pae RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124388"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel-default RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124118" />
+      <criterion comment="kernel-default-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124361" />
+      <criterion comment="kernel-default-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123921" />
+      <criterion comment="kernel-source RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124281" />
+      <criterion comment="kernel-syms RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124024" />
+      <criterion comment="kernel-trace RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123955" />
+      <criterion comment="kernel-trace-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124119" />
+      <criterion comment="kernel-trace-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124308" />
+      <criterion comment="kernel-ec2 RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124232" />
+      <criterion comment="kernel-ec2-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123699" />
+      <criterion comment="kernel-ec2-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123923" />
+      <criterion comment="kernel-xen RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124359" />
+      <criterion comment="kernel-xen-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124265" />
+      <criterion comment="kernel-xen-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124025" />
+      <criterion comment="xen-kmp-default RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124244" />
+      <criterion comment="xen-kmp-trace RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124256" />
+      <criterion comment="kernel-pae RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:123672" />
+      <criterion comment="kernel-pae-base RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124055" />
+      <criterion comment="kernel-pae-devel RPM is earlier than 0:3.0.101-0.7.23.1" test_ref="oval:org.mitre.oval:tst:124290" />
+      <criterion comment="xen-kmp-pae RPM is earlier than 0:4.1.6_06_3.0.101_0.7.23-0.5.30" test_ref="oval:org.mitre.oval:tst:124388" />
     </criteria>
   </criteria>
 </definition>

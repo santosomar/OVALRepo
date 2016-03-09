@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17091" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17091" version="8">
   <metadata>
     <title>USN-535-1 -- firefox vulnerabilities</title>
     <affected family="unix">
@@ -9,18 +8,18 @@
       <platform>Ubuntu 7.10</platform>
       <product>firefox</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-535-1/" ref_id="USN-535-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5336" ref_id="CVE-2007-5336"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5339" ref_id="CVE-2007-5339"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5340" ref_id="CVE-2007-5340"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1095" ref_id="CVE-2007-1095"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2292" ref_id="CVE-2007-2292"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2894" ref_id="CVE-2006-2894"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3511" ref_id="CVE-2007-3511"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5334" ref_id="CVE-2007-5334"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5337" ref_id="CVE-2007-5337"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5338" ref_id="CVE-2007-5338"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5335" ref_id="CVE-2007-5335"/>
+    <reference ref_id="USN-535-1" ref_url="http://www.ubuntu.com/usn/usn-535-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-5336" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5336" source="CVE" />
+    <reference ref_id="CVE-2007-5339" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5339" source="CVE" />
+    <reference ref_id="CVE-2007-5340" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5340" source="CVE" />
+    <reference ref_id="CVE-2007-1095" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1095" source="CVE" />
+    <reference ref_id="CVE-2007-2292" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2292" source="CVE" />
+    <reference ref_id="CVE-2006-2894" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2894" source="CVE" />
+    <reference ref_id="CVE-2007-3511" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3511" source="CVE" />
+    <reference ref_id="CVE-2007-5334" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5334" source="CVE" />
+    <reference ref_id="CVE-2007-5337" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5337" source="CVE" />
+    <reference ref_id="CVE-2007-5338" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5338" source="CVE" />
+    <reference ref_id="CVE-2007-5335" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5335" source="CVE" />
     <description>Various flaws were discovered in the layout and JavaScript engines.</description>
     <oval_repository>
       <dates>
@@ -42,24 +41,25 @@
         <status_change date="2014-06-30T04:06:11.942-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="firefox DPKG is earlier than 1.5.dfsg+1.5.0.14~prepatch071011b-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81869"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="firefox DPKG is earlier than 1.5.dfsg+1.5.0.14~prepatch071011b-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81869" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.8+0dfsg-0ubuntu0.6.10" test_ref="oval:org.mitre.oval:tst:81967"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.8+0dfsg-0ubuntu0.6.10" test_ref="oval:org.mitre.oval:tst:81967" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.8+1nobinonly-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81722"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.8+1nobinonly-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81722" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.8+2nobinonly-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81915"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.8+2nobinonly-0ubuntu1" test_ref="oval:org.mitre.oval:tst:81915" />
     </criteria>
   </criteria>
 </definition>

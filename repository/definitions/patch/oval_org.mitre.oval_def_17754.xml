@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17754" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17754" version="8">
   <metadata>
     <title>USN-590-1 -- bzip2 vulnerability</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>Ubuntu 7.10</platform>
       <product>bzip2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-590-1/" ref_id="USN-590-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1372" ref_id="CVE-2008-1372"/>
+    <reference ref_id="USN-590-1" ref_url="http://www.ubuntu.com/usn/usn-590-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-1372" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1372" source="CVE" />
     <description>It was discovered that bzip2 did not correctly handle certain malformed archives.</description>
     <oval_repository>
       <dates>
@@ -32,24 +31,25 @@
         <status_change date="2014-06-30T04:07:21.469-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-0ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81664"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-0ubuntu2.1" test_ref="oval:org.mitre.oval:tst:81664" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-3ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82655"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-3ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82655" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-6ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82608"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.3-6ubuntu0.1" test_ref="oval:org.mitre.oval:tst:82608" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.4-0ubuntu2.1" test_ref="oval:org.mitre.oval:tst:82645"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="libbz2-1.0 DPKG is earlier than 1.0.4-0ubuntu2.1" test_ref="oval:org.mitre.oval:tst:82645" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17105" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17105" version="8">
   <metadata>
     <title>USN-664-1 -- tk8.0, tk8.3, tk8.4 vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <product>tk8.3</product>
       <product>tk8.4</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-664-1/" ref_id="USN-664-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0553" ref_id="CVE-2008-0553"/>
+    <reference ref_id="USN-664-1" ref_url="http://www.ubuntu.com/usn/usn-664-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-0553" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0553" source="CVE" />
     <description>It was discovered that Tk could be made to overrun a buffer when loading certain images.</description>
     <oval_repository>
       <dates>
@@ -33,27 +32,28 @@
         <status_change date="2014-07-21T04:00:27.610-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="tk8.0 DPKG is earlier than 8.0.5-11ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83663"/>
-        <criterion comment="tk8.3 DPKG is earlier than 8.3.5-4ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83072"/>
-        <criterion comment="tk8.4 DPKG is earlier than 8.4.12-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83161"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="tk8.0 DPKG is earlier than 8.0.5-11ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83663" />
+        <criterion comment="tk8.3 DPKG is earlier than 8.3.5-4ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83072" />
+        <criterion comment="tk8.4 DPKG is earlier than 8.4.12-0ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83161" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="tk8.3 DPKG is earlier than 8.3.5-6ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83148"/>
-        <criterion comment="tk8.4 DPKG is earlier than 8.4.15-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83504"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="tk8.3 DPKG is earlier than 8.3.5-6ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83148" />
+        <criterion comment="tk8.4 DPKG is earlier than 8.4.15-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83504" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="tk8.4 DPKG is earlier than 8.4.16-2ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83651"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="tk8.4 DPKG is earlier than 8.4.16-2ubuntu1.1" test_ref="oval:org.mitre.oval:tst:83651" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26531" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26531" version="6">
   <metadata>
     <title>ELSA-2014-0790 -- dovecot security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 7</platform>
       <product>dovecot</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0790.html" ref_id="ELSA-2014-0790"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3430" ref_id="CVE-2014-3430"/>
+    <reference ref_id="ELSA-2014-0790" ref_url="http://linux.oracle.com/errata/ELSA-2014-0790.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3430" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3430" source="CVE" />
     <description>[1:2.0.9-7.1]
 - fix CVE-2014-3430: denial of service through maxxing out SSL connections (#1108001)</description>
     <oval_repository>
@@ -26,26 +25,27 @@
         <status_change date="2015-02-23T04:00:48.560-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="dovecot is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127063"/>
-        <criterion comment="dovecot-devel is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127440"/>
-        <criterion comment="dovecot-mysql is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127505"/>
-        <criterion comment="dovecot-pgsql is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127294"/>
-        <criterion comment="dovecot-pigeonhole is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127396"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="dovecot is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127063" />
+        <criterion comment="dovecot-devel is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127440" />
+        <criterion comment="dovecot-mysql is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127505" />
+        <criterion comment="dovecot-pgsql is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127294" />
+        <criterion comment="dovecot-pigeonhole is earlier than 1:2.0.9-7.el6_5.1" test_ref="oval:org.mitre.oval:tst:127396" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 7 release section">
-      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="dovecot is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127268"/>
-        <criterion comment="dovecot-mysql is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127471"/>
-        <criterion comment="dovecot-pgsql is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127500"/>
-        <criterion comment="dovecot-pigeonhole is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127145"/>
+      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="dovecot is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127268" />
+        <criterion comment="dovecot-mysql is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127471" />
+        <criterion comment="dovecot-pgsql is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127500" />
+        <criterion comment="dovecot-pigeonhole is earlier than 1:2.2.10-4.el7_0.1" test_ref="oval:org.mitre.oval:tst:127145" />
       </criteria>
     </criteria>
   </criteria>

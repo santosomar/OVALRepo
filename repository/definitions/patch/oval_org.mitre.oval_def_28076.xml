@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28076" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28076" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0809 -- xulrunner security update (critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0809.html" ref_id="ELSA-2010-0809"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3765" ref_id="CVE-2010-3765"/>
+    <reference ref_id="ELSA-2010-0809" ref_url="http://linux.oracle.com/errata/ELSA-2010-0809.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3765" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3765" source="CVE" />
     <description>[1.9.2.11-4.0.1.el5_5]
 - Added xulrunner-oracle-default-prefs.js and removed the corresponding
   RedHat one.
@@ -28,13 +27,14 @@
         <status_change date="2015-02-10T21:11:52.067-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="xulrunner is earlier than 0:1.9.2.11-4.0.1.el5_5" test_ref="oval:org.mitre.oval:tst:134844"/>
-      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.11-4.0.1.el5_5" test_ref="oval:org.mitre.oval:tst:134756"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="xulrunner is earlier than 0:1.9.2.11-4.0.1.el5_5" test_ref="oval:org.mitre.oval:tst:134844" />
+      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.11-4.0.1.el5_5" test_ref="oval:org.mitre.oval:tst:134756" />
     </criteria>
   </criteria>
 </definition>

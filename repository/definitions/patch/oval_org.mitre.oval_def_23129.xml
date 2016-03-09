@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23129" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23129" version="8">
   <metadata>
     <title>ELSA-2013:0614: xulrunner security update (Critical)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>xulrunner</product>
     </affected>
-    <reference ref_id="ELSA-2013:0614-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0614.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-0787" ref_url="http://linux.oracle.com/cve/CVE-2013-0787.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0614-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0614.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0787" ref_url="http://linux.oracle.com/cve/CVE-2013-0787.html" source="CVE" />
     <description>Use-after-free vulnerability in the nsEditor::IsPreformatted function in editor/libeditor/base/nsEditor.cpp in Mozilla Firefox before 19.0.2, Firefox ESR 17.x before 17.0.4, Thunderbird before 17.0.4, Thunderbird ESR 17.x before 17.0.4, and SeaMonkey before 2.16.1 allows remote attackers to execute arbitrary code via vectors involving an execCommand call.</description>
     <oval_repository>
       <dates>
@@ -25,21 +24,22 @@
         <status_change date="2014-05-26T04:03:27.677-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:17.0.3-2.el6_4" test_ref="oval:org.mitre.oval:tst:111751"/>
-        <criterion comment="xulrunner is earlier than 0:17.0.3-2.el6_4" test_ref="oval:org.mitre.oval:tst:111658"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:17.0.3-2.el6_4" test_ref="oval:org.mitre.oval:tst:111751" />
+        <criterion comment="xulrunner is earlier than 0:17.0.3-2.el6_4" test_ref="oval:org.mitre.oval:tst:111658" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:17.0.3-2.el5_9" test_ref="oval:org.mitre.oval:tst:111571"/>
-        <criterion comment="xulrunner is earlier than 0:17.0.3-2.el5_9" test_ref="oval:org.mitre.oval:tst:111481"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:17.0.3-2.el5_9" test_ref="oval:org.mitre.oval:tst:111571" />
+        <criterion comment="xulrunner is earlier than 0:17.0.3-2.el5_9" test_ref="oval:org.mitre.oval:tst:111481" />
       </criteria>
     </criteria>
   </criteria>

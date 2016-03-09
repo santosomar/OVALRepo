@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18088" version="9" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18088" version="10">
   <metadata>
     <title>USN-1588-1 -- software-properties vulnerability</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 10.04</platform>
       <product>software-properties</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1588-1/" ref_id="USN-1588-1"/>
+    <reference ref_id="USN-1588-1" ref_url="http://www.ubuntu.com/usn/usn-1588-1/" source="VENDOR" />
     <description>Software Properties could be tricked into installing arbitrary PPA GPG keys.</description>
     <oval_repository>
       <dates>
@@ -36,24 +35,25 @@
         <status_change date="2014-07-21T04:00:38.995-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="python-software-properties DPKG is earlier than 0.82.7.3" test_ref="oval:org.mitre.oval:tst:84820"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="python-software-properties DPKG is earlier than 0.82.7.3" test_ref="oval:org.mitre.oval:tst:84820" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="python-software-properties DPKG is earlier than 0.81.13.5" test_ref="oval:org.mitre.oval:tst:84827"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="python-software-properties DPKG is earlier than 0.81.13.5" test_ref="oval:org.mitre.oval:tst:84827" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="python-software-properties DPKG is earlier than 0.80.9.2" test_ref="oval:org.mitre.oval:tst:84622"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="python-software-properties DPKG is earlier than 0.80.9.2" test_ref="oval:org.mitre.oval:tst:84622" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="python-software-properties DPKG is earlier than 0.75.10.3" test_ref="oval:org.mitre.oval:tst:83869"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="python-software-properties DPKG is earlier than 0.75.10.3" test_ref="oval:org.mitre.oval:tst:83869" />
     </criteria>
   </criteria>
 </definition>

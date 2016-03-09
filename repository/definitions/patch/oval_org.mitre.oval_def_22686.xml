@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22686" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22686" version="8">
   <metadata>
     <title>ELSA-2007:0640: conga security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>conga</product>
     </affected>
-    <reference ref_id="ELSA-2007:0640-05" ref_url="http://linux.oracle.com/errata/ELSA-2007-0640.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-4136" ref_url="http://linux.oracle.com/cve/CVE-2007-4136.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0640-05" ref_url="http://linux.oracle.com/errata/ELSA-2007-0640.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-4136" ref_url="http://linux.oracle.com/cve/CVE-2007-4136.html" source="CVE" />
     <description>The ricci daemon in Red Hat Conga 0.10.0 allows remote attackers to cause a denial of service (loss of new connections) by repeatedly sending data or attempting connections.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:01:50.713-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="ricci is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101146"/>
-      <criterion comment="luci is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101261"/>
-      <criterion comment="conga is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101035"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="ricci is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101146" />
+      <criterion comment="luci is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101261" />
+      <criterion comment="conga is earlier than 0:0.10.0-6.el5" test_ref="oval:org.mitre.oval:tst:101035" />
     </criteria>
   </criteria>
 </definition>

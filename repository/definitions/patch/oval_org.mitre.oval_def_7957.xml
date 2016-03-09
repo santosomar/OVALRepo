@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7957" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7957" version="8">
   <metadata>
     <title>DSA-1505 alsa-driver -- kernel memory leak</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 3.1</platform>
       <product>alsa-driver</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1505" ref_id="DSA-1505"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4571" ref_id="CVE-2007-4571"/>
+    <reference ref_id="DSA-1505" ref_url="http://www.debian.org/security/2008/dsa-1505" source="VENDOR" />
+    <reference ref_id="CVE-2007-4571" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4571" source="CVE" />
     <description>Takashi Iwai supplied a fix for a memory leak in the snd_page_alloc module. Local users could exploit this issue to obtain sensitive information from the kernel (CVE-2007-4571).</description>
     <oval_repository>
       <dates>
@@ -30,46 +29,47 @@
         <status_change date="2014-06-23T04:09:35.206-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="alsa-source is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:16055"/>
-        <criterion comment="alsa-base is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:15906"/>
-        <criterion comment="linux-sound-base is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:15917"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="alsa-source is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:16055" />
+        <criterion comment="alsa-base is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:15906" />
+        <criterion comment="linux-sound-base is earlier than 1.0.13-5etch1" test_ref="oval:org.mitre.oval:tst:15917" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="alsa-source is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:16114"/>
-            <criterion comment="alsa-base is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:16143"/>
-            <criterion comment="alsa-headers is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:15880"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="alsa-source is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:16114" />
+            <criterion comment="alsa-base is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:16143" />
+            <criterion comment="alsa-headers is earlier than 1.0.8-7sarge1" test_ref="oval:org.mitre.oval:tst:15880" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture dependent section">
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="alsa-modules-2.4.27-4-686-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15604"/>
-            <criterion comment="alsa-modules-2.4-386 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16073"/>
-            <criterion comment="alsa-modules-2.4.27-4-k7 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15985"/>
-            <criterion comment="alsa-modules-2.4.27-4-686 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15970"/>
-            <criterion comment="alsa-modules-2.4.27-4-586tsc is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15993"/>
-            <criterion comment="alsa-modules-2.4-686-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15936"/>
-            <criterion comment="alsa-modules-2.4.27-4-k6 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16023"/>
-            <criterion comment="alsa-modules-2.4-k7-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16130"/>
-            <criterion comment="alsa-modules-2.4.27-4-k7-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15894"/>
-            <criterion comment="alsa-modules-2.4-k6 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16138"/>
-            <criterion comment="alsa-modules-2.4-586tsc is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15161"/>
-            <criterion comment="alsa-modules-2.4-k7 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15580"/>
-            <criterion comment="alsa-modules-2.4.27-4-386 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16005"/>
-            <criterion comment="alsa-modules-2.4-686 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15302"/>
+        <criteria comment="Architecture dependent section" operator="AND">
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="alsa-modules-2.4.27-4-686-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15604" />
+            <criterion comment="alsa-modules-2.4-386 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16073" />
+            <criterion comment="alsa-modules-2.4.27-4-k7 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15985" />
+            <criterion comment="alsa-modules-2.4.27-4-686 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15970" />
+            <criterion comment="alsa-modules-2.4.27-4-586tsc is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15993" />
+            <criterion comment="alsa-modules-2.4-686-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15936" />
+            <criterion comment="alsa-modules-2.4.27-4-k6 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16023" />
+            <criterion comment="alsa-modules-2.4-k7-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16130" />
+            <criterion comment="alsa-modules-2.4.27-4-k7-smp is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15894" />
+            <criterion comment="alsa-modules-2.4-k6 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16138" />
+            <criterion comment="alsa-modules-2.4-586tsc is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15161" />
+            <criterion comment="alsa-modules-2.4-k7 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15580" />
+            <criterion comment="alsa-modules-2.4.27-4-386 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:16005" />
+            <criterion comment="alsa-modules-2.4-686 is earlier than 1.0.8+2sarge2" test_ref="oval:org.mitre.oval:tst:15302" />
           </criteria>
         </criteria>
       </criteria>

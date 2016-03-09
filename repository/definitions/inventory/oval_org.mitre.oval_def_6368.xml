@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:6368" version="2" class="inventory" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" deprecated="true" id="oval:org.mitre.oval:def:6368" version="3">
   <metadata>
     <title>DEPRECATED: IBM AIX 5300-00 through 5300-05 is installed</title>
     <affected family="unix">
       <platform>IBM AIX 5.3</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/o:ibm:aix:5.3"/>
+    <reference ref_id="cpe:/o:ibm:aix:5.3" source="CPE" />
     <description>The operating system installed on the system is IBM AIX version 5300-00 through 5300-06.</description>
     <oval_repository>
       <dates>
@@ -21,10 +20,11 @@
         <status_change date="2012-02-28T14:16:59.761-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="IBM AIX version is greater than or equal 5.3.0.0" test_ref="oval:org.mitre.oval:tst:7973"/>
-    <criterion comment="IBM AIX version is less than or equal 5300-05" test_ref="oval:org.mitre.oval:tst:10250"/>
+    <criterion comment="IBM AIX version is greater than or equal 5.3.0.0" test_ref="oval:org.mitre.oval:tst:7973" />
+    <criterion comment="IBM AIX version is less than or equal 5300-05" test_ref="oval:org.mitre.oval:tst:10250" />
   </criteria>
 </definition>

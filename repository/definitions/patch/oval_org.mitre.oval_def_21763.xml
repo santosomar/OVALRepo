@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21763" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21763" version="8">
   <metadata>
     <title>ELSA-2009:0008: dbus security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>dbus</product>
     </affected>
-    <reference ref_id="ELSA-2009:0008-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0008.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-3834" ref_url="http://linux.oracle.com/cve/CVE-2008-3834.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0008-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0008.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-3834" ref_url="http://linux.oracle.com/cve/CVE-2008-3834.html" source="CVE" />
     <description>The dbus_signature_validate function in the D-bus library (libdbus) before 1.2.4 allows remote attackers to cause a denial of service (application abort) via a message containing a malformed signature, which triggers a failed assertion error.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:00:22.868-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="dbus-x11 is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102226"/>
-      <criterion comment="dbus-devel is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102506"/>
-      <criterion comment="dbus is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102692"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="dbus-x11 is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102226" />
+      <criterion comment="dbus-devel is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102506" />
+      <criterion comment="dbus is earlier than 0:1.0.0-7.el5_2.1" test_ref="oval:org.mitre.oval:tst:102692" />
     </criteria>
   </criteria>
 </definition>

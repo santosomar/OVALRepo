@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:6799" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:6799" version="8">
   <metadata>
     <title>DSA-1997 mysql-dfsg-5.0 -- several vulnerabilities</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>mysql-dfsg-5.0</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2010/dsa-1997" ref_id="DSA-1997"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4019" ref_id="CVE-2009-4019"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4030" ref_id="CVE-2009-4030"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4484" ref_id="CVE-2009-4484"/>
+    <reference ref_id="DSA-1997" ref_url="http://www.debian.org/security/2010/dsa-1997" source="VENDOR" />
+    <reference ref_id="CVE-2009-4019" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4019" source="CVE" />
+    <reference ref_id="CVE-2009-4030" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4030" source="CVE" />
+    <reference ref_id="CVE-2009-4484" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4484" source="CVE" />
     <description>Several vulnerabilities have been discovered in the MySQL database server. The Common Vulnerabilities and Exposures project identifies the following problems: Domas Mituzas discovered that mysqld does not properly handle errors during execution of certain SELECT statements with subqueries, and does not preserve certain null_value flags during execution of statements that use the GeomFromWKB function, which allows remote authenticated users to cause a denial of service via a crafted statement. Sergei Golubchik discovered that MySQL allows local users to bypass certain privilege checks by calling CREATE TABLE on a MyISAM table with modified DATA DIRECTORY or INDEX DIRECTORY arguments that are originally associated with pathnames without symlinks, and that can point to tables created at a future time at which a pathname is modified to contain a symlink to a subdirectory of the MySQL data home directory. Multiple stack-based buffer overflows in the CertDecoder::GetName function in src/asn.cpp in TaoCrypt in yaSSL before 1.9.9, as used in mysqld, allow remote attackers to execute arbitrary code or cause a denial of service by establishing an SSL connection and sending an X.509 client certificate with a crafted name field.</description>
     <oval_repository>
       <dates>
@@ -27,55 +26,56 @@
         <status_change date="2014-06-23T04:07:52.594-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="mysql-client is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26386"/>
-            <criterion comment="mysql-common is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26135"/>
-            <criterion comment="mysql-server is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26602"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="mysql-client is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26386" />
+            <criterion comment="mysql-common is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26135" />
+            <criterion comment="mysql-server is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26602" />
           </criteria>
         </criteria>
-        <criterion comment="libmysqlclient15-dev is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26294"/>
-        <criterion comment="mysql-client-5.0 is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26526"/>
-        <criterion comment="libmysqlclient15off is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26614"/>
-        <criterion comment="mysql-server-5.0 is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26581"/>
+        <criterion comment="libmysqlclient15-dev is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26294" />
+        <criterion comment="mysql-client-5.0 is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26526" />
+        <criterion comment="libmysqlclient15off is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26614" />
+        <criterion comment="mysql-server-5.0 is earlier than 5.0.51a-24+lenny3" test_ref="oval:org.mitre.oval:tst:26581" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="mysql-client is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26394"/>
-            <criterion comment="mysql-common is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26470"/>
-            <criterion comment="mysql-server is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26454"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="mysql-client is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26394" />
+            <criterion comment="mysql-common is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26470" />
+            <criterion comment="mysql-server is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26454" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture dependent section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture dependent section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="libmysqlclient15-dev is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26353"/>
-            <criterion comment="mysql-server-4.1 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26468"/>
-            <criterion comment="mysql-client-5.0 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26215"/>
-            <criterion comment="mysql-server-5.0 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26457"/>
-            <criterion comment="libmysqlclient15off is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26477"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="libmysqlclient15-dev is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26353" />
+            <criterion comment="mysql-server-4.1 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26468" />
+            <criterion comment="mysql-client-5.0 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26215" />
+            <criterion comment="mysql-server-5.0 is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26457" />
+            <criterion comment="libmysqlclient15off is earlier than 5.0.32-7etch12" test_ref="oval:org.mitre.oval:tst:26477" />
           </criteria>
         </criteria>
       </criteria>

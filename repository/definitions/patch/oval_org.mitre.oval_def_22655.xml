@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22655" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22655" version="8">
   <metadata>
     <title>ELSA-2013:1790: kernel security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kernel</product>
     </affected>
-    <reference ref_id="ELSA-2013:1790-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1790.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-4355" ref_url="http://linux.oracle.com/cve/CVE-2013-4355.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1790-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1790.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4355" ref_url="http://linux.oracle.com/cve/CVE-2013-4355.html" source="CVE" />
     <description>Xen 4.3.x and earlier does not properly handle certain errors, which allows local HVM guests to obtain hypervisor stack memory via a (1) port or (2) memory mapped I/O write or (3) other unspecified operations related to addresses without associated memory.</description>
     <oval_repository>
       <dates>
@@ -24,23 +23,24 @@
         <status_change date="2014-05-26T04:01:43.680-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="kernel-kdump is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107468"/>
-      <criterion comment="kernel-xen-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107769"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107677"/>
-      <criterion comment="kernel-kdump-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:106914"/>
-      <criterion comment="kernel-xen is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107157"/>
-      <criterion comment="kernel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107720"/>
-      <criterion comment="kernel-PAE is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107854"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107877"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107765"/>
-      <criterion comment="kernel-PAE-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107876"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107857"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107771"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="kernel-kdump is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107468" />
+      <criterion comment="kernel-xen-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107769" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107677" />
+      <criterion comment="kernel-kdump-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:106914" />
+      <criterion comment="kernel-xen is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107157" />
+      <criterion comment="kernel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107720" />
+      <criterion comment="kernel-PAE is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107854" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107877" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107765" />
+      <criterion comment="kernel-PAE-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107876" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107857" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.18-371.3.1.el5" test_ref="oval:org.mitre.oval:tst:107771" />
     </criteria>
   </criteria>
 </definition>

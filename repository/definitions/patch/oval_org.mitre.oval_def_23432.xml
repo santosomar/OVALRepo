@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23432" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23432" version="7">
   <metadata>
     <title>ELSA-2011:1248: ca-certificates security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>ca-certificates</product>
     </affected>
-    <reference ref_id="ELSA-2011:1248-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1248.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2011:1248-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1248.html" source="VENDOR" />
     <description>This package contains the set of CA certificates chosen by the Mozilla
 Foundation for use with the Internet Public Key Infrastructure (PKI).
 It was found that a Certificate Authority (CA) issued fraudulent HTTPS
@@ -31,10 +30,11 @@ restarted for the changes to take effect.</description>
         <status_change date="2014-05-26T04:04:23.266-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="ca-certificates is earlier than 0:2010.63-3.el6_1.5" test_ref="oval:org.mitre.oval:tst:109231"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="ca-certificates is earlier than 0:2010.63-3.el6_1.5" test_ref="oval:org.mitre.oval:tst:109231" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

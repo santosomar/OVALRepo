@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27809" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27809" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0515 -- firefox security update (critical)</title>
     <affected family="unix">
@@ -8,19 +7,19 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0515.html" ref_id="ELSA-2012-0515"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0467" ref_id="CVE-2012-0467"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0468" ref_id="CVE-2012-0468"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0469" ref_id="CVE-2012-0469"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0470" ref_id="CVE-2012-0470"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0471" ref_id="CVE-2012-0471"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0472" ref_id="CVE-2012-0472"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0473" ref_id="CVE-2012-0473"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0474" ref_id="CVE-2012-0474"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0477" ref_id="CVE-2012-0477"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0478" ref_id="CVE-2012-0478"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0479" ref_id="CVE-2012-0479"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3062" ref_id="CVE-2011-3062"/>
+    <reference ref_id="ELSA-2012-0515" ref_url="http://linux.oracle.com/errata/ELSA-2012-0515.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0467" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0467" source="CVE" />
+    <reference ref_id="CVE-2012-0468" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0468" source="CVE" />
+    <reference ref_id="CVE-2012-0469" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0469" source="CVE" />
+    <reference ref_id="CVE-2012-0470" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0470" source="CVE" />
+    <reference ref_id="CVE-2012-0471" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0471" source="CVE" />
+    <reference ref_id="CVE-2012-0472" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0472" source="CVE" />
+    <reference ref_id="CVE-2012-0473" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0473" source="CVE" />
+    <reference ref_id="CVE-2012-0474" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0474" source="CVE" />
+    <reference ref_id="CVE-2012-0477" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0477" source="CVE" />
+    <reference ref_id="CVE-2012-0478" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0478" source="CVE" />
+    <reference ref_id="CVE-2012-0479" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0479" source="CVE" />
+    <reference ref_id="CVE-2011-3062" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3062" source="CVE" />
     <description>firefox:
 [10.0.4-1.0.1.el6_2]
 - Replace firefox-redhat-default-prefs.js with firefox-oracle-default-prefs.js
@@ -54,23 +53,24 @@ xulrunner:
         <status_change date="2015-02-10T13:31:32.414-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132261"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132283"/>
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132409"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132261" />
+        <criterion comment="xulrunner is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132283" />
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.4-1.0.1.el5_8" test_ref="oval:org.mitre.oval:tst:132409" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="firefox is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:131881"/>
-        <criterion comment="xulrunner is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:132296"/>
-        <criterion comment="xulrunner-devel is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:132301"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="firefox is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:131881" />
+        <criterion comment="xulrunner is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:132296" />
+        <criterion comment="xulrunner-devel is earlier than 0:10.0.4-1.0.1.el6_2" test_ref="oval:org.mitre.oval:tst:132301" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27562" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27562" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0272 -- thunderbird security update (critical)</title>
     <affected family="unix">
@@ -7,12 +6,12 @@
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0272.html" ref_id="ELSA-2013-0272"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0775" ref_id="CVE-2013-0775"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0776" ref_id="CVE-2013-0776"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0780" ref_id="CVE-2013-0780"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0782" ref_id="CVE-2013-0782"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0783" ref_id="CVE-2013-0783"/>
+    <reference ref_id="ELSA-2013-0272" ref_url="http://linux.oracle.com/errata/ELSA-2013-0272.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0775" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0775" source="CVE" />
+    <reference ref_id="CVE-2013-0776" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0776" source="CVE" />
+    <reference ref_id="CVE-2013-0780" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0780" source="CVE" />
+    <reference ref_id="CVE-2013-0782" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0782" source="CVE" />
+    <reference ref_id="CVE-2013-0783" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0783" source="CVE" />
     <description>[17.0.3-1.0.1.el6_3]
 - Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js
 
@@ -44,16 +43,17 @@
         <status_change date="2015-02-10T11:33:10.497-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="thunderbird is earlier than 0:17.0.3-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:130216"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="thunderbird is earlier than 0:17.0.3-1.0.1.el5_9" test_ref="oval:org.mitre.oval:tst:130216" />
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criterion comment="thunderbird is earlier than 0:17.0.3-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130182"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criterion comment="thunderbird is earlier than 0:17.0.3-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:130182" />
     </criteria>
   </criteria>
 </definition>

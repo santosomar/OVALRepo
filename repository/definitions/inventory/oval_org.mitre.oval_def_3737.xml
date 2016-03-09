@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:3737" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:3737" version="3">
   <metadata>
     <title>Package cyrus-sasl-gssapi is installed</title>
     <affected family="unix">
@@ -11,7 +10,7 @@
       <platform>SUSE Linux Enterprise Server 10</platform>
       <platform>openSUSE Factory</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:novell:cyrus-sasl-gssapi"/>
+    <reference ref_id="cpe:/a:novell:cyrus-sasl-gssapi" source="CPE" />
     <description>Package cyrus-sasl-gssapi is installed.</description>
     <oval_repository>
       <dates>
@@ -32,9 +31,10 @@
         <cpe>cpe:/o:novell:suse_linux_enterprise:10:server</cpe>
         <cpe>cpe:/o:novell:opensuse:factory</cpe>
       </affected_cpe_list>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="cyrus-sasl-gssapi is installed" test_ref="oval:org.mitre.oval:tst:6015"/>
+    <criterion comment="cyrus-sasl-gssapi is installed" test_ref="oval:org.mitre.oval:tst:6015" />
   </criteria>
 </definition>

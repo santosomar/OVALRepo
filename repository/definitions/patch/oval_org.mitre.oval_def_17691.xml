@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17691" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17691" version="6">
   <metadata>
     <title>USN-523-1 -- imagemagick vulnerabilities</title>
     <affected family="unix">
@@ -8,11 +7,11 @@
       <platform>Ubuntu 7.04</platform>
       <product>imagemagick</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-523-1/" ref_id="USN-523-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4985" ref_id="CVE-2007-4985"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4986" ref_id="CVE-2007-4986"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4987" ref_id="CVE-2007-4987"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4988" ref_id="CVE-2007-4988"/>
+    <reference ref_id="USN-523-1" ref_url="http://www.ubuntu.com/usn/usn-523-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-4985" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4985" source="CVE" />
+    <reference ref_id="CVE-2007-4986" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4986" source="CVE" />
+    <reference ref_id="CVE-2007-4987" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4987" source="CVE" />
+    <reference ref_id="CVE-2007-4988" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4988" source="CVE" />
     <description>Multiple vulnerabilities were found in the image decoders of ImageMagick.</description>
     <oval_repository>
       <dates>
@@ -29,20 +28,21 @@
         <status_change date="2014-06-30T04:07:11.914-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="libmagick9 DPKG is earlier than 6:6.2.4.5-0.6ubuntu0.7" test_ref="oval:org.mitre.oval:tst:81933"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="libmagick9 DPKG is earlier than 6:6.2.4.5-0.6ubuntu0.7" test_ref="oval:org.mitre.oval:tst:81933" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="libmagick9 DPKG is earlier than 7:6.2.4.5.dfsg1-0.10ubuntu0.4" test_ref="oval:org.mitre.oval:tst:82082"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="libmagick9 DPKG is earlier than 7:6.2.4.5.dfsg1-0.10ubuntu0.4" test_ref="oval:org.mitre.oval:tst:82082" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="libmagick9 DPKG is earlier than 7:6.2.4.5.dfsg1-0.14ubuntu0.2" test_ref="oval:org.mitre.oval:tst:81791"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="libmagick9 DPKG is earlier than 7:6.2.4.5.dfsg1-0.14ubuntu0.2" test_ref="oval:org.mitre.oval:tst:81791" />
     </criteria>
   </criteria>
 </definition>

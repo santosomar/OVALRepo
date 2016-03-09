@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12038" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12038" version="8">
   <metadata>
     <title>DSA-2232-1 exim4 -- format string vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>exim4</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00101.html" ref_id="DSA-2232-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1764" ref_id="CVE-2011-1764"/>
+    <reference ref_id="DSA-2232-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00101.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1764" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1764" source="CVE" />
     <description>It was discovered that Exim, the default mail transport agent in Debian, uses DKIM data obtain from DNS directly in a format string, potentially allowing malicious mail senders to execute arbitrary code. The oldstable distribution is not affected by this problem because it does not contain DKIM support.</description>
     <oval_repository>
       <dates>
@@ -25,15 +24,16 @@
         <status_change date="2014-07-21T04:00:09.786-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="exim4 DPKG is earlier than 4.72-6+squeeze1" test_ref="oval:org.mitre.oval:tst:43985"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="exim4 DPKG is earlier than 4.72-6+squeeze1" test_ref="oval:org.mitre.oval:tst:43985" />
   </criteria>
 </definition>

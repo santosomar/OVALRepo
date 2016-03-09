@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7807" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7807" version="5">
   <metadata>
     <title>DSA-1716 vnc4 -- integer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>vnc4</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1716" ref_id="DSA-1716"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4770" ref_id="CVE-2008-4770"/>
+    <reference ref_id="DSA-1716" ref_url="http://www.debian.org/security/2009/dsa-1716" source="VENDOR" />
+    <reference ref_id="CVE-2008-4770" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4770" source="CVE" />
     <description>It was discovered that xvnc4viewer, a virtual network computing client software for X, is prone to an integer overflow via a malicious encoding value that could lead to arbitrary code execution.</description>
     <oval_repository>
       <dates>
@@ -24,26 +23,27 @@
         <status_change date="2014-06-23T04:08:56.914-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Supported architectures section">
-      <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-      <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-      <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-      <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-      <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-      <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-      <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Supported architectures section" operator="OR">
+      <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+      <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+      <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+      <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+      <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+      <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+      <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="xvnc4viewer is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:14789"/>
-      <criterion comment="vnc4-common is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:14809"/>
-      <criterion comment="vnc4server is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:15044"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="xvnc4viewer is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:14789" />
+      <criterion comment="vnc4-common is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:14809" />
+      <criterion comment="vnc4server is earlier than 4.1.1+X4.3.0-21+etch1" test_ref="oval:org.mitre.oval:tst:15044" />
     </criteria>
   </criteria>
 </definition>

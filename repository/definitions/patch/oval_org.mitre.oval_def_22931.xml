@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22931" version="7" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:22931" version="8">
   <metadata>
     <title>DEPRECATED: ELSA-2011:0850: flash-plugin security update (Important)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2011:0850-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0850.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-2107" ref_url="http://linux.oracle.com/cve/CVE-2011-2107.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0850-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0850.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2107" ref_url="http://linux.oracle.com/cve/CVE-2011-2107.html" source="CVE" />
     <description>Cross-site scripting (XSS) vulnerability in Adobe Flash Player before 10.3.181.22 on Windows, Mac OS X, Linux, and Solaris, and 10.3.185.22 and earlier on Android, allows remote attackers to inject arbitrary web script or HTML via unspecified vectors, related to a "universal cross-site scripting vulnerability."</description>
     <oval_repository>
       <dates>
@@ -29,16 +28,17 @@
         <status_change date="2014-07-11T15:34:23.507-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="flash-plugin is earlier than 0:10.3.181.22-1.el5" test_ref="oval:org.mitre.oval:tst:108511"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="flash-plugin is earlier than 0:10.3.181.22-1.el5" test_ref="oval:org.mitre.oval:tst:108511" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="flash-plugin is earlier than 0:10.3.181.22-1.el6" test_ref="oval:org.mitre.oval:tst:109034"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="flash-plugin is earlier than 0:10.3.181.22-1.el6" test_ref="oval:org.mitre.oval:tst:109034" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

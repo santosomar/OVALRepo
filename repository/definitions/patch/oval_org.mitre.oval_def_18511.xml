@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18511" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18511" version="8">
   <metadata>
     <title>DSA-1316-1 emacs21</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>emacs21</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1316-1" ref_id="DSA-1316-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2833" ref_id="CVE-2007-2833"/>
+    <reference ref_id="DSA-1316-1" ref_url="http://www.debian.org/security/dsa-1316-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-2833" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2833" source="CVE" />
     <description>It has been discovered that emacs, the GNU Emacs editor, will crash when processing certain types of images.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:04:44.570-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="emacs21 DPKG is earlier than 21.4a+1-3etch1" test_ref="oval:org.mitre.oval:tst:86713"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="emacs21 DPKG is earlier than 21.4a+1-3etch1" test_ref="oval:org.mitre.oval:tst:86713" />
   </criteria>
 </definition>

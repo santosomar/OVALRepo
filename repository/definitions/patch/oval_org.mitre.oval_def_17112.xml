@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17112" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17112" version="6">
   <metadata>
     <title>USN-1516-1 -- openssl vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 12.04</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1516-1/" ref_id="USN-1516-1"/>
+    <reference ref_id="USN-1516-1" ref_url="http://www.ubuntu.com/usn/usn-1516-1/" source="VENDOR" />
     <description>OpenSSL incorrectly disabled TLS 1.1 and TLS 1.2 in certain applications.</description>
     <oval_repository>
       <dates>
@@ -23,10 +22,11 @@
         <status_change date="2013-12-16T04:00:13.220-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-    <criterion comment="libssl1.0.0 DPKG is earlier than 1.0.1-4ubuntu5.3" test_ref="oval:org.mitre.oval:tst:84494"/>
+    <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+    <criterion comment="libssl1.0.0 DPKG is earlier than 1.0.1-4ubuntu5.3" test_ref="oval:org.mitre.oval:tst:84494" />
   </criteria>
 </definition>

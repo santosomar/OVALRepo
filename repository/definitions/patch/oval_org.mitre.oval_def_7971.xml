@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7971" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7971" version="8">
   <metadata>
     <title>DSA-1634 wordnet -- stack and heap overflows</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>wordnet</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1634" ref_id="DSA-1634"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2149" ref_id="CVE-2008-2149"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3908" ref_id="CVE-2008-3908"/>
+    <reference ref_id="DSA-1634" ref_url="http://www.debian.org/security/2008/dsa-1634" source="VENDOR" />
+    <reference ref_id="CVE-2008-2149" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2149" source="CVE" />
+    <reference ref_id="CVE-2008-3908" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3908" source="CVE" />
     <description>Rob Holland discovered several programming errors in WordNet, an electronic lexical database of the English language. These flaws could allow arbitrary code execution when used with untrusted input, for example when WordNet is in use as a back end for a web application.</description>
     <oval_repository>
       <dates>
@@ -30,20 +29,21 @@
         <status_change date="2015-02-23T04:01:46.760-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="wordnet-base is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19381"/>
-          <criterion comment="wordnet-sense-index is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19499"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="wordnet-base is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19381" />
+          <criterion comment="wordnet-sense-index is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19499" />
         </criteria>
       </criteria>
-      <criterion comment="wordnet-dev is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19219"/>
-      <criterion comment="wordnet is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19153"/>
+      <criterion comment="wordnet-dev is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19219" />
+      <criterion comment="wordnet is earlier than 1:2.1-4+etch1" test_ref="oval:org.mitre.oval:tst:19153" />
     </criteria>
   </criteria>
 </definition>

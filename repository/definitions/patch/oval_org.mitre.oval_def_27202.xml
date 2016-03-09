@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27202" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27202" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1302 -- xinetd security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>xinetd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1302.html" ref_id="ELSA-2013-1302"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0862" ref_id="CVE-2012-0862"/>
+    <reference ref_id="ELSA-2013-1302" ref_url="http://linux.oracle.com/errata/ELSA-2013-1302.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0862" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0862" source="CVE" />
     <description>[2:2.3.14-19]
 
 - Correctly backport patches that fix the descriptor leakage
@@ -37,10 +36,11 @@
         <status_change date="2015-02-10T18:11:10.817-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="xinetd is earlier than 0:2.3.14-19.el5" test_ref="oval:org.mitre.oval:tst:128761"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="xinetd is earlier than 0:2.3.14-19.el5" test_ref="oval:org.mitre.oval:tst:128761" />
   </criteria>
 </definition>

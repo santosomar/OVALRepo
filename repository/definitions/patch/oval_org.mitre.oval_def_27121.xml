@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27121" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27121" version="6">
   <metadata>
     <title>ELSA-2014-1606 -- file security and bug fix update</title>
     <affected family="unix">
@@ -10,14 +9,14 @@
       <product>file-static</product>
       <product>python-magic</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1606.html" ref_id="ELSA-2014-1606"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0237" ref_id="CVE-2014-0237"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0238" ref_id="CVE-2014-0238"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3479" ref_id="CVE-2014-3479"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3480" ref_id="CVE-2014-3480"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1571" ref_id="CVE-2012-1571"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1943" ref_id="CVE-2014-1943"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2270" ref_id="CVE-2014-2270"/>
+    <reference ref_id="ELSA-2014-1606" ref_url="http://linux.oracle.com/errata/ELSA-2014-1606.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0237" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0237" source="CVE" />
+    <reference ref_id="CVE-2014-0238" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0238" source="CVE" />
+    <reference ref_id="CVE-2014-3479" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3479" source="CVE" />
+    <reference ref_id="CVE-2014-3480" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3480" source="CVE" />
+    <reference ref_id="CVE-2012-1571" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1571" source="CVE" />
+    <reference ref_id="CVE-2014-1943" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1943" source="CVE" />
+    <reference ref_id="CVE-2014-2270" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2270" source="CVE" />
     <description>[5.04-21]
 - fix typographical error in changelog
 
@@ -60,16 +59,17 @@
         <status_change date="2014-12-08T04:00:37.664-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="file is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126337"/>
-      <criterion comment="file-devel is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126164"/>
-      <criterion comment="file-libs is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126311"/>
-      <criterion comment="file-static is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126283"/>
-      <criterion comment="python-magic is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126295"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="file is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126337" />
+      <criterion comment="file-devel is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126164" />
+      <criterion comment="file-libs is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126311" />
+      <criterion comment="file-static is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126283" />
+      <criterion comment="python-magic is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:126295" />
     </criteria>
   </criteria>
 </definition>

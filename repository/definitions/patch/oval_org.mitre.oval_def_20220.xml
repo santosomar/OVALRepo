@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20220" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20220" version="6">
   <metadata>
     <title>DSA-2273-3 icedove - multiple issues</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>icedove</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2273-3" ref_id="DSA-2273-3"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0083" ref_id="CVE-2011-0083"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0085" ref_id="CVE-2011-0085"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2362" ref_id="CVE-2011-2362"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2363" ref_id="CVE-2011-2363"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2365" ref_id="CVE-2011-2365"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2371" ref_id="CVE-2011-2371"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2373" ref_id="CVE-2011-2373"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2374" ref_id="CVE-2011-2374"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2376" ref_id="CVE-2011-2376"/>
+    <reference ref_id="DSA-2273-3" ref_url="http://www.debian.org/security/dsa-2273-3" source="VENDOR" />
+    <reference ref_id="CVE-2011-0083" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0083" source="CVE" />
+    <reference ref_id="CVE-2011-0085" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0085" source="CVE" />
+    <reference ref_id="CVE-2011-2362" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2362" source="CVE" />
+    <reference ref_id="CVE-2011-2363" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2363" source="CVE" />
+    <reference ref_id="CVE-2011-2365" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2365" source="CVE" />
+    <reference ref_id="CVE-2011-2371" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2371" source="CVE" />
+    <reference ref_id="CVE-2011-2373" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2373" source="CVE" />
+    <reference ref_id="CVE-2011-2374" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2374" source="CVE" />
+    <reference ref_id="CVE-2011-2376" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2376" source="CVE" />
     <description>Several vulnerabilities have been discovered in Icedove, an unbranded version of the Thunderbird mail/news client.</description>
     <oval_repository>
       <dates>
@@ -33,14 +32,15 @@
         <status_change date="2014-06-23T04:07:01.635-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="icedove DPKG is earlier than 0:3.0.11-1+squeeze3" test_ref="oval:org.mitre.oval:tst:89199"/>
+    <criterion comment="icedove DPKG is earlier than 0:3.0.11-1+squeeze3" test_ref="oval:org.mitre.oval:tst:89199" />
   </criteria>
 </definition>

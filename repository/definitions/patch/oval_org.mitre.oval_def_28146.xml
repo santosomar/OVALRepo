@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28146" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28146" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-0791 -- tomcat6 security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>tomcat6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-0791.html" ref_id="ELSA-2011-0791"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718" ref_id="CVE-2010-3718"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4172" ref_id="CVE-2010-4172"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013" ref_id="CVE-2011-0013"/>
+    <reference ref_id="ELSA-2011-0791" ref_url="http://linux.oracle.com/errata/ELSA-2011-0791.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3718" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718" source="CVE" />
+    <reference ref_id="CVE-2010-4172" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4172" source="CVE" />
+    <reference ref_id="CVE-2011-0013" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013" source="CVE" />
     <description>[6.0.24-33]
 - resolves: rhbz 695284 - multiple instances logging fiasco
 
@@ -57,20 +56,21 @@
         <status_change date="2015-02-10T15:54:28.084-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="tomcat6 is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133858"/>
-      <criterion comment="tomcat6-admin-webapps is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133824"/>
-      <criterion comment="tomcat6-docs-webapp is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133768"/>
-      <criterion comment="tomcat6-el-2.1-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133080"/>
-      <criterion comment="tomcat6-javadoc is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133405"/>
-      <criterion comment="tomcat6-jsp-2.1-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133355"/>
-      <criterion comment="tomcat6-lib is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133856"/>
-      <criterion comment="tomcat6-servlet-2.5-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133550"/>
-      <criterion comment="tomcat6-webapps is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133809"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="tomcat6 is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133858" />
+      <criterion comment="tomcat6-admin-webapps is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133824" />
+      <criterion comment="tomcat6-docs-webapp is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133768" />
+      <criterion comment="tomcat6-el-2.1-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133080" />
+      <criterion comment="tomcat6-javadoc is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133405" />
+      <criterion comment="tomcat6-jsp-2.1-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133355" />
+      <criterion comment="tomcat6-lib is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133856" />
+      <criterion comment="tomcat6-servlet-2.5-api is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133550" />
+      <criterion comment="tomcat6-webapps is earlier than 0:6.0.24-33.el6" test_ref="oval:org.mitre.oval:tst:133809" />
     </criteria>
   </criteria>
 </definition>

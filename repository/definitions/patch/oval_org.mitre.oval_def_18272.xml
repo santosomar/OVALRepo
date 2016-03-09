@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18272" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18272" version="8">
   <metadata>
     <title>DSA-1668-1 hf - execution of arbitrary code</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>hf</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1668-1" ref_id="DSA-1668-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2378" ref_id="CVE-2008-2378"/>
+    <reference ref_id="DSA-1668-1" ref_url="http://www.debian.org/security/dsa-1668-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-2378" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2378" source="CVE" />
     <description>Steve Kemp discovered that hf, an amateur-radio protocol suite using a soundcard as a modem, insecurely tried to execute an external command which could lead to the elevation of privileges for local users.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:04:12.312-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="hf DPKG is earlier than 0.7.3-4etch1" test_ref="oval:org.mitre.oval:tst:86592"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="hf DPKG is earlier than 0.7.3-4etch1" test_ref="oval:org.mitre.oval:tst:86592" />
   </criteria>
 </definition>

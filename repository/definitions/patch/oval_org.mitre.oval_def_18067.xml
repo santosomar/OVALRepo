@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18067" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18067" version="8">
   <metadata>
     <title>DSA-2519-2 isc-dhcp - denial of service</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>isc-dhcp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2519-2" ref_id="DSA-2519-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4539" ref_id="CVE-2011-4539"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3571" ref_id="CVE-2012-3571"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3954" ref_id="CVE-2012-3954"/>
-    <description><![CDATA[Several security vulnerabilities affecting ISC dhcpd, a server for automatic IP address assignment, have been discovered. Additionally, the latest security update for isc-dhcp, <a href="../dsa-2516">DSA-2516-1</a>, did not properly apply the patches for <a href="http://security-tracker.debian.org/tracker/CVE-2012-3571">CVE-2012-3571</a> and <a href="http://security-tracker.debian.org/tracker/CVE-2012-3954">CVE-2012-3954</a>. This has been addressed in this additional update.]]></description>
+    <reference ref_id="DSA-2519-2" ref_url="http://www.debian.org/security/dsa-2519-2" source="VENDOR" />
+    <reference ref_id="CVE-2011-4539" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4539" source="CVE" />
+    <reference ref_id="CVE-2012-3571" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3571" source="CVE" />
+    <reference ref_id="CVE-2012-3954" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3954" source="CVE" />
+    <description>Several security vulnerabilities affecting ISC dhcpd, a server for automatic IP address assignment, have been discovered. Additionally, the latest security update for isc-dhcp, &lt;a href="../dsa-2516"&gt;DSA-2516-1&lt;/a&gt;, did not properly apply the patches for &lt;a href="http://security-tracker.debian.org/tracker/CVE-2012-3571"&gt;CVE-2012-3571&lt;/a&gt; and &lt;a href="http://security-tracker.debian.org/tracker/CVE-2012-3954"&gt;CVE-2012-3954&lt;/a&gt;. This has been addressed in this additional update.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:29">
@@ -32,14 +31,15 @@
         <status_change date="2014-06-23T04:03:59.499-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="isc-dhcp DPKG is earlier than 4.1.1-P1-15+squeeze6" test_ref="oval:org.mitre.oval:tst:86339"/>
+    <criterion comment="isc-dhcp DPKG is earlier than 4.1.1-P1-15+squeeze6" test_ref="oval:org.mitre.oval:tst:86339" />
   </criteria>
 </definition>

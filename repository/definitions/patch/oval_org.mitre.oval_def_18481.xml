@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18481" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18481" version="8">
   <metadata>
     <title>DSA-1551-1 python2.4 - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>python2.4</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1551-1" ref_id="DSA-1551-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2052" ref_id="CVE-2007-2052"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4965" ref_id="CVE-2007-4965"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1679" ref_id="CVE-2008-1679"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1721" ref_id="CVE-2008-1721"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1887" ref_id="CVE-2008-1887"/>
+    <reference ref_id="DSA-1551-1" ref_url="http://www.debian.org/security/dsa-1551-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-2052" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2052" source="CVE" />
+    <reference ref_id="CVE-2007-4965" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4965" source="CVE" />
+    <reference ref_id="CVE-2008-1679" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1679" source="CVE" />
+    <reference ref_id="CVE-2008-1721" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1721" source="CVE" />
+    <reference ref_id="CVE-2008-1887" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1887" source="CVE" />
     <description>Several vulnerabilities have been discovered in the interpreter for the Python language.</description>
     <oval_repository>
       <dates>
@@ -33,10 +32,11 @@
         <status_change date="2014-06-23T04:04:37.946-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="python2.4 DPKG is earlier than 2.4.4-3+etch1" test_ref="oval:org.mitre.oval:tst:86662"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="python2.4 DPKG is earlier than 2.4.4-3+etch1" test_ref="oval:org.mitre.oval:tst:86662" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27686" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27686" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1091 -- nss, nspr, and nss-util security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>nss</product>
       <product>nss-util</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1091.html" ref_id="ELSA-2012-1091"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0441" ref_id="CVE-2012-0441"/>
+    <reference ref_id="ELSA-2012-1091" ref_url="http://linux.oracle.com/errata/ELSA-2012-1091.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0441" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0441" source="CVE" />
     <description>nspr
 [4.9.1-2]
 - Related: rhbz#833762 - Update License to MPLv2.0
@@ -42,20 +41,21 @@ nss-util
         <status_change date="2015-02-10T13:21:37.647-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="nspr is earlier than 0:4.9.1-2.el6_3" test_ref="oval:org.mitre.oval:tst:131577"/>
-      <criterion comment="nss is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131563"/>
-      <criterion comment="nss-util is earlier than 0:3.13.5-1.el6_3" test_ref="oval:org.mitre.oval:tst:131610"/>
-      <criterion comment="nspr-devel is earlier than 0:4.9.1-2.el6_3" test_ref="oval:org.mitre.oval:tst:130873"/>
-      <criterion comment="nss-devel is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131450"/>
-      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131240"/>
-      <criterion comment="nss-sysinit is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131460"/>
-      <criterion comment="nss-tools is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131241"/>
-      <criterion comment="nss-util-devel is earlier than 0:3.13.5-1.el6_3" test_ref="oval:org.mitre.oval:tst:131543"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="nspr is earlier than 0:4.9.1-2.el6_3" test_ref="oval:org.mitre.oval:tst:131577" />
+      <criterion comment="nss is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131563" />
+      <criterion comment="nss-util is earlier than 0:3.13.5-1.el6_3" test_ref="oval:org.mitre.oval:tst:131610" />
+      <criterion comment="nspr-devel is earlier than 0:4.9.1-2.el6_3" test_ref="oval:org.mitre.oval:tst:130873" />
+      <criterion comment="nss-devel is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131450" />
+      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131240" />
+      <criterion comment="nss-sysinit is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131460" />
+      <criterion comment="nss-tools is earlier than 0:3.13.5-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131241" />
+      <criterion comment="nss-util-devel is earlier than 0:3.13.5-1.el6_3" test_ref="oval:org.mitre.oval:tst:131543" />
     </criteria>
   </criteria>
 </definition>

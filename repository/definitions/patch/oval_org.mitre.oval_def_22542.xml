@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22542" version="37" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22542" version="39">
   <metadata>
     <title>ELSA-2008:0221: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2008:0221-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0221.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-5275" ref_url="http://linux.oracle.com/cve/CVE-2007-5275.html" source="CVE"/>
-    <reference ref_id="CVE-2007-6243" ref_url="http://linux.oracle.com/cve/CVE-2007-6243.html" source="CVE"/>
-    <reference ref_id="CVE-2007-6637" ref_url="http://linux.oracle.com/cve/CVE-2007-6637.html" source="CVE"/>
-    <reference ref_id="CVE-2007-6019" ref_url="http://linux.oracle.com/cve/CVE-2007-6019.html" source="CVE"/>
-    <reference ref_id="CVE-2007-0071" ref_url="http://linux.oracle.com/cve/CVE-2007-0071.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1655" ref_url="http://linux.oracle.com/cve/CVE-2008-1655.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1654" ref_url="http://linux.oracle.com/cve/CVE-2008-1654.html" source="CVE"/>
-    <reference ref_id="CVE-2008-3872" ref_url="http://linux.oracle.com/cve/CVE-2008-3872.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0221-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0221.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5275" ref_url="http://linux.oracle.com/cve/CVE-2007-5275.html" source="CVE" />
+    <reference ref_id="CVE-2007-6243" ref_url="http://linux.oracle.com/cve/CVE-2007-6243.html" source="CVE" />
+    <reference ref_id="CVE-2007-6637" ref_url="http://linux.oracle.com/cve/CVE-2007-6637.html" source="CVE" />
+    <reference ref_id="CVE-2007-6019" ref_url="http://linux.oracle.com/cve/CVE-2007-6019.html" source="CVE" />
+    <reference ref_id="CVE-2007-0071" ref_url="http://linux.oracle.com/cve/CVE-2007-0071.html" source="CVE" />
+    <reference ref_id="CVE-2008-1655" ref_url="http://linux.oracle.com/cve/CVE-2008-1655.html" source="CVE" />
+    <reference ref_id="CVE-2008-1654" ref_url="http://linux.oracle.com/cve/CVE-2008-1654.html" source="CVE" />
+    <reference ref_id="CVE-2008-3872" ref_url="http://linux.oracle.com/cve/CVE-2008-3872.html" source="CVE" />
     <description>Adobe Flash Player 8.0.39.0 and earlier, and 9.x up to 9.0.115.0, allows remote attackers to bypass the allowScriptAccess parameter setting via a crafted SWF file with unspecified "Filter evasion" manipulations.</description>
     <oval_repository>
       <dates>
@@ -31,10 +30,11 @@
         <status_change date="2014-05-26T04:01:26.005-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="flash-plugin is earlier than 0:9.0.124.0-1.el5" test_ref="oval:org.mitre.oval:tst:102007"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="flash-plugin is earlier than 0:9.0.124.0-1.el5" test_ref="oval:org.mitre.oval:tst:102007" />
   </criteria>
 </definition>

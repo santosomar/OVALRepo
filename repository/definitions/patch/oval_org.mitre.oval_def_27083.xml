@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27083" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27083" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2014-0321 -- net-snmp security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>net-snmp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0321.html" ref_id="ELSA-2014-0321"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2284" ref_id="CVE-2014-2284"/>
+    <reference ref_id="ELSA-2014-0321" ref_url="http://linux.oracle.com/errata/ELSA-2014-0321.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2284" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2284" source="CVE" />
     <description>[1:5.5-49.0.1.el6_5.1]
 - snmptrapd: Fix crash due to access of freed memory (John Haxby) [orabug 14404682]
 
@@ -30,17 +29,18 @@
         <status_change date="2015-02-10T21:25:03.815-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="net-snmp is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127780"/>
-      <criterion comment="net-snmp-devel is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127822"/>
-      <criterion comment="net-snmp-libs is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127967"/>
-      <criterion comment="net-snmp-perl is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127845"/>
-      <criterion comment="net-snmp-python is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127997"/>
-      <criterion comment="net-snmp-utils is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127771"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="net-snmp is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127780" />
+      <criterion comment="net-snmp-devel is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127822" />
+      <criterion comment="net-snmp-libs is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127967" />
+      <criterion comment="net-snmp-perl is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127845" />
+      <criterion comment="net-snmp-python is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127997" />
+      <criterion comment="net-snmp-utils is earlier than 0:5.5-49.0.1.el6_5.1" test_ref="oval:org.mitre.oval:tst:127771" />
     </criteria>
   </criteria>
 </definition>

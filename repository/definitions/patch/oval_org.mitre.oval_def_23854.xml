@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23854" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23854" version="31">
   <metadata>
     <title>ELSA-2012:0144: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2012:0144-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0144.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-0752" ref_url="http://linux.oracle.com/cve/CVE-2012-0752.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0753" ref_url="http://linux.oracle.com/cve/CVE-2012-0753.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0754" ref_url="http://linux.oracle.com/cve/CVE-2012-0754.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0755" ref_url="http://linux.oracle.com/cve/CVE-2012-0755.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0756" ref_url="http://linux.oracle.com/cve/CVE-2012-0756.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0767" ref_url="http://linux.oracle.com/cve/CVE-2012-0767.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0144-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0144.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0752" ref_url="http://linux.oracle.com/cve/CVE-2012-0752.html" source="CVE" />
+    <reference ref_id="CVE-2012-0753" ref_url="http://linux.oracle.com/cve/CVE-2012-0753.html" source="CVE" />
+    <reference ref_id="CVE-2012-0754" ref_url="http://linux.oracle.com/cve/CVE-2012-0754.html" source="CVE" />
+    <reference ref_id="CVE-2012-0755" ref_url="http://linux.oracle.com/cve/CVE-2012-0755.html" source="CVE" />
+    <reference ref_id="CVE-2012-0756" ref_url="http://linux.oracle.com/cve/CVE-2012-0756.html" source="CVE" />
+    <reference ref_id="CVE-2012-0767" ref_url="http://linux.oracle.com/cve/CVE-2012-0767.html" source="CVE" />
     <description>Cross-site scripting (XSS) vulnerability in Adobe Flash Player before 10.3.183.15 and 11.x before 11.1.102.62 on Windows, Mac OS X, Linux, and Solaris; before 11.1.111.6 on Android 2.x and 3.x; and before 11.1.115.6 on Android 4.x allows remote attackers to inject arbitrary web script or HTML via unspecified vectors, aka "Universal XSS (UXSS)," as exploited in the wild in February 2012.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-05-26T04:05:37.498-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="flash-plugin is earlier than 0:10.3.183.15-1.el6" test_ref="oval:org.mitre.oval:tst:109714"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="flash-plugin is earlier than 0:10.3.183.15-1.el6" test_ref="oval:org.mitre.oval:tst:109714" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

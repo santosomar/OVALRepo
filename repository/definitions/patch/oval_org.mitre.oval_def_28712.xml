@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28712" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28712" version="5">
   <metadata>
     <title>RHSA-2009:0004 -- openssl security update (Important)</title>
     <affected family="unix">
@@ -15,11 +14,11 @@
       <product>openssl096b</product>
       <product>openssl097a</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0004.html" ref_id="RHSA-2009:0004"/>
-    <reference source="CESA-2009:0004" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015522.html" ref_id="CESA-2009:0004-CentOS 3"/>
-    <reference source="CESA-2009:0004" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015532.html" ref_id="CESA-2009:0004-CentOS 5"/>
-    <reference source="CESA-2009:0004" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-February/015574.html" ref_id="CESA-2009:0004-CentOS 2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5077" ref_id="CVE-2008-5077"/>
+    <reference ref_id="RHSA-2009:0004" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0004.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:0004-CentOS 3" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015522.html" source="CESA-2009:0004" />
+    <reference ref_id="CESA-2009:0004-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015532.html" source="CESA-2009:0004" />
+    <reference ref_id="CESA-2009:0004-CentOS 2" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-February/015574.html" source="CESA-2009:0004" />
+    <reference ref_id="CVE-2008-5077" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5077" source="CVE" />
     <description>Updated OpenSSL packages that correct a security issue are now available
 for Red Hat Enterprise Linux 2.1, 3, 4, and 5.
 This update has been rated as having important security impact by the Red
@@ -39,39 +38,41 @@ bypass validation. (CVE-2008-5077)</description>
         </submitted>
         <status_change date="2015-07-06T10:39:54.345-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:28.674-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:24.077-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl-devel is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140259"/>
-        <criterion comment="openssl is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140341"/>
-        <criterion comment="openssl-perl is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140419"/>
-        <criterion comment="openssl097a is earlier than 0:0.9.7a-9.el5_2.1" test_ref="oval:org.mitre.oval:tst:139591"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl-devel is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140259" />
+        <criterion comment="openssl is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140341" />
+        <criterion comment="openssl-perl is earlier than 0:0.9.8b-10.el5_2.1" test_ref="oval:org.mitre.oval:tst:140419" />
+        <criterion comment="openssl097a is earlier than 0:0.9.7a-9.el5_2.1" test_ref="oval:org.mitre.oval:tst:139591" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 3 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140394"/>
-        <criterion comment="openssl-devel is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140156"/>
-        <criterion comment="openssl-perl is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140483"/>
-        <criterion comment="openssl096b is earlier than 0:0.9.6b-16.49" test_ref="oval:org.mitre.oval:tst:140346"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140394" />
+        <criterion comment="openssl-devel is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140156" />
+        <criterion comment="openssl-perl is earlier than 0:0.9.7a-33.25" test_ref="oval:org.mitre.oval:tst:140483" />
+        <criterion comment="openssl096b is earlier than 0:0.9.6b-16.49" test_ref="oval:org.mitre.oval:tst:140346" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 4 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140500"/>
-        <criterion comment="openssl-devel is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140514"/>
-        <criterion comment="openssl-perl is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140254"/>
-        <criterion comment="openssl096b is earlier than 0:0.9.6b-22.46.el4_7" test_ref="oval:org.mitre.oval:tst:140549"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140500" />
+        <criterion comment="openssl-devel is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140514" />
+        <criterion comment="openssl-perl is earlier than 0:0.9.7a-43.17.el4_7.2" test_ref="oval:org.mitre.oval:tst:140254" />
+        <criterion comment="openssl096b is earlier than 0:0.9.6b-22.46.el4_7" test_ref="oval:org.mitre.oval:tst:140549" />
       </criteria>
     </criteria>
   </criteria>

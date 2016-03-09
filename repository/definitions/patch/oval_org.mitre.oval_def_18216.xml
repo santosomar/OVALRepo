@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18216" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18216" version="8">
   <metadata>
     <title>USN-1754-1 -- sudo vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1754-1/" ref_id="USN-1754-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1775" ref_id="CVE-2013-1775"/>
+    <reference ref_id="USN-1754-1" ref_url="http://www.ubuntu.com/usn/usn-1754-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-1775" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1775" source="CVE" />
     <description>Sudo could be made to run programs as the administrator without a passwor d prompt.</description>
     <oval_repository>
       <dates>
@@ -33,42 +32,43 @@
         <status_change date="2014-06-30T04:08:23.556-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="sudo DPKG is earlier than 1.8.5p2-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:85545"/>
-        <criterion comment="sudo-ldap DPKG is earlier than 1.8.5p2-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:85188"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="sudo DPKG is earlier than 1.8.5p2-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:85545" />
+        <criterion comment="sudo-ldap DPKG is earlier than 1.8.5p2-1ubuntu1.1" test_ref="oval:org.mitre.oval:tst:85188" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="sudo DPKG is earlier than 1.8.3p1-1ubuntu3.4" test_ref="oval:org.mitre.oval:tst:85557"/>
-        <criterion comment="sudo-ldap DPKG is earlier than 1.8.3p1-1ubuntu3.4" test_ref="oval:org.mitre.oval:tst:85151"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="sudo DPKG is earlier than 1.8.3p1-1ubuntu3.4" test_ref="oval:org.mitre.oval:tst:85557" />
+        <criterion comment="sudo-ldap DPKG is earlier than 1.8.3p1-1ubuntu3.4" test_ref="oval:org.mitre.oval:tst:85151" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="sudo DPKG is earlier than 1.7.4p6-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85589"/>
-        <criterion comment="sudo-ldap DPKG is earlier than 1.7.4p6-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85517"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="sudo DPKG is earlier than 1.7.4p6-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85589" />
+        <criterion comment="sudo-ldap DPKG is earlier than 1.7.4p6-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85517" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="sudo DPKG is earlier than 1.7.2p1-1ubuntu5.6" test_ref="oval:org.mitre.oval:tst:84959"/>
-        <criterion comment="sudo-ldap DPKG is earlier than 1.7.2p1-1ubuntu5.6" test_ref="oval:org.mitre.oval:tst:85569"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="sudo DPKG is earlier than 1.7.2p1-1ubuntu5.6" test_ref="oval:org.mitre.oval:tst:84959" />
+        <criterion comment="sudo-ldap DPKG is earlier than 1.7.2p1-1ubuntu5.6" test_ref="oval:org.mitre.oval:tst:85569" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="sudo DPKG is earlier than 1.6.9p10-1ubuntu3.10" test_ref="oval:org.mitre.oval:tst:85609"/>
-        <criterion comment="sudo-ldap DPKG is earlier than 1.6.9p10-1ubuntu3.10" test_ref="oval:org.mitre.oval:tst:84683"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="sudo DPKG is earlier than 1.6.9p10-1ubuntu3.10" test_ref="oval:org.mitre.oval:tst:85609" />
+        <criterion comment="sudo-ldap DPKG is earlier than 1.6.9p10-1ubuntu3.10" test_ref="oval:org.mitre.oval:tst:84683" />
       </criteria>
     </criteria>
   </criteria>

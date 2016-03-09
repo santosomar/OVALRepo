@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26969" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26969" version="6">
   <metadata>
     <title>ELSA-2014-1359 -- polkit-qt security update</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>polkit-qt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1359.html" ref_id="ELSA-2014-1359"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5033" ref_id="CVE-2014-5033"/>
+    <reference ref_id="ELSA-2014-1359" ref_url="http://linux.oracle.com/errata/ELSA-2014-1359.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-5033" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5033" source="CVE" />
     <description>[0.103.0-10]
 - Resolves: #1147368 (CVE-2014-5033)</description>
     <oval_repository>
@@ -23,14 +22,15 @@
         <status_change date="2014-12-08T04:00:29.249-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="polkit-qt is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126383"/>
-      <criterion comment="polkit-qt-devel is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126234"/>
-      <criterion comment="polkit-qt-doc is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126353"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="polkit-qt is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126383" />
+      <criterion comment="polkit-qt-devel is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126234" />
+      <criterion comment="polkit-qt-doc is earlier than 0:0.103.0-10.el7_0" test_ref="oval:org.mitre.oval:tst:126353" />
     </criteria>
   </criteria>
 </definition>

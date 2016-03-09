@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22606" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22606" version="15">
   <metadata>
     <title>ELSA-2007:0967: pcre security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>pcre</product>
     </affected>
-    <reference ref_id="ELSA-2007:0967-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0967.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-1659" ref_url="http://linux.oracle.com/cve/CVE-2007-1659.html" source="CVE"/>
-    <reference ref_id="CVE-2007-1660" ref_url="http://linux.oracle.com/cve/CVE-2007-1660.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0967-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0967.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-1659" ref_url="http://linux.oracle.com/cve/CVE-2007-1659.html" source="CVE" />
+    <reference ref_id="CVE-2007-1660" ref_url="http://linux.oracle.com/cve/CVE-2007-1660.html" source="CVE" />
     <description>Perl-Compatible Regular Expression (PCRE) library before 7.0 does not properly calculate sizes for unspecified "multiple forms of character class", which triggers a buffer overflow that allows context-dependent attackers to cause a denial of service (crash) and possibly execute arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:01:36.271-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="pcre-devel is earlier than 0:6.6-2.el5_0.1" test_ref="oval:org.mitre.oval:tst:101356"/>
-      <criterion comment="pcre is earlier than 0:6.6-2.el5_0.1" test_ref="oval:org.mitre.oval:tst:101506"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="pcre-devel is earlier than 0:6.6-2.el5_0.1" test_ref="oval:org.mitre.oval:tst:101356" />
+      <criterion comment="pcre is earlier than 0:6.6-2.el5_0.1" test_ref="oval:org.mitre.oval:tst:101506" />
     </criteria>
   </criteria>
 </definition>

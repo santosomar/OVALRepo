@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29259" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29259" version="4">
   <metadata>
     <title>RHSA-2009:1364 -- gdm security and bug fix update (Low)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 5</platform>
       <product>gdm</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1364.html" ref_id="RHSA-2009:1364"/>
-    <reference source="CESA-2009:1364" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-September/016157.html" ref_id="CESA-2009:1364-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2697" ref_id="CVE-2009-2697"/>
+    <reference ref_id="RHSA-2009:1364" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1364.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1364-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-September/016157.html" source="CESA-2009:1364" />
+    <reference ref_id="CVE-2009-2697" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2697" source="CVE" />
     <description>Updated gdm packages that fix a security issue and several bugs are now
 available for Red Hat Enterprise Linux 5.
 This update has been rated as having low security impact by the Red Hat
@@ -29,23 +28,25 @@ believing they had access restrictions enabled when they did not.
         </submitted>
         <status_change date="2015-07-06T11:17:36.121-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:31.929-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:25.734-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gdm is earlier than 1:2.16.0-56.el5" test_ref="oval:org.mitre.oval:tst:140634"/>
-        <criterion comment="gdm-docs is earlier than 1:2.16.0-56.el5" test_ref="oval:org.mitre.oval:tst:140213"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gdm is earlier than 1:2.16.0-56.el5" test_ref="oval:org.mitre.oval:tst:140634" />
+        <criterion comment="gdm-docs is earlier than 1:2.16.0-56.el5" test_ref="oval:org.mitre.oval:tst:140213" />
       </criteria>
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gdm is earlier than 1:2.16.0-56.el5.centos" test_ref="oval:org.mitre.oval:tst:140891"/>
-        <criterion comment="gdm-docs is earlier than 1:2.16.0-56.el5.centos" test_ref="oval:org.mitre.oval:tst:140886"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gdm is earlier than 1:2.16.0-56.el5.centos" test_ref="oval:org.mitre.oval:tst:140891" />
+        <criterion comment="gdm-docs is earlier than 1:2.16.0-56.el5.centos" test_ref="oval:org.mitre.oval:tst:140886" />
       </criteria>
     </criteria>
   </criteria>

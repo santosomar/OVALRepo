@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7079" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7079" version="8">
   <metadata>
     <title>DSA-1702 ntp -- interpretation conflict</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>ntp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1702" ref_id="DSA-1702"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0021" ref_id="CVE-2009-0021"/>
+    <reference ref_id="DSA-1702" ref_url="http://www.debian.org/security/2009/dsa-1702" source="VENDOR" />
+    <reference ref_id="CVE-2009-0021" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0021" source="CVE" />
     <description>It has been discovered that NTP, an implementation of the Network Time Protocol, does not properly check the result of an OpenSSL function for verifying cryptographic signatures, which may ultimately lead to the acceptance of unauthenticated time information. (Note that cryptographic authentication of time servers is often not enabled in the first place.)</description>
     <oval_repository>
       <dates>
@@ -29,34 +28,35 @@
         <status_change date="2015-02-23T04:01:36.933-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="ntp-refclock is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12468"/>
-          <criterion comment="ntp-simple is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12267"/>
-          <criterion comment="ntp-doc is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12016"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="ntp-refclock is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12468" />
+          <criterion comment="ntp-simple is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12267" />
+          <criterion comment="ntp-doc is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12016" />
         </criteria>
       </criteria>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="ntpdate is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12212"/>
-          <criterion comment="ntp is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12261"/>
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="ntpdate is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12212" />
+          <criterion comment="ntp is earlier than 1:4.2.2.p4+dfsg-2etch1" test_ref="oval:org.mitre.oval:tst:12261" />
         </criteria>
       </criteria>
     </criteria>

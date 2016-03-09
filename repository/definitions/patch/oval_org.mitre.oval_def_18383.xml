@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18383" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18383" version="8">
   <metadata>
     <title>DSA-1419-1 openoffice.org</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <product>openoffice.org</product>
       <product>hsqldb</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1419-1" ref_id="DSA-1419-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4575" ref_id="CVE-2007-4575"/>
+    <reference ref_id="DSA-1419-1" ref_url="http://www.debian.org/security/dsa-1419-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-4575" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4575" source="CVE" />
     <description>A vulnerability has been discovered in HSQLDB, the default database engine shipped with OpenOffice.org. This could result in the execution of arbitrary Java code embedded in a OpenOffice.org database document with the user's privilege. This update requires an update of both openoffice.org and hsqldb.</description>
     <oval_repository>
       <dates>
@@ -30,13 +29,14 @@
         <status_change date="2014-06-23T04:04:21.049-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openoffice.org DPKG is earlier than 2.0.4.dfsg.2-7etch4" test_ref="oval:org.mitre.oval:tst:86374"/>
-      <criterion comment="hsqldb DPKG is earlier than 1.8.0.7-1etch1" test_ref="oval:org.mitre.oval:tst:86518"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openoffice.org DPKG is earlier than 2.0.4.dfsg.2-7etch4" test_ref="oval:org.mitre.oval:tst:86374" />
+      <criterion comment="hsqldb DPKG is earlier than 1.8.0.7-1etch1" test_ref="oval:org.mitre.oval:tst:86518" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24259" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24259" version="9">
   <metadata>
     <title>ELSA-2014:0321: net-snmp security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>net-snmp</product>
     </affected>
-    <reference ref_id="ELSA-2014:0321-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0321.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-2284" ref_url="http://linux.oracle.com/cve/CVE-2014-2284.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0321-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0321.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2284" ref_url="http://linux.oracle.com/cve/CVE-2014-2284.html" source="CVE" />
     <description>The net-snmp packages provide various libraries and tools for the Simple
 Network Management Protocol (SNMP), including an SNMP library, an
 extensible agent, tools for requesting or setting information from SNMP
@@ -46,17 +45,18 @@ update, the snmpd service will be restarted automatically.</description>
         <status_change date="2014-05-26T04:06:21.911-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="net-snmp-perl is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113718"/>
-      <criterion comment="net-snmp-python is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113681"/>
-      <criterion comment="net-snmp-devel is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113346"/>
-      <criterion comment="net-snmp-utils is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113680"/>
-      <criterion comment="net-snmp-libs is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113175"/>
-      <criterion comment="net-snmp is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113579"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="net-snmp-perl is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113718" />
+      <criterion comment="net-snmp-python is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113681" />
+      <criterion comment="net-snmp-devel is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113346" />
+      <criterion comment="net-snmp-utils is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113680" />
+      <criterion comment="net-snmp-libs is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113175" />
+      <criterion comment="net-snmp is earlier than 1:5.5-49.el6_5.1" test_ref="oval:org.mitre.oval:tst:113579" />
     </criteria>
   </criteria>
 </definition>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23344" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23344" version="8">
   <metadata>
     <title>ELSA-2011:0999: rsync security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>rsync</product>
     </affected>
-    <reference ref_id="ELSA-2011:0999-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0999.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-6200" ref_url="http://linux.oracle.com/cve/CVE-2007-6200.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0999-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0999.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6200" ref_url="http://linux.oracle.com/cve/CVE-2007-6200.html" source="CVE" />
     <description>Unspecified vulnerability in rsync before 3.0.0pre6, when running a writable rsync daemon, allows remote attackers to bypass exclude, exclude_from, and filter and read or write hidden files via (1) symlink, (2) partial-dir, (3) backup-dir, and unspecified (4) dest options.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:04:07.296-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="rsync is earlier than 0:3.0.6-4.el5" test_ref="oval:org.mitre.oval:tst:105105"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="rsync is earlier than 0:3.0.6-4.el5" test_ref="oval:org.mitre.oval:tst:105105" />
   </criteria>
 </definition>

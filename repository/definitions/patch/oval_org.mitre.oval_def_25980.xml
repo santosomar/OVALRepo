@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25980" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25980" version="4">
   <metadata>
     <title>SUSE-RU-2014:1075-1 -- Recommended update for tar</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>tar</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20141075-1.html" ref_id="SUSE-RU-2014:1075-1"/>
+    <reference ref_id="SUSE-RU-2014:1075-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20141075-1.html" source="VENDOR" />
     <description>This update for tar provides the following fixes:
 
     * Don't print "lone zero blocks" warnings, as there are many tar
@@ -25,13 +24,14 @@
         <status_change date="2014-11-10T04:01:16.059-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="tar RPM is earlier than 0:1.26-1.2.6.1" test_ref="oval:org.mitre.oval:tst:124084"/>
+    <criterion comment="tar RPM is earlier than 0:1.26-1.2.6.1" test_ref="oval:org.mitre.oval:tst:124084" />
   </criteria>
 </definition>

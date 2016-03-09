@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17800" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17800" version="8">
   <metadata>
     <title>DSA-2609-1 rails - SQL query manipulation</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>rails</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2609-1" ref_id="DSA-2609-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0155" ref_id="CVE-2013-0155"/>
+    <reference ref_id="DSA-2609-1" ref_url="http://www.debian.org/security/dsa-2609-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-0155" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0155" source="CVE" />
     <description>An interpretation conflict can cause the Active Record component of Rails, a web framework for the Ruby programming language, to truncate queries in unexpected ways. This may allow attackers to elevate their privileges.</description>
     <oval_repository>
       <dates>
@@ -30,14 +29,15 @@
         <status_change date="2014-06-23T04:03:50.988-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="rails DPKG is earlier than 2.3.5-1.2+squeeze5" test_ref="oval:org.mitre.oval:tst:86185"/>
+    <criterion comment="rails DPKG is earlier than 2.3.5-1.2+squeeze5" test_ref="oval:org.mitre.oval:tst:86185" />
   </criteria>
 </definition>

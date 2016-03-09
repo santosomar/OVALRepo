@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13063" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13063" version="8">
   <metadata>
     <title>DSA-2281-1 opie -- several</title>
     <affected family="unix">
@@ -8,10 +7,10 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>opie</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00155.html" ref_id="DSA-2281-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2489" ref_id="CVE-2011-2489"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2490" ref_id="CVE-2011-2490"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1938" ref_id="CVE-2010-1938"/>
+    <reference ref_id="DSA-2281-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00155.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2489" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2489" source="CVE" />
+    <reference ref_id="CVE-2011-2490" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2490" source="CVE" />
+    <reference ref_id="CVE-2010-1938" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1938" source="CVE" />
     <description>Sebastian Krahmer discovered that opie, a system that makes it simple to use One-Time passwords in applications, is prone to a privilege escalation and an off-by-one error, which can lead to the execution of arbitrary code. Adam Zabrocki and Maksymilian Arciemowicz also discovered another off-by-one error, which only affects the lenny version as the fix was already included for squeeze.</description>
     <oval_repository>
       <dates>
@@ -28,22 +27,23 @@
         <status_change date="2014-06-23T04:01:31.544-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="opie DPKG is earlier than 2.32-10.2+lenny2" test_ref="oval:org.mitre.oval:tst:43968"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="opie DPKG is earlier than 2.32-10.2+lenny2" test_ref="oval:org.mitre.oval:tst:43968" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="opie DPKG is earlier than 2.32.dfsg.1-0.2+squeeze1" test_ref="oval:org.mitre.oval:tst:44058"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="opie DPKG is earlier than 2.32.dfsg.1-0.2+squeeze1" test_ref="oval:org.mitre.oval:tst:44058" />
     </criteria>
   </criteria>
 </definition>

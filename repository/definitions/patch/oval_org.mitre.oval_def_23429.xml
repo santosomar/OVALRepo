@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23429" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23429" version="9">
   <metadata>
     <title>ELSA-2011:0465: kdenetwork security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>kdenetwork</product>
     </affected>
-    <reference ref_id="ELSA-2011:0465-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0465.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-1586" ref_url="http://linux.oracle.com/cve/CVE-2011-1586.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0465-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0465.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1586" ref_url="http://linux.oracle.com/cve/CVE-2011-1586.html" source="CVE" />
     <description>Directory traversal vulnerability in the KGetMetalink::File::isValidNameAttr function in ui/metalinkcreator/metalinker.cpp in KGet in KDE SC 4.6.2 and earlier allows remote attackers to create arbitrary files via a .. (dot dot) in the name attribute of a file element in a metalink file.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2010-1000.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:04:22.960-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="kdenetwork-libs is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:108050"/>
-      <criterion comment="kdenetwork-devel is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:107936"/>
-      <criterion comment="kdenetwork is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:108678"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="kdenetwork-libs is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:108050" />
+      <criterion comment="kdenetwork-devel is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:107936" />
+      <criterion comment="kdenetwork is earlier than 7:4.3.4-11.el6_0.1" test_ref="oval:org.mitre.oval:tst:108678" />
     </criteria>
   </criteria>
 </definition>

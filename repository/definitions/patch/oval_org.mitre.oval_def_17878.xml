@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17878" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17878" version="8">
   <metadata>
     <title>USN-1663-1 -- nova vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 12.10</platform>
       <product>nova</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1663-1/" ref_id="USN-1663-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5625" ref_id="CVE-2012-5625"/>
+    <reference ref_id="USN-1663-1" ref_url="http://www.ubuntu.com/usn/usn-1663-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-5625" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5625" source="CVE" />
     <description>Nova could be made to expose sensitive information.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-30T04:07:39.818-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-    <criterion comment="python-nova DPKG is earlier than 2012.2-0ubuntu5.2" test_ref="oval:org.mitre.oval:tst:85203"/>
+    <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+    <criterion comment="python-nova DPKG is earlier than 2012.2-0ubuntu5.2" test_ref="oval:org.mitre.oval:tst:85203" />
   </criteria>
 </definition>

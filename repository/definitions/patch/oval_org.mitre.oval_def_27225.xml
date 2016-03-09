@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27225" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27225" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1582 -- python security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>python</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1582.html" ref_id="ELSA-2013-1582"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4238" ref_id="CVE-2013-4238"/>
+    <reference ref_id="ELSA-2013-1582" ref_url="http://linux.oracle.com/errata/ELSA-2013-1582.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4238" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4238" source="CVE" />
     <description>[2.6.6-51]
 - Fixed memory leak in _ssl._get_peer_alt_names
 Resolves: rhbz#1002983</description>
@@ -25,17 +24,18 @@ Resolves: rhbz#1002983</description>
         <status_change date="2015-02-11T15:56:04.267-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="python is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128287"/>
-      <criterion comment="python-devel is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:127982"/>
-      <criterion comment="python-libs is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:127898"/>
-      <criterion comment="python-test is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128520"/>
-      <criterion comment="python-tools is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128236"/>
-      <criterion comment="tkinter is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128412"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="python is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128287" />
+      <criterion comment="python-devel is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:127982" />
+      <criterion comment="python-libs is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:127898" />
+      <criterion comment="python-test is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128520" />
+      <criterion comment="python-tools is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128236" />
+      <criterion comment="tkinter is earlier than 0:2.6.6-51.el6" test_ref="oval:org.mitre.oval:tst:128412" />
     </criteria>
   </criteria>
 </definition>

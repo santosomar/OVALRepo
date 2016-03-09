@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:14520" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:14520" version="4">
   <metadata>
     <title>Microsoft Antigen for Exchange is installed</title>
     <affected family="windows">
@@ -10,7 +9,7 @@
       <platform>Microsoft Windows XP</platform>
       <product>Microsoft Antigen for Exchange</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:antigen_for_exchange"/>
+    <reference ref_id="cpe:/a:microsoft:antigen_for_exchange" source="CPE" />
     <description>Microsoft Antigen for Exchange is installed.</description>
     <oval_repository>
       <dates>
@@ -22,9 +21,10 @@
         <status_change date="2012-01-16T04:02:58.754-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="Check if Microsoft Antigen for Exchange is installed" test_ref="oval:org.mitre.oval:tst:77816"/>
+    <criterion comment="Check if Microsoft Antigen for Exchange is installed" test_ref="oval:org.mitre.oval:tst:77816" />
   </criteria>
 </definition>

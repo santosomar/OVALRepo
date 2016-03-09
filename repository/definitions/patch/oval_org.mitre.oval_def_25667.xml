@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25667" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25667" version="4">
   <metadata>
     <title>SUSE-SU-2013:1100-1 -- Security update for xorg-x11-libX11</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>xorg-x11-libX11</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131100-1.html" ref_id="SUSE-SU-2013:1100-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1981" ref_id="CVE-2013-1981"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1997" ref_id="CVE-2013-1997"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2004" ref_id="CVE-2013-2004"/>
+    <reference ref_id="SUSE-SU-2013:1100-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20131100-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1981" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1981" source="CVE" />
+    <reference ref_id="CVE-2013-1997" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1997" source="CVE" />
+    <reference ref_id="CVE-2013-2004" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2004" source="CVE" />
     <description>This update of xorg-x11-libX11 fixes several security
 issues (bnc#815451,  bnc#821664).</description>
     <oval_repository>
@@ -23,22 +22,23 @@ issues (bnc#815451,  bnc#821664).</description>
         <status_change date="2014-09-08T04:02:58.078-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="xorg-x11-libX11 RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119887"/>
-        <criterion comment="xorg-x11-libX11-32bit RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119727"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="xorg-x11-libX11 RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119887" />
+        <criterion comment="xorg-x11-libX11-32bit RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119727" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Desktop 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
-      <criterion comment="xorg-x11-libX11-devel RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119964"/>
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
+      <criterion comment="xorg-x11-libX11-devel RPM is earlier than 0:7.4-5.11.11.1" test_ref="oval:org.mitre.oval:tst:119964" />
     </criteria>
   </criteria>
 </definition>

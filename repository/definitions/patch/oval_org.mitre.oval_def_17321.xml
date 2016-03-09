@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17321" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17321" version="10">
   <metadata>
     <title>USN-1430-1 -- Firefox vulnerabilities</title>
     <affected family="unix">
@@ -9,20 +8,20 @@
       <platform>Ubuntu 10.04</platform>
       <product>firefox</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1430-1/" ref_id="usn-1430-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0467" ref_id="CVE-2012-0467"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0468" ref_id="CVE-2012-0468"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0469" ref_id="CVE-2012-0469"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0470" ref_id="CVE-2012-0470"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0471" ref_id="CVE-2012-0471"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0473" ref_id="CVE-2012-0473"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0474" ref_id="CVE-2012-0474"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0475" ref_id="CVE-2012-0475"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0477" ref_id="CVE-2012-0477"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0478" ref_id="CVE-2012-0478"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3062" ref_id="CVE-2011-3062"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1187" ref_id="CVE-2011-1187"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0479" ref_id="CVE-2012-0479"/>
+    <reference ref_id="usn-1430-1" ref_url="http://www.ubuntu.com/usn/usn-1430-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-0467" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0467" source="CVE" />
+    <reference ref_id="CVE-2012-0468" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0468" source="CVE" />
+    <reference ref_id="CVE-2012-0469" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0469" source="CVE" />
+    <reference ref_id="CVE-2012-0470" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0470" source="CVE" />
+    <reference ref_id="CVE-2012-0471" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0471" source="CVE" />
+    <reference ref_id="CVE-2012-0473" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0473" source="CVE" />
+    <reference ref_id="CVE-2012-0474" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0474" source="CVE" />
+    <reference ref_id="CVE-2012-0475" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0475" source="CVE" />
+    <reference ref_id="CVE-2012-0477" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0477" source="CVE" />
+    <reference ref_id="CVE-2012-0478" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0478" source="CVE" />
+    <reference ref_id="CVE-2011-3062" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3062" source="CVE" />
+    <reference ref_id="CVE-2011-1187" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1187" source="CVE" />
+    <reference ref_id="CVE-2012-0479" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0479" source="CVE" />
     <description>Several security issues were fixed in Firefox.</description>
     <oval_repository>
       <dates>
@@ -44,28 +43,29 @@
         <status_change date="2014-06-30T04:06:29.350-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:81019"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:81019" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:81475"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.11.04.1" test_ref="oval:org.mitre.oval:tst:81475" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:81621"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.11.10.1" test_ref="oval:org.mitre.oval:tst:81621" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:81470"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="firefox DPKG is earlier than 12.0+build1-0ubuntu0.10.04.1" test_ref="oval:org.mitre.oval:tst:81470" />
     </criteria>
   </criteria>
 </definition>

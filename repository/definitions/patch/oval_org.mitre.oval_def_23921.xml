@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23921" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23921" version="10">
   <metadata>
     <title>ELSA-2012:1551: mysql security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>mysql</product>
     </affected>
-    <reference ref_id="ELSA-2012:1551-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1551.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-5611" ref_url="http://linux.oracle.com/cve/CVE-2012-5611.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:1551-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-1551.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-5611" ref_url="http://linux.oracle.com/cve/CVE-2012-5611.html" source="CVE" />
     <description>Stack-based buffer overflow in the acl_get function in Oracle MySQL 5.5.19 and other versions through 5.5.28, and 5.1.53 and other versions through 5.1.66, and MariaDB 5.5.2.x before 5.5.28a, 5.3.x before 5.3.11, 5.2.x before 5.2.13 and 5.1.x before 5.1.66, allows remote authenticated users to execute arbitrary code via a long argument to the GRANT FILE command.</description>
     <oval_repository>
       <dates>
@@ -24,19 +23,20 @@
         <status_change date="2014-05-26T04:05:50.992-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="mysql-server is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111304"/>
-      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111120"/>
-      <criterion comment="mysql-bench is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111315"/>
-      <criterion comment="mysql-embedded is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111324"/>
-      <criterion comment="mysql-libs is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111010"/>
-      <criterion comment="mysql-test is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:110982"/>
-      <criterion comment="mysql is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111267"/>
-      <criterion comment="mysql-devel is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111275"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="mysql-server is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111304" />
+      <criterion comment="mysql-embedded-devel is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111120" />
+      <criterion comment="mysql-bench is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111315" />
+      <criterion comment="mysql-embedded is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111324" />
+      <criterion comment="mysql-libs is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111010" />
+      <criterion comment="mysql-test is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:110982" />
+      <criterion comment="mysql is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111267" />
+      <criterion comment="mysql-devel is earlier than 0:5.1.66-2.el6_3" test_ref="oval:org.mitre.oval:tst:111275" />
     </criteria>
   </criteria>
 </definition>

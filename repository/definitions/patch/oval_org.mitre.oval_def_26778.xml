@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26778" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26778" version="5">
   <metadata>
     <title>RHSA-2014:1167: kernel security and bug fix update (Important)</title>
     <affected family="unix">
@@ -7,12 +6,12 @@
       <platform>CentOS Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1167-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1167.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1167"/>
-    <reference source="CVE" ref_id="CVE-2014-0205" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0205.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3535" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3535.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3917" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3917.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4667" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4667.html"/>
+    <reference ref_id="RHSA-2014:1167-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1167.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1167" source="CESA" />
+    <reference ref_id="CVE-2014-0205" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0205.html" source="CVE" />
+    <reference ref_id="CVE-2014-3535" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3535.html" source="CVE" />
+    <reference ref_id="CVE-2014-3917" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3917.html" source="CVE" />
+    <reference ref_id="CVE-2014-4667" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4667.html" source="CVE" />
     <description>The kernel packages contain the Linux kernel, the core of any Linux
 operating system.
 
@@ -62,27 +61,28 @@ rebooted for this update to take effect.</description>
         <status_change date="2014-11-10T04:01:56.984-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="kernel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123813"/>
-      <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123669"/>
-      <criterion comment="kernel-bootwrapper is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:122932"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123394"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123755"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123750"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123144"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123779"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123742"/>
-      <criterion comment="kernel-kdump is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123660"/>
-      <criterion comment="kernel-kdump-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123872"/>
-      <criterion comment="perf is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123353"/>
-      <criterion comment="python-perf is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:122937"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123813" />
+      <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123669" />
+      <criterion comment="kernel-bootwrapper is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:122932" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123394" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123755" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123750" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123144" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123779" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123742" />
+      <criterion comment="kernel-kdump is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123660" />
+      <criterion comment="kernel-kdump-devel is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123872" />
+      <criterion comment="perf is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:123353" />
+      <criterion comment="python-perf is earlier than 0:2.6.32-431.29.2.el6" test_ref="oval:org.mitre.oval:tst:122937" />
     </criteria>
   </criteria>
 </definition>

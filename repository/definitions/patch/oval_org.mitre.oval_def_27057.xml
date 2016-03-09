@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27057" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27057" version="7">
   <metadata>
     <title>ELSA-2014-1653 -- openssl security update</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>openssl-devel</product>
       <product>openssl-perl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1653.html" ref_id="ELSA-2014-1653"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566" ref_id="CVE-2014-3566"/>
+    <reference ref_id="ELSA-2014-1653" ref_url="http://linux.oracle.com/errata/ELSA-2014-1653.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3566" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566" source="CVE" />
     <description>[0.9.8e-31]
 - add support for fallback SCSV to partially mitigate CVE-2014-3566
   (padding attack on SSL3)
@@ -42,14 +41,15 @@
         <status_change date="2014-12-22T04:00:07.543-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openssl is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126221"/>
-      <criterion comment="openssl-devel is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126206"/>
-      <criterion comment="openssl-perl is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126163"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openssl is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126221" />
+      <criterion comment="openssl-devel is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126206" />
+      <criterion comment="openssl-perl is earlier than 0:0.9.8e-31.el5_11" test_ref="oval:org.mitre.oval:tst:126163" />
     </criteria>
   </criteria>
 </definition>

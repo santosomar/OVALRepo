@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17026" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17026" version="8">
   <metadata>
     <title>USN-541-1 -- emacs22 vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 7.10</platform>
       <product>emacs22</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-541-1/" ref_id="USN-541-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5795" ref_id="CVE-2007-5795"/>
+    <reference ref_id="USN-541-1" ref_url="http://www.ubuntu.com/usn/usn-541-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-5795" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5795" source="CVE" />
     <description>Drake Wilson discovered that Emacs did not correctly handle the safe mode of "enable-local-variables".</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-30T04:06:09.672-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-    <criterion comment="emacs22 DPKG is earlier than 22.1-0ubuntu5.1" test_ref="oval:org.mitre.oval:tst:82023"/>
+    <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+    <criterion comment="emacs22 DPKG is earlier than 22.1-0ubuntu5.1" test_ref="oval:org.mitre.oval:tst:82023" />
   </criteria>
 </definition>

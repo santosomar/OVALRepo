@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27430" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27430" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1590 -- libtiff security update (moderate)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>Oracle Linux 6</platform>
       <product>libtiff</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1590.html" ref_id="ELSA-2012-1590"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3401" ref_id="CVE-2012-3401"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4447" ref_id="CVE-2012-4447"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4564" ref_id="CVE-2012-4564"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5581" ref_id="CVE-2012-5581"/>
+    <reference ref_id="ELSA-2012-1590" ref_url="http://linux.oracle.com/errata/ELSA-2012-1590.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3401" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3401" source="CVE" />
+    <reference ref_id="CVE-2012-4447" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4447" source="CVE" />
+    <reference ref_id="CVE-2012-4564" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4564" source="CVE" />
+    <reference ref_id="CVE-2012-5581" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5581" source="CVE" />
     <description>[3.9.4-9]
 - Still more fixes to make test case for CVE-2012-5581 work on all platforms
 Resolves: #885310
@@ -39,22 +38,23 @@ Resolves: #885310</description>
         <status_change date="2015-02-10T12:18:11.334-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libtiff is earlier than 0:3.8.2-18.el5_8" test_ref="oval:org.mitre.oval:tst:130813"/>
-        <criterion comment="libtiff-devel is earlier than 0:3.8.2-18.el5_8" test_ref="oval:org.mitre.oval:tst:130436"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libtiff is earlier than 0:3.8.2-18.el5_8" test_ref="oval:org.mitre.oval:tst:130813" />
+        <criterion comment="libtiff-devel is earlier than 0:3.8.2-18.el5_8" test_ref="oval:org.mitre.oval:tst:130436" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libtiff is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:130380"/>
-        <criterion comment="libtiff-devel is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:129947"/>
-        <criterion comment="libtiff-static is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:130431"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libtiff is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:130380" />
+        <criterion comment="libtiff-devel is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:129947" />
+        <criterion comment="libtiff-static is earlier than 0:3.9.4-9.el6_3" test_ref="oval:org.mitre.oval:tst:130431" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27085" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27085" version="8">
   <metadata>
     <title>ELSA-2014-1552 -- openssh security, bug fix, and enhancement update</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>openssh</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1552.html" ref_id="ELSA-2014-1552"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2532" ref_id="CVE-2014-2532"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2653" ref_id="CVE-2014-2653"/>
+    <reference ref_id="ELSA-2014-1552" ref_url="http://linux.oracle.com/errata/ELSA-2014-1552.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-2532" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2532" source="CVE" />
+    <reference ref_id="CVE-2014-2653" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2653" source="CVE" />
     <description>[5.3p1-104]
 - ignore SIGXFSZ in postauth monitor child (#1133906)
 
@@ -70,17 +69,18 @@
         <status_change date="2015-02-23T04:00:54.076-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="openssh is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125098"/>
-      <criterion comment="openssh-askpass is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125378"/>
-      <criterion comment="openssh-clients is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125037"/>
-      <criterion comment="openssh-ldap is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124984"/>
-      <criterion comment="openssh-server is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124560"/>
-      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-104.el6" test_ref="oval:org.mitre.oval:tst:125340"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="openssh is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125098" />
+      <criterion comment="openssh-askpass is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125378" />
+      <criterion comment="openssh-clients is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:125037" />
+      <criterion comment="openssh-ldap is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124984" />
+      <criterion comment="openssh-server is earlier than 0:5.3p1-104.el6" test_ref="oval:org.mitre.oval:tst:124560" />
+      <criterion comment="pam_ssh_agent_auth is earlier than 0:0.9.3-104.el6" test_ref="oval:org.mitre.oval:tst:125340" />
     </criteria>
   </criteria>
 </definition>

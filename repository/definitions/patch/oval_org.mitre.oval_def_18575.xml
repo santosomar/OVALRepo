@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18575" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18575" version="8">
   <metadata>
     <title>DSA-2583-1 iceweasel - several</title>
     <affected family="unix">
@@ -7,12 +6,12 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>iceweasel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2583-1" ref_id="DSA-2583-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4201" ref_id="CVE-2012-4201"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4207" ref_id="CVE-2012-4207"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4216" ref_id="CVE-2012-4216"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5829" ref_id="CVE-2012-5829"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5842" ref_id="CVE-2012-5842"/>
+    <reference ref_id="DSA-2583-1" ref_url="http://www.debian.org/security/dsa-2583-1" source="VENDOR" />
+    <reference ref_id="CVE-2012-4201" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4201" source="CVE" />
+    <reference ref_id="CVE-2012-4207" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4207" source="CVE" />
+    <reference ref_id="CVE-2012-4216" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4216" source="CVE" />
+    <reference ref_id="CVE-2012-5829" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5829" source="CVE" />
+    <reference ref_id="CVE-2012-5842" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5842" source="CVE" />
     <description>Multiple vulnerabilities have been found in Iceweasel, the Debian web browser based on Mozilla Firefox:</description>
     <oval_repository>
       <dates>
@@ -34,14 +33,15 @@
         <status_change date="2014-06-23T04:04:55.187-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="iceweasel DPKG is earlier than 3.5.16-20" test_ref="oval:org.mitre.oval:tst:86243"/>
+    <criterion comment="iceweasel DPKG is earlier than 3.5.16-20" test_ref="oval:org.mitre.oval:tst:86243" />
   </criteria>
 </definition>

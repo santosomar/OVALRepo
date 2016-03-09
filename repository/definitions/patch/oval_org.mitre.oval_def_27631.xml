@@ -1,32 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27631" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27631" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0245 -- java-1.6.0-openjdk security update (critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>java-1.6.0-openjdk</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0245.html" ref_id="ELSA-2013-0245"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0424" ref_id="CVE-2013-0424"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0425" ref_id="CVE-2013-0425"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0426" ref_id="CVE-2013-0426"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0427" ref_id="CVE-2013-0427"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0428" ref_id="CVE-2013-0428"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0429" ref_id="CVE-2013-0429"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0432" ref_id="CVE-2013-0432"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0433" ref_id="CVE-2013-0433"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0434" ref_id="CVE-2013-0434"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0435" ref_id="CVE-2013-0435"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0440" ref_id="CVE-2013-0440"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0441" ref_id="CVE-2013-0441"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0442" ref_id="CVE-2013-0442"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0443" ref_id="CVE-2013-0443"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0445" ref_id="CVE-2013-0445"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0450" ref_id="CVE-2013-0450"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1475" ref_id="CVE-2013-1475"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1476" ref_id="CVE-2013-1476"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1478" ref_id="CVE-2013-1478"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1480" ref_id="CVE-2013-1480"/>
+    <reference ref_id="ELSA-2013-0245" ref_url="http://linux.oracle.com/errata/ELSA-2013-0245.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0424" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0424" source="CVE" />
+    <reference ref_id="CVE-2013-0425" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0425" source="CVE" />
+    <reference ref_id="CVE-2013-0426" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0426" source="CVE" />
+    <reference ref_id="CVE-2013-0427" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0427" source="CVE" />
+    <reference ref_id="CVE-2013-0428" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0428" source="CVE" />
+    <reference ref_id="CVE-2013-0429" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0429" source="CVE" />
+    <reference ref_id="CVE-2013-0432" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0432" source="CVE" />
+    <reference ref_id="CVE-2013-0433" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0433" source="CVE" />
+    <reference ref_id="CVE-2013-0434" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0434" source="CVE" />
+    <reference ref_id="CVE-2013-0435" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0435" source="CVE" />
+    <reference ref_id="CVE-2013-0440" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0440" source="CVE" />
+    <reference ref_id="CVE-2013-0441" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0441" source="CVE" />
+    <reference ref_id="CVE-2013-0442" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0442" source="CVE" />
+    <reference ref_id="CVE-2013-0443" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0443" source="CVE" />
+    <reference ref_id="CVE-2013-0445" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0445" source="CVE" />
+    <reference ref_id="CVE-2013-0450" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0450" source="CVE" />
+    <reference ref_id="CVE-2013-1475" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1475" source="CVE" />
+    <reference ref_id="CVE-2013-1476" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1476" source="CVE" />
+    <reference ref_id="CVE-2013-1478" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1478" source="CVE" />
+    <reference ref_id="CVE-2013-1480" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1480" source="CVE" />
     <description>[1:1.6.0.0-1.54.1.11.6]
 - removed patch8 revertTwoWrongSecurityPatches2013-02-06.patch
 - added patch8:   7201064.patch to be reverted
@@ -56,16 +55,17 @@
         <status_change date="2015-02-10T12:18:51.813-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="java-1.6.0-openjdk is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130265"/>
-      <criterion comment="java-1.6.0-openjdk-demo is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130246"/>
-      <criterion comment="java-1.6.0-openjdk-devel is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130360"/>
-      <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130375"/>
-      <criterion comment="java-1.6.0-openjdk-src is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130429"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="java-1.6.0-openjdk is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130265" />
+      <criterion comment="java-1.6.0-openjdk-demo is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130246" />
+      <criterion comment="java-1.6.0-openjdk-devel is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130360" />
+      <criterion comment="java-1.6.0-openjdk-javadoc is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130375" />
+      <criterion comment="java-1.6.0-openjdk-src is earlier than 0:1.6.0.0-1.54.1.11.6.el6_3" test_ref="oval:org.mitre.oval:tst:130429" />
     </criteria>
   </criteria>
 </definition>

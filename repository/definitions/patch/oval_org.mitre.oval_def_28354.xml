@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28354" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28354" version="4">
   <metadata>
     <title>RHSA-2014:1764 -- wget security update (Moderate)</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>CentOS Linux 6</platform>
       <product>wget</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1764.html" ref_id="RHSA-2014:1764"/>
-    <reference source="CESA-2014:1764-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-October/020720.html" ref_id="CESA-2014:1764-CentOS 7"/>
-    <reference source="CESA-2014:1764-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-October/020721.html" ref_id="CESA-2014:1764-CentOS 6"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4877" ref_id="CVE-2014-4877"/>
+    <reference ref_id="RHSA-2014:1764" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1764.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1764-CentOS 7" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-October/020720.html" source="CESA-2014:1764-CentOS 7" />
+    <reference ref_id="CESA-2014:1764-CentOS 6" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-October/020721.html" source="CESA-2014:1764-CentOS 6" />
+    <reference ref_id="CVE-2014-4877" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4877" source="CVE" />
     <description>The wget package provides the GNU Wget file retrieval utility for HTTP,
 HTTPS, and FTP protocols.
 
@@ -40,30 +39,31 @@ contains a backported patch to correct this issue.</description>
         <status_change date="2015-01-26T04:00:37.815-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criterion comment="wget is earlier than 0:1.12-5.el6_6.1" test_ref="oval:org.mitre.oval:tst:136313"/>
+      <criterion comment="wget is earlier than 0:1.12-5.el6_6.1" test_ref="oval:org.mitre.oval:tst:136313" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="wget-debuginfo is earlier than 0:1.12-5.el6_6.1" test_ref="oval:org.mitre.oval:tst:135985"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="wget-debuginfo is earlier than 0:1.12-5.el6_6.1" test_ref="oval:org.mitre.oval:tst:135985" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 and CentOS Linux 7 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criterion comment="wget is earlier than 0:1.14-10.el7_0.1" test_ref="oval:org.mitre.oval:tst:136001"/>
+      <criterion comment="wget is earlier than 0:1.14-10.el7_0.1" test_ref="oval:org.mitre.oval:tst:136001" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criterion comment="wget-debuginfo is earlier than 0:1.14-10.el7_0.1" test_ref="oval:org.mitre.oval:tst:135430"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criterion comment="wget-debuginfo is earlier than 0:1.14-10.el7_0.1" test_ref="oval:org.mitre.oval:tst:135430" />
     </criteria>
   </criteria>
 </definition>

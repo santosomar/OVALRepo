@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20196" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20196" version="6">
   <metadata>
     <title>DSA-1673-1 wireshark - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>wireshark</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1673-1" ref_id="DSA-1673-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3137" ref_id="CVE-2008-3137"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3138" ref_id="CVE-2008-3138"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3141" ref_id="CVE-2008-3141"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3145" ref_id="CVE-2008-3145"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3933" ref_id="CVE-2008-3933"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4683" ref_id="CVE-2008-4683"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4684" ref_id="CVE-2008-4684"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4685" ref_id="CVE-2008-4685"/>
+    <reference ref_id="DSA-1673-1" ref_url="http://www.debian.org/security/dsa-1673-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-3137" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3137" source="CVE" />
+    <reference ref_id="CVE-2008-3138" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3138" source="CVE" />
+    <reference ref_id="CVE-2008-3141" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3141" source="CVE" />
+    <reference ref_id="CVE-2008-3145" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3145" source="CVE" />
+    <reference ref_id="CVE-2008-3933" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3933" source="CVE" />
+    <reference ref_id="CVE-2008-4683" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4683" source="CVE" />
+    <reference ref_id="CVE-2008-4684" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4684" source="CVE" />
+    <reference ref_id="CVE-2008-4685" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4685" source="CVE" />
     <description>Several remote vulnerabilities have been discovered in network traffic analyzer Wireshark.</description>
     <oval_repository>
       <dates>
@@ -31,10 +30,11 @@
         <status_change date="2014-06-23T04:06:56.947-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="wireshark DPKG is earlier than 0:0.99.4-5.etch.3" test_ref="oval:org.mitre.oval:tst:89190"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="wireshark DPKG is earlier than 0:0.99.4-5.etch.3" test_ref="oval:org.mitre.oval:tst:89190" />
   </criteria>
 </definition>

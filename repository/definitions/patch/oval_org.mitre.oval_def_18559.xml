@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18559" version="9" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18559" version="10">
   <metadata>
     <title>DSA-1527-1 debian-goodies - privilege escalation</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>debian-goodies</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1527-1" ref_id="DSA-1527-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3912" ref_id="CVE-2007-3912"/>
+    <reference ref_id="DSA-1527-1" ref_url="http://www.debian.org/security/dsa-1527-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-3912" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3912" source="CVE" />
     <description>Thomas de Grenier de Latour discovered that the checkrestart tool in the debian-goodies suite of utilities, allowed local users to gain privileges via shell metacharacters in the name of the executable file for a running process.</description>
     <oval_repository>
       <dates>
@@ -34,10 +33,11 @@
         <status_change date="2014-06-23T04:04:52.405-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="debian-goodies DPKG is earlier than 0.27+etch1" test_ref="oval:org.mitre.oval:tst:86630"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="debian-goodies DPKG is earlier than 0.27+etch1" test_ref="oval:org.mitre.oval:tst:86630" />
   </criteria>
 </definition>

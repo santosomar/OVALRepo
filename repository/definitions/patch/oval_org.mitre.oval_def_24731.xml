@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24731" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24731" version="6">
   <metadata>
     <title>ELSA-2014:0536: mysql55-mysql security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>mysql55-mysql</product>
     </affected>
-    <reference ref_id="ELSA-2014:0536-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0536.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-0384" ref_url="http://linux.oracle.com/cve/CVE-2014-0384.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2419" ref_url="http://linux.oracle.com/cve/CVE-2014-2419.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2430" ref_url="http://linux.oracle.com/cve/CVE-2014-2430.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2431" ref_url="http://linux.oracle.com/cve/CVE-2014-2431.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2432" ref_url="http://linux.oracle.com/cve/CVE-2014-2432.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2436" ref_url="http://linux.oracle.com/cve/CVE-2014-2436.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2438" ref_url="http://linux.oracle.com/cve/CVE-2014-2438.html" source="CVE"/>
-    <reference ref_id="CVE-2014-2440" ref_url="http://linux.oracle.com/cve/CVE-2014-2440.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0536-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0536.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0384" ref_url="http://linux.oracle.com/cve/CVE-2014-0384.html" source="CVE" />
+    <reference ref_id="CVE-2014-2419" ref_url="http://linux.oracle.com/cve/CVE-2014-2419.html" source="CVE" />
+    <reference ref_id="CVE-2014-2430" ref_url="http://linux.oracle.com/cve/CVE-2014-2430.html" source="CVE" />
+    <reference ref_id="CVE-2014-2431" ref_url="http://linux.oracle.com/cve/CVE-2014-2431.html" source="CVE" />
+    <reference ref_id="CVE-2014-2432" ref_url="http://linux.oracle.com/cve/CVE-2014-2432.html" source="CVE" />
+    <reference ref_id="CVE-2014-2436" ref_url="http://linux.oracle.com/cve/CVE-2014-2436.html" source="CVE" />
+    <reference ref_id="CVE-2014-2438" ref_url="http://linux.oracle.com/cve/CVE-2014-2438.html" source="CVE" />
+    <reference ref_id="CVE-2014-2440" ref_url="http://linux.oracle.com/cve/CVE-2014-2440.html" source="CVE" />
     <description>MySQL is a multi-user, multi-threaded SQL database server. It consists of
 the MySQL server daemon (mysqld) and many client programs and libraries.
 This update fixes several vulnerabilities in the MySQL database server.
@@ -41,17 +40,18 @@ these issues. After installing this update, the MySQL server daemon
         <status_change date="2014-09-01T04:02:47.143-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115031"/>
-      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115583"/>
-      <criterion comment="mysql55-mysql is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115533"/>
-      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115591"/>
-      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115569"/>
-      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115392"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115031" />
+      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115583" />
+      <criterion comment="mysql55-mysql is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115533" />
+      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115591" />
+      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115569" />
+      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:115392" />
     </criteria>
   </criteria>
 </definition>

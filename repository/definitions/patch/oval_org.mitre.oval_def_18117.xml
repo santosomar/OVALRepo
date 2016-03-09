@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18117" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18117" version="8">
   <metadata>
     <title>USN-1655-1 -- tiff vulnerability</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>tiff</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1655-1/" ref_id="USN-1655-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5581" ref_id="CVE-2012-5581"/>
+    <reference ref_id="USN-1655-1" ref_url="http://www.ubuntu.com/usn/usn-1655-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-5581" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5581" source="CVE" />
     <description>Programs that use LibTIFF could be made to crash or run programs if they opened a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -32,24 +31,25 @@
         <status_change date="2014-06-30T04:08:10.148-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libtiff4 DPKG is earlier than 3.9.5-2ubuntu1.4" test_ref="oval:org.mitre.oval:tst:84348"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libtiff4 DPKG is earlier than 3.9.5-2ubuntu1.4" test_ref="oval:org.mitre.oval:tst:84348" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libtiff4 DPKG is earlier than 3.9.5-1ubuntu1.5" test_ref="oval:org.mitre.oval:tst:84238"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libtiff4 DPKG is earlier than 3.9.5-1ubuntu1.5" test_ref="oval:org.mitre.oval:tst:84238" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libtiff4 DPKG is earlier than 3.9.2-2ubuntu0.12" test_ref="oval:org.mitre.oval:tst:85133"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libtiff4 DPKG is earlier than 3.9.2-2ubuntu0.12" test_ref="oval:org.mitre.oval:tst:85133" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libtiff4 DPKG is earlier than 3.8.2-7ubuntu3.16" test_ref="oval:org.mitre.oval:tst:85194"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libtiff4 DPKG is earlier than 3.8.2-7ubuntu3.16" test_ref="oval:org.mitre.oval:tst:85194" />
     </criteria>
   </criteria>
 </definition>

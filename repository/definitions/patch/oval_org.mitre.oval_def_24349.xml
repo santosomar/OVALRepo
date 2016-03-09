@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24349" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24349" version="7">
   <metadata>
     <title>ELSA-2014:0448: firefox security update (Critical)</title>
     <affected family="unix">
@@ -7,14 +6,14 @@
       <platform>Oracle Linux 6</platform>
       <product>firefox</product>
     </affected>
-    <reference ref_id="ELSA-2014:0448-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0448.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-1518" ref_url="http://linux.oracle.com/cve/CVE-2014-1518.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1523" ref_url="http://linux.oracle.com/cve/CVE-2014-1523.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1524" ref_url="http://linux.oracle.com/cve/CVE-2014-1524.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1529" ref_url="http://linux.oracle.com/cve/CVE-2014-1529.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1530" ref_url="http://linux.oracle.com/cve/CVE-2014-1530.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1531" ref_url="http://linux.oracle.com/cve/CVE-2014-1531.html" source="CVE"/>
-    <reference ref_id="CVE-2014-1532" ref_url="http://linux.oracle.com/cve/CVE-2014-1532.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0448-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0448.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-1518" ref_url="http://linux.oracle.com/cve/CVE-2014-1518.html" source="CVE" />
+    <reference ref_id="CVE-2014-1523" ref_url="http://linux.oracle.com/cve/CVE-2014-1523.html" source="CVE" />
+    <reference ref_id="CVE-2014-1524" ref_url="http://linux.oracle.com/cve/CVE-2014-1524.html" source="CVE" />
+    <reference ref_id="CVE-2014-1529" ref_url="http://linux.oracle.com/cve/CVE-2014-1529.html" source="CVE" />
+    <reference ref_id="CVE-2014-1530" ref_url="http://linux.oracle.com/cve/CVE-2014-1530.html" source="CVE" />
+    <reference ref_id="CVE-2014-1531" ref_url="http://linux.oracle.com/cve/CVE-2014-1531.html" source="CVE" />
+    <reference ref_id="CVE-2014-1532" ref_url="http://linux.oracle.com/cve/CVE-2014-1532.html" source="CVE" />
     <description>Mozilla Firefox is an open source web browser.
 Several flaws were found in the processing of malformed web content. A web
 page containing malicious content could cause Firefox to crash or,
@@ -58,16 +57,17 @@ the update, Firefox must be restarted for the changes to take effect.</descripti
         <status_change date="2014-07-21T04:01:14.382-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="firefox is earlier than 0:24.5.0-1.el5_10" test_ref="oval:org.mitre.oval:tst:114298"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="firefox is earlier than 0:24.5.0-1.el5_10" test_ref="oval:org.mitre.oval:tst:114298" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="firefox is earlier than 0:24.5.0-1.el6_5" test_ref="oval:org.mitre.oval:tst:114015"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="firefox is earlier than 0:24.5.0-1.el6_5" test_ref="oval:org.mitre.oval:tst:114015" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

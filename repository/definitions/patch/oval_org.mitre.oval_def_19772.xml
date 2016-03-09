@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19772" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19772" version="6">
   <metadata>
     <title>DSA-2757-1 wordpress - several</title>
     <affected family="unix">
@@ -9,12 +8,12 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>wordpress</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2757-1" ref_id="DSA-2757-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4338" ref_id="CVE-2013-4338"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4339" ref_id="CVE-2013-4339"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4340" ref_id="CVE-2013-4340"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5738" ref_id="CVE-2013-5738"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5739" ref_id="CVE-2013-5739"/>
+    <reference ref_id="DSA-2757-1" ref_url="http://www.debian.org/security/dsa-2757-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-4338" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4338" source="CVE" />
+    <reference ref_id="CVE-2013-4339" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4339" source="CVE" />
+    <reference ref_id="CVE-2013-4340" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4340" source="CVE" />
+    <reference ref_id="CVE-2013-5738" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5738" source="CVE" />
+    <reference ref_id="CVE-2013-5739" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5739" source="CVE" />
     <description>Several vulnerabilities were identified in Wordpress, a web blogging tool. As the CVEs were allocated from releases announcements and specific fixes are usually not identified, it has been decided to upgrade the Wordpress package to the latest upstream version instead of backporting the patches.</description>
     <oval_repository>
       <dates>
@@ -31,24 +30,25 @@
         <status_change date="2014-06-23T04:05:49.045-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="wordpress DPKG is earlier than 0:3.6.1+dfsg-1~deb6u1" test_ref="oval:org.mitre.oval:tst:88858"/>
+      <criterion comment="wordpress DPKG is earlier than 0:3.6.1+dfsg-1~deb6u1" test_ref="oval:org.mitre.oval:tst:88858" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="wordpress DPKG is earlier than 0:3.6.1+dfsg-1~deb7u1" test_ref="oval:org.mitre.oval:tst:88831"/>
+      <criterion comment="wordpress DPKG is earlier than 0:3.6.1+dfsg-1~deb7u1" test_ref="oval:org.mitre.oval:tst:88831" />
     </criteria>
   </criteria>
 </definition>

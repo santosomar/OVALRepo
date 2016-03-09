@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26690" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26690" version="4">
   <metadata>
     <title>RHSA-2014:1173: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,19 +6,19 @@
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1173-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1173.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0547" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0547.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0548" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0548.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0549" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0549.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0550" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0550.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0551" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0551.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0552" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0552.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0553" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0553.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0554" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0554.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0555" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0555.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0556" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0556.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0557" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0557.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0559" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0559.html"/>
+    <reference ref_id="RHSA-2014:1173-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1173.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0547" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0547.html" source="CVE" />
+    <reference ref_id="CVE-2014-0548" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0548.html" source="CVE" />
+    <reference ref_id="CVE-2014-0549" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0549.html" source="CVE" />
+    <reference ref_id="CVE-2014-0550" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0550.html" source="CVE" />
+    <reference ref_id="CVE-2014-0551" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0551.html" source="CVE" />
+    <reference ref_id="CVE-2014-0552" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0552.html" source="CVE" />
+    <reference ref_id="CVE-2014-0553" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0553.html" source="CVE" />
+    <reference ref_id="CVE-2014-0554" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0554.html" source="CVE" />
+    <reference ref_id="CVE-2014-0555" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0555.html" source="CVE" />
+    <reference ref_id="CVE-2014-0556" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0556.html" source="CVE" />
+    <reference ref_id="CVE-2014-0557" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0557.html" source="CVE" />
+    <reference ref_id="CVE-2014-0559" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0559.html" source="CVE" />
     <description>The flash-plugin package contains a Mozilla Firefox compatible Adobe Flash
 Player web browser plug-in.
 
@@ -50,16 +49,17 @@ upgrades Flash Player to version 11.2.202.406.</description>
         <status_change date="2014-11-10T04:01:43.064-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.406-1.el5" test_ref="oval:org.mitre.oval:tst:123869"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.406-1.el5" test_ref="oval:org.mitre.oval:tst:123869" />
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.406-1.el6" test_ref="oval:org.mitre.oval:tst:123356"/>
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.406-1.el6" test_ref="oval:org.mitre.oval:tst:123356" />
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
     </criteria>
   </criteria>
 </definition>

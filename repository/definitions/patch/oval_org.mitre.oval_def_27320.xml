@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27320" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27320" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0323 -- httpd security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>httpd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0323.html" ref_id="ELSA-2012-0323"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3607" ref_id="CVE-2011-3607"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3639" ref_id="CVE-2011-3639"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0031" ref_id="CVE-2012-0031"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0053" ref_id="CVE-2012-0053"/>
+    <reference ref_id="ELSA-2012-0323" ref_url="http://linux.oracle.com/errata/ELSA-2012-0323.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3607" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3607" source="CVE" />
+    <reference ref_id="CVE-2011-3639" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3639" source="CVE" />
+    <reference ref_id="CVE-2012-0031" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0031" source="CVE" />
+    <reference ref_id="CVE-2012-0053" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0053" source="CVE" />
     <description>[2.2.3-63.0.1.el5_8.1]
 - Fix mod_ssl always performing full renegotiation (orabug 12423387)
 - replace index.html with Oracle's index page oracle_index.html
@@ -33,15 +32,16 @@
         <status_change date="2015-02-10T19:43:10.685-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="httpd is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132273"/>
-      <criterion comment="httpd-devel is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:131851"/>
-      <criterion comment="httpd-manual is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132560"/>
-      <criterion comment="mod_ssl is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132600"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="httpd is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132273" />
+      <criterion comment="httpd-devel is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:131851" />
+      <criterion comment="httpd-manual is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132560" />
+      <criterion comment="mod_ssl is earlier than 0:2.2.3-63.0.1.el5_8.1" test_ref="oval:org.mitre.oval:tst:132600" />
     </criteria>
   </criteria>
 </definition>

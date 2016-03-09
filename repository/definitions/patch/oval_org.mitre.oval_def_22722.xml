@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22722" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22722" version="15">
   <metadata>
     <title>ELSA-2009:0345: ghostscript security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>ghostscript</product>
     </affected>
-    <reference ref_id="ELSA-2009:0345-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0345.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0583" ref_url="http://linux.oracle.com/cve/CVE-2009-0583.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0584" ref_url="http://linux.oracle.com/cve/CVE-2009-0584.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0345-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0345.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0583" ref_url="http://linux.oracle.com/cve/CVE-2009-0583.html" source="CVE" />
+    <reference ref_id="CVE-2009-0584" ref_url="http://linux.oracle.com/cve/CVE-2009-0584.html" source="CVE" />
     <description>icc.c in the International Color Consortium (ICC) Format library (aka icclib), as used in Ghostscript 8.64 and earlier and Argyll Color Management System (CMS) 1.0.3 and earlier, allows context-dependent attackers to cause a denial of service (application crash) or possibly execute arbitrary code by using a device file for processing a crafted image file associated with large integer values for certain sizes, related to an ICC profile in a (1) PostScript or (2) PDF file with embedded images.</description>
     <oval_repository>
       <dates>
@@ -25,14 +24,15 @@
         <status_change date="2014-05-26T04:01:58.187-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="ghostscript-gtk is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:101893"/>
-      <criterion comment="ghostscript is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:102352"/>
-      <criterion comment="ghostscript-devel is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:101905"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="ghostscript-gtk is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:101893" />
+      <criterion comment="ghostscript is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:102352" />
+      <criterion comment="ghostscript-devel is earlier than 0:8.15.2-9.4.el5_3.4" test_ref="oval:org.mitre.oval:tst:101905" />
     </criteria>
   </criteria>
 </definition>

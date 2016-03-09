@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18747" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18747" version="8">
   <metadata>
     <title>DSA-1421-1 wesnoth - directory traversal</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>wesnoth</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1421-1" ref_id="DSA-1421-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5742" ref_id="CVE-2007-5742"/>
+    <reference ref_id="DSA-1421-1" ref_url="http://www.debian.org/security/dsa-1421-1" source="VENDOR" />
+    <reference ref_id="CVE-2007-5742" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5742" source="CVE" />
     <description>A vulnerability has been discovered in Battle for Wesnoth that allows remote attackers to read arbitrary files the user running the client has access to on the machine running the game client.</description>
     <oval_repository>
       <dates>
@@ -29,10 +28,11 @@
         <status_change date="2014-06-23T04:05:20.890-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="wesnoth DPKG is earlier than 1.2-3" test_ref="oval:org.mitre.oval:tst:86439"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="wesnoth DPKG is earlier than 1.2-3" test_ref="oval:org.mitre.oval:tst:86439" />
   </criteria>
 </definition>

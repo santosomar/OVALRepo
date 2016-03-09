@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22972" version="45" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22972" version="47">
   <metadata>
     <title>ELSA-2009:1643: java-1.4.2-ibm security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>java-1.4.2-ibm</product>
     </affected>
-    <reference ref_id="ELSA-2009:1643-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1643.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-3867" ref_url="http://linux.oracle.com/cve/CVE-2009-3867.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3868" ref_url="http://linux.oracle.com/cve/CVE-2009-3868.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3869" ref_url="http://linux.oracle.com/cve/CVE-2009-3869.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3871" ref_url="http://linux.oracle.com/cve/CVE-2009-3871.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3872" ref_url="http://linux.oracle.com/cve/CVE-2009-3872.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3873" ref_url="http://linux.oracle.com/cve/CVE-2009-3873.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3874" ref_url="http://linux.oracle.com/cve/CVE-2009-3874.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3875" ref_url="http://linux.oracle.com/cve/CVE-2009-3875.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3876" ref_url="http://linux.oracle.com/cve/CVE-2009-3876.html" source="CVE"/>
-    <reference ref_id="CVE-2009-3877" ref_url="http://linux.oracle.com/cve/CVE-2009-3877.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1643-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1643.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-3867" ref_url="http://linux.oracle.com/cve/CVE-2009-3867.html" source="CVE" />
+    <reference ref_id="CVE-2009-3868" ref_url="http://linux.oracle.com/cve/CVE-2009-3868.html" source="CVE" />
+    <reference ref_id="CVE-2009-3869" ref_url="http://linux.oracle.com/cve/CVE-2009-3869.html" source="CVE" />
+    <reference ref_id="CVE-2009-3871" ref_url="http://linux.oracle.com/cve/CVE-2009-3871.html" source="CVE" />
+    <reference ref_id="CVE-2009-3872" ref_url="http://linux.oracle.com/cve/CVE-2009-3872.html" source="CVE" />
+    <reference ref_id="CVE-2009-3873" ref_url="http://linux.oracle.com/cve/CVE-2009-3873.html" source="CVE" />
+    <reference ref_id="CVE-2009-3874" ref_url="http://linux.oracle.com/cve/CVE-2009-3874.html" source="CVE" />
+    <reference ref_id="CVE-2009-3875" ref_url="http://linux.oracle.com/cve/CVE-2009-3875.html" source="CVE" />
+    <reference ref_id="CVE-2009-3876" ref_url="http://linux.oracle.com/cve/CVE-2009-3876.html" source="CVE" />
+    <reference ref_id="CVE-2009-3877" ref_url="http://linux.oracle.com/cve/CVE-2009-3877.html" source="CVE" />
     <description>Unspecified vulnerability in Sun Java SE in JDK and JRE 5.0 before Update 22, JDK and JRE 6 before Update 17, SDK and JRE 1.3.x before 1.3.1_27, and SDK and JRE 1.4.x before 1.4.2_24 allows remote attackers to cause a denial of service (memory consumption) via crafted HTTP headers, which are not properly parsed by the ASN.1 DER input stream parser, aka Bug Id 6864911.</description>
     <oval_repository>
       <dates>
@@ -33,18 +32,19 @@
         <status_change date="2014-05-26T04:03:02.366-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="java-1.4.2-ibm is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103342"/>
-      <criterion comment="java-1.4.2-ibm-devel is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102945"/>
-      <criterion comment="java-1.4.2-ibm-src is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102847"/>
-      <criterion comment="java-1.4.2-ibm-demo is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103500"/>
-      <criterion comment="java-1.4.2-ibm-javacomm is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102965"/>
-      <criterion comment="java-1.4.2-ibm-plugin is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102901"/>
-      <criterion comment="java-1.4.2-ibm-jdbc is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103533"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="java-1.4.2-ibm is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103342" />
+      <criterion comment="java-1.4.2-ibm-devel is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102945" />
+      <criterion comment="java-1.4.2-ibm-src is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102847" />
+      <criterion comment="java-1.4.2-ibm-demo is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103500" />
+      <criterion comment="java-1.4.2-ibm-javacomm is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102965" />
+      <criterion comment="java-1.4.2-ibm-plugin is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:102901" />
+      <criterion comment="java-1.4.2-ibm-jdbc is earlier than 0:1.4.2.13.3-1jpp.1.el5" test_ref="oval:org.mitre.oval:tst:103533" />
     </criteria>
   </criteria>
 </definition>

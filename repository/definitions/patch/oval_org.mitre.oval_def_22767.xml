@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22767" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22767" version="32">
   <metadata>
     <title>ELSA-2010:0332: firefox security update (Critical)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <product>firefox</product>
       <product>xulrunner</product>
     </affected>
-    <reference ref_id="ELSA-2010:0332-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0332.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-0174" ref_url="http://linux.oracle.com/cve/CVE-2010-0174.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0175" ref_url="http://linux.oracle.com/cve/CVE-2010-0175.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0176" ref_url="http://linux.oracle.com/cve/CVE-2010-0176.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0177" ref_url="http://linux.oracle.com/cve/CVE-2010-0177.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0178" ref_url="http://linux.oracle.com/cve/CVE-2010-0178.html" source="CVE"/>
-    <reference ref_id="CVE-2010-0179" ref_url="http://linux.oracle.com/cve/CVE-2010-0179.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0332-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0332.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0174" ref_url="http://linux.oracle.com/cve/CVE-2010-0174.html" source="CVE" />
+    <reference ref_id="CVE-2010-0175" ref_url="http://linux.oracle.com/cve/CVE-2010-0175.html" source="CVE" />
+    <reference ref_id="CVE-2010-0176" ref_url="http://linux.oracle.com/cve/CVE-2010-0176.html" source="CVE" />
+    <reference ref_id="CVE-2010-0177" ref_url="http://linux.oracle.com/cve/CVE-2010-0177.html" source="CVE" />
+    <reference ref_id="CVE-2010-0178" ref_url="http://linux.oracle.com/cve/CVE-2010-0178.html" source="CVE" />
+    <reference ref_id="CVE-2010-0179" ref_url="http://linux.oracle.com/cve/CVE-2010-0179.html" source="CVE" />
     <description>Mozilla Firefox before 3.0.19 and 3.5.x before 3.5.8, and SeaMonkey before 2.0.3, when the XMLHttpRequestSpy module in the Firebug add-on is used, does not properly handle interaction between the XMLHttpRequestSpy object and chrome privileged objects, which allows remote attackers to execute arbitrary JavaScript via a crafted HTTP response.</description>
     <oval_repository>
       <dates>
@@ -30,15 +29,16 @@
         <status_change date="2014-05-26T04:02:09.691-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="xulrunner-devel-unstable is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103823"/>
-      <criterion comment="xulrunner is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103887"/>
-      <criterion comment="xulrunner-devel is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103743"/>
-      <criterion comment="firefox is earlier than 0:3.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103852"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="xulrunner-devel-unstable is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103823" />
+      <criterion comment="xulrunner is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103887" />
+      <criterion comment="xulrunner-devel is earlier than 0:1.9.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103743" />
+      <criterion comment="firefox is earlier than 0:3.0.19-1.el5_5" test_ref="oval:org.mitre.oval:tst:103852" />
     </criteria>
   </criteria>
 </definition>

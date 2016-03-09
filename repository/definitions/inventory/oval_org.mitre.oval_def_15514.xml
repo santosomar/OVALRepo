@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:15514" version="5" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:15514" version="8">
   <metadata>
     <title>Microsoft Commerce Server 2007 is installed</title>
     <affected family="windows">
@@ -12,7 +11,7 @@
       <platform>Microsoft Windows Server 2008 R2</platform>
       <product>Microsoft Commerce Server 2007</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:commerce_server:2007"/>
+    <reference ref_id="cpe:/a:microsoft:commerce_server:2007" source="CPE" />
     <description>The application Microsoft Commerce Server 2007 is installed.</description>
     <oval_repository>
       <dates>
@@ -29,9 +28,10 @@
         <status_change date="2013-07-08T04:01:27.320-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Microsoft Commerce Server 2007 is installed" test_ref="oval:org.mitre.oval:tst:79403"/>
+    <criterion comment="Microsoft Commerce Server 2007 is installed" test_ref="oval:org.mitre.oval:tst:79403" />
   </criteria>
 </definition>

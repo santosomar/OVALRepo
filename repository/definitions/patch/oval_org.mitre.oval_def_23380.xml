@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23380" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23380" version="8">
   <metadata>
     <title>ELSA-2011:1852: krb5-appl security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>krb5-appl</product>
     </affected>
-    <reference ref_id="ELSA-2011:1852-02" ref_url="http://linux.oracle.com/errata/ELSA-2011-1852.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-4862" ref_url="http://linux.oracle.com/cve/CVE-2011-4862.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1852-02" ref_url="http://linux.oracle.com/errata/ELSA-2011-1852.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4862" ref_url="http://linux.oracle.com/cve/CVE-2011-4862.html" source="CVE" />
     <description>Buffer overflow in libtelnet/encrypt.c in telnetd in FreeBSD 7.3 through 9.0, MIT Kerberos Version 5 Applications (aka krb5-appl) 1.0.2 and earlier, Heimdal 1.5.1 and earlier, GNU inetutils, and possibly other products allows remote attackers to execute arbitrary code via a long encryption key, as exploited in the wild in December 2011.</description>
     <oval_repository>
       <dates>
@@ -24,14 +23,15 @@
         <status_change date="2014-05-26T04:04:13.939-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="krb5-appl-clients is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109666"/>
-      <criterion comment="krb5-appl-servers is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109750"/>
-      <criterion comment="krb5-appl is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109198"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="krb5-appl-clients is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109666" />
+      <criterion comment="krb5-appl-servers is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109750" />
+      <criterion comment="krb5-appl is earlier than 0:1.0.1-7.el6_2" test_ref="oval:org.mitre.oval:tst:109198" />
     </criteria>
   </criteria>
 </definition>

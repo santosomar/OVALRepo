@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26872" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26872" version="4">
   <metadata>
     <title>ELSA-2014-1193 -- axis security update (Important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Oracle Linux 5</platform>
       <product>axis</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1193.html" ref_id="ELSA-2014-1193"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3596" ref_id="CVE-2014-3596"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5784" ref_id="CVE-2012-5784"/>
+    <reference ref_id="ELSA-2014-1193" ref_url="http://linux.oracle.com/errata/ELSA-2014-1193.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3596" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3596" source="CVE" />
+    <reference ref_id="CVE-2012-5784" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5784" source="CVE" />
     <description>Apache Axis is an implementation of SOAP (Simple Object Access Protocol).
 It can be used to build both web service clients and servers.
 
@@ -37,23 +36,24 @@ Axis must be restarted for this update to take effect.</description>
         <status_change date="2014-11-17T04:01:02.274-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="axis RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124832"/>
-        <criterion comment="axis-javadoc RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124581"/>
-        <criterion comment="axis-manual RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124399"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="axis RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124832" />
+        <criterion comment="axis-javadoc RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124581" />
+        <criterion comment="axis-manual RPM is earlier than 0:1.2.1-7.5.el6_5" test_ref="oval:org.mitre.oval:tst:124399" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="axis RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124956"/>
-        <criterion comment="axis-javadoc RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124769"/>
-        <criterion comment="axis-manual RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124877"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="axis RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124956" />
+        <criterion comment="axis-javadoc RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124769" />
+        <criterion comment="axis-manual RPM is earlier than 0:1.2.1-2jpp.8.el5_10" test_ref="oval:org.mitre.oval:tst:124877" />
       </criteria>
     </criteria>
   </criteria>

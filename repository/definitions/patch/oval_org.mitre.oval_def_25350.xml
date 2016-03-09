@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25350" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25350" version="4">
   <metadata>
     <title>SUSE-SU-2014:0171-1 -- Security update for curl</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>curl</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140171-1.html" ref_id="SUSE-SU-2014:0171-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0015" ref_id="CVE-2014-0015"/>
+    <reference ref_id="SUSE-SU-2014:0171-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140171-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0015" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0015" source="CVE" />
     <description>This update fixes the re-use of wrong HTTP NTLM connections
 in libcurl.  (CVE-2014-0015)
 
@@ -16,7 +15,7 @@ Security Issue reference:
 
     * CVE-2014-0015
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0015
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:19:39">
@@ -27,17 +26,18 @@ Security Issue reference:
         <status_change date="2014-09-08T04:02:00.991-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="curl RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117457"/>
-      <criterion comment="libcurl4 RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117733"/>
-      <criterion comment="libcurl4-32bit RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117666"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="curl RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117457" />
+      <criterion comment="libcurl4 RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117733" />
+      <criterion comment="libcurl4-32bit RPM is earlier than 0:7.19.7-1.20.31.1" test_ref="oval:org.mitre.oval:tst:117666" />
     </criteria>
   </criteria>
 </definition>

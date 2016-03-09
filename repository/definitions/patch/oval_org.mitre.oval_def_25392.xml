@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25392" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25392" version="4">
   <metadata>
     <title>SUSE-RU-2014:0291-1 -- Recommended update for mdadm</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>mdadm</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140291-1.html" ref_id="SUSE-RU-2014:0291-1"/>
+    <reference ref_id="SUSE-RU-2014:0291-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140291-1.html" source="VENDOR" />
     <description>This update for mdadm provides many fixes and enhancements:
 
     * Don't wait so long when creating arrays. (bnc#816382)
@@ -44,13 +43,14 @@ devices. (bnc#819930)
         <status_change date="2014-09-08T04:02:12.856-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="mdadm RPM is earlier than 0:3.2.6-0.23.1" test_ref="oval:org.mitre.oval:tst:117573"/>
+    <criterion comment="mdadm RPM is earlier than 0:3.2.6-0.23.1" test_ref="oval:org.mitre.oval:tst:117573" />
   </criteria>
 </definition>

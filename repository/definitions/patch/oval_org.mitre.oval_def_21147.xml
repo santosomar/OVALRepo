@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21147" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21147" version="6">
   <metadata>
     <title>RHSA-2012:0774: libguestfs security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>libguestfs</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0774-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0774.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0774"/>
-    <reference source="CVE" ref_id="CVE-2012-2690" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-2690.html"/>
+    <reference ref_id="RHSA-2012:0774-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0774.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0774" source="CESA" />
+    <reference ref_id="CVE-2012-2690" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-2690.html" source="CVE" />
     <description>virt-edit in libguestfs before 1.18.0 does not preserve the permissions from the original file and saves the new file with world-readable permissions when editing, which might allow local guest users to obtain sensitive information.</description>
     <oval_repository>
       <dates>
@@ -21,26 +20,27 @@
         <status_change date="2014-02-24T04:00:51.003-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="libguestfs-javadoc is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93800"/>
-      <criterion comment="libguestfs-java-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93696"/>
-      <criterion comment="libguestfs-java is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93604"/>
-      <criterion comment="perl-Sys-Guestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93502"/>
-      <criterion comment="libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93674"/>
-      <criterion comment="ocaml-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93519"/>
-      <criterion comment="python-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93733"/>
-      <criterion comment="ocaml-libguestfs-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93578"/>
-      <criterion comment="libguestfs-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93541"/>
-      <criterion comment="libguestfs-tools-c is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:92943"/>
-      <criterion comment="ruby-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93612"/>
-      <criterion comment="libguestfs-tools is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93658"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="libguestfs-javadoc is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93800" />
+      <criterion comment="libguestfs-java-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93696" />
+      <criterion comment="libguestfs-java is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93604" />
+      <criterion comment="perl-Sys-Guestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93502" />
+      <criterion comment="libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93674" />
+      <criterion comment="ocaml-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93519" />
+      <criterion comment="python-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93733" />
+      <criterion comment="ocaml-libguestfs-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93578" />
+      <criterion comment="libguestfs-devel is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93541" />
+      <criterion comment="libguestfs-tools-c is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:92943" />
+      <criterion comment="ruby-libguestfs is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93612" />
+      <criterion comment="libguestfs-tools is earlier than 1:1.16.19-1.el6" test_ref="oval:org.mitre.oval:tst:93658" />
     </criteria>
   </criteria>
 </definition>

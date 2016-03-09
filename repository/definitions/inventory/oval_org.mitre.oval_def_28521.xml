@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28521" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:28521" version="4">
   <metadata>
     <title>Adobe Flash Player 16 is installed</title>
     <affected family="windows">
@@ -15,7 +14,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>Adobe Flash Player</product>
     </affected>
-    <reference ref_id="cpe:/a:adobe:flash_player:16" source="CPE"/>
+    <reference ref_id="cpe:/a:adobe:flash_player:16" source="CPE" />
     <description>Adobe Flash Player 16 is installed on the system</description>
     <oval_repository>
       <dates>
@@ -27,9 +26,10 @@
         <status_change date="2015-03-30T04:00:18.608-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Adobe Flash Player 16.x is installed on the system" test_ref="oval:org.mitre.oval:tst:137910"/>
+    <criterion comment="Adobe Flash Player 16.x is installed on the system" test_ref="oval:org.mitre.oval:tst:137910" />
   </criteria>
 </definition>

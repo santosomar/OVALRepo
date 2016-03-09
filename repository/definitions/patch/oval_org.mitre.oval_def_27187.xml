@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27187" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27187" version="4">
   <metadata>
     <title>RHSA-2013:1536 -- libguestfs security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>libguestfs</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1536.html" ref_id="RHSA-2013:1536"/>
-    <reference source="CESA-2013:1536" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2013-November/000983.html" ref_id="CESA-2013:1536"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4419" ref_id="CVE-2013-4419"/>
+    <reference ref_id="RHSA-2013:1536" ref_url="https://rhn.redhat.com/errata/RHSA-2013-1536.html" source="VENDOR" />
+    <reference ref_id="CESA-2013:1536" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2013-November/000983.html" source="CESA-2013:1536" />
+    <reference ref_id="CVE-2013-4419" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4419" source="CVE" />
     <description>Libguestfs is a library and set of tools for accessing and modifying guest
 disk images.
 
@@ -43,32 +42,33 @@ enhancements.</description>
         <status_change date="2014-12-08T04:00:42.312-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126120"/>
-        <criterion comment="libguestfs-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125934"/>
-        <criterion comment="libguestfs-java is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125959"/>
-        <criterion comment="libguestfs-java-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125285"/>
-        <criterion comment="libguestfs-javadoc is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125158"/>
-        <criterion comment="libguestfs-tools is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125999"/>
-        <criterion comment="libguestfs-tools-c is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126005"/>
-        <criterion comment="ocaml-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126144"/>
-        <criterion comment="ocaml-libguestfs-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125965"/>
-        <criterion comment="perl-Sys-Guestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125648"/>
-        <criterion comment="python-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125536"/>
-        <criterion comment="ruby-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126065"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126120" />
+        <criterion comment="libguestfs-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125934" />
+        <criterion comment="libguestfs-java is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125959" />
+        <criterion comment="libguestfs-java-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125285" />
+        <criterion comment="libguestfs-javadoc is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125158" />
+        <criterion comment="libguestfs-tools is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125999" />
+        <criterion comment="libguestfs-tools-c is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126005" />
+        <criterion comment="ocaml-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126144" />
+        <criterion comment="ocaml-libguestfs-devel is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125965" />
+        <criterion comment="perl-Sys-Guestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125648" />
+        <criterion comment="python-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:125536" />
+        <criterion comment="ruby-libguestfs is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126065" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="libguestfs-debuginfo is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126057"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="libguestfs-debuginfo is earlier than 0:1.20.11-2.el6" test_ref="oval:org.mitre.oval:tst:126057" />
     </criteria>
   </criteria>
 </definition>

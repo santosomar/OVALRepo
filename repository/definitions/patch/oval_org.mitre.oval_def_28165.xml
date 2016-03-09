@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28165" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28165" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1422 -- openswan security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>openswan</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1422.html" ref_id="ELSA-2011-1422"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4073" ref_id="CVE-2011-4073"/>
+    <reference ref_id="ELSA-2011-1422" ref_url="http://linux.oracle.com/errata/ELSA-2011-1422.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-4073" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4073" source="CVE" />
     <description>[2.6.32-4.4]
 Resolves: #748969 CVE-2011-4073 updated patch by upstream
 
@@ -28,21 +27,22 @@ Resolves: #748969 CVE-2011-4073</description>
         <status_change date="2015-02-10T16:15:47.384-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openswan is earlier than 0:2.6.21-5.el5_7.6" test_ref="oval:org.mitre.oval:tst:133284"/>
-        <criterion comment="openswan-doc is earlier than 0:2.6.21-5.el5_7.6" test_ref="oval:org.mitre.oval:tst:133360"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openswan is earlier than 0:2.6.21-5.el5_7.6" test_ref="oval:org.mitre.oval:tst:133284" />
+        <criterion comment="openswan-doc is earlier than 0:2.6.21-5.el5_7.6" test_ref="oval:org.mitre.oval:tst:133360" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openswan is earlier than 0:2.6.32-4.el6_1.4" test_ref="oval:org.mitre.oval:tst:133191"/>
-        <criterion comment="openswan-doc is earlier than 0:2.6.32-4.el6_1.4" test_ref="oval:org.mitre.oval:tst:133254"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openswan is earlier than 0:2.6.32-4.el6_1.4" test_ref="oval:org.mitre.oval:tst:133191" />
+        <criterion comment="openswan-doc is earlier than 0:2.6.32-4.el6_1.4" test_ref="oval:org.mitre.oval:tst:133254" />
       </criteria>
     </criteria>
   </criteria>

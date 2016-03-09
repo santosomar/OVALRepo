@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27702" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27702" version="7">
   <metadata>
     <title>ELSA-2010-2011 -- Unbreakable enterprise kernel security and bug fix update
           (important)</title>
@@ -14,16 +13,16 @@
       <product>kernel-headers</product>
       <product>ofa</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-2011.html" ref_id="ELSA-2010-2011"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3432" ref_id="CVE-2010-3432"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3437" ref_id="CVE-2010-3437"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3442" ref_id="CVE-2010-3442"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3698" ref_id="CVE-2010-3698"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3705" ref_id="CVE-2010-3705"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2955" ref_id="CVE-2010-2955"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2962" ref_id="CVE-2010-2962"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3079" ref_id="CVE-2010-3079"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3084" ref_id="CVE-2010-3084"/>
+    <reference ref_id="ELSA-2010-2011" ref_url="http://linux.oracle.com/errata/ELSA-2010-2011.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3432" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3432" source="CVE" />
+    <reference ref_id="CVE-2010-3437" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3437" source="CVE" />
+    <reference ref_id="CVE-2010-3442" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3442" source="CVE" />
+    <reference ref_id="CVE-2010-3698" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3698" source="CVE" />
+    <reference ref_id="CVE-2010-3705" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3705" source="CVE" />
+    <reference ref_id="CVE-2010-2955" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2955" source="CVE" />
+    <reference ref_id="CVE-2010-2962" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2962" source="CVE" />
+    <reference ref_id="CVE-2010-3079" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3079" source="CVE" />
+    <reference ref_id="CVE-2010-3084" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3084" source="CVE" />
     <description>Following Security fixes are included in this unbreakable enterprise kernel
           errata: CVE-2010-3432 The sctp_packet_config function in net/sctp/output.c in the Linux
           kernel before 2.6.35.6 performs extraneous initializations of packet data structures,
@@ -77,20 +76,21 @@
         <status_change date="2015-03-16T04:01:31.101-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:133902"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134841"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134672"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134796"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134194"/>
-      <criterion comment="kernel-firmware is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134447"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134781"/>
-      <criterion comment="ofa-2.6.32-100.24.1.el5 is earlier than 0:1.5.1-4.0.23" test_ref="oval:org.mitre.oval:tst:134059"/>
-      <criterion comment="ofa-2.6.32-100.24.1.el5debug is earlier than 0:1.5.1-4.0.23" test_ref="oval:org.mitre.oval:tst:134706"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:133902" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134841" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134672" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134796" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134194" />
+      <criterion comment="kernel-firmware is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134447" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.32-100.24.1.el5" test_ref="oval:org.mitre.oval:tst:134781" />
+      <criterion comment="ofa-2.6.32-100.24.1.el5 is earlier than 0:1.5.1-4.0.23" test_ref="oval:org.mitre.oval:tst:134059" />
+      <criterion comment="ofa-2.6.32-100.24.1.el5debug is earlier than 0:1.5.1-4.0.23" test_ref="oval:org.mitre.oval:tst:134706" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25199" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25199" version="4">
   <metadata>
     <title>SUSE-RU-2014:0312-1 -- Recommended update for sudo</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140312-1.html" ref_id="SUSE-RU-2014:0312-1"/>
+    <reference ref_id="SUSE-RU-2014:0312-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140312-1.html" source="VENDOR" />
     <description>This update for sudo provides the following fixes:
 
     * Escape "sudo -i" and "sudo -s" command arguments to
@@ -24,13 +23,14 @@ SUSE-specific changes. (bnc#823292)</description>
         <status_change date="2014-09-08T04:01:12.793-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criterion comment="sudo RPM is earlier than 0:1.7.6p2-0.19.1" test_ref="oval:org.mitre.oval:tst:117380"/>
+    <criterion comment="sudo RPM is earlier than 0:1.7.6p2-0.19.1" test_ref="oval:org.mitre.oval:tst:117380" />
   </criteria>
 </definition>

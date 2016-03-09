@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25079" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25079" version="4">
   <metadata>
     <title>SUSE-RU-2014:0113-1 -- Recommended update for release-notes-sles and release-notes-SLES-for-VMware</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <product>release-notes-sles</product>
       <product>release-notes-SLES-for-VMware</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140113-1.html" ref_id="SUSE-RU-2014:0113-1"/>
+    <reference ref_id="SUSE-RU-2014:0113-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-ru-20140113-1.html" source="VENDOR" />
     <description>This update provides three additions to the Release Notes
 for SUSE Linux  Enterprise Server 11 SP2:
 
@@ -26,10 +25,11 @@ after the update (bnc#847621 via fate#313833)
         <status_change date="2014-09-08T04:00:53.783-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criterion comment="release-notes-sles RPM is earlier than 0:11.2.0.50-0.6.1" test_ref="oval:org.mitre.oval:tst:117746"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criterion comment="release-notes-sles RPM is earlier than 0:11.2.0.50-0.6.1" test_ref="oval:org.mitre.oval:tst:117746" />
   </criteria>
 </definition>

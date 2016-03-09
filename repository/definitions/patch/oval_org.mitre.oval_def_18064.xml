@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18064" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18064" version="8">
   <metadata>
     <title>DSA-1977-1 python - several vulnerabilities</title>
     <affected family="unix">
@@ -8,11 +7,11 @@
       <product>python2.4</product>
       <product>python2.5</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1977-1" ref_id="DSA-1977-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2316" ref_id="CVE-2008-2316"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3560" ref_id="CVE-2009-3560"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3720" ref_id="CVE-2009-3720"/>
-    <description>Jukka Taimisto, Tero Rontti and Rauli Kaksonen discovered that the embedded Expat copy in the interpreter for the Python language, does not properly process malformed or crafted XML files. (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2009-3560">CVE-2009-3560&lt;/a> &lt;a href="http://security-tracker.debian.org/tracker/CVE-2009-3720">CVE-2009-3720&lt;/a>) This vulnerability could allow an attacker to cause a denial of service while parsing a malformed XML file.</description>
+    <reference ref_id="DSA-1977-1" ref_url="http://www.debian.org/security/dsa-1977-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-2316" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2316" source="CVE" />
+    <reference ref_id="CVE-2009-3560" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3560" source="CVE" />
+    <reference ref_id="CVE-2009-3720" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3720" source="CVE" />
+    <description>Jukka Taimisto, Tero Rontti and Rauli Kaksonen discovered that the embedded Expat copy in the interpreter for the Python language, does not properly process malformed or crafted XML files. (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2009-3560"&gt;CVE-2009-3560&lt;/a&gt; &lt;a href="http://security-tracker.debian.org/tracker/CVE-2009-3720"&gt;CVE-2009-3720&lt;/a&gt;) This vulnerability could allow an attacker to cause a denial of service while parsing a malformed XML file.</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:12:50">
@@ -33,21 +32,22 @@
         <status_change date="2014-06-23T04:03:59.282-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="python2.4 DPKG is earlier than 2.4.4-3+etch3" test_ref="oval:org.mitre.oval:tst:85932"/>
-        <criterion comment="python2.5 DPKG is earlier than 2.5-5+etch2" test_ref="oval:org.mitre.oval:tst:86450"/>
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="python2.4 DPKG is earlier than 2.4.4-3+etch3" test_ref="oval:org.mitre.oval:tst:85932" />
+        <criterion comment="python2.5 DPKG is earlier than 2.5-5+etch2" test_ref="oval:org.mitre.oval:tst:86450" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="python2.4 DPKG is earlier than 2.4.6-1+lenny1" test_ref="oval:org.mitre.oval:tst:86543"/>
-        <criterion comment="python2.5 DPKG is earlier than 2.5.2-15+lenny1" test_ref="oval:org.mitre.oval:tst:86385"/>
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="python2.4 DPKG is earlier than 2.4.6-1+lenny1" test_ref="oval:org.mitre.oval:tst:86543" />
+        <criterion comment="python2.5 DPKG is earlier than 2.5.2-15+lenny1" test_ref="oval:org.mitre.oval:tst:86385" />
       </criteria>
     </criteria>
   </criteria>

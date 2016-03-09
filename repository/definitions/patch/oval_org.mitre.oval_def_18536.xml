@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18536" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18536" version="8">
   <metadata>
     <title>DSA-1680-1 clamav - potential code execution</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>clamav</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1680-1" ref_id="DSA-1680-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5050" ref_id="CVE-2008-5050"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5314" ref_id="CVE-2008-5314"/>
-    <description>Moritz Jodeit discovered that ClamAV, an anti-virus solution, suffers from an off-by-one-error in its VBA project file processing, leading to a heap-based buffer overflow and potentially arbitrary code execution (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2008-5050">CVE-2008-5050&lt;/a>).</description>
+    <reference ref_id="DSA-1680-1" ref_url="http://www.debian.org/security/dsa-1680-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-5050" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5050" source="CVE" />
+    <reference ref_id="CVE-2008-5314" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5314" source="CVE" />
+    <description>Moritz Jodeit discovered that ClamAV, an anti-virus solution, suffers from an off-by-one-error in its VBA project file processing, leading to a heap-based buffer overflow and potentially arbitrary code execution (&lt;a href="http://security-tracker.debian.org/tracker/CVE-2008-5050"&gt;CVE-2008-5050&lt;/a&gt;).</description>
     <oval_repository>
       <dates>
         <submitted date="2013-08-01T17:13:03">
@@ -30,10 +29,11 @@
         <status_change date="2014-06-23T04:04:48.997-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="clamav DPKG is earlier than 0.90.1dfsg-4etch16" test_ref="oval:org.mitre.oval:tst:86485"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="clamav DPKG is earlier than 0.90.1dfsg-4etch16" test_ref="oval:org.mitre.oval:tst:86485" />
   </criteria>
 </definition>

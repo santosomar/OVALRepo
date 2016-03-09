@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27367" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27367" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0769 -- glibc security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>glibc</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0769.html" ref_id="ELSA-2013-0769"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0242" ref_id="CVE-2013-0242"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1914" ref_id="CVE-2013-1914"/>
+    <reference ref_id="ELSA-2013-0769" ref_url="http://linux.oracle.com/errata/ELSA-2013-0769.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0242" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0242" source="CVE" />
+    <reference ref_id="CVE-2013-1914" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1914" source="CVE" />
     <description>[2.5-107.4]
 - Add missing patch to avoid use after free (#816647).
 
@@ -32,17 +31,18 @@
         <status_change date="2015-02-10T17:16:59.542-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="glibc is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129673"/>
-      <criterion comment="glibc-common is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129403"/>
-      <criterion comment="glibc-devel is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129694"/>
-      <criterion comment="glibc-headers is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129617"/>
-      <criterion comment="glibc-utils is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129669"/>
-      <criterion comment="nscd is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:128772"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="glibc is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129673" />
+      <criterion comment="glibc-common is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129403" />
+      <criterion comment="glibc-devel is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129694" />
+      <criterion comment="glibc-headers is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129617" />
+      <criterion comment="glibc-utils is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:129669" />
+      <criterion comment="nscd is earlier than 0:2.5-107.el5_9.4" test_ref="oval:org.mitre.oval:tst:128772" />
     </criteria>
   </criteria>
 </definition>

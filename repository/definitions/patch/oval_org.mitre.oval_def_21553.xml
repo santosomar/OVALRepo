@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21553" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21553" version="7">
   <metadata>
     <title>RHSA-2012:0973: nss, nss-util, and nspr security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <product>nss</product>
       <product>nss-util</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:0973-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0973.html"/>
-    <reference source="CESA" ref_id="CESA-2012:0973"/>
+    <reference ref_id="RHSA-2012:0973-04" ref_url="https://rhn.redhat.com/errata/RHSA-2012-0973.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:0973" source="CESA" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the cross-platform development of security-enabled client and server
 applications. Netscape Portable Runtime (NSPR) provides platform
@@ -102,23 +101,24 @@ restarted for this update to take effect.</description>
         <status_change date="2014-06-30T04:09:40.009-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="nspr is earlier than 0:4.9-1.el6" test_ref="oval:org.mitre.oval:tst:93524"/>
-      <criterion comment="nspr-devel is earlier than 0:4.9-1.el6" test_ref="oval:org.mitre.oval:tst:93367"/>
-      <criterion comment="nss-util is earlier than 0:3.13.3-2.el6" test_ref="oval:org.mitre.oval:tst:94013"/>
-      <criterion comment="nss-util-devel is earlier than 0:3.13.3-2.el6" test_ref="oval:org.mitre.oval:tst:93843"/>
-      <criterion comment="nss-tools is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93861"/>
-      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93729"/>
-      <criterion comment="nss-sysinit is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93686"/>
-      <criterion comment="nss is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93538"/>
-      <criterion comment="nss-devel is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93698"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="nspr is earlier than 0:4.9-1.el6" test_ref="oval:org.mitre.oval:tst:93524" />
+      <criterion comment="nspr-devel is earlier than 0:4.9-1.el6" test_ref="oval:org.mitre.oval:tst:93367" />
+      <criterion comment="nss-util is earlier than 0:3.13.3-2.el6" test_ref="oval:org.mitre.oval:tst:94013" />
+      <criterion comment="nss-util-devel is earlier than 0:3.13.3-2.el6" test_ref="oval:org.mitre.oval:tst:93843" />
+      <criterion comment="nss-tools is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93861" />
+      <criterion comment="nss-pkcs11-devel is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93729" />
+      <criterion comment="nss-sysinit is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93686" />
+      <criterion comment="nss is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93538" />
+      <criterion comment="nss-devel is earlier than 0:3.13.3-6.el6" test_ref="oval:org.mitre.oval:tst:93698" />
     </criteria>
   </criteria>
 </definition>

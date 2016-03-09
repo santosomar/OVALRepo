@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28894" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28894" version="4">
   <metadata>
     <title>RHSA-2009:1100 -- wireshark security update (Moderate)</title>
     <affected family="unix">
@@ -10,13 +9,13 @@
       <platform>CentOS Linux 5</platform>
       <product>wireshark</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1100.html" ref_id="RHSA-2009:1100"/>
-    <reference source="CESA-2009:1100" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015969.html" ref_id="CESA-2009:1100-CentOS 3"/>
-    <reference source="CESA-2009:1100" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015987.html" ref_id="CESA-2009:1100-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1210" ref_id="CVE-2009-1210"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1268" ref_id="CVE-2009-1268"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1269" ref_id="CVE-2009-1269"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1829" ref_id="CVE-2009-1829"/>
+    <reference ref_id="RHSA-2009:1100" ref_url="https://rhn.redhat.com/errata/RHSA-2009-1100.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:1100-CentOS 3" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015969.html" source="CESA-2009:1100" />
+    <reference ref_id="CESA-2009:1100-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-June/015987.html" source="CESA-2009:1100" />
+    <reference ref_id="CVE-2009-1210" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1210" source="CVE" />
+    <reference ref_id="CVE-2009-1268" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1268" source="CVE" />
+    <reference ref_id="CVE-2009-1269" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1269" source="CVE" />
+    <reference ref_id="CVE-2009-1829" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1829" source="CVE" />
     <description>Updated wireshark packages that fix several security issues are now
 available for Red Hat Enterprise Linux 3, 4, and 5.
 This update has been rated as having moderate security impact by the Red
@@ -39,33 +38,35 @@ Wireshark must be restarted for the update to take effect.</description>
         </submitted>
         <status_change date="2015-07-06T11:17:20.199-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:40.165-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:33.796-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:140700"/>
-        <criterion comment="wireshark is earlier than 0:1.0.8-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:140402"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:140700" />
+        <criterion comment="wireshark is earlier than 0:1.0.8-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:140402" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 3 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="wireshark is earlier than 0:1.0.8-EL3.1" test_ref="oval:org.mitre.oval:tst:141101"/>
-        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-EL3.1" test_ref="oval:org.mitre.oval:tst:140892"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="wireshark is earlier than 0:1.0.8-EL3.1" test_ref="oval:org.mitre.oval:tst:141101" />
+        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-EL3.1" test_ref="oval:org.mitre.oval:tst:140892" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 4 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="wireshark is earlier than 0:1.0.8-1.el4_8.1" test_ref="oval:org.mitre.oval:tst:140895"/>
-        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-1.el4_8.1" test_ref="oval:org.mitre.oval:tst:140779"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="wireshark is earlier than 0:1.0.8-1.el4_8.1" test_ref="oval:org.mitre.oval:tst:140895" />
+        <criterion comment="wireshark-gnome is earlier than 0:1.0.8-1.el4_8.1" test_ref="oval:org.mitre.oval:tst:140779" />
       </criteria>
     </criteria>
   </criteria>

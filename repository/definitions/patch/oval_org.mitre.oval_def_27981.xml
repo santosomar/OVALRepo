@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27981" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27981" version="4">
   <metadata>
     <title>SUSE-SU-2014:1259-1 -- bash (important)</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 12</platform>
       <platform>SUSE Linux Enterprise Desktop 12</platform>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141259-1.html" ref_id="SUSE-SU-2014:1259-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7169" ref_id="CVE-2014-7169"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6271" ref_id="CVE-2014-6271"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7186" ref_id="CVE-2014-7186"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7187" ref_id="CVE-2014-7187"/>
+    <reference ref_id="SUSE-SU-2014:1259-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141259-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-7169" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7169" source="CVE" />
+    <reference ref_id="CVE-2014-6271" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6271" source="CVE" />
+    <reference ref_id="CVE-2014-7186" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7186" source="CVE" />
+    <reference ref_id="CVE-2014-7187" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7187" source="CVE" />
     <description>The command-line shell 'bash' evaluates environment variables, which
 allows the injection of characters and might be used to access files on
 the system in some circumstances (CVE-2014-7169).
@@ -39,28 +38,29 @@ CVE-2014-7187: Nesting of for loops could lead to a crash of bash.</description>
         <status_change date="2015-01-26T04:00:18.777-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 12 and SUSE Linux Enterprise Desktop 12 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 12 is installed" definition_ref="oval:org.mitre.oval:def:28211" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="bash-doc is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136263"/>
-        <criterion comment="readline-doc is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136637"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="bash-doc is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136263" />
+        <criterion comment="readline-doc is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136637" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Desktop 12 release section">
-      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="bash is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136660"/>
-        <criterion comment="bash-debuginfo is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136212"/>
-        <criterion comment="bash-debugsource is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:135845"/>
-        <criterion comment="libreadline6 is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136414"/>
-        <criterion comment="libreadline6-debuginfo is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136717"/>
-        <criterion comment="bash-lang is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136392"/>
+      <extend_definition comment="SUSE Linux Enterprise Desktop 12 is installed" definition_ref="oval:org.mitre.oval:def:28148" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="bash is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136660" />
+        <criterion comment="bash-debuginfo is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136212" />
+        <criterion comment="bash-debugsource is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:135845" />
+        <criterion comment="libreadline6 is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136414" />
+        <criterion comment="libreadline6-debuginfo is earlier than 0:6.2-81.1" test_ref="oval:org.mitre.oval:tst:136717" />
+        <criterion comment="bash-lang is earlier than 0:4.2-81.1" test_ref="oval:org.mitre.oval:tst:136392" />
       </criteria>
     </criteria>
   </criteria>

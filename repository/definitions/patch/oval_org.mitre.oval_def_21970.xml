@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21970" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21970" version="10">
   <metadata>
     <title>ELSA-2008:0533: bind security update (Important)</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>selinux-policy-targeted</product>
       <product>selinux-policy</product>
     </affected>
-    <reference ref_id="ELSA-2008:0533-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0533.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-1447" ref_url="http://linux.oracle.com/cve/CVE-2008-1447.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0533-02" ref_url="http://linux.oracle.com/errata/ELSA-2008-0533.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-1447" ref_url="http://linux.oracle.com/cve/CVE-2008-1447.html" source="CVE" />
     <description>The DNS protocol, as implemented in (1) BIND 8 and 9 before 9.5.0-P1, 9.4.2-P1, and 9.3.5-P1; (2) Microsoft DNS in Windows 2000 SP4, XP SP2 and SP3, and Server 2003 SP1 and SP2; and other implementations allow remote attackers to spoof DNS traffic via a birthday attack that uses in-bailiwick referrals to conduct cache poisoning against recursive resolvers, related to insufficient randomness of DNS transaction IDs and source ports, aka "DNS Insufficient Socket Entropy Vulnerability" or "the Kaminsky bug."</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2014-05-26T04:00:44.157-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="selinux-policy-devel is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101948"/>
-      <criterion comment="selinux-policy-mls is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101978"/>
-      <criterion comment="selinux-policy-targeted is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:102225"/>
-      <criterion comment="selinux-policy-strict is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101698"/>
-      <criterion comment="selinux-policy is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:102359"/>
-      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101736"/>
-      <criterion comment="bind-utils is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102216"/>
-      <criterion comment="bind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102110"/>
-      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101535"/>
-      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102124"/>
-      <criterion comment="bind is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102001"/>
-      <criterion comment="bind-libs is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102367"/>
-      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102377"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="selinux-policy-devel is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101948" />
+      <criterion comment="selinux-policy-mls is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101978" />
+      <criterion comment="selinux-policy-targeted is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:102225" />
+      <criterion comment="selinux-policy-strict is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:101698" />
+      <criterion comment="selinux-policy is earlier than 0:2.4.6-137.1.el5_2" test_ref="oval:org.mitre.oval:tst:102359" />
+      <criterion comment="bind-libbind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101736" />
+      <criterion comment="bind-utils is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102216" />
+      <criterion comment="bind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102110" />
+      <criterion comment="bind-chroot is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:101535" />
+      <criterion comment="bind-sdb is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102124" />
+      <criterion comment="bind is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102001" />
+      <criterion comment="bind-libs is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102367" />
+      <criterion comment="caching-nameserver is earlier than 30:9.3.4-6.0.2.P1.el5_2" test_ref="oval:org.mitre.oval:tst:102377" />
     </criteria>
   </criteria>
 </definition>

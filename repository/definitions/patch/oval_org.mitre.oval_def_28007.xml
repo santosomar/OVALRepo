@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28007" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28007" version="5">
   <metadata>
     <title>ELSA-2011-1635 -- cups security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>cups</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1635.html" ref_id="ELSA-2011-1635"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2896" ref_id="CVE-2011-2896"/>
+    <reference ref_id="ELSA-2011-1635" ref_url="http://linux.oracle.com/errata/ELSA-2011-1635.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2896" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2896" source="CVE" />
     <description>[1.4.2-44]
 - Init script should source /etc/sysconfig/cups (bug #744791)
 
@@ -38,16 +37,17 @@
         <status_change date="2014-12-15T04:03:22.297-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="cups is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133126"/>
-      <criterion comment="cups-devel is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133044"/>
-      <criterion comment="cups-libs is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:132758"/>
-      <criterion comment="cups-lpd is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133064"/>
-      <criterion comment="cups-php is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:132895"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="cups is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133126" />
+      <criterion comment="cups-devel is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133044" />
+      <criterion comment="cups-libs is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:132758" />
+      <criterion comment="cups-lpd is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:133064" />
+      <criterion comment="cups-php is earlier than 0:1.4.2-44.el6" test_ref="oval:org.mitre.oval:tst:132895" />
     </criteria>
   </criteria>
 </definition>

@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:3430" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:3430" version="2">
   <metadata>
     <title>Package compiz-devel is installed</title>
     <affected family="unix">
       <platform>openSUSE Factory</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:novell:compiz-devel"/>
+    <reference ref_id="cpe:/a:novell:compiz-devel" source="CPE" />
     <description>Package compiz-devel is installed.</description>
     <oval_repository>
       <dates>
@@ -20,9 +19,10 @@
       <affected_cpe_list>
         <cpe>cpe:/o:novell:opensuse:factory</cpe>
       </affected_cpe_list>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="compiz-devel is installed" test_ref="oval:org.mitre.oval:tst:5784"/>
+    <criterion comment="compiz-devel is installed" test_ref="oval:org.mitre.oval:tst:5784" />
   </criteria>
 </definition>

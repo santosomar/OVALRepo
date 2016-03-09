@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27079" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27079" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2014-0322 -- net-snmp security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>net-snmp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0322.html" ref_id="ELSA-2014-0322"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6151" ref_id="CVE-2012-6151"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2285" ref_id="CVE-2014-2285"/>
+    <reference ref_id="ELSA-2014-0322" ref_url="http://linux.oracle.com/errata/ELSA-2014-0322.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-6151" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6151" source="CVE" />
+    <reference ref_id="CVE-2014-2285" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2285" source="CVE" />
     <description>[5.3.2.2-22.0.2.el5_10.1]
 - hrProcessorLoad returns incorrect values for CPUs greater than 100 (Jason Luan) [Orabug 17792842]
 - snmptrapd: Fix crash due to access of freed memory (John Haxby) [orabug 14391194]
@@ -33,16 +32,17 @@
         <status_change date="2015-02-10T21:24:19.383-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="net-snmp is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127074"/>
-      <criterion comment="net-snmp-devel is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127658"/>
-      <criterion comment="net-snmp-libs is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127128"/>
-      <criterion comment="net-snmp-perl is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127735"/>
-      <criterion comment="net-snmp-utils is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127706"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="net-snmp is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127074" />
+      <criterion comment="net-snmp-devel is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127658" />
+      <criterion comment="net-snmp-libs is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127128" />
+      <criterion comment="net-snmp-perl is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127735" />
+      <criterion comment="net-snmp-utils is earlier than 0:5.3.2.2-22.0.2.el5_10.1" test_ref="oval:org.mitre.oval:tst:127706" />
     </criteria>
   </criteria>
 </definition>

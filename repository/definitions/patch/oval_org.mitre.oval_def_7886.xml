@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7886" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7886" version="7">
   <metadata>
     <title>DSA-1499 pcre3 -- buffer overflow</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 3.1</platform>
       <product>pcre3</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1499" ref_id="DSA-1499"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0674" ref_id="CVE-2008-0674"/>
+    <reference ref_id="DSA-1499" ref_url="http://www.debian.org/security/2008/dsa-1499" source="VENDOR" />
+    <reference ref_id="CVE-2008-0674" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0674" source="CVE" />
     <description>It was discovered that specially crafted regular expressions involving codepoints greater than 255 could cause a buffer overflow in the PCRE library (CVE-2008-0674).</description>
     <oval_repository>
       <dates>
@@ -25,28 +24,29 @@
         <status_change date="2014-06-23T04:09:11.847-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libpcre3 is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12364"/>
-        <criterion comment="libpcre3-dev is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:11993"/>
-        <criterion comment="pcregrep is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12474"/>
-        <criterion comment="libpcrecpp0 is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12526"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libpcre3 is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12364" />
+        <criterion comment="libpcre3-dev is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:11993" />
+        <criterion comment="pcregrep is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12474" />
+        <criterion comment="libpcrecpp0 is earlier than 6.7+7.4-3" test_ref="oval:org.mitre.oval:tst:12526" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="pgrep is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12446"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="pgrep is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12446" />
         </criteria>
-        <criterion comment="libpcre3 is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12550"/>
-        <criterion comment="libpcre3-dev is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:11863"/>
-        <criterion comment="pcregrep is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12307"/>
+        <criterion comment="libpcre3 is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12550" />
+        <criterion comment="libpcre3-dev is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:11863" />
+        <criterion comment="pcregrep is earlier than 4.5+7.4-2" test_ref="oval:org.mitre.oval:tst:12307" />
       </criteria>
     </criteria>
   </criteria>

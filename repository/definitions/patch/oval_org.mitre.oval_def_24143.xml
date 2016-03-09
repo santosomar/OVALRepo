@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24143" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24143" version="15">
   <metadata>
     <title>ELSA-2013:1518: flash-plugin security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2013:1518-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1518.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-5329" ref_url="http://linux.oracle.com/cve/CVE-2013-5329.html" source="CVE"/>
-    <reference ref_id="CVE-2013-5330" ref_url="http://linux.oracle.com/cve/CVE-2013-5330.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:1518-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1518.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-5329" ref_url="http://linux.oracle.com/cve/CVE-2013-5329.html" source="CVE" />
+    <reference ref_id="CVE-2013-5330" ref_url="http://linux.oracle.com/cve/CVE-2013-5330.html" source="CVE" />
     <description>Adobe Flash Player before 11.7.700.252 and 11.8.x and 11.9.x before 11.9.900.152 on Windows and Mac OS X and before 11.2.202.327 on Linux, Adobe AIR before 3.9.0.1210, Adobe AIR SDK before 3.9.0.1210, and Adobe AIR SDK &amp; Compiler before 3.9.0.1210 allow attackers to execute arbitrary code or cause a denial of service (memory corruption) via unspecified vectors, a different vulnerability than CVE-2013-5329.</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2014-05-26T04:06:16.984-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="flash-plugin is earlier than 0:11.2.202.327-1.el6" test_ref="oval:org.mitre.oval:tst:111874"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="flash-plugin is earlier than 0:11.2.202.327-1.el6" test_ref="oval:org.mitre.oval:tst:111874" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27101" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27101" version="7">
   <metadata>
     <title>RHSA-2014:1606: file security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <platform>CentOS Linux 6</platform>
       <product>file</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1606-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1606.html"/>
-    <reference source="CVE" ref_id="CVE-2012-1571" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1571.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0237" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0237.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0238" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0238.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1943.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2270" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2270.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3479" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3479.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3480" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3480.html"/>
-    <reference source="CESA-2014:1606" ref_id="CESA-2014:1606" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001176.html"/>
+    <reference ref_id="RHSA-2014:1606-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1606.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-1571" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1571.html" source="CVE" />
+    <reference ref_id="CVE-2014-0237" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0237.html" source="CVE" />
+    <reference ref_id="CVE-2014-0238" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0238.html" source="CVE" />
+    <reference ref_id="CVE-2014-1943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1943.html" source="CVE" />
+    <reference ref_id="CVE-2014-2270" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2270.html" source="CVE" />
+    <reference ref_id="CVE-2014-3479" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3479.html" source="CVE" />
+    <reference ref_id="CVE-2014-3480" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3480.html" source="CVE" />
+    <reference ref_id="CESA-2014:1606" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001176.html" source="CESA-2014:1606" />
     <description>The "file" command is used to identify a particular file according to the
 type of data contained in the file. The command can identify various file
 types, including ELF binaries, system libraries, RPM packages, and
@@ -87,25 +86,26 @@ contain backported patches to correct these issues.</description>
         <status_change date="2015-04-13T04:00:14.895-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="file is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125002"/>
-        <criterion comment="file-devel is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125284"/>
-        <criterion comment="file-libs is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125016"/>
-        <criterion comment="file-static is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125271"/>
-        <criterion comment="python-magic is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125014"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="file is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125002" />
+        <criterion comment="file-devel is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125284" />
+        <criterion comment="file-libs is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125016" />
+        <criterion comment="file-static is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125271" />
+        <criterion comment="python-magic is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:125014" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="file-debuginfo is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:137596"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="file-debuginfo is earlier than 0:5.04-21.el6" test_ref="oval:org.mitre.oval:tst:137596" />
     </criteria>
   </criteria>
 </definition>

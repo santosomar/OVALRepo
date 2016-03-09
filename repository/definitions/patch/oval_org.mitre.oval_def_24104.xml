@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24104" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24104" version="5">
   <metadata>
     <title>RHSA-2014:0420: qemu-kvm security update (Moderate)</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>CentOS Linux 6</platform>
       <product>qemu-kvm</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0420-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0420.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0420"/>
-    <reference source="CVE" ref_id="CVE-2014-0142" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0142.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0143" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0143.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0144" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0144.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0145" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0145.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0146" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0146.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0147" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0147.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0148" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0148.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0150" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0150.html"/>
+    <reference ref_id="RHSA-2014:0420-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0420.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0420" source="CESA" />
+    <reference ref_id="CVE-2014-0142" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0142.html" source="CVE" />
+    <reference ref_id="CVE-2014-0143" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0143.html" source="CVE" />
+    <reference ref_id="CVE-2014-0144" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0144.html" source="CVE" />
+    <reference ref_id="CVE-2014-0145" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0145.html" source="CVE" />
+    <reference ref_id="CVE-2014-0146" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0146.html" source="CVE" />
+    <reference ref_id="CVE-2014-0147" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0147.html" source="CVE" />
+    <reference ref_id="CVE-2014-0148" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0148.html" source="CVE" />
+    <reference ref_id="CVE-2014-0150" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0150.html" source="CVE" />
     <description>KVM (Kernel-based Virtual Machine) is a full virtualization solution for
 Linux on AMD64 and Intel 64 systems. The qemu-kvm package provides the
 user-space component for running virtual machines using KVM.
@@ -73,18 +72,19 @@ have shut down, start them again for this update to take effect.</description>
         <status_change date="2014-06-09T04:00:28.711-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113919"/>
-      <criterion comment="qemu-guest-agent is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113840"/>
-      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:114025"/>
-      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113998"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="qemu-kvm-tools is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113919" />
+      <criterion comment="qemu-guest-agent is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113840" />
+      <criterion comment="qemu-img is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:114025" />
+      <criterion comment="qemu-kvm is earlier than 2:0.12.1.2-2.415.el6_5.8" test_ref="oval:org.mitre.oval:tst:113998" />
     </criteria>
   </criteria>
 </definition>

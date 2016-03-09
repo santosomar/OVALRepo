@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27579" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27579" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0902 -- cifs-utils security, bug fix, and enhancement update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>cifs-utils</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0902.html" ref_id="ELSA-2012-0902"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1586" ref_id="CVE-2012-1586"/>
+    <reference ref_id="ELSA-2012-0902" ref_url="http://linux.oracle.com/errata/ELSA-2012-0902.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-1586" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1586" source="CVE" />
     <description>[4.8.1-10]
 - mount.cifs: don't allow unprivileged users to mount onto dirs they can't chdir into (bz 812782)
 
@@ -39,10 +38,11 @@
         <status_change date="2015-02-10T16:44:47.104-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="cifs-utils is earlier than 0:4.8.1-10.el6" test_ref="oval:org.mitre.oval:tst:131300"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="cifs-utils is earlier than 0:4.8.1-10.el6" test_ref="oval:org.mitre.oval:tst:131300" />
   </criteria>
 </definition>

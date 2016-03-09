@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:14956" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:14956" version="10">
   <metadata>
     <title>DSA-2315-1 openoffice.org -- multiple vulnerabilities</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>openoffice.org</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00192.html" ref_id="DSA-2315-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2713" ref_id="CVE-2011-2713"/>
+    <reference ref_id="DSA-2315-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00192.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2713" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2713" source="CVE" />
     <description>Red Hat, Inc. security researcher Huzaifa Sidhpurwala reported multiple vulnerabilities in the binary Microsoft Word file format importer of OpenOffice.org, a full-featured office productivity suite that provides a near drop-in replacement for Microsoft Office.</description>
     <oval_repository>
       <dates>
@@ -31,22 +30,23 @@
         <status_change date="2014-06-23T04:03:19.437-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="openoffice.org DPKG is earlier than 2.4.1+dfsg-1+lenny12" test_ref="oval:org.mitre.oval:tst:78642"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="openoffice.org DPKG is earlier than 2.4.1+dfsg-1+lenny12" test_ref="oval:org.mitre.oval:tst:78642" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="openoffice.org DPKG is earlier than 3.2.1-11+squeeze4" test_ref="oval:org.mitre.oval:tst:78467"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="openoffice.org DPKG is earlier than 3.2.1-11+squeeze4" test_ref="oval:org.mitre.oval:tst:78467" />
     </criteria>
   </criteria>
 </definition>

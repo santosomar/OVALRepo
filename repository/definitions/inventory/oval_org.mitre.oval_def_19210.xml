@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19210" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:19210" version="7">
   <metadata>
     <title>Microsoft Windows Hyper-V is installed</title>
     <affected family="windows">
@@ -9,7 +8,7 @@
       <platform>Microsoft Windows Server 2012</platform>
       <product>Microsoft Hyper-V Server</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:hyper-v_server"/>
+    <reference ref_id="cpe:/a:microsoft:hyper-v_server" source="CPE" />
     <description>Microsoft Windows Hyper-V is installed.</description>
     <oval_repository>
       <dates>
@@ -21,9 +20,10 @@
         <status_change date="2013-12-30T04:00:22.607-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="Check if the file VMMS.exe for Hyper-V exists" test_ref="oval:org.mitre.oval:tst:87182"/>
+    <criterion comment="Check if the file VMMS.exe for Hyper-V exists" test_ref="oval:org.mitre.oval:tst:87182" />
   </criteria>
 </definition>

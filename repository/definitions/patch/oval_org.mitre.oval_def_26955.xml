@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26955" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:26955" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1458 -- gnupg security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>gnupg</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1458.html" ref_id="ELSA-2013-1458"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4242" ref_id="CVE-2013-4242"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6085" ref_id="CVE-2012-6085"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4351" ref_id="CVE-2013-4351"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4402" ref_id="CVE-2013-4402"/>
+    <reference ref_id="ELSA-2013-1458" ref_url="http://linux.oracle.com/errata/ELSA-2013-1458.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4242" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4242" source="CVE" />
+    <reference ref_id="CVE-2012-6085" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6085" source="CVE" />
+    <reference ref_id="CVE-2013-4351" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4351" source="CVE" />
+    <reference ref_id="CVE-2013-4402" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4402" source="CVE" />
     <description>[1.4.5-18]
 - fix CVE-2013-4351 gpg treats no-usage-permitted keys as all-usages-permitted
 
@@ -35,10 +34,11 @@
         <status_change date="2015-02-10T16:37:31.180-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="gnupg is earlier than 0:1.4.5-18.el5_10" test_ref="oval:org.mitre.oval:tst:128655"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="gnupg is earlier than 0:1.4.5-18.el5_10" test_ref="oval:org.mitre.oval:tst:128655" />
   </criteria>
 </definition>

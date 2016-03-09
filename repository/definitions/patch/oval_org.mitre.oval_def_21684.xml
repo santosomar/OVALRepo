@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21684" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21684" version="9">
   <metadata>
     <title>RHSA-2011:0472: nss security update (Important)</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <product>nss</product>
       <product>nss-util</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:0472-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0472.html"/>
-    <reference source="CESA-2011:0472" ref_url="http://lists.centos.org/pipermail/centos-announce/2011-April/017458.html" ref_id="CESA-2011:0472-CentOS 5"/>
+    <reference ref_id="RHSA-2011:0472-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-0472.html" source="VENDOR" />
+    <reference ref_id="CESA-2011:0472-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2011-April/017458.html" source="CESA-2011:0472" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the development of security-enabled client and server applications.
 
@@ -45,30 +44,31 @@ restarted for the changes to take effect.</description>
         <status_change date="2015-03-09T04:01:12.770-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="nss-devel is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:136908"/>
-        <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137680"/>
-        <criterion comment="nss is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137879"/>
-        <criterion comment="nss-tools is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137837"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="nss-devel is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:136908" />
+        <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137680" />
+        <criterion comment="nss is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137879" />
+        <criterion comment="nss-tools is earlier than 0:3.12.8-4.el5_6" test_ref="oval:org.mitre.oval:tst:137837" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="nss is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97681"/>
-        <criterion comment="nss-debuginfo is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:137770"/>
-        <criterion comment="nss-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97411"/>
-        <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97578"/>
-        <criterion comment="nss-sysinit is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97712"/>
-        <criterion comment="nss-tools is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97833"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="nss is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97681" />
+        <criterion comment="nss-debuginfo is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:137770" />
+        <criterion comment="nss-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97411" />
+        <criterion comment="nss-pkcs11-devel is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97578" />
+        <criterion comment="nss-sysinit is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97712" />
+        <criterion comment="nss-tools is earlier than 0:3.12.8-3.el6_0" test_ref="oval:org.mitre.oval:tst:97833" />
       </criteria>
     </criteria>
   </criteria>

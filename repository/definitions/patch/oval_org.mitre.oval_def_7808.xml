@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7808" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7808" version="6">
   <metadata>
     <title>DSA-1477 yarssr -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>yarssr</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1477" ref_id="DSA-1477"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5837" ref_id="CVE-2007-5837"/>
+    <reference ref_id="DSA-1477" ref_url="http://www.debian.org/security/2008/dsa-1477" source="VENDOR" />
+    <reference ref_id="CVE-2007-5837" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5837" source="CVE" />
     <description>Duncan Gilmore discovered that yarssr, an RSS aggregator and reader, performs insufficient input sanitising, which could result in the execution of arbitrary shell commands if a malformed feed is read. Due to a technical limitation of the archive management scripts, the fix for the old stable distribution (sarge) needs to be postponed by a few days.</description>
     <oval_repository>
       <dates>
@@ -24,11 +23,12 @@
         <status_change date="2014-06-23T04:08:57.127-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="yarssr is earlier than 0.2.2-1etch1" test_ref="oval:org.mitre.oval:tst:12998"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="yarssr is earlier than 0.2.2-1etch1" test_ref="oval:org.mitre.oval:tst:12998" />
   </criteria>
 </definition>

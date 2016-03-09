@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22827" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22827" version="8">
   <metadata>
     <title>ELSA-2010:0140: pango security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <product>pango</product>
       <product>evolution28-pango</product>
     </affected>
-    <reference ref_id="ELSA-2010:0140-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0140.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-0421" ref_url="http://linux.oracle.com/cve/CVE-2010-0421.html" source="CVE"/>
+    <reference ref_id="ELSA-2010:0140-01" ref_url="http://linux.oracle.com/errata/ELSA-2010-0140.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-0421" ref_url="http://linux.oracle.com/cve/CVE-2010-0421.html" source="CVE" />
     <description>Array index error in the hb_ot_layout_build_glyph_classes function in pango/opentype/hb-ot-layout.cc in Pango before 1.27.1 allows context-dependent attackers to cause a denial of service (application crash) via a crafted font file, related to building a synthetic Glyph Definition (aka GDEF) table by using this font's charmap and the Unicode property database.</description>
     <oval_repository>
       <dates>
@@ -25,13 +24,14 @@
         <status_change date="2014-05-26T04:02:22.900-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="pango-devel is earlier than 0:1.14.9-8.el5" test_ref="oval:org.mitre.oval:tst:103747"/>
-      <criterion comment="pango is earlier than 0:1.14.9-8.el5" test_ref="oval:org.mitre.oval:tst:103408"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="pango-devel is earlier than 0:1.14.9-8.el5" test_ref="oval:org.mitre.oval:tst:103747" />
+      <criterion comment="pango is earlier than 0:1.14.9-8.el5" test_ref="oval:org.mitre.oval:tst:103408" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17232" version="6" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:17232" version="7">
   <metadata>
     <title>DEPRECATED: USN-602-1 -- firefox vulnerabilities</title>
     <affected family="unix">
@@ -9,7 +8,7 @@
       <platform>Ubuntu 7.10</platform>
       <product>firefox</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-602-1/" ref_id="USN-602-1"/>
+    <reference ref_id="USN-602-1" ref_url="http://www.ubuntu.com/usn/usn-602-1/" source="VENDOR" />
     <description>Flaws were discovered in Firefox which could lead to crashes during JavaScript garbage collection.</description>
     <oval_repository>
       <dates>
@@ -30,24 +29,25 @@
         <status_change date="2014-05-20T09:04:57.659-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="firefox DPKG is earlier than 1.5.dfsg+1.5.0.15~prepatch080417a-0ubuntu1" test_ref="oval:org.mitre.oval:tst:82924"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="firefox DPKG is earlier than 1.5.dfsg+1.5.0.15~prepatch080417a-0ubuntu1" test_ref="oval:org.mitre.oval:tst:82924" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.14+0nobinonly-0ubuntu0.6.10" test_ref="oval:org.mitre.oval:tst:83004"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.14+0nobinonly-0ubuntu0.6.10" test_ref="oval:org.mitre.oval:tst:83004" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.14+1nobinonly-0ubuntu0.7.4" test_ref="oval:org.mitre.oval:tst:82999"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.14+1nobinonly-0ubuntu0.7.4" test_ref="oval:org.mitre.oval:tst:82999" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="firefox DPKG is earlier than 2.0.0.14+2nobinonly-0ubuntu0.7.10" test_ref="oval:org.mitre.oval:tst:83030"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="firefox DPKG is earlier than 2.0.0.14+2nobinonly-0ubuntu0.7.10" test_ref="oval:org.mitre.oval:tst:83030" />
     </criteria>
   </criteria>
 </definition>

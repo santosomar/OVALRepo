@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22700" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22700" version="8">
   <metadata>
     <title>ELSA-2007:1095: htdig security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>htdig</product>
     </affected>
-    <reference ref_id="ELSA-2007:1095-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1095.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-6110" ref_url="http://linux.oracle.com/cve/CVE-2007-6110.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:1095-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-1095.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-6110" ref_url="http://linux.oracle.com/cve/CVE-2007-6110.html" source="CVE" />
     <description>Cross-site scripting (XSS) vulnerability in htsearch in htdig 3.2.0b6 allows remote attackers to inject arbitrary web script or HTML via the sort parameter.</description>
     <oval_repository>
       <dates>
@@ -24,13 +23,14 @@
         <status_change date="2014-05-26T04:01:53.798-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="htdig is earlier than 3:3.2.0b6-9.0.1.el5_1" test_ref="oval:org.mitre.oval:tst:101672"/>
-      <criterion comment="htdig-web is earlier than 3:3.2.0b6-9.0.1.el5_1" test_ref="oval:org.mitre.oval:tst:101190"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="htdig is earlier than 3:3.2.0b6-9.0.1.el5_1" test_ref="oval:org.mitre.oval:tst:101672" />
+      <criterion comment="htdig-web is earlier than 3:3.2.0b6-9.0.1.el5_1" test_ref="oval:org.mitre.oval:tst:101190" />
     </criteria>
   </criteria>
 </definition>

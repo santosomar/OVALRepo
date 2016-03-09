@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22359" version="55" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22359" version="56">
   <metadata>
     <title>RHSA-2010:0458: perl security update (Moderate)</title>
     <affected family="unix">
@@ -7,12 +6,12 @@
       <platform>CentOS Linux 5</platform>
       <product>perl</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2010:0458-02" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0458.html"/>
-    <reference source="CESA" ref_id="CESA-2010:0458"/>
-    <reference source="CVE" ref_id="CVE-2008-5302" ref_url="https://www.redhat.com/security/data/cve/CVE-2008-5302.html"/>
-    <reference source="CVE" ref_id="CVE-2008-5303" ref_url="https://www.redhat.com/security/data/cve/CVE-2008-5303.html"/>
-    <reference source="CVE" ref_id="CVE-2010-1168" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1168.html"/>
-    <reference source="CVE" ref_id="CVE-2010-1447" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1447.html"/>
+    <reference ref_id="RHSA-2010:0458-02" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0458.html" source="VENDOR" />
+    <reference ref_id="CESA-2010:0458" source="CESA" />
+    <reference ref_id="CVE-2008-5302" ref_url="https://www.redhat.com/security/data/cve/CVE-2008-5302.html" source="CVE" />
+    <reference ref_id="CVE-2008-5303" ref_url="https://www.redhat.com/security/data/cve/CVE-2008-5303.html" source="CVE" />
+    <reference ref_id="CVE-2010-1168" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1168.html" source="CVE" />
+    <reference ref_id="CVE-2010-1447" ref_url="https://www.redhat.com/security/data/cve/CVE-2010-1447.html" source="CVE" />
     <description>The Safe (aka Safe.pm) module 2.26, and certain earlier versions, for Perl, as used in PostgreSQL 7.4 before 7.4.29, 8.0 before 8.0.25, 8.1 before 8.1.21, 8.2 before 8.2.17, 8.3 before 8.3.11, 8.4 before 8.4.4, and 9.0 Beta before 9.0 Beta 2, allows context-dependent attackers to bypass intended (1) Safe::reval and (2) Safe::rdo access restrictions, and inject and execute arbitrary code, via vectors involving subroutine references and delayed execution.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-02-24T04:03:09.703-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="perl-suidperl is earlier than 4:5.8.8-32.el5_5.1" test_ref="oval:org.mitre.oval:tst:99435"/>
-      <criterion comment="perl is earlier than 4:5.8.8-32.el5_5.1" test_ref="oval:org.mitre.oval:tst:99315"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="perl-suidperl is earlier than 4:5.8.8-32.el5_5.1" test_ref="oval:org.mitre.oval:tst:99435" />
+      <criterion comment="perl is earlier than 4:5.8.8-32.el5_5.1" test_ref="oval:org.mitre.oval:tst:99315" />
     </criteria>
   </criteria>
 </definition>

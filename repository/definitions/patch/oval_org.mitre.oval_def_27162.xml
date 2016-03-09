@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27162" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27162" version="5">
   <metadata>
     <title>ELSA-2014-0678 -- kernel security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0678.html" ref_id="ELSA-2014-0678"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0196" ref_id="CVE-2014-0196"/>
+    <reference ref_id="ELSA-2014-0678" ref_url="http://linux.oracle.com/errata/ELSA-2014-0678.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0196" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0196" source="CVE" />
     <description>[3.10.0-123.1.2]
 - Oracle Linux certificates (Alexey Petrenko)
 
@@ -23,23 +22,24 @@
         <status_change date="2014-12-15T04:00:56.894-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127373"/>
-      <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:126790"/>
-      <criterion comment="kernel-debug is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127302"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127148"/>
-      <criterion comment="kernel-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127134"/>
-      <criterion comment="kernel-doc is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127155"/>
-      <criterion comment="kernel-headers is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127088"/>
-      <criterion comment="kernel-tools is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127300"/>
-      <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127328"/>
-      <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127280"/>
-      <criterion comment="perf is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:126766"/>
-      <criterion comment="python-perf is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127211"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127373" />
+      <criterion comment="kernel-abi-whitelists is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:126790" />
+      <criterion comment="kernel-debug is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127302" />
+      <criterion comment="kernel-debug-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127148" />
+      <criterion comment="kernel-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127134" />
+      <criterion comment="kernel-doc is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127155" />
+      <criterion comment="kernel-headers is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127088" />
+      <criterion comment="kernel-tools is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127300" />
+      <criterion comment="kernel-tools-libs is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127328" />
+      <criterion comment="kernel-tools-libs-devel is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127280" />
+      <criterion comment="perf is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:126766" />
+      <criterion comment="python-perf is earlier than 0:3.10.0-123.1.2.el7" test_ref="oval:org.mitre.oval:tst:127211" />
     </criteria>
   </criteria>
 </definition>

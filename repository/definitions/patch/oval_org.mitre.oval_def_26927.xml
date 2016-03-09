@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26927" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26927" version="6">
   <metadata>
     <title>RHSA-2014:1507: trousers security, bug fix, and enhancement update (Low)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>trousers</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1507-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1507.html"/>
-    <reference source="CVE" ref_id="CVE-2012-0698" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-0698.html"/>
-    <reference source="CESA-2014:1507" ref_id="CESA-2014:1507" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001389.html"/>
+    <reference ref_id="RHSA-2014:1507-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1507.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0698" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-0698.html" source="CVE" />
+    <reference ref_id="CESA-2014:1507" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001389.html" source="CESA-2014:1507" />
     <description>TrouSerS is an implementation of the Trusted Computing Group's Software
 Stack (TSS) specification. You can use TrouSerS to write applications that
 make use of your TPM hardware. TPM hardware can create, store and use RSA
@@ -47,23 +46,24 @@ correct these issues and add these enhancements.</description>
         <status_change date="2015-04-13T04:00:13.360-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="trousers is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:124549"/>
-        <criterion comment="trousers-devel is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:125305"/>
-        <criterion comment="trousers-static is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:125151"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="trousers is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:124549" />
+        <criterion comment="trousers-devel is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:125305" />
+        <criterion comment="trousers-static is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:125151" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="trousers-debuginfo is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:138217"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="trousers-debuginfo is earlier than 0:0.3.13-2.el6" test_ref="oval:org.mitre.oval:tst:138217" />
     </criteria>
   </criteria>
 </definition>

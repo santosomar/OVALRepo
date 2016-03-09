@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28313" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28313" version="4">
   <metadata>
     <title>RHSA-2014:1873 -- libvirt security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 6</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1873.html" ref_id="RHSA-2014:1873"/>
-    <reference source="CESA-2014:1873" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020771.html" ref_id="CESA-2014:1873"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" ref_id="CVE-2014-3633"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" ref_id="CVE-2014-3657"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7823" ref_id="CVE-2014-7823"/>
+    <reference ref_id="RHSA-2014:1873" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1873.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1873" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-November/020771.html" source="CESA-2014:1873" />
+    <reference ref_id="CVE-2014-3633" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3633" source="CVE" />
+    <reference ref_id="CVE-2014-3657" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3657" source="CVE" />
+    <reference ref_id="CVE-2014-7823" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7823" source="CVE" />
     <description>The libvirt library is a C API for managing and interacting with the
 virtualization capabilities of Linux and other operating systems.
 In addition, libvirt provides tools for remote management of
@@ -70,25 +69,26 @@ updated packages, libvirtd will be restarted automatically.</description>
         <status_change date="2015-01-26T04:00:33.751-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136112"/>
-        <criterion comment="libvirt-client is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136088"/>
-        <criterion comment="libvirt-devel is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:135935"/>
-        <criterion comment="libvirt-python is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136270"/>
-        <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136245"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136112" />
+        <criterion comment="libvirt-client is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136088" />
+        <criterion comment="libvirt-devel is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:135935" />
+        <criterion comment="libvirt-python is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136270" />
+        <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136245" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="libvirt-debuginfo is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136082"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="libvirt-debuginfo is earlier than 0:0.10.2-46.el6_6.2" test_ref="oval:org.mitre.oval:tst:136082" />
     </criteria>
   </criteria>
 </definition>

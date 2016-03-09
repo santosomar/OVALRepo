@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27389" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27389" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0896 -- qemu-kvm security and bug fix update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>qemu-kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0896.html" ref_id="ELSA-2013-0896"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2007" ref_id="CVE-2013-2007"/>
+    <reference ref_id="ELSA-2013-0896" ref_url="http://linux.oracle.com/errata/ELSA-2013-0896.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-2007" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2007" source="CVE" />
     <description>[0.12.1.2-2.355.el6_4.5]
 - kvm-e1000-fix-link-down-handling-with-auto-negotiation.patch [bz#907716]
 - kvm-e1000-unbreak-the-guest-network-when-migration-to-RH.patch [bz#907716]
@@ -38,13 +37,14 @@
         <status_change date="2015-02-10T12:47:01.084-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="qemu-kvm is earlier than 0:0.12.1.2-2.355.el6_4.5" test_ref="oval:org.mitre.oval:tst:129412"/>
-      <criterion comment="qemu-guest-agent is earlier than 0:0.12.1.2-2.355.el6_4.5" test_ref="oval:org.mitre.oval:tst:129423"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="qemu-kvm is earlier than 0:0.12.1.2-2.355.el6_4.5" test_ref="oval:org.mitre.oval:tst:129412" />
+      <criterion comment="qemu-guest-agent is earlier than 0:0.12.1.2-2.355.el6_4.5" test_ref="oval:org.mitre.oval:tst:129423" />
     </criteria>
   </criteria>
 </definition>

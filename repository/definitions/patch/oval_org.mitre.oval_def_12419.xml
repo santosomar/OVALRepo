@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12419" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12419" version="8">
   <metadata>
     <title>DSA-2163-1 python-django -- multiple</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>python-django</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00028.html" ref_id="DSA-2163-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0696" ref_id="CVE-2011-0696"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0697" ref_id="CVE-2011-0697"/>
+    <reference ref_id="DSA-2163-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00028.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0696" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0696" source="CVE" />
+    <reference ref_id="CVE-2011-0697" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0697" source="CVE" />
     <description>Several vulnerabilities were discovered in the django web development framework: CVE-2011-0696 For several reasons the internal CSRF protection was not used to validate ajax requests in the past. However, it was discovered that this exception can be exploited with a combination of browser plugins and redirects and thus is not sufficient. CVE-2011-0697 It was discovered that the file upload form is prone to cross-site scripting attacks via the file name. It is important to note that this update introduces minor backward incompatibilities due to the fixes for the above issues. Packages in the oldstable distribution are not affected by these problems.</description>
     <oval_repository>
       <dates>
@@ -26,15 +25,16 @@
         <status_change date="2014-06-23T04:00:25.052-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-    <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+    <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+      <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+      <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
     </criteria>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="python-django DPKG is earlier than 1.2.3-3+squeeze1" test_ref="oval:org.mitre.oval:tst:43453"/>
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="python-django DPKG is earlier than 1.2.3-3+squeeze1" test_ref="oval:org.mitre.oval:tst:43453" />
   </criteria>
 </definition>

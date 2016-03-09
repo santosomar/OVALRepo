@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22160" version="25" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22160" version="27">
   <metadata>
     <title>ELSA-2007:0068: postgresql security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>postgresql</product>
     </affected>
-    <reference ref_id="ELSA-2007:0068-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0068.html" source="VENDOR"/>
-    <reference ref_id="CVE-2006-5540" ref_url="http://linux.oracle.com/cve/CVE-2006-5540.html" source="CVE"/>
-    <reference ref_id="CVE-2006-5541" ref_url="http://linux.oracle.com/cve/CVE-2006-5541.html" source="CVE"/>
-    <reference ref_id="CVE-2006-5542" ref_url="http://linux.oracle.com/cve/CVE-2006-5542.html" source="CVE"/>
-    <reference ref_id="CVE-2007-0555" ref_url="http://linux.oracle.com/cve/CVE-2007-0555.html" source="CVE"/>
-    <reference ref_id="CVE-2007-0556" ref_url="http://linux.oracle.com/cve/CVE-2007-0556.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0068-02" ref_url="http://linux.oracle.com/errata/ELSA-2007-0068.html" source="VENDOR" />
+    <reference ref_id="CVE-2006-5540" ref_url="http://linux.oracle.com/cve/CVE-2006-5540.html" source="CVE" />
+    <reference ref_id="CVE-2006-5541" ref_url="http://linux.oracle.com/cve/CVE-2006-5541.html" source="CVE" />
+    <reference ref_id="CVE-2006-5542" ref_url="http://linux.oracle.com/cve/CVE-2006-5542.html" source="CVE" />
+    <reference ref_id="CVE-2007-0555" ref_url="http://linux.oracle.com/cve/CVE-2007-0555.html" source="CVE" />
+    <reference ref_id="CVE-2007-0556" ref_url="http://linux.oracle.com/cve/CVE-2007-0556.html" source="CVE" />
     <description>The query planner in PostgreSQL before 8.0.11, 8.1 before 8.1.7, and 8.2 before 8.2.2 does not verify that a table is compatible with a "previously made query plan," which allows remote authenticated users to cause a denial of service (server crash) and possibly access database content via an "ALTER COLUMN TYPE" SQL statement, which can be leveraged to read arbitrary memory from the server.</description>
     <oval_repository>
       <dates>
@@ -28,21 +27,22 @@
         <status_change date="2014-05-26T04:00:56.584-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="postgresql-docs is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100600"/>
-      <criterion comment="postgresql-devel is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100837"/>
-      <criterion comment="postgresql-test is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:99948"/>
-      <criterion comment="postgresql-contrib is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100544"/>
-      <criterion comment="postgresql-libs is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100734"/>
-      <criterion comment="postgresql-tcl is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100881"/>
-      <criterion comment="postgresql is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100880"/>
-      <criterion comment="postgresql-server is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100926"/>
-      <criterion comment="postgresql-pl is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100723"/>
-      <criterion comment="postgresql-python is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100394"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="postgresql-docs is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100600" />
+      <criterion comment="postgresql-devel is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100837" />
+      <criterion comment="postgresql-test is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:99948" />
+      <criterion comment="postgresql-contrib is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100544" />
+      <criterion comment="postgresql-libs is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100734" />
+      <criterion comment="postgresql-tcl is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100881" />
+      <criterion comment="postgresql is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100880" />
+      <criterion comment="postgresql-server is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100926" />
+      <criterion comment="postgresql-pl is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100723" />
+      <criterion comment="postgresql-python is earlier than 0:8.1.8-1.el5" test_ref="oval:org.mitre.oval:tst:100394" />
     </criteria>
   </criteria>
 </definition>

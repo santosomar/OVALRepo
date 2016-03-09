@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:12633" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:12633" version="8">
   <metadata>
     <title>DSA-2150-1 request-tracker3.6 -- unsalted password hashing</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>request-tracker3.6</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00014.html" ref_id="DSA-2150-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0009" ref_id="CVE-2011-0009"/>
+    <reference ref_id="DSA-2150-1" ref_url="http://lists.debian.org/debian-security-announce/2011/msg00014.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0009" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0009" source="CVE" />
     <description>It was discovered that Request Tracker, an issue tracking system, stored passwords in its database by using an insufficiently strong hashing method. If an attacker would have access to the password database, he could decode the passwords stored in it.</description>
     <oval_repository>
       <dates>
@@ -24,11 +23,12 @@
         <status_change date="2014-07-21T04:00:23.589-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-    <criterion comment="request-tracker3.6 DPKG is earlier than 3.6.7-5+lenny5" test_ref="oval:org.mitre.oval:tst:43605"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+    <criterion comment="request-tracker3.6 DPKG is earlier than 3.6.7-5+lenny5" test_ref="oval:org.mitre.oval:tst:43605" />
   </criteria>
 </definition>

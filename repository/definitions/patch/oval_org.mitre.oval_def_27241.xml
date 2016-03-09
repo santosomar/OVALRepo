@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27241" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27241" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1779 -- mod_nss security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>mod_nss</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1779.html" ref_id="ELSA-2013-1779"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4566" ref_id="CVE-2013-4566"/>
+    <reference ref_id="ELSA-2013-1779" ref_url="http://linux.oracle.com/errata/ELSA-2013-1779.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4566" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4566" source="CVE" />
     <description>[1.0.8-19]
 - Resolves: CVE-2013-4566
 - Bugzilla Bug #1030265 - mod_nss: incorrect handling of NSSVerifyClient in
@@ -27,16 +26,17 @@
         <status_change date="2015-02-10T12:06:02.923-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="mod_nss is earlier than 0:1.0.8-8.el5_10" test_ref="oval:org.mitre.oval:tst:127764"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="mod_nss is earlier than 0:1.0.8-8.el5_10" test_ref="oval:org.mitre.oval:tst:127764" />
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criterion comment="mod_nss is earlier than 0:1.0.8-19.el6_5" test_ref="oval:org.mitre.oval:tst:128358"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criterion comment="mod_nss is earlier than 0:1.0.8-19.el6_5" test_ref="oval:org.mitre.oval:tst:128358" />
     </criteria>
   </criteria>
 </definition>

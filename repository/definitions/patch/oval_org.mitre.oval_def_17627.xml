@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17627" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17627" version="8">
   <metadata>
     <title>USN-652-1 -- lcms vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 6.06</platform>
       <product>lcms</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-652-1/" ref_id="USN-652-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2741" ref_id="CVE-2007-2741"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5316" ref_id="CVE-2008-5316"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5317" ref_id="CVE-2008-5317"/>
+    <reference ref_id="USN-652-1" ref_url="http://www.ubuntu.com/usn/usn-652-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-2741" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2741" source="CVE" />
+    <reference ref_id="CVE-2008-5316" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5316" source="CVE" />
+    <reference ref_id="CVE-2008-5317" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5317" source="CVE" />
     <description>Chris Evans discovered that certain ICC operations in lcms were not correctly bounds-checked.</description>
     <oval_repository>
       <dates>
@@ -31,10 +30,11 @@
         <status_change date="2014-06-30T04:07:01.746-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-    <criterion comment="liblcms1 DPKG is earlier than 1.13-1ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83505"/>
+    <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+    <criterion comment="liblcms1 DPKG is earlier than 1.13-1ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83505" />
   </criteria>
 </definition>

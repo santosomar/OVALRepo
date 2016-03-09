@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21819" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21819" version="15">
   <metadata>
     <title>ELSA-2008:0849: ipsec-tools security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>ipsec-tools</product>
     </affected>
-    <reference ref_id="ELSA-2008:0849-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0849.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-3651" ref_url="http://linux.oracle.com/cve/CVE-2008-3651.html" source="CVE"/>
-    <reference ref_id="CVE-2008-3652" ref_url="http://linux.oracle.com/cve/CVE-2008-3652.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0849-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0849.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-3651" ref_url="http://linux.oracle.com/cve/CVE-2008-3651.html" source="CVE" />
+    <reference ref_id="CVE-2008-3652" ref_url="http://linux.oracle.com/cve/CVE-2008-3652.html" source="CVE" />
     <description>src/racoon/handler.c in racoon in ipsec-tools does not remove an "orphaned ph1" (phase 1) handle when it has been initiated remotely, which allows remote attackers to cause a denial of service (resource consumption).</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2014-05-26T04:00:32.546-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="ipsec-tools is earlier than 0:0.6.5-9.el5_2.3" test_ref="oval:org.mitre.oval:tst:102485"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="ipsec-tools is earlier than 0:0.6.5-9.el5_2.3" test_ref="oval:org.mitre.oval:tst:102485" />
   </criteria>
 </definition>

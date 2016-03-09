@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25467" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25467" version="4">
   <metadata>
     <title>SUSE-SU-2014:0744-1 -- Security update for xorg-x11-server</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>xorg-x11-server</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140744-1.html" ref_id="SUSE-SU-2014:0744-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6424" ref_id="CVE-2013-6424"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4396" ref_id="CVE-2013-4396"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1940" ref_id="CVE-2013-1940"/>
+    <reference ref_id="SUSE-SU-2014:0744-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140744-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-6424" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6424" source="CVE" />
+    <reference ref_id="CVE-2013-4396" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4396" source="CVE" />
+    <reference ref_id="CVE-2013-1940" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1940" source="CVE" />
     <description>This is a SLES 11 SP1 LTSS rollup update for the X.Org Server package.
 
 The following security issues have been fixed:
@@ -36,14 +35,15 @@ The following security issues have been fixed:
         <status_change date="2014-09-08T04:02:27.619-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="xorg-x11-Xvnc RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115477"/>
-      <criterion comment="xorg-x11-server RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115773"/>
-      <criterion comment="xorg-x11-server-extra RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115969"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="xorg-x11-Xvnc RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115477" />
+      <criterion comment="xorg-x11-server RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115773" />
+      <criterion comment="xorg-x11-server-extra RPM is earlier than 0:7.4-27.40.70.1" test_ref="oval:org.mitre.oval:tst:115969" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27404" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27404" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0215 -- abrt and libreport security update (important)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <product>abrt</product>
       <product>libreport</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0215.html" ref_id="ELSA-2013-0215"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5659" ref_id="CVE-2012-5659"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5660" ref_id="CVE-2012-5660"/>
+    <reference ref_id="ELSA-2013-0215" ref_url="http://linux.oracle.com/errata/ELSA-2013-0215.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-5659" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5659" source="CVE" />
+    <reference ref_id="CVE-2012-5660" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5660" source="CVE" />
     <description>abrt
 [2.0.8-6.0.1.el6_3.2]
 - Add abrt-oracle-enterprise.patch to be product neutral
@@ -50,34 +49,35 @@ libreport
         <status_change date="2015-02-10T14:05:54.354-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="abrt is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130081"/>
-      <criterion comment="libreport is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130505"/>
-      <criterion comment="abrt-addon-ccpp is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130553"/>
-      <criterion comment="abrt-addon-kerneloops is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130474"/>
-      <criterion comment="abrt-addon-python is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130174"/>
-      <criterion comment="abrt-addon-vmcore is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130549"/>
-      <criterion comment="abrt-cli is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130365"/>
-      <criterion comment="abrt-desktop is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130345"/>
-      <criterion comment="abrt-devel is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130518"/>
-      <criterion comment="abrt-gui is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130214"/>
-      <criterion comment="abrt-libs is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130344"/>
-      <criterion comment="abrt-tui is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:129877"/>
-      <criterion comment="libreport-cli is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130129"/>
-      <criterion comment="libreport-devel is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130298"/>
-      <criterion comment="libreport-gtk is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130582"/>
-      <criterion comment="libreport-gtk-devel is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130583"/>
-      <criterion comment="libreport-newt is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:129910"/>
-      <criterion comment="libreport-plugin-bugzilla is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130383"/>
-      <criterion comment="libreport-plugin-kerneloops is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130513"/>
-      <criterion comment="libreport-plugin-logger is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130363"/>
-      <criterion comment="libreport-plugin-mailx is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130559"/>
-      <criterion comment="libreport-plugin-reportuploader is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130419"/>
-      <criterion comment="libreport-python is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130536"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="abrt is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130081" />
+      <criterion comment="libreport is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130505" />
+      <criterion comment="abrt-addon-ccpp is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130553" />
+      <criterion comment="abrt-addon-kerneloops is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130474" />
+      <criterion comment="abrt-addon-python is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130174" />
+      <criterion comment="abrt-addon-vmcore is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130549" />
+      <criterion comment="abrt-cli is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130365" />
+      <criterion comment="abrt-desktop is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130345" />
+      <criterion comment="abrt-devel is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130518" />
+      <criterion comment="abrt-gui is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130214" />
+      <criterion comment="abrt-libs is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130344" />
+      <criterion comment="abrt-tui is earlier than 0:2.0.8-6.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:129877" />
+      <criterion comment="libreport-cli is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130129" />
+      <criterion comment="libreport-devel is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130298" />
+      <criterion comment="libreport-gtk is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130582" />
+      <criterion comment="libreport-gtk-devel is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130583" />
+      <criterion comment="libreport-newt is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:129910" />
+      <criterion comment="libreport-plugin-bugzilla is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130383" />
+      <criterion comment="libreport-plugin-kerneloops is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130513" />
+      <criterion comment="libreport-plugin-logger is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130363" />
+      <criterion comment="libreport-plugin-mailx is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130559" />
+      <criterion comment="libreport-plugin-reportuploader is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130419" />
+      <criterion comment="libreport-python is earlier than 0:2.0.9-5.0.1.el6_3.2" test_ref="oval:org.mitre.oval:tst:130536" />
     </criteria>
   </criteria>
 </definition>

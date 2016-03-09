@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23228" version="53" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23228" version="55">
   <metadata>
     <title>ELSA-2011:0511: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,19 +6,19 @@
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2011:0511-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0511.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-0579" ref_url="http://linux.oracle.com/cve/CVE-2011-0579.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0618" ref_url="http://linux.oracle.com/cve/CVE-2011-0618.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0619" ref_url="http://linux.oracle.com/cve/CVE-2011-0619.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0620" ref_url="http://linux.oracle.com/cve/CVE-2011-0620.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0621" ref_url="http://linux.oracle.com/cve/CVE-2011-0621.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0622" ref_url="http://linux.oracle.com/cve/CVE-2011-0622.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0623" ref_url="http://linux.oracle.com/cve/CVE-2011-0623.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0624" ref_url="http://linux.oracle.com/cve/CVE-2011-0624.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0625" ref_url="http://linux.oracle.com/cve/CVE-2011-0625.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0626" ref_url="http://linux.oracle.com/cve/CVE-2011-0626.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0627" ref_url="http://linux.oracle.com/cve/CVE-2011-0627.html" source="CVE"/>
-    <reference ref_id="CVE-2011-0628" ref_url="http://linux.oracle.com/cve/CVE-2011-0628.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0511-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0511.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-0579" ref_url="http://linux.oracle.com/cve/CVE-2011-0579.html" source="CVE" />
+    <reference ref_id="CVE-2011-0618" ref_url="http://linux.oracle.com/cve/CVE-2011-0618.html" source="CVE" />
+    <reference ref_id="CVE-2011-0619" ref_url="http://linux.oracle.com/cve/CVE-2011-0619.html" source="CVE" />
+    <reference ref_id="CVE-2011-0620" ref_url="http://linux.oracle.com/cve/CVE-2011-0620.html" source="CVE" />
+    <reference ref_id="CVE-2011-0621" ref_url="http://linux.oracle.com/cve/CVE-2011-0621.html" source="CVE" />
+    <reference ref_id="CVE-2011-0622" ref_url="http://linux.oracle.com/cve/CVE-2011-0622.html" source="CVE" />
+    <reference ref_id="CVE-2011-0623" ref_url="http://linux.oracle.com/cve/CVE-2011-0623.html" source="CVE" />
+    <reference ref_id="CVE-2011-0624" ref_url="http://linux.oracle.com/cve/CVE-2011-0624.html" source="CVE" />
+    <reference ref_id="CVE-2011-0625" ref_url="http://linux.oracle.com/cve/CVE-2011-0625.html" source="CVE" />
+    <reference ref_id="CVE-2011-0626" ref_url="http://linux.oracle.com/cve/CVE-2011-0626.html" source="CVE" />
+    <reference ref_id="CVE-2011-0627" ref_url="http://linux.oracle.com/cve/CVE-2011-0627.html" source="CVE" />
+    <reference ref_id="CVE-2011-0628" ref_url="http://linux.oracle.com/cve/CVE-2011-0628.html" source="CVE" />
     <description>Integer overflow in Adobe Flash Player before 10.3.181.14 on Windows, Mac OS X, Linux, and Solaris and before 10.3.185.21 on Android allows remote attackers to execute arbitrary code via ActionScript that improperly handles a long array object.</description>
     <oval_repository>
       <dates>
@@ -36,16 +35,17 @@
         <status_change date="2014-05-26T04:03:47.173-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="flash-plugin is earlier than 0:10.3.181.14-1.el5" test_ref="oval:org.mitre.oval:tst:104967"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="flash-plugin is earlier than 0:10.3.181.14-1.el5" test_ref="oval:org.mitre.oval:tst:104967" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="flash-plugin is earlier than 0:10.3.181.14-1.el6" test_ref="oval:org.mitre.oval:tst:104984"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="flash-plugin is earlier than 0:10.3.181.14-1.el6" test_ref="oval:org.mitre.oval:tst:104984" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24229" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24229" version="6">
   <metadata>
     <title>ELSA-2014:0496: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2014:0496-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0496.html" source="VENDOR"/>
-    <reference ref_id="CVE-2014-0510" ref_url="http://linux.oracle.com/cve/CVE-2014-0510.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0516" ref_url="http://linux.oracle.com/cve/CVE-2014-0516.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0517" ref_url="http://linux.oracle.com/cve/CVE-2014-0517.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0518" ref_url="http://linux.oracle.com/cve/CVE-2014-0518.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0519" ref_url="http://linux.oracle.com/cve/CVE-2014-0519.html" source="CVE"/>
-    <reference ref_id="CVE-2014-0520" ref_url="http://linux.oracle.com/cve/CVE-2014-0520.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0496-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0496.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0510" ref_url="http://linux.oracle.com/cve/CVE-2014-0510.html" source="CVE" />
+    <reference ref_id="CVE-2014-0516" ref_url="http://linux.oracle.com/cve/CVE-2014-0516.html" source="CVE" />
+    <reference ref_id="CVE-2014-0517" ref_url="http://linux.oracle.com/cve/CVE-2014-0517.html" source="CVE" />
+    <reference ref_id="CVE-2014-0518" ref_url="http://linux.oracle.com/cve/CVE-2014-0518.html" source="CVE" />
+    <reference ref_id="CVE-2014-0519" ref_url="http://linux.oracle.com/cve/CVE-2014-0519.html" source="CVE" />
+    <reference ref_id="CVE-2014-0520" ref_url="http://linux.oracle.com/cve/CVE-2014-0520.html" source="CVE" />
     <description>The flash-plugin package contains a Mozilla Firefox compatible Adobe Flash
 Player web browser plug-in.
 This update fixes multiple vulnerabilities in Adobe Flash Player. These
@@ -42,16 +41,17 @@ upgrades Flash Player to version 11.2.202.359.</description>
         <status_change date="2014-09-01T04:02:38.051-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.359-1.el5" test_ref="oval:org.mitre.oval:tst:115417"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.359-1.el5" test_ref="oval:org.mitre.oval:tst:115417" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.359-1.el6" test_ref="oval:org.mitre.oval:tst:115395"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.359-1.el6" test_ref="oval:org.mitre.oval:tst:115395" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

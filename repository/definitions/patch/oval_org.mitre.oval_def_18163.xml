@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18163" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18163" version="8">
   <metadata>
     <title>USN-1589-1 -- eglibc, glibc vulnerabilities</title>
     <affected family="unix">
@@ -11,11 +10,11 @@
       <product>eglibc</product>
       <product>glibc</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1589-1/" ref_id="USN-1589-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3404" ref_id="CVE-2012-3404"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3405" ref_id="CVE-2012-3405"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3406" ref_id="CVE-2012-3406"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3480" ref_id="CVE-2012-3480"/>
+    <reference ref_id="USN-1589-1" ref_url="http://www.ubuntu.com/usn/usn-1589-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-3404" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3404" source="CVE" />
+    <reference ref_id="CVE-2012-3405" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3405" source="CVE" />
+    <reference ref_id="CVE-2012-3406" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3406" source="CVE" />
+    <reference ref_id="CVE-2012-3480" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3480" source="CVE" />
     <description>Multiple security issues were fixed in the GNU C Library.</description>
     <oval_repository>
       <dates>
@@ -37,28 +36,29 @@
         <status_change date="2014-06-30T04:08:16.747-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libc6 DPKG is earlier than 2.15-0ubuntu10.2" test_ref="oval:org.mitre.oval:tst:84745"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libc6 DPKG is earlier than 2.15-0ubuntu10.2" test_ref="oval:org.mitre.oval:tst:84745" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libc6 DPKG is earlier than 2.13-20ubuntu5.2" test_ref="oval:org.mitre.oval:tst:84695"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libc6 DPKG is earlier than 2.13-20ubuntu5.2" test_ref="oval:org.mitre.oval:tst:84695" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="libc6 DPKG is earlier than 2.13-0ubuntu13.2" test_ref="oval:org.mitre.oval:tst:84855"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="libc6 DPKG is earlier than 2.13-0ubuntu13.2" test_ref="oval:org.mitre.oval:tst:84855" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libc6 DPKG is earlier than 2.11.1-0ubuntu7.11" test_ref="oval:org.mitre.oval:tst:84528"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libc6 DPKG is earlier than 2.11.1-0ubuntu7.11" test_ref="oval:org.mitre.oval:tst:84528" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libc6 DPKG is earlier than 2.7-10ubuntu8.2" test_ref="oval:org.mitre.oval:tst:84416"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libc6 DPKG is earlier than 2.7-10ubuntu8.2" test_ref="oval:org.mitre.oval:tst:84416" />
     </criteria>
   </criteria>
 </definition>

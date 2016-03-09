@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18131" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18131" version="6">
   <metadata>
     <title>USN-1676-1 -- AppArmor update</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Ubuntu 11.10</platform>
       <product>apparmor</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1676-1/" ref_id="USN-1676-1"/>
+    <reference ref_id="USN-1676-1" ref_url="http://www.ubuntu.com/usn/usn-1676-1/" source="VENDOR" />
     <description>A weakness was discovered in the example AppArmor profile for chromium-browser.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2013-12-16T04:01:12.470-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="apparmor-profiles DPKG is earlier than 2.7.102-0ubuntu3.7" test_ref="oval:org.mitre.oval:tst:85086"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="apparmor-profiles DPKG is earlier than 2.7.102-0ubuntu3.7" test_ref="oval:org.mitre.oval:tst:85086" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="apparmor-profiles DPKG is earlier than 2.7.0~beta1+bzr1774-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85347"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="apparmor-profiles DPKG is earlier than 2.7.0~beta1+bzr1774-1ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85347" />
     </criteria>
   </criteria>
 </definition>

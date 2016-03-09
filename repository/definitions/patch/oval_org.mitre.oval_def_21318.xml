@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21318" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21318" version="5">
   <metadata>
     <title>RHSA-2012:1116: perl-DBD-Pg security update (Moderate)</title>
     <affected family="unix">
@@ -9,9 +8,9 @@
       <platform>CentOS Linux 6</platform>
       <product>perl-DBD-Pg</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:1116-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1116.html"/>
-    <reference source="CESA" ref_id="CESA-2012:1116"/>
-    <reference source="CVE" ref_id="CVE-2012-1151" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1151.html"/>
+    <reference ref_id="RHSA-2012:1116-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1116.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:1116" source="CESA" />
+    <reference ref_id="CVE-2012-1151" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-1151.html" source="CVE" />
     <description>Multiple format string vulnerabilities in dbdimp.c in DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module before 2.19.0 for Perl allow remote PostgreSQL database servers to cause a denial of service (process crash) via format string specifiers in (1) a crafted database warning to the pg_warn function or (2) a crafted DBD statement to the dbd_st_prepare function.</description>
     <oval_repository>
       <dates>
@@ -23,21 +22,22 @@
         <status_change date="2014-02-24T04:01:09.811-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criterion comment="perl-DBD-Pg is earlier than 0:1.49-4.el5_8" test_ref="oval:org.mitre.oval:tst:94094"/>
+      <criterion comment="perl-DBD-Pg is earlier than 0:1.49-4.el5_8" test_ref="oval:org.mitre.oval:tst:94094" />
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="perl-DBD-Pg is earlier than 0:2.15.1-4.el6_3" test_ref="oval:org.mitre.oval:tst:93969"/>
-      <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criterion comment="perl-DBD-Pg is earlier than 0:2.15.1-4.el6_3" test_ref="oval:org.mitre.oval:tst:93969" />
+      <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
     </criteria>
   </criteria>

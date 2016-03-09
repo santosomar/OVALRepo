@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27016" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27016" version="6">
   <metadata>
     <title>ELSA-2014-1669 -- qemu-kvm security and bug fix update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 7</platform>
       <product>qemu-kvm</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1669.html" ref_id="ELSA-2014-1669"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3615" ref_id="CVE-2014-3615"/>
+    <reference ref_id="ELSA-2014-1669" ref_url="http://linux.oracle.com/errata/ELSA-2014-1669.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3615" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3615" source="CVE" />
     <description>[1.5.3-60.el7_0.10]
         - kvm-block-add-helper-function-to-determine-if-a-BDS-is-i.patch [bz#1122925]
         - kvm-block-extend-block-commit-to-accept-a-string-for-the.patch [bz#1122925]
@@ -30,19 +29,20 @@
         <status_change date="2015-02-23T04:00:51.068-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="qemu-kvm is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126560"/>
-      <criterion comment="libcacard is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126540"/>
-      <criterion comment="libcacard-devel is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126499"/>
-      <criterion comment="libcacard-tools is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126493"/>
-      <criterion comment="qemu-guest-agent is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126714"/>
-      <criterion comment="qemu-img is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:125927"/>
-      <criterion comment="qemu-kvm-common is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126745"/>
-      <criterion comment="qemu-kvm-tools is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126667"/>
+    <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="qemu-kvm is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126560" />
+      <criterion comment="libcacard is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126540" />
+      <criterion comment="libcacard-devel is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126499" />
+      <criterion comment="libcacard-tools is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126493" />
+      <criterion comment="qemu-guest-agent is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126714" />
+      <criterion comment="qemu-img is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:125927" />
+      <criterion comment="qemu-kvm-common is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126745" />
+      <criterion comment="qemu-kvm-tools is earlier than 10:1.5.3-60.el7_0.10" test_ref="oval:org.mitre.oval:tst:126667" />
     </criteria>
   </criteria>
 </definition>

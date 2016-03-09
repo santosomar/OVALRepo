@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7228" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7228" version="6">
   <metadata>
     <title>DSA-1490 tk8.3 -- buffer overflow</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 3.1</platform>
       <product>tk8.3</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1490" ref_id="DSA-1490"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0553" ref_id="CVE-2008-0553"/>
+    <reference ref_id="DSA-1490" ref_url="http://www.debian.org/security/2008/dsa-1490" source="VENDOR" />
+    <reference ref_id="CVE-2008-0553" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0553" source="CVE" />
     <description>It was discovered that a buffer overflow in the GIF image parsing code of Tk, a cross-platform graphical toolkit, could lead to a denial of service and potentially the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -25,29 +24,30 @@
         <status_change date="2014-06-23T04:08:13.671-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="tk8.3-doc is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:11768"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="tk8.3-doc is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:11768" />
         </criteria>
-        <criterion comment="tk8.3-dev is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:12399"/>
-        <criterion comment="tk8.3 is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:12379"/>
+        <criterion comment="tk8.3-dev is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:12399" />
+        <criterion comment="tk8.3 is earlier than 8.3.5-6etch2" test_ref="oval:org.mitre.oval:tst:12379" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="tk8.3-doc is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12216"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 3.1 is installed" definition_ref="oval:org.mitre.oval:def:7692" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="tk8.3-doc is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12216" />
         </criteria>
-        <criterion comment="tk8.3-dev is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12230"/>
-        <criterion comment="tk8.3 is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12297"/>
+        <criterion comment="tk8.3-dev is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12230" />
+        <criterion comment="tk8.3 is earlier than 8.3.5-4sarge1" test_ref="oval:org.mitre.oval:tst:12297" />
       </criteria>
     </criteria>
   </criteria>

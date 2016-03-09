@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24162" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24162" version="19">
   <metadata>
     <title>RHSA-2014:0196: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Red Hat Enterprise Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0196-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0196.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0498" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0498.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0499" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0499.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0502" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0502.html"/>
+    <reference ref_id="RHSA-2014:0196-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0196.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0498" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0498.html" source="CVE" />
+    <reference ref_id="CVE-2014-0499" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0499.html" source="CVE" />
+    <reference ref_id="CVE-2014-0502" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0502.html" source="CVE" />
     <description>Double free vulnerability in Adobe Flash Player before 11.7.700.269 and 11.8.x through 12.0.x before 12.0.0.70 on Windows and Mac OS X and before 11.2.202.341 on Linux, Adobe AIR before 4.0.0.1628 on Android, Adobe AIR SDK before 4.0.0.1628, and Adobe AIR SDK &amp; Compiler before 4.0.0.1628 allows remote attackers to execute arbitrary code via unspecified vectors, as exploited in the wild in February 2014.</description>
     <oval_repository>
       <dates>
@@ -27,18 +26,20 @@
           <contributor organization="ALTX-SOFT">Maria Mikhno</contributor>
         </modified>
         <status_change date="2015-07-13T20:27:40.626-04:00">INTERIM</status_change>
+        <status_change date="2015-08-03T04:01:36.760-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.341-1.el5" test_ref="oval:org.mitre.oval:tst:140799"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.341-1.el5" test_ref="oval:org.mitre.oval:tst:140799" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.341-1.el6" test_ref="oval:org.mitre.oval:tst:112925"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.341-1.el6" test_ref="oval:org.mitre.oval:tst:112925" />
     </criteria>
   </criteria>
 </definition>

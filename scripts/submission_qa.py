@@ -19,8 +19,12 @@ import sys
 import os
 import argparse
 from lxml import etree
+from xml.etree import ElementTree as ET
 from whoosh.query import Wildcard
+from whoosh.query import Regex
+from whoosh.query import Prefix
 
+import lib_oval
 from lib_oval import OvalDocument
 from lib_oval import OvalElement
 
@@ -31,8 +35,11 @@ autoaccept = False
 id_cache_list = {'def': None, 'tst': None, 'obj': None, 'ste': None, 'var': None}
 NS_DEFAULT  = {None: "http://oval.mitre.org/XMLSchema/oval-definitions-5"}
 NS_DEFINITION  = {'def': "http://oval.mitre.org/XMLSchema/oval-definitions-5"}
-NS_MAP = { None: "http://oval.mitre.org/XMLSchema/oval-definitions-5", "oval": "http://oval.mitre.org/XMLSchema/oval-common-5",
-            "xsi": "http://www.w3.org/2001/XMLSchema-instance" }
+NS_MAP = {
+    None: "http://oval.mitre.org/XMLSchema/oval-definitions-5",
+    "oval": "http://oval.mitre.org/XMLSchema/oval-common-5",
+    "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+}
 
 
 def main():
@@ -126,15 +133,58 @@ def main():
 
     def_list = [ path for path in change_list if lib_repo.get_element_type_from_path(path) == 'definition']
     if def_list is not None and len(def_list) > 0:
+        valid_metadata = 1
         if verbose:
             print("   +++ Number of definitions in this update: {0}".format(len(def_list)))
         for def_path in def_list:
             def_element = lib_xml.load_standalone_element(def_path)
+
+            ode = lib_oval.OvalElement(def_element)
+            od  = lib_oval.OvalDefinition(ode.getElement())
+
+            def_id = od.getId()
+
         # 3.1 If this is an update, does it change any existing metadata?
         # 3.2 Check existence and accuracy of definition metadata (<status> and date)
-        #  - DRAFT on new submission
+        #  - INITIAL SUBMISSION or DRAFT on new submission
         #  - INTERIM if updating a previous definition
         #  - ?
+
+            # no <dates> - invalid
+            # @version == 0:
+            #   no <submitted> - invalid
+            #   <status_change>s > 0 - invalid
+            #   <status> != "INITIAL SUBMISSION" - invalid
+            # @ version > 0:
+            #   last <status_change> != <status> - invalid
+            def_status_change = od.get_last_status_change()
+            if def_status_change["Version"] == "0":
+                if "Submitted" not in def_status_change or def_status_change["Submitted"] is None:
+                    print("   ++++ Definition ID %s is NOT valid:" % def_id)
+                    print("    - New definitions must contain a submitted element")
+                    valid_metadata = 0
+
+                if def_status_change["StatusChange"]:
+                    print("   ++++ Definition ID %s is NOT valid:" % def_id)
+                    print("    - New definitions should not contain a status change element")
+                    valid_metadata = 0
+
+                if def_status_change["Status"] != "INITIAL SUBMISSION":
+                    print("   ++++ Definition ID %s is NOT valid:" % def_id)
+                    print("    - New definitions must have a status of INITIAL SUBMISSION")
+                    valid_metadata = 0
+            else:
+                defstatus = def_status_change["Status"]
+                lscstatus = def_status_change["StatusChange"]["Status"]
+                if (defstatus != lscstatus):
+                    print("   ++++ Definition ID %s is NOT valid:" % def_id)
+                    print("    - Last status change (%s) does not match definition status (%s)" % (lscstatus, defstatus))
+                    valid_metadata = 0
+
+        if valid_metadata == 0:
+            print("\n   ++++ Definition Metadata is Invalid.  Exiting...")
+            return
+
     elif verbose:
         print("   +++ No definitions to check")
     
@@ -149,7 +199,9 @@ def main():
         try:
             lib_xml.schema_validate(element_file, schema_path, True)
         except Exception as e:
-            print('    Schema validation failed:\n\t{0}'.format(e.message))
+            #print('    Schema validation failed:\n\t{0}'.format(e.message))
+            #print("\n ### Offending file {0}".format(element_file))
+            print('    Schema validation failed:')
             print("\n ### Offending file {0}".format(element_file))
             return
 
@@ -160,6 +212,7 @@ def main():
     # 5. On passing all of the above, make these changes for all elements:
 
 
+    oval_id_map = {}
     affected_elements = set()
     update_elements = {}
     for path in change_list:
@@ -189,8 +242,9 @@ def main():
             if verbose:
                 print("    ---- Change submission ID from '{0}' to '{1}'".format(ovalid, new_id))
             oval_element.set("id", new_id)
-        #      5.2.1 Set to a unique OVALID in the CIS namespace
-        #      5.2.2 Update all references from the old OVALID
+            #      5.2.1 Set to a unique OVALID in the CIS namespace
+            #      5.2.2 Update all references from the old OVALID
+            oval_id_map[ovalid] = new_id
         
         #  5.3 Set/update version numbers as necessary.  The previous step can be used to determine new vice update
         if is_update:
@@ -220,9 +274,11 @@ def main():
         if verbose:
             print("\n ------- This update affects {0} upstream elements:  incrementing the version number for each...".format(len(affected_elements)))
         for file in affected_elements:
+            print("\n ----------- Loading standalone element for path {0}".format(file))
             oval_element = lib_xml.load_standalone_element(file)
             if oval_element is not None:
                 increment_version(oval_element)
+                #oval_element = normalize_ids(oval_element, oval_id_map)
                 update_elements[file] = oval_element
     
     
@@ -234,16 +290,27 @@ def main():
     print("   * Existing metadata has not been changed")
     print("   * Contains a meaningful change")
     print("   * Does not contain any harmful actions or unacceptable language")
+
+    for x in oval_id_map:
+        print(" -- Convert %s to %s" % (x, oval_id_map[x]))
+
     response = input("\n :::: Save all changes now? (N[o] / y[es]): ")
     if response != 'y' and response != 'Y':
         return
 
-    
     for path in update_elements:
-        oval_element = update_elements[path]
+        oval_element = normalize_ids(update_elements[path], oval_id_map)
         if not oval_element or oval_element is None:
             continue
         new_path = lib_repo.get_element_repository_path(oval_element)
+
+        print("Path (BEFORE) -- %s" % path)
+        path = path.replace("/", "\\")
+        print("Path (AFTER) --- %s" % path)
+        print("New Path (BEFORE) -- %s" % new_path)
+        new_path = new_path.replace("/", "\\")
+        print("New Path (AFTER) --- %s" % new_path)
+        
         if verbose:
             print("## Writing {0}".format(new_path))
         save_element(oval_element, new_path)
@@ -251,7 +318,10 @@ def main():
         if new_path != path:
             if verbose:
                 print("### Deleting {0}".format(path))
-            os.remove(path)
+            try:
+                os.remove(path)
+            except Exception:
+                print("#### Exception/Skipping Deleting {0}".format(path))
             
     
     # 7. Prompt for a message to use for the commit
@@ -291,6 +361,7 @@ def find_affected(ovalid, element_index):
 def increment_version(oval_element):
     
     if oval_element is None:
+        print("increment_version::oval_element is None...")
         return
 
     version = oval_element.get("version")
@@ -301,6 +372,33 @@ def increment_version(oval_element):
         
     oval_element.set("version", version)
 
+
+def normalize_ids(oval_element, oval_id_map):
+    """
+    If any OVAL IDs were generated, they need to be modified in
+    all elements which would reference the old id
+    """
+    if oval_element is None:
+        return
+
+    # nothing to do if there are no new oval ids...
+    if not oval_id_map:
+        return oval_element
+
+    ET.register_namespace("", "http://oval.mitre.org/XMLSchema/oval-definitions-5")
+    ET.register_namespace("oval", "http://oval.mitre.org/XMLSchema/oval-common-5")
+    ET.register_namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance")
+
+    xml_string = ET.tostring(oval_element, encoding="UTF-8").decode()
+
+    # map is oval_id_map[oldid] = new_id
+    for old_oval_id in oval_id_map:
+        new_oval_id = oval_id_map[old_oval_id]
+
+        xml_string = xml_string.replace(old_oval_id, new_oval_id)
+        #print("After -- ", xml_string)
+
+    return ET.fromstring(xml_string)
 
 
 def generate_next_ovalid(element_type, element_index):
@@ -323,21 +421,22 @@ def generate_next_ovalid(element_type, element_index):
 
     cached_list = id_cache_list[type_key]
     if not cached_list or len(cached_list) < 1:
-        search_term = "oval_*_{0}_*".format(type_key)        
+        # Apparently the : is not a good idea when whooshing.
+        search_term = "oval?org.cisecurity?{0}?*".format(type_key)
         index_searcher = element_index.get_searcher();
         query = Wildcard("oval_id", search_term)
         results = index_searcher.search(query, limit=None)
-        
+
         matching = [hit['oval_id'] for hit in results]
         index = find_largest_index(matching) + 1
         new_id = "oval:org.cisecurity:{0}:{1}".format(type_key, index)
         cached_list = [new_id]
-        id_cache_list[type_key] = cached_list
     else:
         index = find_largest_index(cached_list) + 1
         new_id = "oval:org.cisecurity:{0}:{1}".format(type_key, index)
         cached_list.append(new_id)
-        
+    
+    id_cache_list[type_key] = cached_list
     return new_id
 
 
@@ -410,7 +509,8 @@ def set_minimum_schema_version(oval_element, min_schema):
                 
             repo_element = etree.SubElement(meta_element, "oval_repository", NS_DEFINITION)
             
-        min_element = etree.SubElement(repo_element, "min_schema_version", NS_DEFINITION)
+        #min_element = etree.SubElement(repo_element, "min_schema_version", NS_DEFINITION)
+        min_element = etree.SubElement(repo_element, "min_schema_version")
         
     min_element.text = min_schema
     
@@ -474,9 +574,8 @@ def find_removed_items(changes):
     return [file for file in changes if not os.path.exists(file)]
 
 
-def save_element(element, path):
-    
-    if element is None:
+def save_element(elem, path):
+    if elem is None:
         return
     
     if not path or path is None:
@@ -484,20 +583,53 @@ def save_element(element, path):
     
     parent = os.path.dirname(path)
     if not os.path.isdir(parent):
-        os.makedirs(parent, 755, True)
-        
+        os.makedirs(parent, mode=0o755, exist_ok=True)
+        os.chmod(parent, 0o0755)
         
     try:
-        namespace = element.getNamespace()
-        indent(element)
+        # Get the elements default namespace
+        namespace = getNamespace(elem)
+        # Pretty up the element
+        indent(elem)
+        # Register the discovered namespace as the default
+        ET.register_namespace("", namespace)
         # Create a new ElementTree with this element as the root
-        tree = etree.ElementTree(element)
+        elem_tree = ET.ElementTree(element=elem)
         # Write the full tree to a file
-        tree.write(file_or_filename = path, encoding="UTF-8", method="xml", default_namespace = namespace)
+        elem_tree.write(path, xml_declaration=False, encoding="UTF-8", method="xml")
+        os.chmod(path, 0o0664)
         return True
     except:
+        print(" *** Error writing new element to path %s" % path)
+        print("     Exception Type: ", sys.exc_info()[0])
+        print("    Exception Value: ", sys.exc_info()[1])
         return False
 
+def getNamespace(element):
+        """
+        Returns the URI of the namespace or None if this node does not have a namepsace
+        """
+        if not element or element is None:
+            return None
+
+        tag = element.tag
+        
+        if not tag or tag is None:
+            return None
+        
+        # If the oval ID does not contain a namespace, then we can't determine the schema shortname
+        if not '}' in tag:
+            return None
+        
+        try:
+            position = tag.find('}')
+            if position < 0:
+                return None
+            
+            namespace = tag[:position]
+            return namespace[1:]
+        except Exception:
+            return None
 
 def indent(elem, level=0):
     i = "\n" + level*"  "
@@ -676,4 +808,3 @@ def show_files(file_list):
         
 if __name__ == '__main__':
     main()
-        

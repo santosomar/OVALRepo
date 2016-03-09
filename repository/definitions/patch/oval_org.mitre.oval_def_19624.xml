@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19624" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19624" version="6">
   <metadata>
     <title>DSA-2781-1 python-crypto - PRNG not correctly reseeded in some situations</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>python-crypto</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2781-1" ref_id="DSA-2781-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1445" ref_id="CVE-2013-1445"/>
+    <reference ref_id="DSA-2781-1" ref_url="http://www.debian.org/security/dsa-2781-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-1445" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1445" source="CVE" />
     <description>A cryptographic vulnerability was discovered in the pseudo random number generator in python-crypto.</description>
     <oval_repository>
       <dates>
@@ -27,24 +26,25 @@
         <status_change date="2014-06-23T04:05:43.645-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="python-crypto DPKG is earlier than 0:2.1.0-2+squeeze2" test_ref="oval:org.mitre.oval:tst:88887"/>
+      <criterion comment="python-crypto DPKG is earlier than 0:2.1.0-2+squeeze2" test_ref="oval:org.mitre.oval:tst:88887" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="python-crypto DPKG is earlier than 0:2.6-4+deb7u1" test_ref="oval:org.mitre.oval:tst:88956"/>
+      <criterion comment="python-crypto DPKG is earlier than 0:2.6-4+deb7u1" test_ref="oval:org.mitre.oval:tst:88956" />
     </criteria>
   </criteria>
 </definition>

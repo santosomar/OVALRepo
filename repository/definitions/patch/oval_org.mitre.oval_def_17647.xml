@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17647" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17647" version="8">
   <metadata>
     <title>USN-631-1 -- poppler vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>poppler</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-631-1/" ref_id="USN-631-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2950" ref_id="CVE-2008-2950"/>
+    <reference ref_id="USN-631-1" ref_url="http://www.ubuntu.com/usn/usn-631-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-2950" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2950" source="CVE" />
     <description>Felipe Andres Manzano discovered that poppler did not correctly initialize certain page widgets.</description>
     <oval_repository>
       <dates>
@@ -30,16 +29,17 @@
         <status_change date="2014-06-30T04:07:05.661-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="libpoppler2 DPKG is earlier than 0.6-0ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83185"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="libpoppler2 DPKG is earlier than 0.6-0ubuntu2.3" test_ref="oval:org.mitre.oval:tst:83185" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libpoppler2 DPKG is earlier than 0.6.4-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83341"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libpoppler2 DPKG is earlier than 0.6.4-1ubuntu3.1" test_ref="oval:org.mitre.oval:tst:83341" />
     </criteria>
   </criteria>
 </definition>

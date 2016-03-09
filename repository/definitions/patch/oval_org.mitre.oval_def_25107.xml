@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25107" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25107" version="4">
   <metadata>
     <title>SUSE-SU-2014:0188-2 -- Security update for hplip</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>hplip</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140188-2.html" ref_id="SUSE-SU-2014:0188-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0200" ref_id="CVE-2013-0200"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4325" ref_id="CVE-2013-4325"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6402" ref_id="CVE-2013-6402"/>
+    <reference ref_id="SUSE-SU-2014:0188-2" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140188-2.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0200" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0200" source="CVE" />
+    <reference ref_id="CVE-2013-4325" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4325" source="CVE" />
+    <reference ref_id="CVE-2013-6402" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6402" source="CVE" />
     <description>hplip was updated to fix three security issues:
 
     * 
@@ -39,16 +38,17 @@ creation/overwrite (via hardcoded file name
         <status_change date="2014-09-08T04:00:58.947-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="hplip RPM is earlier than 0:3.11.10-0.6.11.1" test_ref="oval:org.mitre.oval:tst:117717"/>
-      <criterion comment="hplip-hpijs RPM is earlier than 0:3.11.10-0.6.11.1" test_ref="oval:org.mitre.oval:tst:117761"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="hplip RPM is earlier than 0:3.11.10-0.6.11.1" test_ref="oval:org.mitre.oval:tst:117717" />
+      <criterion comment="hplip-hpijs RPM is earlier than 0:3.11.10-0.6.11.1" test_ref="oval:org.mitre.oval:tst:117761" />
     </criteria>
   </criteria>
 </definition>

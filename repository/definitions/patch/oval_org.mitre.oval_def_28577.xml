@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28577" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28577" version="5">
   <metadata>
     <title>ELSA-2014-1982 -- xorg-x11-server security update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>xorg-x11-server</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1982.html" ref_id="ELSA-2014-1982"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8091" ref_id="CVE-2014-8091"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8092" ref_id="CVE-2014-8092"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8093" ref_id="CVE-2014-8093"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8095" ref_id="CVE-2014-8095"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8096" ref_id="CVE-2014-8096"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8097" ref_id="CVE-2014-8097"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8098" ref_id="CVE-2014-8098"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8099" ref_id="CVE-2014-8099"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8100" ref_id="CVE-2014-8100"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8101" ref_id="CVE-2014-8101"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8102" ref_id="CVE-2014-8102"/>
+    <reference ref_id="ELSA-2014-1982" ref_url="http://linux.oracle.com/errata/ELSA-2014-1982.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-8091" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8091" source="CVE" />
+    <reference ref_id="CVE-2014-8092" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8092" source="CVE" />
+    <reference ref_id="CVE-2014-8093" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8093" source="CVE" />
+    <reference ref_id="CVE-2014-8095" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8095" source="CVE" />
+    <reference ref_id="CVE-2014-8096" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8096" source="CVE" />
+    <reference ref_id="CVE-2014-8097" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8097" source="CVE" />
+    <reference ref_id="CVE-2014-8098" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8098" source="CVE" />
+    <reference ref_id="CVE-2014-8099" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8099" source="CVE" />
+    <reference ref_id="CVE-2014-8100" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8100" source="CVE" />
+    <reference ref_id="CVE-2014-8101" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8101" source="CVE" />
+    <reference ref_id="CVE-2014-8102" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8102" source="CVE" />
     <description>[1.1.1-48.107.0.1.el5_11]
 - Added oracle-enterprise-detect.patch
 - Replaced 'Red Hat' in spec file
@@ -62,19 +61,20 @@
         <status_change date="2015-02-23T04:01:28.151-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="xorg-x11-server is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:137033"/>
-      <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136447"/>
-      <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136905"/>
-      <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136998"/>
-      <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:137015"/>
-      <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136690"/>
-      <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136202"/>
-      <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136591"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="xorg-x11-server is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:137033" />
+      <criterion comment="xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136447" />
+      <criterion comment="xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136905" />
+      <criterion comment="xorg-x11-server-Xnest is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136998" />
+      <criterion comment="xorg-x11-server-Xorg is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:137015" />
+      <criterion comment="xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136690" />
+      <criterion comment="xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136202" />
+      <criterion comment="xorg-x11-server-sdk is earlier than 0:1.1.1-48.107.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:136591" />
     </criteria>
   </criteria>
 </definition>

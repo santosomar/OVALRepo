@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28468" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28468" version="4">
   <metadata>
     <title>SUSE-SU-2014:1473-1 -- Security update for file (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>file</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141473-1.html" ref_id="SUSE-SU-2014:1473-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3710" ref_id="CVE-2014-3710"/>
+    <reference ref_id="SUSE-SU-2014:1473-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20141473-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3710" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3710" source="CVE" />
     <description>file was updated to fix one security issue.
 
     * An out-of-bounds read flaw file's donote() function. This could
@@ -17,7 +16,7 @@
 Security Issues:
 
     * CVE-2014-3710
-      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3710></description>
+      &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3710&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-12-08T11:15:06">
@@ -28,16 +27,17 @@ Security Issues:
         <status_change date="2015-01-26T04:00:46.614-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="file is earlier than 0:4.24-43.27.1" test_ref="oval:org.mitre.oval:tst:136360"/>
-      <criterion comment="file-32bit is earlier than 0:4.24-43.27.1" test_ref="oval:org.mitre.oval:tst:136471"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="file is earlier than 0:4.24-43.27.1" test_ref="oval:org.mitre.oval:tst:136360" />
+      <criterion comment="file-32bit is earlier than 0:4.24-43.27.1" test_ref="oval:org.mitre.oval:tst:136471" />
     </criteria>
   </criteria>
 </definition>

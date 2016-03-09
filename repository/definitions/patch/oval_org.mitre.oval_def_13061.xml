@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13061" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13061" version="7">
   <metadata>
     <title>DSA-1908-1 ntp -- denial of service</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>ntp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00271.html" ref_id="DSA-1908-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2948" ref_id="CVE-2009-2948"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2906" ref_id="CVE-2009-2906"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2813" ref_id="CVE-2009-2813"/>
+    <reference ref_id="DSA-1908-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00271.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-2948" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2948" source="CVE" />
+    <reference ref_id="CVE-2009-2906" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2906" source="CVE" />
+    <reference ref_id="CVE-2009-2813" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2813" source="CVE" />
     <description>Robin Park and Dmitri Vinokurov discovered that the daemon component of the ntp package, a reference implementation of the NTP protocol, is not properly reacting to certain incoming packets. An unexpected NTP mode 7 packets with spoofed IP data can lead ntpd to reply with a mode 7 response to the spoofed address. This may result in the service playing packet ping-pong with other ntp servers or even itself which causes CPU usage and excessive disk use due to logging. An attacker can use this to conduct denial of service attacks. For the oldstable distribution, this problem has been fixed in version 1:4.2.2.p4+dfsg-2etch4. For the stable distribution, this problem has been fixed in version 1:4.2.4p4+dfsg-8lenny3. For the testing and unstable distribution, this problem will be fixed soon. We recommend that you upgrade your ntp packages.</description>
     <oval_repository>
       <dates>
@@ -27,33 +26,34 @@
         <status_change date="2014-06-23T04:01:30.676-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criterion comment="ntp-doc DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:48189"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criterion comment="ntp-doc DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:48189" />
         </criteria>
-        <criterion comment="ntpdate DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:47535"/>
-        <criterion comment="ntp DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:48476"/>
+        <criterion comment="ntpdate DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:47535" />
+        <criterion comment="ntp DPKG is earlier than 1:4.2.4p4+dfsg-8lenny3" test_ref="oval:org.mitre.oval:tst:48476" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="ntp-doc DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48253"/>
-            <criterion comment="ntp-simple DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:47562"/>
-            <criterion comment="ntp-refclock DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48375"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="ntp-doc DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48253" />
+            <criterion comment="ntp-simple DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:47562" />
+            <criterion comment="ntp-refclock DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48375" />
           </criteria>
         </criteria>
-        <criterion comment="ntp DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48416"/>
-        <criterion comment="ntpdate DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48553"/>
+        <criterion comment="ntp DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48416" />
+        <criterion comment="ntpdate DPKG is earlier than 1:4.2.2.p4+dfsg-2etch4" test_ref="oval:org.mitre.oval:tst:48553" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23098" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23098" version="8">
   <metadata>
     <title>ELSA-2011:1268: firefox security update (Important)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Oracle Linux 5</platform>
       <product>firefox</product>
     </affected>
-    <reference ref_id="ELSA-2011:1268-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1268.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2011:1268-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1268.html" source="VENDOR" />
     <description>Mozilla Firefox is an open source web browser. XULRunner provides the XUL
 Runtime environment for Mozilla Firefox.
 The RHSA-2011:1242 Firefox update rendered HTTPS certificates signed by a
@@ -32,23 +31,24 @@ restarted for the changes to take effect.</description>
         <status_change date="2014-05-26T04:03:22.800-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:105329"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:104883"/>
-        <criterion comment="firefox is earlier than 0:3.6.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:104360"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:105329" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:104883" />
+        <criterion comment="firefox is earlier than 0:3.6.22-1.el5_7" test_ref="oval:org.mitre.oval:tst:104360" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:105278"/>
-        <criterion comment="xulrunner is earlier than 0:1.9.2.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:104895"/>
-        <criterion comment="firefox is earlier than 0:3.6.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:105356"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="xulrunner-devel is earlier than 0:1.9.2.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:105278" />
+        <criterion comment="xulrunner is earlier than 0:1.9.2.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:104895" />
+        <criterion comment="firefox is earlier than 0:3.6.22-1.el6_1" test_ref="oval:org.mitre.oval:tst:105356" />
       </criteria>
     </criteria>
   </criteria>

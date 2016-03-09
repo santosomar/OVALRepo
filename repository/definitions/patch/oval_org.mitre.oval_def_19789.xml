@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19789" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19789" version="6">
   <metadata>
     <title>DSA-2810-1 ruby1.9.1 - heap overflow</title>
     <affected family="unix">
@@ -9,8 +8,8 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>ruby1.9.1</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2810-1" ref_id="DSA-2810-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4164" ref_id="CVE-2013-4164"/>
+    <reference ref_id="DSA-2810-1" ref_url="http://www.debian.org/security/dsa-2810-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-4164" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4164" source="CVE" />
     <description>Charlie Somerville discovered that Ruby incorrectly handled floating point number conversion. If an application using Ruby accepted untrusted input strings and converted them to floating point numbers, an attacker able to provide such input could cause the application to crash or, possibly, execute arbitrary code with the privileges of the application.</description>
     <oval_repository>
       <dates>
@@ -27,24 +26,25 @@
         <status_change date="2014-06-23T04:05:49.885-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="ruby1.9.1 DPKG is earlier than 0:1.9.2.0-2+deb6u2" test_ref="oval:org.mitre.oval:tst:89109"/>
+      <criterion comment="ruby1.9.1 DPKG is earlier than 0:1.9.2.0-2+deb6u2" test_ref="oval:org.mitre.oval:tst:89109" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="ruby1.9.1 DPKG is earlier than 0:1.9.3.194-8.1+deb7u2" test_ref="oval:org.mitre.oval:tst:88635"/>
+      <criterion comment="ruby1.9.1 DPKG is earlier than 0:1.9.3.194-8.1+deb7u2" test_ref="oval:org.mitre.oval:tst:88635" />
     </criteria>
   </criteria>
 </definition>

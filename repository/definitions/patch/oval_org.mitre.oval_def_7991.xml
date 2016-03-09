@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7991" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7991" version="6">
   <metadata>
     <title>DSA-1482 squid -- programming error</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>squid</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1482" ref_id="DSA-1482"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6239" ref_id="CVE-2007-6239"/>
+    <reference ref_id="DSA-1482" ref_url="http://www.debian.org/security/2008/dsa-1482" source="VENDOR" />
+    <reference ref_id="CVE-2007-6239" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6239" source="CVE" />
     <description>It was discovered that malformed cache update replies against the Squid WWW proxy cache could lead to the exhaustion of system memory, resulting in potential denial of service.</description>
     <oval_repository>
       <dates>
@@ -24,18 +23,19 @@
         <status_change date="2014-06-23T04:09:41.698-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criterion comment="squid-common is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14883"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criterion comment="squid-common is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14883" />
       </criteria>
-      <criterion comment="squidclient is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14433"/>
-      <criterion comment="squid is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14862"/>
-      <criterion comment="squid-cgi is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14582"/>
+      <criterion comment="squidclient is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14433" />
+      <criterion comment="squid is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14862" />
+      <criterion comment="squid-cgi is earlier than 2.6.5-6etch1" test_ref="oval:org.mitre.oval:tst:14582" />
     </criteria>
   </criteria>
 </definition>

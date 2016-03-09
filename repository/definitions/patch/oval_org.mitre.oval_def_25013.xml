@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25013" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:25013" version="5">
   <metadata>
     <title>DEPRECATED: RHSA-2014:0865: tomcat6 security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 6</platform>
       <product>tomcat6</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0865-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0865.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0865"/>
-    <reference source="CVE" ref_id="CVE-2014-0075" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0075.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0096" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0096.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0099" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0099.html"/>
+    <reference ref_id="RHSA-2014:0865-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0865.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0865" source="CESA" />
+    <reference ref_id="CVE-2014-0075" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0075.html" source="CVE" />
+    <reference ref_id="CVE-2014-0096" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0096.html" source="CVE" />
+    <reference ref_id="CVE-2014-0099" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0099.html" source="CVE" />
     <description>Apache Tomcat is a servlet container for the Java Servlet and JavaServer
 Pages (JSP) technologies.
 
@@ -63,23 +62,24 @@ restarted for this update to take effect.</description>
         <status_change date="2015-02-11T18:27:58.242-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="tomcat6-lib is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116250"/>
-      <criterion comment="tomcat6-servlet-2.5-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116072"/>
-      <criterion comment="tomcat6-javadoc is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115496"/>
-      <criterion comment="tomcat6-docs-webapp is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115706"/>
-      <criterion comment="tomcat6 is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115868"/>
-      <criterion comment="tomcat6-el-2.1-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116119"/>
-      <criterion comment="tomcat6-jsp-2.1-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116171"/>
-      <criterion comment="tomcat6-webapps is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116001"/>
-      <criterion comment="tomcat6-admin-webapps is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115343"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="tomcat6-lib is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116250" />
+      <criterion comment="tomcat6-servlet-2.5-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116072" />
+      <criterion comment="tomcat6-javadoc is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115496" />
+      <criterion comment="tomcat6-docs-webapp is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115706" />
+      <criterion comment="tomcat6 is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115868" />
+      <criterion comment="tomcat6-el-2.1-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116119" />
+      <criterion comment="tomcat6-jsp-2.1-api is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116171" />
+      <criterion comment="tomcat6-webapps is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:116001" />
+      <criterion comment="tomcat6-admin-webapps is earlier than 0:6.0.24-72.el6_5" test_ref="oval:org.mitre.oval:tst:115343" />
     </criteria>
   </criteria>
 </definition>

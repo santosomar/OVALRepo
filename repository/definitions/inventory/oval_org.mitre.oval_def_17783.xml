@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17783" version="5" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:17783" version="6">
   <metadata>
     <title>Microsoft Publisher 2010 SP2 is installed</title>
     <affected family="windows">
@@ -13,7 +12,7 @@
       <platform>Microsoft Windows Server 2012</platform>
       <product>Microsoft Publisher 2010</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:publisher:2010:sp2"/>
+    <reference ref_id="cpe:/a:microsoft:publisher:2010:sp2" source="CPE" />
     <description>Microsoft Publisher 2010 SP2 is installed</description>
     <oval_repository>
       <dates>
@@ -30,10 +29,11 @@
         <status_change date="2014-04-07T04:02:04.229-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <extend_definition comment="Microsoft Publisher 2010 is installed" definition_ref="oval:org.mitre.oval:def:12191"/>
-    <criterion comment="Check if Microsoft Office 2010 SP2 is installed" test_ref="oval:org.mitre.oval:tst:82640"/>
+    <extend_definition comment="Microsoft Publisher 2010 is installed" definition_ref="oval:org.mitre.oval:def:12191" />
+    <criterion comment="Check if Microsoft Office 2010 SP2 is installed" test_ref="oval:org.mitre.oval:tst:82640" />
   </criteria>
 </definition>

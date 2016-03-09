@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:21787" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:21787" version="15">
   <metadata>
     <title>ELSA-2008:0575: rdesktop security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>rdesktop</product>
     </affected>
-    <reference ref_id="ELSA-2008:0575-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0575.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-1801" ref_url="http://linux.oracle.com/cve/CVE-2008-1801.html" source="CVE"/>
-    <reference ref_id="CVE-2008-1803" ref_url="http://linux.oracle.com/cve/CVE-2008-1803.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0575-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0575.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-1801" ref_url="http://linux.oracle.com/cve/CVE-2008-1801.html" source="CVE" />
+    <reference ref_id="CVE-2008-1803" ref_url="http://linux.oracle.com/cve/CVE-2008-1803.html" source="CVE" />
     <description>Integer signedness error in the xrealloc function (rdesktop.c) in RDesktop 1.5.0 allows remote attackers to execute arbitrary code via unknown parameters that trigger a heap-based overflow.	NOTE: the role of the channel_process function was not specified by the original researcher.</description>
     <oval_repository>
       <dates>
@@ -25,10 +24,11 @@
         <status_change date="2014-05-26T04:00:27.113-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="rdesktop is earlier than 0:1.4.1-6" test_ref="oval:org.mitre.oval:tst:101705"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="rdesktop is earlier than 0:1.4.1-6" test_ref="oval:org.mitre.oval:tst:101705" />
   </criteria>
 </definition>

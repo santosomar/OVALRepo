@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25816" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25816" version="4">
   <metadata>
     <title>SUSE-SU-2013:0743-1 -- Security update for libxml2</title>
     <affected family="unix">
       <platform>SUSE Linux Enterprise Server 11</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130743-1.html" ref_id="SUSE-SU-2013:0743-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" ref_id="CVE-2013-0338"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5134" ref_id="CVE-2012-5134"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0339" ref_id="CVE-2013-0339"/>
+    <reference ref_id="SUSE-SU-2013:0743-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-su-20130743-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0338" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" source="CVE" />
+    <reference ref_id="CVE-2012-5134" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5134" source="CVE" />
+    <reference ref_id="CVE-2013-0339" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0339" source="CVE" />
     <description>libxml2 has been updated to fix two security bugs.
 
     * CVE-2013-0338: Internal entity expansion within XML
@@ -30,15 +29,16 @@ XML document.</description>
         <status_change date="2014-09-08T04:03:23.729-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libxml2 RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120240"/>
-      <criterion comment="libxml2-doc RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:119445"/>
-      <criterion comment="libxml2-python RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120413"/>
-      <criterion comment="libxml2-32bit RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120200"/>
+    <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libxml2 RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120240" />
+      <criterion comment="libxml2-doc RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:119445" />
+      <criterion comment="libxml2-python RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120413" />
+      <criterion comment="libxml2-32bit RPM is earlier than 0:2.7.6-0.23.1" test_ref="oval:org.mitre.oval:tst:120200" />
     </criteria>
   </criteria>
 </definition>

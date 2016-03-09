@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27130" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27130" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2014-0626 -- openssl097a and openssl098e security update (important)</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <product>openssl097a</product>
       <product>openssl098e</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0626.html" ref_id="ELSA-2014-0626"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224" ref_id="CVE-2014-0224"/>
+    <reference ref_id="ELSA-2014-0626" ref_url="http://linux.oracle.com/errata/ELSA-2014-0626.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0224" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224" source="CVE" />
     <description>[0.9.8e-18.0.1.el6_5.2]
 - Updated the description
 
@@ -32,16 +31,17 @@
         <status_change date="2015-02-10T21:45:19.767-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="openssl097a is earlier than 0:0.9.7a-12.el5_10.1" test_ref="oval:org.mitre.oval:tst:127483"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="openssl097a is earlier than 0:0.9.7a-12.el5_10.1" test_ref="oval:org.mitre.oval:tst:127483" />
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criterion comment="openssl098e is earlier than 0:0.9.8e-18.0.1.el6_5.2" test_ref="oval:org.mitre.oval:tst:127613"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criterion comment="openssl098e is earlier than 0:0.9.8e-18.0.1.el6_5.2" test_ref="oval:org.mitre.oval:tst:127613" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:15291" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:15291" version="8">
   <metadata>
     <title>DSA-2301-2 rails -- several</title>
     <affected family="unix">
@@ -8,11 +7,11 @@
       <platform>Debian GNU/kFreeBSD 6.0</platform>
       <product>rails</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00015.html" ref_id="DSA-2301-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2930" ref_id="CVE-2011-2930"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2931" ref_id="CVE-2011-2931"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3186" ref_id="CVE-2011-3186"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4214" ref_id="CVE-2009-4214"/>
+    <reference ref_id="DSA-2301-2" ref_url="http://lists.debian.org/debian-security-announce/2012/msg00015.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2930" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2930" source="CVE" />
+    <reference ref_id="CVE-2011-2931" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2931" source="CVE" />
+    <reference ref_id="CVE-2011-3186" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3186" source="CVE" />
+    <reference ref_id="CVE-2009-4214" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4214" source="CVE" />
     <description>It was discovered that the last security update for Ruby on Rails, DSA-2301-1, introduced a regression in the libactionpack-ruby package.</description>
     <oval_repository>
       <dates>
@@ -29,22 +28,23 @@
         <status_change date="2014-06-23T04:03:41.578-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="rails DPKG is earlier than 2.1.0-7+lenny2" test_ref="oval:org.mitre.oval:tst:78432"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="rails DPKG is earlier than 2.1.0-7+lenny2" test_ref="oval:org.mitre.oval:tst:78432" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="rails DPKG is earlier than 2.3.5-1.2+squeeze2" test_ref="oval:org.mitre.oval:tst:78466"/>
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="rails DPKG is earlier than 2.3.5-1.2+squeeze2" test_ref="oval:org.mitre.oval:tst:78466" />
     </criteria>
   </criteria>
 </definition>

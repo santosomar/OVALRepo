@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27599" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27599" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1289 -- librsvg2 security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>librsvg2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1289.html" ref_id="ELSA-2011-1289"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3146" ref_id="CVE-2011-3146"/>
+    <reference ref_id="ELSA-2011-1289" ref_url="http://linux.oracle.com/errata/ELSA-2011-1289.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3146" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3146" source="CVE" />
     <description>[2.26.0-5.el6_1.1]
 - Store node type separately in RsvgNode (CVE-2011-3146)
   Resolves: #735266</description>
@@ -25,13 +24,14 @@
         <status_change date="2015-02-10T15:03:04.705-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="librsvg2 is earlier than 0:2.26.0-5.el6_1.1" test_ref="oval:org.mitre.oval:tst:133448"/>
-      <criterion comment="librsvg2-devel is earlier than 0:2.26.0-5.el6_1.1" test_ref="oval:org.mitre.oval:tst:132564"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="librsvg2 is earlier than 0:2.26.0-5.el6_1.1" test_ref="oval:org.mitre.oval:tst:133448" />
+      <criterion comment="librsvg2-devel is earlier than 0:2.26.0-5.el6_1.1" test_ref="oval:org.mitre.oval:tst:132564" />
     </criteria>
   </criteria>
 </definition>

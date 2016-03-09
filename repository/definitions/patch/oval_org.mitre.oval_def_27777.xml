@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27777" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27777" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0475 -- sudo security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>sudo</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0475.html" ref_id="ELSA-2010-0475"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1646" ref_id="CVE-2010-1646"/>
+    <reference ref_id="ELSA-2010-0475" ref_url="http://linux.oracle.com/errata/ELSA-2010-0475.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-1646" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1646" source="CVE" />
     <description>[1.7.2p1-7]
 - added patch that fixes insufficient environment sanitization issue (#598154)
   Resolves: #598381</description>
@@ -25,10 +24,11 @@
         <status_change date="2015-02-10T19:44:12.737-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="sudo is earlier than 0:1.7.2p1-7.el5_5" test_ref="oval:org.mitre.oval:tst:135122"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="sudo is earlier than 0:1.7.2p1-7.el5_5" test_ref="oval:org.mitre.oval:tst:135122" />
   </criteria>
 </definition>

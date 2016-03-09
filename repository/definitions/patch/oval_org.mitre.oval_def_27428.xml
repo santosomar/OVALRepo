@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27428" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27428" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1459 -- gnupg2 security update (moderate)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>Oracle Linux 6</platform>
       <product>gnupg2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1459.html" ref_id="ELSA-2013-1459"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6085" ref_id="CVE-2012-6085"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4351" ref_id="CVE-2013-4351"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4402" ref_id="CVE-2013-4402"/>
+    <reference ref_id="ELSA-2013-1459" ref_url="http://linux.oracle.com/errata/ELSA-2013-1459.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-6085" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6085" source="CVE" />
+    <reference ref_id="CVE-2013-4351" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4351" source="CVE" />
+    <reference ref_id="CVE-2013-4402" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4402" source="CVE" />
     <description>[2.0.14-6]
 - fix CVE-2013-4351 gpg treats no-usage-permitted keys as all-usages-permitted
 
@@ -31,18 +30,19 @@
         <status_change date="2015-02-10T12:38:42.583-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="gnupg2 is earlier than 0:2.0.10-6.el5_10" test_ref="oval:org.mitre.oval:tst:128570"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="gnupg2 is earlier than 0:2.0.10-6.el5_10" test_ref="oval:org.mitre.oval:tst:128570" />
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="gnupg2 is earlier than 0:2.0.14-6.el6_4" test_ref="oval:org.mitre.oval:tst:128235"/>
-        <criterion comment="gnupg2-smime is earlier than 0:2.0.14-6.el6_4" test_ref="oval:org.mitre.oval:tst:128730"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="gnupg2 is earlier than 0:2.0.14-6.el6_4" test_ref="oval:org.mitre.oval:tst:128235" />
+        <criterion comment="gnupg2-smime is earlier than 0:2.0.14-6.el6_4" test_ref="oval:org.mitre.oval:tst:128730" />
       </criteria>
     </criteria>
   </criteria>

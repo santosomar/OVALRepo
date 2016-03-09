@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22499" version="24" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22499" version="26">
   <metadata>
     <title>RHSA-2014:0028: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Red Hat Enterprise Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0028-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0028.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0491" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0491.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0492" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0492.html"/>
+    <reference ref_id="RHSA-2014:0028-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0028.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0491" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0491.html" source="CVE" />
+    <reference ref_id="CVE-2014-0492" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0492.html" source="CVE" />
     <description>Adobe Flash Player before 11.7.700.260 and 11.8.x and 11.9.x before 12.0.0.38 on Windows and Mac OS X and before 11.2.202.335 on Linux, Adobe AIR before 4.0.0.1390, Adobe AIR SDK before 4.0.0.1390, and Adobe AIR SDK &amp; Compiler before 4.0.0.1390 allow attackers to defeat the ASLR protection mechanism by leveraging an "address leak."</description>
     <oval_repository>
       <dates>
@@ -28,18 +27,20 @@
           <contributor organization="ALTX-SOFT">Maria Mikhno</contributor>
         </modified>
         <status_change date="2015-07-13T20:27:40.376-04:00">INTERIM</status_change>
+        <status_change date="2015-08-03T04:01:33.192-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.335-1.el5" test_ref="oval:org.mitre.oval:tst:140999"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.335-1.el5" test_ref="oval:org.mitre.oval:tst:140999" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.335-1.el6" test_ref="oval:org.mitre.oval:tst:100327"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.335-1.el6" test_ref="oval:org.mitre.oval:tst:100327" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25851" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25851" version="4">
   <metadata>
     <title>SUSE-RU-2013:0748-1 -- Recommended update for FUSE</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>FUSE</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130748-1.html" ref_id="SUSE-RU-2013:0748-1"/>
+    <reference ref_id="SUSE-RU-2013:0748-1" ref_url="https://www.suse.com/support/update/announcement/2013/suse-ru-20130748-1.html" source="VENDOR" />
     <description>This update for FUSE provides the following fix:
 
 In fuse_session_loop_mt() don't pause when exiting the
@@ -26,16 +25,17 @@ thread  exited.</description>
         <status_change date="2014-09-08T04:03:28.360-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="fuse RPM is earlier than 0:2.7.2-61.25.1" test_ref="oval:org.mitre.oval:tst:120180"/>
-      <criterion comment="libfuse2 RPM is earlier than 0:2.7.2-61.25.1" test_ref="oval:org.mitre.oval:tst:120256"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="fuse RPM is earlier than 0:2.7.2-61.25.1" test_ref="oval:org.mitre.oval:tst:120180" />
+      <criterion comment="libfuse2 RPM is earlier than 0:2.7.2-61.25.1" test_ref="oval:org.mitre.oval:tst:120256" />
     </criteria>
   </criteria>
 </definition>

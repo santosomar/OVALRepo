@@ -16,6 +16,7 @@ Available functions:
 - schematron_validate: schematron validate an XML file
 - get_schematron_xsl_from_schema: gets path to schematron from schema_path, creating if necessary 
 - apply_xslt: applies an xslt to an XML tree
+- xsd_datetime_to_datetime: take an xsd:dateTime formatted string and return a python datetime.datetime object
 
 Available classes:
 - OvalGenerator: methods to assist in building an OVAL definitions file
@@ -30,6 +31,7 @@ TODO:
 """
 
 import os.path
+import datetime
 import inspect
 import datetime
 import random
@@ -45,11 +47,48 @@ def get_definition_metadata(filepath):
         tree = etree.parse(filepath)
     except OSError as e:
         raise InvalidPathError(filepath)
+    except etree.XMLSyntaxError as e:
+        raise InvalidXmlError(filepath, e.msg)
     
     root = tree.getroot()
     ns_map = { 'oval-def': 'http://oval.mitre.org/XMLSchema/oval-definitions-5' }
-    
-    contributors = root.findall('./oval-def:metadata/oval-def:oval_repository//oval-def:contributor', namespaces=ns_map)
+
+    revision_tags = root.findall('./oval-def:metadata/oval-def:oval_repository/oval-def:dates/*', namespaces=ns_map)
+    revisions = []
+    last_modified_date = None
+    ns_len = len(ns_map['oval-def']) + 2
+    for revision in revision_tags:
+        revision_type = revision.tag[ns_len:]
+        revision_datetime = xsd_datetime_to_datetime(revision.get('date'))
+        
+        if not last_modified_date or revision_datetime > last_modified_date:
+            last_modified_date = revision_datetime
+
+        if revision_type == 'status_change':
+            revisions.append({
+                "type": revision_type, 
+                "status": revision.text,
+                "date": revision_datetime
+            });
+        elif revision_type in ['created','submitted','modified']:
+            if len(revision) == 0:
+                revisions.append({
+                    "type": revision_type, 
+                    "comment": revision.get('comment'),
+                    "date": revision_datetime
+                });
+            else:
+                for contributor in revision:
+                    revisions.append({
+                        "type": revision_type, 
+                        "comment": revision.get('comment'),
+                        "date": revision_datetime,
+                        "contributor": contributor.text,
+                        "organization": contributor.get('organization')
+                    });
+        else:
+            raise InvalidRevisionXml(filepath, 'Unexpected revision type:  {0}'.format(revision_type))
+
     return {
         'oval_id': root.get('id'),
         'oval_version' : root.get('version'),
@@ -61,9 +100,9 @@ def get_definition_metadata(filepath):
         'family': ''.join([ affected.get('family') for affected in root.iterfind('./oval-def:metadata/oval-def:affected', namespaces=ns_map) ]),
         'platforms': { platform.text for platform in root.iterfind('./oval-def:metadata/oval-def:affected/oval-def:platform', namespaces=ns_map) },
         'products': { product.text for product in root.iterfind('./oval-def:metadata/oval-def:affected/oval-def:product', namespaces=ns_map) },
-        'contributors': { contributor.text for contributor in contributors },
-        'organizations': { contributor.get('organization') for contributor in contributors },
+        'revisions': revisions,
         'reference_ids': { reference.get('ref_id') for reference in root.iterfind('./oval-def:metadata/oval-def:reference', namespaces=ns_map) },
+        'last_modified': last_modified_date,
         'path' : filepath
     }
 
@@ -72,8 +111,11 @@ def get_element_metadata(filepath):
     """ Takes a filepath for an OVAL element file and returns dictionary of metadata. """
     try:
         tree = etree.parse(filepath)
-    except Exception:
+    except OSError as e:
         raise InvalidPathError(filepath)
+    except etree.XMLSyntaxError as e:
+        raise InvalidXmlError(filepath, e.msg)
+
 
     tree = etree.parse(filepath)
     root = tree.getroot()
@@ -86,7 +128,7 @@ def get_element_metadata(filepath):
     # get all *_refs attributes
     attribute_id_refs = root.xpath("//@*[name()='definition_ref' or name()='test_ref' or name()='object_ref' or name()='state_ref' or name()='var_ref']")
     # get filter, object_reference
-    text_id_refs = root.xpath("//*[name()='filter' or name()='object_reference']/text()", smart_strings=False)
+    text_id_refs = root.xpath("//*[local-name()='filter' or local-name()='object_reference' or local-name()='var_ref']/text()", smart_strings=False)
     # combine, unique
     id_refs = set(attribute_id_refs + text_id_refs)
     
@@ -226,6 +268,26 @@ def get_schematron_xsl_from_schema(schema_path, force_generate=False):
     return xsl_path
 
 
+def xsd_datetime_to_datetime(date_string):
+    """ Take an xsd:dateTime formatted string and return a python datetime.datetime object """
+    date_string_format = "%Y-%m-%dT%H:%M:%S"
+    
+    if date_string.endswith('Z'):
+        date_string = date_string[:-1]
+
+    if '.' in date_string:
+        date_string = re.sub(r'\.([0-9]+)', r'.000\1', date_string)
+        date_string_format = date_string_format + ".%f"
+    if re.search(r'([-+])([0-9]+):([0-9]+)', date_string):
+        date_string = re.sub(r'([-+])([0-9]+):([0-9]+)', r'\1\2\3', date_string)
+    else:
+        date_string = date_string + '-0400'
+    date_string_format = date_string_format + "%z"
+
+    #print('\n\n{0} via {1}\n\n'.format(date_string, date_string_format))
+    return datetime.datetime.strptime(date_string, date_string_format)
+
+
 def apply_xslt(xml_tree, xslt_path):
     """ Apply xslt to an XML tree """
     xslt_root = etree.parse(xslt_path)
@@ -243,6 +305,20 @@ class InvalidPathError(Error):
     """Exception raised for when a path does not exist. """
     def __init__(self, path):
         self.path = path
+
+
+class InvalidXmlError(Error):
+    """Exception raised for when a fragment cannot be parsed. """
+    def __init__(self, path, message):
+        self.path = path
+        self.message = message
+
+
+class InvalidRevisionXml(Error):
+    """Exception raised for when a revision fragment cannot be parsed. """
+    def __init__(self, path, message):
+        self.path = path
+        self.message = message
 
 
 class SchemaValidationError(Error):
@@ -264,17 +340,21 @@ class OvalGenerator:
     generator_version = '0.1'
     oval_schema_version = '5.11.1'
 
-    def __init__(self, message_method = False):
+    def __init__(self, message_method = False, tmp_directory = './'):
         """ constructor, set defaults for instances """
         self.message = message_method or self.message
         self.tmp = { }
-        self.tmp_n = random.randrange(1000000,9999999)
+        self.tmp_directory = tmp_directory
         self.use_file_queues = True
 
     def queue_element_file(self, element, filepath):
         """ add an OVAL element to an output queue file """
         with open(filepath, mode='rt', encoding='utf-8') as xml_file:
-            xml = xml_file.read().replace('<?xml version="1.0" encoding="UTF-8"?>','')
+            xml = xml_file.read()
+            xml = xml.replace('<?xml version="1.0" encoding="UTF-8"?>','')
+            xml = xml.replace('<?xml version="1.0" encoding="utf-8"?>','')
+            xml = xml.replace("<?xml version='1.0' encoding='UTF-8'?>",'')
+            xml = xml.replace("<?xml version='1.0' encoding='utf-8'?>",'')
             xml = re.sub('^','\t\t',xml,0,re.MULTILINE)
         self.queue_element(element, xml)
                 
@@ -285,7 +365,8 @@ class OvalGenerator:
 
         if self.use_file_queues:
             if element not in self.tmp:
-                self.tmp[element] = open('./queue.{0}.{1}.xml'.format(self.tmp_n,element), mode='wt', encoding='utf-8')
+                tmp_n = random.randrange(10000000,99999999)
+                self.tmp[element] = open('{0}queue.{1}.{2}.xml'.format(self.tmp_directory,tmp_n,element), mode='wt', encoding='utf-8')
             self.tmp[element].write(xml + '\n')
         else:
             if element not in self.tmp:
@@ -322,10 +403,14 @@ class OvalGenerator:
                 self.tmp[key].close();
                 self.tmp[key] = open(self.tmp[key].name, mode='rt', encoding='utf-8')
 
-    def to_string(self, clear_queues=True):
+    def to_string(self, clear_queues=True, append_pi=True):
         """ serializes queued elements to a string """
         chunks = []
-        
+
+        # add processing instruction
+        if append_pi:
+            chunks.append('<?xml version="1.0" encoding="UTF-8"?>\n')
+
         # add header
         chunks.append(self.get_file_header())
 
@@ -367,7 +452,7 @@ class OvalGenerator:
 
     def get_file_header(self):
         oval_timestamp = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S%z')
-        return """<oval_definitions
+        return '<?xml version="1.0" encoding="UTF-8"?>\n' + """<oval_definitions
             xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
             xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -512,4 +597,5 @@ def load_standalone_element(path):
         tree = etree.parse(path)
         return tree.getroot()
     except Exception:
+        print("Exception parsing %s" % path)
         return None

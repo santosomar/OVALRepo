@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29058" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" deprecated="true" id="oval:org.mitre.oval:def:29058" version="8">
   <metadata>
     <title>Windows Media Center is installed</title>
     <affected family="windows">
@@ -15,7 +14,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>Windows Media Center</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:media_center"/>
+    <reference ref_id="cpe:/a:microsoft:media_center" source="CPE" />
     <description>Windows Media Center is installed.</description>
     <oval_repository>
       <dates>
@@ -25,11 +24,15 @@
         <status_change date="2015-06-10T14:07:27.190-04:00">DRAFT</status_change>
         <status_change date="2015-06-29T04:00:09.153-04:00">INTERIM</status_change>
         <status_change date="2015-07-20T04:00:13.156-04:00">ACCEPTED</status_change>
+        <modified comment="Deprecated" date="2015-10-14T08:40:14.202-04:00">
+          <contributor organization="ALTX-SOFT">Sergey Artykhov</contributor>
+        </modified>
+        <status_change date="2015-10-14T08:40:14.202-04:00">DEPRECATED</status_change>
       </dates>
-      <status>ACCEPTED</status>
+      <status>DEPRECATED</status>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Check if Windows Media Center is installed" test_ref="oval:org.mitre.oval:tst:138842"/>
+    <criterion comment="Check if Windows Media Center is installed" test_ref="oval:org.mitre.oval:tst:138842" />
   </criteria>
 </definition>

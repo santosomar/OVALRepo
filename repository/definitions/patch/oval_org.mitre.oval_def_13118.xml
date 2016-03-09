@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13118" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13118" version="8">
   <metadata>
     <title>DSA-1883-2 nagios2 -- missing input sanitising</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 5.0</platform>
       <product>nagios2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00204.html" ref_id="DSA-1883-2"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5624" ref_id="CVE-2007-5624"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5803" ref_id="CVE-2007-5803"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1360" ref_id="CVE-2008-1360"/>
+    <reference ref_id="DSA-1883-2" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00204.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-5624" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5624" source="CVE" />
+    <reference ref_id="CVE-2007-5803" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5803" source="CVE" />
+    <reference ref_id="CVE-2008-1360" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1360" source="CVE" />
     <description>The previous nagios2 update introduced a regression, which caused status.cgi to segfault when used directly without specifying the "host" variable. This update fixes the problem. For reference the original advisory text follows. Several vulnerabilities have been found in nagios2, ahost/service/network monitoring and management system. The Common Vulnerabilities and Exposures project identifies the following problems: Several cross-site scripting issues via several parameters were discovered in the CGI scripts, allowing attackers to inject arbitrary HTML code. In order to cover the different attack vectors, these issues have been assigned CVE-2007-5624, CVE-2007-5803 and CVE-2008-1360. For the oldstable distribution, these problems have been fixed in version 2.6-2+etch5. The stable distribution does not include nagios2 and nagios3 is not affected by these problems. The testing distribution and the unstable distribution do not contain nagios2 and nagios3 is not affected by these problems. We recommend that you upgrade your nagios2 packages.</description>
     <oval_repository>
       <dates>
@@ -26,33 +25,34 @@
         <status_change date="2014-06-23T04:01:36.374-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="nagios2-doc DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50546"/>
-          <criterion comment="nagios2-common DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50302"/>
+    <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="nagios2-doc DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50546" />
+          <criterion comment="nagios2-common DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50302" />
         </criteria>
       </criteria>
-      <criteria operator="AND" comment="Architecture depended section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+      <criteria comment="Architecture depended section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+          <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+          <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+          <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+          <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+          <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+          <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
         </criteria>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="nagios2-dbg DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50072"/>
-          <criterion comment="nagios2 DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50230"/>
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="nagios2-dbg DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50072" />
+          <criterion comment="nagios2 DPKG is earlier than 2.6-2+etch5" test_ref="oval:org.mitre.oval:tst:50230" />
         </criteria>
       </criteria>
     </criteria>

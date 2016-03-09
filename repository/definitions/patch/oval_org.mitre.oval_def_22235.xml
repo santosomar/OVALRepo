@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22235" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22235" version="8">
   <metadata>
     <title>ELSA-2007:0131: squid security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>squid</product>
     </affected>
-    <reference ref_id="ELSA-2007:0131-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0131.html" source="VENDOR"/>
-    <reference ref_id="CVE-2007-1560" ref_url="http://linux.oracle.com/cve/CVE-2007-1560.html" source="CVE"/>
+    <reference ref_id="ELSA-2007:0131-01" ref_url="http://linux.oracle.com/errata/ELSA-2007-0131.html" source="VENDOR" />
+    <reference ref_id="CVE-2007-1560" ref_url="http://linux.oracle.com/cve/CVE-2007-1560.html" source="CVE" />
     <description>The clientProcessRequest() function in src/client_side.c in Squid 2.6 before 2.6.STABLE12 allows remote attackers to cause a denial of service (daemon crash) via crafted TRACE requests that trigger an assertion error.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:01:00.068-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="squid is earlier than 7:2.6.STABLE6-4.el5" test_ref="oval:org.mitre.oval:tst:100868"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="squid is earlier than 7:2.6.STABLE6-4.el5" test_ref="oval:org.mitre.oval:tst:100868" />
   </criteria>
 </definition>

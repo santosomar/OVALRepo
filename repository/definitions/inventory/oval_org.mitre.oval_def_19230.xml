@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19230" version="13" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:19230" version="14">
   <metadata>
     <title>Microsoft SQL Server 2008 SP3 64-bit is installed</title>
     <affected family="windows">
@@ -11,7 +10,7 @@
       <platform>Microsoft Windows XP</platform>
       <product>Microsoft SQL Server 2008</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:sql_server:2008:sp3:x64"/>
+    <reference ref_id="cpe:/a:microsoft:sql_server:2008:sp3:x64" source="CPE" />
     <description>Microsoft SQL Server 2008 SP3 32-bit is installed</description>
     <oval_repository>
       <dates>
@@ -49,13 +48,14 @@
         <status_change date="2014-11-17T04:00:21.411-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Microsoft SQL Server 2008 is installed" definition_ref="oval:org.mitre.oval:def:12454"/>
+    <extend_definition comment="Microsoft SQL Server 2008 is installed" definition_ref="oval:org.mitre.oval:def:12454" />
     <criteria comment="SQL Server on Windows x64 architecture is installed">
-      <criterion comment="a version of Windows for the x64 architecture is installed" test_ref="oval:org.mitre.oval:tst:3653"/>
-      <criterion comment="Check if SQL Server 2008 SP3 is installed" test_ref="oval:org.mitre.oval:tst:79224"/>
+      <criterion comment="a version of Windows for the x64 architecture is installed" test_ref="oval:org.mitre.oval:tst:3653" />
+      <criterion comment="Check if SQL Server 2008 SP3 is installed" test_ref="oval:org.mitre.oval:tst:79224" />
     </criteria>
   </criteria>
 </definition>

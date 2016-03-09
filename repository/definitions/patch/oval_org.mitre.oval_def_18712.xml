@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18712" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18712" version="8">
   <metadata>
     <title>DSA-1636-1 linux-2.6.24 - several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>linux-2.6.24</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-1636-1" ref_id="DSA-1636-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3272" ref_id="CVE-2008-3272"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3275" ref_id="CVE-2008-3275"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3276" ref_id="CVE-2008-3276"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3526" ref_id="CVE-2008-3526"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3534" ref_id="CVE-2008-3534"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3535" ref_id="CVE-2008-3535"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3792" ref_id="CVE-2008-3792"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3915" ref_id="CVE-2008-3915"/>
+    <reference ref_id="DSA-1636-1" ref_url="http://www.debian.org/security/dsa-1636-1" source="VENDOR" />
+    <reference ref_id="CVE-2008-3272" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3272" source="CVE" />
+    <reference ref_id="CVE-2008-3275" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3275" source="CVE" />
+    <reference ref_id="CVE-2008-3276" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3276" source="CVE" />
+    <reference ref_id="CVE-2008-3526" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3526" source="CVE" />
+    <reference ref_id="CVE-2008-3534" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3534" source="CVE" />
+    <reference ref_id="CVE-2008-3535" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3535" source="CVE" />
+    <reference ref_id="CVE-2008-3792" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3792" source="CVE" />
+    <reference ref_id="CVE-2008-3915" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3915" source="CVE" />
     <description>Several vulnerabilities have been discovered in the Linux kernel that may lead to a denial of service or leak sensitive data.</description>
     <oval_repository>
       <dates>
@@ -36,10 +35,11 @@
         <status_change date="2014-06-23T04:05:16.539-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="linux-2.6.24 DPKG is earlier than 2.6.24-6~etchnhalf.5" test_ref="oval:org.mitre.oval:tst:86432"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="linux-2.6.24 DPKG is earlier than 2.6.24-6~etchnhalf.5" test_ref="oval:org.mitre.oval:tst:86432" />
   </criteria>
 </definition>

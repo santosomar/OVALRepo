@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25091" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25091" version="7">
   <metadata>
     <title>RHSA-2014:0927: qemu-kvm security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,23 +6,23 @@
       <platform>CentOS Linux 7</platform>
       <product>qemu-kvm</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0927-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0927.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4148" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4148.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4149" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4149.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4150" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4150.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4151" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4151.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4527" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4527.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4529" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4529.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4535" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4535.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4536" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4536.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4541" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4541.html"/>
-    <reference source="CVE" ref_id="CVE-2013-4542" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4542.html"/>
-    <reference source="CVE" ref_id="CVE-2013-6399" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6399.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0182" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0182.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0222" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0222.html"/>
-    <reference source="CVE" ref_id="CVE-2014-0223" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0223.html"/>
-    <reference source="CVE" ref_id="CVE-2014-3461" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3461.html"/>
-    <reference source="CESA-2014:0927" ref_id="CESA-2014:0927" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020447.html"/>
+    <reference ref_id="RHSA-2014:0927-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0927.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4148" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4148.html" source="CVE" />
+    <reference ref_id="CVE-2013-4149" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4149.html" source="CVE" />
+    <reference ref_id="CVE-2013-4150" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4150.html" source="CVE" />
+    <reference ref_id="CVE-2013-4151" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4151.html" source="CVE" />
+    <reference ref_id="CVE-2013-4527" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4527.html" source="CVE" />
+    <reference ref_id="CVE-2013-4529" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4529.html" source="CVE" />
+    <reference ref_id="CVE-2013-4535" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4535.html" source="CVE" />
+    <reference ref_id="CVE-2013-4536" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4536.html" source="CVE" />
+    <reference ref_id="CVE-2013-4541" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4541.html" source="CVE" />
+    <reference ref_id="CVE-2013-4542" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-4542.html" source="CVE" />
+    <reference ref_id="CVE-2013-6399" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6399.html" source="CVE" />
+    <reference ref_id="CVE-2014-0182" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0182.html" source="CVE" />
+    <reference ref_id="CVE-2014-0222" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0222.html" source="CVE" />
+    <reference ref_id="CVE-2014-0223" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0223.html" source="CVE" />
+    <reference ref_id="CVE-2014-3461" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-3461.html" source="CVE" />
+    <reference ref_id="CESA-2014:0927" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020447.html" source="CESA-2014:0927" />
     <description>KVM (Kernel-based Virtual Machine) is a full virtualization solution for
 Linux on AMD64 and Intel 64 systems. The qemu-kvm package provides the
 user-space component for running virtual machines using KVM.
@@ -66,28 +65,29 @@ CVE-2014-3461.</description>
         <status_change date="2015-04-13T04:00:06.157-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 7 and CentOS Linux 7 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 7.x" definition_ref="oval:org.mitre.oval:def:24773" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libcacard is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116144"/>
-        <criterion comment="libcacard-devel is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116070"/>
-        <criterion comment="libcacard-tools is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116309"/>
-        <criterion comment="qemu-guest-agent is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116301"/>
-        <criterion comment="qemu-img is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116345"/>
-        <criterion comment="qemu-kvm is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116092"/>
-        <criterion comment="qemu-kvm-common is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116292"/>
-        <criterion comment="qemu-kvm-tools is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116278"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libcacard is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116144" />
+        <criterion comment="libcacard-devel is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116070" />
+        <criterion comment="libcacard-tools is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116309" />
+        <criterion comment="qemu-guest-agent is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116301" />
+        <criterion comment="qemu-img is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116345" />
+        <criterion comment="qemu-kvm is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116092" />
+        <criterion comment="qemu-kvm-common is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116292" />
+        <criterion comment="qemu-kvm-tools is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:116278" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 7 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953"/>
-      <criterion comment="qemu-kvm-debuginfo is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:138318"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 7" definition_ref="oval:org.mitre.oval:def:24953" />
+      <criterion comment="qemu-kvm-debuginfo is earlier than 10:1.5.3-60.el7_0.5" test_ref="oval:org.mitre.oval:tst:138318" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:3088" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:3088" version="3">
   <metadata>
     <title>Package avahi-devel is installed</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>SUSE Linux 10.1</platform>
       <platform>openSUSE Factory</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:novell:avahi-devel"/>
+    <reference ref_id="cpe:/a:novell:avahi-devel" source="CPE" />
     <description>Package avahi-devel is installed.</description>
     <oval_repository>
       <dates>
@@ -24,9 +23,10 @@
         <cpe>cpe:/o:novell:suse_linux:10.1</cpe>
         <cpe>cpe:/o:novell:opensuse:factory</cpe>
       </affected_cpe_list>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="AND">
-    <criterion comment="avahi-devel is installed" test_ref="oval:org.mitre.oval:tst:5304"/>
+    <criterion comment="avahi-devel is installed" test_ref="oval:org.mitre.oval:tst:5304" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27426" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27426" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-1409 -- xinetd security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>xinetd</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-1409.html" ref_id="ELSA-2013-1409"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4342" ref_id="CVE-2013-4342"/>
+    <reference ref_id="ELSA-2013-1409" ref_url="http://linux.oracle.com/errata/ELSA-2013-1409.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-4342" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4342" source="CVE" />
     <description>[2:2.3.14-39]
 - Honor user and group directives
 - Resolves: CVE-2013-4342</description>
@@ -26,16 +25,17 @@
         <status_change date="2015-02-10T11:14:50.037-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="xinetd is earlier than 0:2.3.14-20.el5_10" test_ref="oval:org.mitre.oval:tst:129023"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="xinetd is earlier than 0:2.3.14-20.el5_10" test_ref="oval:org.mitre.oval:tst:129023" />
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criterion comment="xinetd is earlier than 0:2.3.14-39.el6_4" test_ref="oval:org.mitre.oval:tst:128919"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criterion comment="xinetd is earlier than 0:2.3.14-39.el6_4" test_ref="oval:org.mitre.oval:tst:128919" />
     </criteria>
   </criteria>
 </definition>

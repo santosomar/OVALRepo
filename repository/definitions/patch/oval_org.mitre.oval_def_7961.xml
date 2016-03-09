@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7961" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7961" version="6">
   <metadata>
     <title>DSA-1657 qemu -- insecure temporary files</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>qemu</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1657" ref_id="DSA-1657"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4553" ref_id="CVE-2008-4553"/>
+    <reference ref_id="DSA-1657" ref_url="http://www.debian.org/security/2008/dsa-1657" source="VENDOR" />
+    <reference ref_id="CVE-2008-4553" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4553" source="CVE" />
     <description>Dmitry E. Oboukhov discovered that the qemu-make-debian-root script in qemu, fast processor emulator, creates temporary files insecurely, which may lead to a local denial of service through symlink attacks.</description>
     <oval_repository>
       <dates>
@@ -24,15 +23,16 @@
         <status_change date="2014-06-23T04:09:35.846-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Supported architectures section">
-      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Supported architectures section" operator="OR">
+      <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+      <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+      <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
     </criteria>
-    <criterion comment="qemu is earlier than 0.8.2-4etch2" test_ref="oval:org.mitre.oval:tst:15167"/>
+    <criterion comment="qemu is earlier than 0.8.2-4etch2" test_ref="oval:org.mitre.oval:tst:15167" />
   </criteria>
 </definition>

@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22139" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22139" version="30">
   <metadata>
     <title>RHSA-2011:1507: libarchive security update (Moderate)</title>
     <affected family="unix">
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>libarchive</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2011:1507-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1507.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1777" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1777.html"/>
-    <reference source="CVE" ref_id="CVE-2011-1778" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1778.html"/>
+    <reference ref_id="RHSA-2011:1507-01" ref_url="https://rhn.redhat.com/errata/RHSA-2011-1507.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1777" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1777.html" source="CVE" />
+    <reference ref_id="CVE-2011-1778" ref_url="https://www.redhat.com/security/data/cve/CVE-2011-1778.html" source="CVE" />
     <description>Buffer overflow in libarchive through 2.8.5 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted TAR archive.</description>
     <oval_repository>
       <dates>
@@ -20,13 +19,14 @@
         <status_change date="2014-02-24T04:02:48.393-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="libarchive-devel is earlier than 0:2.8.3-3.el6_1" test_ref="oval:org.mitre.oval:tst:98860"/>
-      <criterion comment="libarchive is earlier than 0:2.8.3-3.el6_1" test_ref="oval:org.mitre.oval:tst:98300"/>
+    <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="libarchive-devel is earlier than 0:2.8.3-3.el6_1" test_ref="oval:org.mitre.oval:tst:98860" />
+      <criterion comment="libarchive is earlier than 0:2.8.3-3.el6_1" test_ref="oval:org.mitre.oval:tst:98300" />
     </criteria>
   </criteria>
 </definition>

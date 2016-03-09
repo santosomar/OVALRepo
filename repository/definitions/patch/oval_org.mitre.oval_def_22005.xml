@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22005" version="17" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22005" version="19">
   <metadata>
     <title>ELSA-2009:0271: gstreamer-plugins-good security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>gstreamer-plugins-good</product>
     </affected>
-    <reference ref_id="ELSA-2009:0271-02" ref_url="http://linux.oracle.com/errata/ELSA-2009-0271.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0386" ref_url="http://linux.oracle.com/cve/CVE-2009-0386.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0387" ref_url="http://linux.oracle.com/cve/CVE-2009-0387.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0397" ref_url="http://linux.oracle.com/cve/CVE-2009-0397.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0271-02" ref_url="http://linux.oracle.com/errata/ELSA-2009-0271.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0386" ref_url="http://linux.oracle.com/cve/CVE-2009-0386.html" source="CVE" />
+    <reference ref_id="CVE-2009-0387" ref_url="http://linux.oracle.com/cve/CVE-2009-0387.html" source="CVE" />
+    <reference ref_id="CVE-2009-0397" ref_url="http://linux.oracle.com/cve/CVE-2009-0397.html" source="CVE" />
     <description>Heap-based buffer overflow in the qtdemux_parse_samples function in gst/qtdemux/qtdemux.c in GStreamer Good Plug-ins (aka gst-plugins-good) 0.10.9 through 0.10.11, and GStreamer Plug-ins (aka gstreamer-plugins) 0.8.5, might allow remote attackers to execute arbitrary code via crafted Time-to-sample (aka stts) atom data in a malformed QuickTime media .mov file.</description>
     <oval_repository>
       <dates>
@@ -26,13 +25,14 @@
         <status_change date="2014-05-26T04:00:47.670-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="gstreamer-plugins-good-devel is earlier than 0:0.10.9-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102802"/>
-      <criterion comment="gstreamer-plugins-good is earlier than 0:0.10.9-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102409"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="gstreamer-plugins-good-devel is earlier than 0:0.10.9-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102802" />
+      <criterion comment="gstreamer-plugins-good is earlier than 0:0.10.9-1.el5_3.1" test_ref="oval:org.mitre.oval:tst:102409" />
     </criteria>
   </criteria>
 </definition>

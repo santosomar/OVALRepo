@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23250" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23250" version="8">
   <metadata>
     <title>ELSA-2012:1149: sudo security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>sudo</product>
     </affected>
-    <reference ref_id="ELSA-2012:1149-00" ref_url="http://linux.oracle.com/errata/ELSA-2012-1149.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-3440" ref_url="http://linux.oracle.com/cve/CVE-2012-3440.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:1149-00" ref_url="http://linux.oracle.com/errata/ELSA-2012-1149.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3440" ref_url="http://linux.oracle.com/cve/CVE-2012-3440.html" source="CVE" />
     <description>A certain Red Hat script for sudo 1.7.2 on Red Hat Enterprise Linux (RHEL) 5 allows local users to overwrite arbitrary files via a symlink attack on the /var/tmp/nsswitch.conf.bak temporary file.</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-05-26T04:03:51.209-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criterion comment="sudo is earlier than 0:1.7.2p1-14.el5_8.2" test_ref="oval:org.mitre.oval:tst:106508"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criterion comment="sudo is earlier than 0:1.7.2p1-14.el5_8.2" test_ref="oval:org.mitre.oval:tst:106508" />
   </criteria>
 </definition>

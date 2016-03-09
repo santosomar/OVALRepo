@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26451" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26451" version="6">
   <metadata>
     <title>RHSA-2014:1246: nss and nspr security, bug fix, and enhancement update (Moderate)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>CentOS Linux 5</platform>
       <product>nss</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1246-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1246.html"/>
-    <reference source="CVE" ref_id="CVE-2013-1740" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1740.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1490" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1490.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1491" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1491.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1492" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1492.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1545" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1545.html"/>
-    <reference source="CESA-2014:1246" ref_id="CESA-2014:1246" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020634.html"/>
+    <reference ref_id="RHSA-2014:1246-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1246.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1740" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1740.html" source="CVE" />
+    <reference ref_id="CVE-2014-1490" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1490.html" source="CVE" />
+    <reference ref_id="CVE-2014-1491" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1491.html" source="CVE" />
+    <reference ref_id="CVE-2014-1492" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1492.html" source="CVE" />
+    <reference ref_id="CVE-2014-1545" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1545.html" source="CVE" />
+    <reference ref_id="CESA-2014:1246" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-September/020634.html" source="CESA-2014:1246" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the cross-platform development of security-enabled client and server
 applications.
@@ -92,23 +91,24 @@ which correct these issues and add these enhancements.</description>
         <status_change date="2015-04-13T04:00:08.657-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="nss-debuginfo is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:138133"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="nss-debuginfo is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:138133" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 5 and CentOS Linux 5 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="nss-devel is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123864"/>
-        <criterion comment="nss-pkcs11-devel is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123769"/>
-        <criterion comment="nss is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123723"/>
-        <criterion comment="nss-tools is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123383"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="nss-devel is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123864" />
+        <criterion comment="nss-pkcs11-devel is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123769" />
+        <criterion comment="nss is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123723" />
+        <criterion comment="nss-tools is earlier than 0:3.16.1-2.el5" test_ref="oval:org.mitre.oval:tst:123383" />
       </criteria>
     </criteria>
   </criteria>

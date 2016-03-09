@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24433" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24433" version="5">
   <metadata>
     <title>RHSA-2014:0536: mysql55-mysql security update (Moderate)</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>CentOS Linux 5</platform>
       <product>mysql55-mysql</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0536-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0536.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0536"/>
-    <reference source="CVE" ref_id="CVE-2014-0384" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0384.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2419" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2419.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2430" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2430.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2431" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2431.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2432" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2432.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2436" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2436.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2438" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2438.html"/>
-    <reference source="CVE" ref_id="CVE-2014-2440" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2440.html"/>
+    <reference ref_id="RHSA-2014:0536-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0536.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0536" source="CESA" />
+    <reference ref_id="CVE-2014-0384" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-0384.html" source="CVE" />
+    <reference ref_id="CVE-2014-2419" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2419.html" source="CVE" />
+    <reference ref_id="CVE-2014-2430" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2430.html" source="CVE" />
+    <reference ref_id="CVE-2014-2431" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2431.html" source="CVE" />
+    <reference ref_id="CVE-2014-2432" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2432.html" source="CVE" />
+    <reference ref_id="CVE-2014-2436" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2436.html" source="CVE" />
+    <reference ref_id="CVE-2014-2438" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2438.html" source="CVE" />
+    <reference ref_id="CVE-2014-2440" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-2440.html" source="CVE" />
     <description>MySQL is a multi-user, multi-threaded SQL database server. It consists of
 the MySQL server daemon (mysqld) and many client programs and libraries.
 
@@ -43,20 +42,21 @@ these issues. After installing this update, the MySQL server daemon
         <status_change date="2014-07-21T04:01:18.432-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 5 or Centos 5 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Redhat 5 or Centos 5 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114420"/>
-      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114763"/>
-      <criterion comment="mysql55-mysql is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114695"/>
-      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114436"/>
-      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114858"/>
-      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114777"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114420" />
+      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114763" />
+      <criterion comment="mysql55-mysql is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114695" />
+      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114436" />
+      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114858" />
+      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.37-1.el5" test_ref="oval:org.mitre.oval:tst:114777" />
     </criteria>
   </criteria>
 </definition>

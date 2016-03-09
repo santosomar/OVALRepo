@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22777" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22777" version="16">
   <metadata>
     <title>ELSA-2009:1075: httpd security update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>httpd</product>
     </affected>
-    <reference ref_id="ELSA-2009:1075-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1075.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-1678" ref_url="http://linux.oracle.com/cve/CVE-2008-1678.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1195" ref_url="http://linux.oracle.com/cve/CVE-2009-1195.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:1075-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-1075.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-1678" ref_url="http://linux.oracle.com/cve/CVE-2008-1678.html" source="CVE" />
+    <reference ref_id="CVE-2009-1195" ref_url="http://linux.oracle.com/cve/CVE-2009-1195.html" source="CVE" />
     <description>The Apache HTTP Server 2.2.11 and earlier 2.2 versions does not properly handle Options=IncludesNOEXEC in the AllowOverride directive, which allows local users to gain privileges by configuring (1) Options Includes, (2) Options +Includes, or (3) Options +IncludesNOEXEC in a .htaccess file, and then inserting an exec element in a .shtml file.</description>
     <oval_repository>
       <dates>
@@ -25,15 +24,16 @@
         <status_change date="2014-05-26T04:02:12.319-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="httpd-manual is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102979"/>
-      <criterion comment="httpd-devel is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102874"/>
-      <criterion comment="mod_ssl is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102863"/>
-      <criterion comment="httpd is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102142"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="httpd-manual is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102979" />
+      <criterion comment="httpd-devel is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102874" />
+      <criterion comment="mod_ssl is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102863" />
+      <criterion comment="httpd is earlier than 0:2.2.3-22.el5_3.1" test_ref="oval:org.mitre.oval:tst:102142" />
     </criteria>
   </criteria>
 </definition>

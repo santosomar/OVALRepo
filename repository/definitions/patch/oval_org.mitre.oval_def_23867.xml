@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23867" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23867" version="8">
   <metadata>
     <title>ELSA-2013:0788: subscription-manager security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>subscription-manager</product>
     </affected>
-    <reference ref_id="ELSA-2013:0788-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0788.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-6137" ref_url="http://linux.oracle.com/cve/CVE-2012-6137.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0788-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0788.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-6137" ref_url="http://linux.oracle.com/cve/CVE-2012-6137.html" source="CVE" />
     <description>rhn-migrate-classic-to-rhsm tool in Red Hat subscription-manager does not verify the Red Hat Network Classic server's X.509 certificate when migrating to a Certificate-based Red Hat Network, which allows remote man-in-the-middle attackers to obtain sensitive information such as user credentials.</description>
     <oval_repository>
       <dates>
@@ -25,25 +24,26 @@
         <status_change date="2014-05-26T04:05:39.823-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="subscription-manager-firstboot is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:112034"/>
-        <criterion comment="subscription-manager-gui is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111926"/>
-        <criterion comment="subscription-manager-migration is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111981"/>
-        <criterion comment="subscription-manager is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111863"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="subscription-manager-firstboot is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:112034" />
+        <criterion comment="subscription-manager-gui is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111926" />
+        <criterion comment="subscription-manager-migration is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111981" />
+        <criterion comment="subscription-manager is earlier than 0:1.1.23.1-1.el6_4" test_ref="oval:org.mitre.oval:tst:111863" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="subscription-manager-firstboot is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:111850"/>
-        <criterion comment="subscription-manager-gui is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:112027"/>
-        <criterion comment="subscription-manager-migration is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:111954"/>
-        <criterion comment="subscription-manager is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:112054"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="subscription-manager-firstboot is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:111850" />
+        <criterion comment="subscription-manager-gui is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:112027" />
+        <criterion comment="subscription-manager-migration is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:111954" />
+        <criterion comment="subscription-manager is earlier than 0:1.0.24.1-1.el5_9" test_ref="oval:org.mitre.oval:tst:112054" />
       </criteria>
     </criteria>
   </criteria>

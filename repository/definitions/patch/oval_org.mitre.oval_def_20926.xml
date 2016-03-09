@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20926" version="33" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20926" version="34">
   <metadata>
     <title>RHSA-2013:0243: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Red Hat Enterprise Linux 5</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2013:0243-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0243.html"/>
-    <reference source="CVE" ref_id="CVE-2013-0633" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0633.html"/>
-    <reference source="CVE" ref_id="CVE-2013-0634" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0634.html"/>
+    <reference ref_id="RHSA-2013:0243-01" ref_url="https://rhn.redhat.com/errata/RHSA-2013-0243.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0633" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0633.html" source="CVE" />
+    <reference ref_id="CVE-2013-0634" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-0634.html" source="CVE" />
     <description>Adobe Flash Player before 10.3.183.51 and 11.x before 11.5.502.149 on Windows and Mac OS X, before 10.3.183.51 and 11.x before 11.2.202.262 on Linux, before 11.1.111.32 on Android 2.x and 3.x, and before 11.1.115.37 on Android 4.x allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via crafted SWF content, as exploited in the wild in February 2013.</description>
     <oval_repository>
       <dates>
@@ -26,16 +25,17 @@
         <status_change date="2015-03-09T04:00:22.936-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.262-1.el5" test_ref="oval:org.mitre.oval:tst:137704"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.262-1.el5" test_ref="oval:org.mitre.oval:tst:137704" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="flash-plugin is earlier than 0:11.2.202.262-1.el6" test_ref="oval:org.mitre.oval:tst:89863"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="flash-plugin is earlier than 0:11.2.202.262-1.el6" test_ref="oval:org.mitre.oval:tst:89863" />
     </criteria>
   </criteria>
 </definition>

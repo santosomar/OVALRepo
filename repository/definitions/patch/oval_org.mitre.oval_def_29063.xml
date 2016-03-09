@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29063" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29063" version="6">
   <metadata>
     <title>DSA-3259-1 qemu -- qemu</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>Debian 7</platform>
       <product>qemu</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://lists.debian.org/debian-security-announce/2015/msg00148.html" ref_id="DSA-3259-1"/>
-    <reference source="CVE" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9718" ref_id="CVE-2014-9718"/>
-    <reference source="CVE" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1779" ref_id="CVE-2015-1779"/>
-    <reference source="CVE" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2756" ref_id="CVE-2015-2756"/>
-    <reference source="CVE" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3456" ref_id="CVE-2015-3456"/>
+    <reference ref_id="DSA-3259-1" ref_url="https://lists.debian.org/debian-security-announce/2015/msg00148.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-9718" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9718" source="CVE" />
+    <reference ref_id="CVE-2015-1779" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1779" source="CVE" />
+    <reference ref_id="CVE-2015-2756" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2756" source="CVE" />
+    <reference ref_id="CVE-2015-3456" ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3456" source="CVE" />
     <description>Several vulnerabilities were discovered in the qemu virtualisation solution: CVE-2014-9718 It was discovered that the IDE controller emulation is susceptible to denial of service. CVE-2015-1779 Daniel P. Berrange discovered a denial of service vulnerability in the VNC web socket decoder. CVE-2015-2756 Jan Beulich discovered that unmediated PCI command register could result in denial of service. CVE-2015-3456 Jason Geffner discovered a buffer overflow in the emulated floppy disk drive, resulting in the potential execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -23,18 +22,19 @@
         <status_change date="2015-07-13T04:00:16.698-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 8 is installed" definition_ref="oval:org.mitre.oval:def:28919"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="qemu DPKG is earlier than 1:2.1+dfsg-12" test_ref="oval:org.mitre.oval:tst:138933"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 8 is installed" definition_ref="oval:org.mitre.oval:def:28919" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="qemu DPKG is earlier than 1:2.1+dfsg-12" test_ref="oval:org.mitre.oval:tst:138933" />
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-      <criterion comment="qemu DPKG is earlier than 0:1.1.2+dfsg-6a+deb7u7" test_ref="oval:org.mitre.oval:tst:138215"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+      <criterion comment="qemu DPKG is earlier than 0:1.1.2+dfsg-6a+deb7u7" test_ref="oval:org.mitre.oval:tst:138215" />
     </criteria>
   </criteria>
 </definition>

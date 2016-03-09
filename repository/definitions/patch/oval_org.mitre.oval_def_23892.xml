@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23892" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23892" version="8">
   <metadata>
     <title>ELSA-2014:0185: openswan security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 5</platform>
       <product>openswan</product>
     </affected>
-    <reference ref_id="ELSA-2014:0185-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0185.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-6466" ref_url="http://linux.oracle.com/cve/CVE-2013-6466.html" source="CVE"/>
+    <reference ref_id="ELSA-2014:0185-00" ref_url="http://linux.oracle.com/errata/ELSA-2014-0185.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-6466" ref_url="http://linux.oracle.com/cve/CVE-2013-6466.html" source="CVE" />
     <description>Openswan 2.6.39 and earlier allows remote attackers to cause a denial of service (NULL pointer dereference and IKE daemon restart) via IKEv2 packets that lack expected payloads.</description>
     <oval_repository>
       <dates>
@@ -25,21 +24,22 @@
         <status_change date="2014-05-26T04:05:45.267-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="openswan-doc is earlier than 0:2.6.32-7.3.el5_10" test_ref="oval:org.mitre.oval:tst:112563"/>
-        <criterion comment="openswan is earlier than 0:2.6.32-7.3.el5_10" test_ref="oval:org.mitre.oval:tst:112526"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="openswan-doc is earlier than 0:2.6.32-7.3.el5_10" test_ref="oval:org.mitre.oval:tst:112563" />
+        <criterion comment="openswan is earlier than 0:2.6.32-7.3.el5_10" test_ref="oval:org.mitre.oval:tst:112526" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="openswan-doc is earlier than 0:2.6.32-27.2.el6_5" test_ref="oval:org.mitre.oval:tst:112665"/>
-        <criterion comment="openswan is earlier than 0:2.6.32-27.2.el6_5" test_ref="oval:org.mitre.oval:tst:112613"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="openswan-doc is earlier than 0:2.6.32-27.2.el6_5" test_ref="oval:org.mitre.oval:tst:112665" />
+        <criterion comment="openswan is earlier than 0:2.6.32-27.2.el6_5" test_ref="oval:org.mitre.oval:tst:112613" />
       </criteria>
     </criteria>
   </criteria>

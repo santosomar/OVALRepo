@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23267" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23267" version="10">
   <metadata>
     <title>ELSA-2011:0376: dbus security update (Moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 5</platform>
       <product>dbus</product>
     </affected>
-    <reference ref_id="ELSA-2011:0376-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0376.html" source="VENDOR"/>
-    <reference ref_id="CVE-2010-4352" ref_url="http://linux.oracle.com/cve/CVE-2010-4352.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:0376-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-0376.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-4352" ref_url="http://linux.oracle.com/cve/CVE-2010-4352.html" source="CVE" />
     <description>Stack consumption vulnerability in D-Bus (aka DBus) before 1.4.1 allows local users to cause a denial of service (daemon crash) via a message containing many nested variants.</description>
     <oval_repository>
       <dates>
@@ -25,26 +24,27 @@
         <status_change date="2014-05-26T04:03:54.061-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="dbus-devel is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104770"/>
-        <criterion comment="dbus is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104810"/>
-        <criterion comment="dbus-x11 is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104759"/>
-        <criterion comment="dbus-libs is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:103947"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="dbus-devel is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104770" />
+        <criterion comment="dbus is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104810" />
+        <criterion comment="dbus-x11 is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:104759" />
+        <criterion comment="dbus-libs is earlier than 0:1.1.2-15.el5_6" test_ref="oval:org.mitre.oval:tst:103947" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="dbus-devel is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104930"/>
-        <criterion comment="dbus is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104937"/>
-        <criterion comment="dbus-x11 is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:103955"/>
-        <criterion comment="dbus-libs is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104112"/>
-        <criterion comment="dbus-doc is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104872"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="dbus-devel is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104930" />
+        <criterion comment="dbus is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104937" />
+        <criterion comment="dbus-x11 is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:103955" />
+        <criterion comment="dbus-libs is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104112" />
+        <criterion comment="dbus-doc is earlier than 1:1.2.24-4.el6_0" test_ref="oval:org.mitre.oval:tst:104872" />
       </criteria>
     </criteria>
   </criteria>

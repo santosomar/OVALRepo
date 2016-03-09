@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27889" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27889" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2012-0007 -- kernel security, bug fix, and enhancement update (important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kernel</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-0007.html" ref_id="ELSA-2012-0007"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1020" ref_id="CVE-2011-1020"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3637" ref_id="CVE-2011-3637"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4077" ref_id="CVE-2011-4077"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4132" ref_id="CVE-2011-4132"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4324" ref_id="CVE-2011-4324"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4325" ref_id="CVE-2011-4325"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4330" ref_id="CVE-2011-4330"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4348" ref_id="CVE-2011-4348"/>
+    <reference ref_id="ELSA-2012-0007" ref_url="http://linux.oracle.com/errata/ELSA-2012-0007.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1020" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1020" source="CVE" />
+    <reference ref_id="CVE-2011-3637" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3637" source="CVE" />
+    <reference ref_id="CVE-2011-4077" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4077" source="CVE" />
+    <reference ref_id="CVE-2011-4132" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4132" source="CVE" />
+    <reference ref_id="CVE-2011-4324" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4324" source="CVE" />
+    <reference ref_id="CVE-2011-4325" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4325" source="CVE" />
+    <reference ref_id="CVE-2011-4330" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4330" source="CVE" />
+    <reference ref_id="CVE-2011-4348" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4348" source="CVE" />
     <description>[2.6.18-274.17.1.0.1.el5]
 - fix ia64 build error due to add-support-above-32-vcpus.patch(Zhenzhong Duan)
 - [x86] use dynamic vcpu_info remap to support more than 32 vcpus (Zhenzhong Duan)
@@ -67,29 +66,30 @@
         <status_change date="2015-02-10T19:04:46.714-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="kernel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132963"/>
-      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132831"/>
-      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132959"/>
-      <criterion comment="kernel-PAE is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132746"/>
-      <criterion comment="kernel-PAE-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132889"/>
-      <criterion comment="kernel-debug is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132837"/>
-      <criterion comment="kernel-debug-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132881"/>
-      <criterion comment="kernel-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132877"/>
-      <criterion comment="kernel-doc is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132883"/>
-      <criterion comment="kernel-headers is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132523"/>
-      <criterion comment="kernel-xen is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132870"/>
-      <criterion comment="kernel-xen-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132864"/>
-      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5PAE-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132206"/>
-      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5debug-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132846"/>
-      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5xen-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132885"/>
-      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5PAE-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132847"/>
-      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5debug-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:133024"/>
-      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5xen-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132918"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="kernel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132963" />
+      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132831" />
+      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132959" />
+      <criterion comment="kernel-PAE is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132746" />
+      <criterion comment="kernel-PAE-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132889" />
+      <criterion comment="kernel-debug is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132837" />
+      <criterion comment="kernel-debug-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132881" />
+      <criterion comment="kernel-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132877" />
+      <criterion comment="kernel-doc is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132883" />
+      <criterion comment="kernel-headers is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132523" />
+      <criterion comment="kernel-xen is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132870" />
+      <criterion comment="kernel-xen-devel is earlier than 0:2.6.18-274.17.1.0.1.el5" test_ref="oval:org.mitre.oval:tst:132864" />
+      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5PAE-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132206" />
+      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5debug-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132846" />
+      <criterion comment="ocfs2 is earlier than 0:2.6.18-274.17.1.0.1.el5xen-1.4.9-1.el5" test_ref="oval:org.mitre.oval:tst:132885" />
+      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5PAE-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132847" />
+      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5debug-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:133024" />
+      <criterion comment="oracleasm is earlier than 0:2.6.18-274.17.1.0.1.el5xen-2.0.5-1.el5" test_ref="oval:org.mitre.oval:tst:132918" />
     </criteria>
   </criteria>
 </definition>

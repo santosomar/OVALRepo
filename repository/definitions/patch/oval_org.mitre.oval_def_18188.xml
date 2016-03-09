@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18188" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18188" version="8">
   <metadata>
     <title>USN-1708-1 -- libvirt vulnerabilities</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Ubuntu 12.04</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1708-1/" ref_id="USN-1708-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4423" ref_id="CVE-2012-4423"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0170" ref_id="CVE-2013-0170"/>
+    <reference ref_id="USN-1708-1" ref_url="http://www.ubuntu.com/usn/usn-1708-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-4423" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4423" source="CVE" />
+    <reference ref_id="CVE-2013-0170" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0170" source="CVE" />
     <description>libvirt could be made to crash or run programs if it received specially crafted network traffic.</description>
     <oval_repository>
       <dates>
@@ -31,21 +30,22 @@
         <status_change date="2014-06-30T04:08:19.674-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0.9.13-0ubuntu12.2" test_ref="oval:org.mitre.oval:tst:85473"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0.9.13-0ubuntu12.2" test_ref="oval:org.mitre.oval:tst:85229"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0.9.13-0ubuntu12.2" test_ref="oval:org.mitre.oval:tst:85473" />
+        <criterion comment="libvirt0 DPKG is earlier than 0.9.13-0ubuntu12.2" test_ref="oval:org.mitre.oval:tst:85229" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0.9.8-2ubuntu17.7" test_ref="oval:org.mitre.oval:tst:85404"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0.9.8-2ubuntu17.7" test_ref="oval:org.mitre.oval:tst:85489"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0.9.8-2ubuntu17.7" test_ref="oval:org.mitre.oval:tst:85404" />
+        <criterion comment="libvirt0 DPKG is earlier than 0.9.8-2ubuntu17.7" test_ref="oval:org.mitre.oval:tst:85489" />
       </criteria>
     </criteria>
   </criteria>

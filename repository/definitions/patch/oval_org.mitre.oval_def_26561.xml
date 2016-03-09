@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26561" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:26561" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2014-0186 -- mysql55-mysql security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>mysql55-mysql</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-0186.html" ref_id="ELSA-2014-0186"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5908" ref_id="CVE-2013-5908"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0001" ref_id="CVE-2014-0001"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0386" ref_id="CVE-2014-0386"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0393" ref_id="CVE-2014-0393"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0401" ref_id="CVE-2014-0401"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0402" ref_id="CVE-2014-0402"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0412" ref_id="CVE-2014-0412"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0437" ref_id="CVE-2014-0437"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-3839" ref_id="CVE-2013-3839"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5807" ref_id="CVE-2013-5807"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5891" ref_id="CVE-2013-5891"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0420" ref_id="CVE-2014-0420"/>
+    <reference ref_id="ELSA-2014-0186" ref_url="http://linux.oracle.com/errata/ELSA-2014-0186.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-5908" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5908" source="CVE" />
+    <reference ref_id="CVE-2014-0001" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0001" source="CVE" />
+    <reference ref_id="CVE-2014-0386" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0386" source="CVE" />
+    <reference ref_id="CVE-2014-0393" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0393" source="CVE" />
+    <reference ref_id="CVE-2014-0401" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0401" source="CVE" />
+    <reference ref_id="CVE-2014-0402" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0402" source="CVE" />
+    <reference ref_id="CVE-2014-0412" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0412" source="CVE" />
+    <reference ref_id="CVE-2014-0437" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0437" source="CVE" />
+    <reference ref_id="CVE-2013-3839" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-3839" source="CVE" />
+    <reference ref_id="CVE-2013-5807" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5807" source="CVE" />
+    <reference ref_id="CVE-2013-5891" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5891" source="CVE" />
+    <reference ref_id="CVE-2014-0420" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0420" source="CVE" />
     <description>[5.5.36-2]
 - Fix CVE-2014-0001
   Related: #1055875
@@ -44,17 +43,18 @@
         <status_change date="2015-02-10T20:10:40.806-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="mysql55-mysql is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127979"/>
-      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127748"/>
-      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127957"/>
-      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:128152"/>
-      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127718"/>
-      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127586"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="mysql55-mysql is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127979" />
+      <criterion comment="mysql55-mysql-bench is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127748" />
+      <criterion comment="mysql55-mysql-devel is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127957" />
+      <criterion comment="mysql55-mysql-libs is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:128152" />
+      <criterion comment="mysql55-mysql-server is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127718" />
+      <criterion comment="mysql55-mysql-test is earlier than 0:5.5.36-2.el5" test_ref="oval:org.mitre.oval:tst:127586" />
     </criteria>
   </criteria>
 </definition>

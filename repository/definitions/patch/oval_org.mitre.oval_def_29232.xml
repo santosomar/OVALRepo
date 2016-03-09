@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29232" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29232" version="4">
   <metadata>
     <title>RHSA-2008:0580 -- vim security update (Moderate)</title>
     <affected family="unix">
@@ -7,14 +6,14 @@
       <platform>CentOS Linux 5</platform>
       <product>vim</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0580.html" ref_id="RHSA-2008:0580"/>
-    <reference source="CESA-2008:0580" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-November/015453.html" ref_id="CESA-2008:0580-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2953" ref_id="CVE-2007-2953"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2712" ref_id="CVE-2008-2712"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3074" ref_id="CVE-2008-3074"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3075" ref_id="CVE-2008-3075"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4101" ref_id="CVE-2008-4101"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-6235" ref_id="CVE-2008-6235"/>
+    <reference ref_id="RHSA-2008:0580" ref_url="https://rhn.redhat.com/errata/RHSA-2008-0580.html" source="VENDOR" />
+    <reference ref_id="CESA-2008:0580-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2008-November/015453.html" source="CESA-2008:0580" />
+    <reference ref_id="CVE-2007-2953" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2953" source="CVE" />
+    <reference ref_id="CVE-2008-2712" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2712" source="CVE" />
+    <reference ref_id="CVE-2008-3074" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3074" source="CVE" />
+    <reference ref_id="CVE-2008-3075" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3075" source="CVE" />
+    <reference ref_id="CVE-2008-4101" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4101" source="CVE" />
+    <reference ref_id="CVE-2008-6235" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-6235" source="CVE" />
     <description>Updated vim packages that fix security issues are now available for Red Hat
 Enterprise Linux 5.
 This update has been rated as having moderate security impact by the Red Hat
@@ -28,20 +27,22 @@ editor.</description>
         </submitted>
         <status_change date="2015-07-06T10:39:54.719-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:27.978-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:21.148-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="vim-X11 is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140661"/>
-      <criterion comment="vim-common is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140342"/>
-      <criterion comment="vim-enhanced is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140675"/>
-      <criterion comment="vim-minimal is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140608"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="vim-X11 is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140661" />
+      <criterion comment="vim-common is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140342" />
+      <criterion comment="vim-enhanced is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140675" />
+      <criterion comment="vim-minimal is earlier than 2:7.0.109-4.el5_2.4z" test_ref="oval:org.mitre.oval:tst:140608" />
     </criteria>
   </criteria>
 </definition>

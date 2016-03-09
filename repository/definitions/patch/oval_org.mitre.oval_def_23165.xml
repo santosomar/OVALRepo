@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23165" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23165" version="8">
   <metadata>
     <title>ELSA-2013:0870: tomcat5 security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>tomcat5</product>
     </affected>
-    <reference ref_id="ELSA-2013:0870-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0870.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-1976" ref_url="http://linux.oracle.com/cve/CVE-2013-1976.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0870-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-0870.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1976" ref_url="http://linux.oracle.com/cve/CVE-2013-1976.html" source="CVE" />
     <description>The (1) tomcat5, (2) tomcat6, and (3) tomcat7 init scripts, as used in the RPM distribution of Tomcat for JBoss Enterprise Web Server 1.0.2 and 2.0.0, and Red Hat Enterprise Linux 5 and 6, allow local users to change the ownership of arbitrary files via a symlink attack on (a) tomcat5-initd.log, (b) tomcat6-initd.log, (c) catalina.out, or (d) tomcat7-initd.log.</description>
     <oval_repository>
       <dates>
@@ -24,22 +23,23 @@
         <status_change date="2014-05-26T04:03:34.852-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="tomcat5-admin-webapps is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107389"/>
-      <criterion comment="tomcat5-jasper is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:106570"/>
-      <criterion comment="tomcat5-server-lib is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107516"/>
-      <criterion comment="tomcat5-jsp-2.0-api-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107520"/>
-      <criterion comment="tomcat5-servlet-2.4-api-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:106955"/>
-      <criterion comment="tomcat5-jasper-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107562"/>
-      <criterion comment="tomcat5-servlet-2.4-api is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107343"/>
-      <criterion comment="tomcat5-jsp-2.0-api is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107358"/>
-      <criterion comment="tomcat5-common-lib is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107511"/>
-      <criterion comment="tomcat5 is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107169"/>
-      <criterion comment="tomcat5-webapps is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107505"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="tomcat5-admin-webapps is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107389" />
+      <criterion comment="tomcat5-jasper is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:106570" />
+      <criterion comment="tomcat5-server-lib is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107516" />
+      <criterion comment="tomcat5-jsp-2.0-api-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107520" />
+      <criterion comment="tomcat5-servlet-2.4-api-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:106955" />
+      <criterion comment="tomcat5-jasper-javadoc is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107562" />
+      <criterion comment="tomcat5-servlet-2.4-api is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107343" />
+      <criterion comment="tomcat5-jsp-2.0-api is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107358" />
+      <criterion comment="tomcat5-common-lib is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107511" />
+      <criterion comment="tomcat5 is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107169" />
+      <criterion comment="tomcat5-webapps is earlier than 0:5.5.23-0jpp.40.el5_9" test_ref="oval:org.mitre.oval:tst:107505" />
     </criteria>
   </criteria>
 </definition>

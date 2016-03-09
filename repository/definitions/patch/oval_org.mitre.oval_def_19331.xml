@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19331" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19331" version="6">
   <metadata>
     <title>USN-1952-1 -- thunderbird vulnerabilities</title>
     <affected family="unix">
@@ -8,20 +7,20 @@
       <platform>Ubuntu 12.04</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1952-1/" ref_id="USN-1952-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1718" ref_id="CVE-2013-1718"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1720" ref_id="CVE-2013-1720"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1721" ref_id="CVE-2013-1721"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1722" ref_id="CVE-2013-1722"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1724" ref_id="CVE-2013-1724"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1725" ref_id="CVE-2013-1725"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1728" ref_id="CVE-2013-1728"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1730" ref_id="CVE-2013-1730"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1732" ref_id="CVE-2013-1732"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1735" ref_id="CVE-2013-1735"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1736" ref_id="CVE-2013-1736"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1737" ref_id="CVE-2013-1737"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1738" ref_id="CVE-2013-1738"/>
+    <reference ref_id="USN-1952-1" ref_url="http://www.ubuntu.com/usn/usn-1952-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-1718" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1718" source="CVE" />
+    <reference ref_id="CVE-2013-1720" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1720" source="CVE" />
+    <reference ref_id="CVE-2013-1721" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1721" source="CVE" />
+    <reference ref_id="CVE-2013-1722" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1722" source="CVE" />
+    <reference ref_id="CVE-2013-1724" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1724" source="CVE" />
+    <reference ref_id="CVE-2013-1725" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1725" source="CVE" />
+    <reference ref_id="CVE-2013-1728" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1728" source="CVE" />
+    <reference ref_id="CVE-2013-1730" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1730" source="CVE" />
+    <reference ref_id="CVE-2013-1732" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1732" source="CVE" />
+    <reference ref_id="CVE-2013-1735" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1735" source="CVE" />
+    <reference ref_id="CVE-2013-1736" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1736" source="CVE" />
+    <reference ref_id="CVE-2013-1737" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1737" source="CVE" />
+    <reference ref_id="CVE-2013-1738" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1738" source="CVE" />
     <description>Several security issues were fixed in Thunderbird.</description>
     <oval_repository>
       <dates>
@@ -38,20 +37,21 @@
         <status_change date="2014-06-30T04:08:55.828-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014"/>
-      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.13.04.1" test_ref="oval:org.mitre.oval:tst:87059"/>
+      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014" />
+      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.13.04.1" test_ref="oval:org.mitre.oval:tst:87059" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:87086"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.12.10.1" test_ref="oval:org.mitre.oval:tst:87086" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:87116"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="thunderbird DPKG is earlier than 1:24.0+build1-0ubuntu0.12.04.1" test_ref="oval:org.mitre.oval:tst:87116" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23575" version="6" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:23575" version="7">
   <metadata>
     <title>DEPRECATED: ELSA-2013:1861: nss security update (Moderate)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Oracle Linux 6</platform>
       <product>nss</product>
     </affected>
-    <reference ref_id="ELSA-2013:1861-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1861.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2013:1861-00" ref_url="http://linux.oracle.com/errata/ELSA-2013-1861.html" source="VENDOR" />
     <description>Network Security Services (NSS) is a set of libraries designed to support
 the cross-platform development of security-enabled client and server
 applications.
@@ -40,26 +39,27 @@ restarted for the changes to take effect.</description>
         <status_change date="2014-07-11T17:52:29.946-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="nss-tools is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107952"/>
-        <criterion comment="nss-devel is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107397"/>
-        <criterion comment="nss is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:108047"/>
-        <criterion comment="nss-pkcs11-devel is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107994"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="nss-tools is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107952" />
+        <criterion comment="nss-devel is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107397" />
+        <criterion comment="nss is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:108047" />
+        <criterion comment="nss-pkcs11-devel is earlier than 0:3.15.3-4.el5_10" test_ref="oval:org.mitre.oval:tst:107994" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="nss-tools is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107669"/>
-        <criterion comment="nss-devel is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107898"/>
-        <criterion comment="nss-sysinit is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107724"/>
-        <criterion comment="nss is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107729"/>
-        <criterion comment="nss-pkcs11-devel is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107937"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="nss-tools is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107669" />
+        <criterion comment="nss-devel is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107898" />
+        <criterion comment="nss-sysinit is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107724" />
+        <criterion comment="nss is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107729" />
+        <criterion comment="nss-pkcs11-devel is earlier than 0:3.15.3-3.el6_5" test_ref="oval:org.mitre.oval:tst:107937" />
       </criteria>
     </criteria>
   </criteria>

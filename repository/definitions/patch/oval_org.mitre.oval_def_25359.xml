@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25359" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25359" version="9">
   <metadata>
     <title>RHSA-2014:0924: kernel security update (Important)</title>
     <affected family="unix">
@@ -7,10 +6,10 @@
       <platform>CentOS Linux 6</platform>
       <product>kernel</product>
     </affected>
-    <reference ref_id="RHSA-2014:0924-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0924.html" source="VENDOR"/>
-    <reference ref_id="CESA-2014:0924" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020444.html" source="CESA-2014:0924"/>
-    <reference ref_id="CVE-2014-4699" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4699.html" source="CVE"/>
-    <reference ref_id="CVE-2014-4943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4943.html" source="CVE"/>
+    <reference ref_id="RHSA-2014:0924-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0924.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0924" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-July/020444.html" source="CESA-2014:0924" />
+    <reference ref_id="CVE-2014-4699" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4699.html" source="CVE" />
+    <reference ref_id="CVE-2014-4943" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4943.html" source="CVE" />
     <description>The kernel packages contain the Linux kernel, the core of any Linux
 operating system.
 
@@ -50,36 +49,37 @@ rebooted for this update to take effect.</description>
         <status_change date="2014-12-01T04:00:32.905-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116314"/>
-        <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116371"/>
-        <criterion comment="kernel-debug is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115732"/>
-        <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115967"/>
-        <criterion comment="kernel-devel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116372"/>
-        <criterion comment="kernel-doc is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115956"/>
-        <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115677"/>
-        <criterion comment="kernel-headers is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115478"/>
-        <criterion comment="perf is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116214"/>
-        <criterion comment="python-perf is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115972"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116314" />
+        <criterion comment="kernel-abi-whitelists is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116371" />
+        <criterion comment="kernel-debug is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115732" />
+        <criterion comment="kernel-debug-devel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115967" />
+        <criterion comment="kernel-devel is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116372" />
+        <criterion comment="kernel-doc is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115956" />
+        <criterion comment="kernel-firmware is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115677" />
+        <criterion comment="kernel-headers is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115478" />
+        <criterion comment="perf is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:116214" />
+        <criterion comment="python-perf is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:115972" />
       </criteria>
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="kernel-debug-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135260"/>
-        <criterion comment="kernel-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135106"/>
-        <criterion comment="kernel-debuginfo-common-i686 is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135338"/>
-        <criterion comment="perf-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:134491"/>
-        <criterion comment="python-perf-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135131"/>
-        <criterion comment="kernel-debuginfo-common-x86_64 is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:134423"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="kernel-debug-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135260" />
+        <criterion comment="kernel-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135106" />
+        <criterion comment="kernel-debuginfo-common-i686 is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135338" />
+        <criterion comment="perf-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:134491" />
+        <criterion comment="python-perf-debuginfo is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:135131" />
+        <criterion comment="kernel-debuginfo-common-x86_64 is earlier than 0:2.6.32-431.20.5.el6" test_ref="oval:org.mitre.oval:tst:134423" />
       </criteria>
     </criteria>
   </criteria>

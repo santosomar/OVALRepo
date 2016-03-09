@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22616" version="49" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22616" version="51">
   <metadata>
     <title>ELSA-2009:0431: kdegraphics security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>kdegraphics</product>
     </affected>
-    <reference ref_id="ELSA-2009:0431-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0431.html" source="VENDOR"/>
-    <reference ref_id="CVE-2009-0146" ref_url="http://linux.oracle.com/cve/CVE-2009-0146.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0147" ref_url="http://linux.oracle.com/cve/CVE-2009-0147.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0166" ref_url="http://linux.oracle.com/cve/CVE-2009-0166.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0195" ref_url="http://linux.oracle.com/cve/CVE-2009-0195.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0799" ref_url="http://linux.oracle.com/cve/CVE-2009-0799.html" source="CVE"/>
-    <reference ref_id="CVE-2009-0800" ref_url="http://linux.oracle.com/cve/CVE-2009-0800.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1179" ref_url="http://linux.oracle.com/cve/CVE-2009-1179.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1180" ref_url="http://linux.oracle.com/cve/CVE-2009-1180.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1181" ref_url="http://linux.oracle.com/cve/CVE-2009-1181.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1182" ref_url="http://linux.oracle.com/cve/CVE-2009-1182.html" source="CVE"/>
-    <reference ref_id="CVE-2009-1183" ref_url="http://linux.oracle.com/cve/CVE-2009-1183.html" source="CVE"/>
+    <reference ref_id="ELSA-2009:0431-01" ref_url="http://linux.oracle.com/errata/ELSA-2009-0431.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0146" ref_url="http://linux.oracle.com/cve/CVE-2009-0146.html" source="CVE" />
+    <reference ref_id="CVE-2009-0147" ref_url="http://linux.oracle.com/cve/CVE-2009-0147.html" source="CVE" />
+    <reference ref_id="CVE-2009-0166" ref_url="http://linux.oracle.com/cve/CVE-2009-0166.html" source="CVE" />
+    <reference ref_id="CVE-2009-0195" ref_url="http://linux.oracle.com/cve/CVE-2009-0195.html" source="CVE" />
+    <reference ref_id="CVE-2009-0799" ref_url="http://linux.oracle.com/cve/CVE-2009-0799.html" source="CVE" />
+    <reference ref_id="CVE-2009-0800" ref_url="http://linux.oracle.com/cve/CVE-2009-0800.html" source="CVE" />
+    <reference ref_id="CVE-2009-1179" ref_url="http://linux.oracle.com/cve/CVE-2009-1179.html" source="CVE" />
+    <reference ref_id="CVE-2009-1180" ref_url="http://linux.oracle.com/cve/CVE-2009-1180.html" source="CVE" />
+    <reference ref_id="CVE-2009-1181" ref_url="http://linux.oracle.com/cve/CVE-2009-1181.html" source="CVE" />
+    <reference ref_id="CVE-2009-1182" ref_url="http://linux.oracle.com/cve/CVE-2009-1182.html" source="CVE" />
+    <reference ref_id="CVE-2009-1183" ref_url="http://linux.oracle.com/cve/CVE-2009-1183.html" source="CVE" />
     <description>The JBIG2 MMR decoder in Xpdf 3.02pl2 and earlier, CUPS 1.3.9 and earlier, Poppler before 0.10.6, and other products allows remote attackers to cause a denial of service (infinite loop and hang) via a crafted PDF file.</description>
     <oval_repository>
       <dates>
@@ -34,13 +33,14 @@
         <status_change date="2014-05-26T04:01:37.263-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="kdegraphics is earlier than 7:3.5.4-12.el5_3" test_ref="oval:org.mitre.oval:tst:102849"/>
-      <criterion comment="kdegraphics-devel is earlier than 7:3.5.4-12.el5_3" test_ref="oval:org.mitre.oval:tst:102819"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="kdegraphics is earlier than 7:3.5.4-12.el5_3" test_ref="oval:org.mitre.oval:tst:102849" />
+      <criterion comment="kdegraphics-devel is earlier than 7:3.5.4-12.el5_3" test_ref="oval:org.mitre.oval:tst:102819" />
     </criteria>
   </criteria>
 </definition>

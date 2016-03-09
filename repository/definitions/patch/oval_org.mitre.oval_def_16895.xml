@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:16895" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:16895" version="6">
   <metadata>
     <title>USN-665-1 -- netpbm-free vulnerability</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Ubuntu 7.10</platform>
       <product>netpbm-free</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-665-1/" ref_id="USN-665-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0554" ref_id="CVE-2008-0554"/>
+    <reference ref_id="USN-665-1" ref_url="http://www.ubuntu.com/usn/usn-665-1/" source="VENDOR" />
+    <reference ref_id="CVE-2008-0554" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0554" source="CVE" />
     <description>It was discovered that Netpbm could be made to overrun a buffer when loading certain images.</description>
     <oval_repository>
       <dates>
@@ -25,16 +24,17 @@
         <status_change date="2014-06-30T04:06:05.355-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="netpbm DPKG is earlier than 2:10.0-10ubuntu1.1" test_ref="oval:org.mitre.oval:tst:82699"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="netpbm DPKG is earlier than 2:10.0-10ubuntu1.1" test_ref="oval:org.mitre.oval:tst:82699" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354"/>
-      <criterion comment="netpbm DPKG is earlier than 2:10.0-11ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83666"/>
+      <extend_definition comment="Ubuntu 7.10 is installed" definition_ref="oval:org.mitre.oval:def:13354" />
+      <criterion comment="netpbm DPKG is earlier than 2:10.0-11ubuntu0.1" test_ref="oval:org.mitre.oval:tst:83666" />
     </criteria>
   </criteria>
 </definition>

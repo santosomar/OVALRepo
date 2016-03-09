@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28421" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28421" version="4">
   <metadata>
     <title>RHSA-2009:0408 -- krb5 security update (Important)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 5</platform>
       <product>krb5</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0408.html" ref_id="RHSA-2009:0408"/>
-    <reference source="CESA-2009:0408" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-April/015736.html" ref_id="CESA-2009:0408-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0844" ref_id="CVE-2009-0844"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0845" ref_id="CVE-2009-0845"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0846" ref_id="CVE-2009-0846"/>
+    <reference ref_id="RHSA-2009:0408" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0408.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:0408-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-April/015736.html" source="CESA-2009:0408" />
+    <reference ref_id="CVE-2009-0844" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0844" source="CVE" />
+    <reference ref_id="CVE-2009-0845" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0845" source="CVE" />
+    <reference ref_id="CVE-2009-0846" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0846" source="CVE" />
     <description>Updated krb5 packages that fix various security issues are now available
 for Red Hat Enterprise Linux 5.
 This update has been rated as having important security impact by the Red
@@ -35,20 +34,22 @@ krb5kdc, by causing it to dereference or free an uninitialized pointer.
         </submitted>
         <status_change date="2015-07-06T10:40:30.804-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:00:15.445-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:00:17.265-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
+    <criteria comment="Operation system section" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
     </criteria>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="krb5-devel is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140251"/>
-      <criterion comment="krb5-server is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:139823"/>
-      <criterion comment="krb5-libs is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140208"/>
-      <criterion comment="krb5-workstation is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140217"/>
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="krb5-devel is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140251" />
+      <criterion comment="krb5-server is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:139823" />
+      <criterion comment="krb5-libs is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140208" />
+      <criterion comment="krb5-workstation is earlier than 0:1.6.1-31.el5_3.3" test_ref="oval:org.mitre.oval:tst:140217" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:439" version="12" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:439" version="13">
   <metadata>
     <title>Microsoft Excel Viewer 2003 is installed</title>
     <affected family="windows">
@@ -9,7 +8,7 @@
       <platform>Microsoft Windows Server 2003</platform>
       <product>Microsoft Excel Viewer 2003</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:excel_viewer:2003"/>
+    <reference ref_id="cpe:/a:microsoft:excel_viewer:2003" source="CPE" />
     <description>The application Microsoft Excel Viewer 2003 is installed.</description>
     <oval_repository>
       <dates>
@@ -53,17 +52,18 @@
         <status_change date="2014-06-30T04:11:00.521-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.10</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criterion comment="%ProgramFile%\Microsoft Office\OFFICE11\xlview.exe exists" test_ref="oval:org.mitre.oval:tst:9880"/>
+    <criterion comment="%ProgramFile%\Microsoft Office\OFFICE11\xlview.exe exists" test_ref="oval:org.mitre.oval:tst:9880" />
     <criteria comment="Check if Excel Viewer">
-      <criterion comment="Excel Viewer is installed." test_ref="oval:org.mitre.oval:tst:61"/>
-      <criterion comment="Check if SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{90840409-6000-11D3-8CFE-0150048383C9} exists" test_ref="oval:org.mitre.oval:tst:80304"/>
+      <criterion comment="Excel Viewer is installed." test_ref="oval:org.mitre.oval:tst:61" />
+      <criterion comment="Check if SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{90840409-6000-11D3-8CFE-0150048383C9} exists" test_ref="oval:org.mitre.oval:tst:80304" />
     </criteria>
     <criteria comment="Check if Excel Viewer 2003">
-      <criterion comment="Excel Viewer 2003 is installed." test_ref="oval:org.mitre.oval:tst:9130"/>
-      <criterion comment="Check if SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B025EE03392B4E348B1A777F7A5DCE16 exists" test_ref="oval:org.mitre.oval:tst:81258"/>
+      <criterion comment="Excel Viewer 2003 is installed." test_ref="oval:org.mitre.oval:tst:9130" />
+      <criterion comment="Check if SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B025EE03392B4E348B1A777F7A5DCE16 exists" test_ref="oval:org.mitre.oval:tst:81258" />
     </criteria>
   </criteria>
 </definition>

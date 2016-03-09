@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17665" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17665" version="8">
   <metadata>
     <title>DSA-2300-1 nss - compromised certificate authority</title>
     <affected family="unix">
@@ -8,7 +7,7 @@
       <platform>Debian GNU/Linux 5.0</platform>
       <product>nss</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2300-1" ref_id="DSA-2300-1"/>
+    <reference ref_id="DSA-2300-1" ref_url="http://www.debian.org/security/dsa-2300-1" source="VENDOR" />
     <description>Several unauthorised SSL certificates have been found in the wild issued for the DigiNotar Certificate Authority, obtained through a security compromise with said company. Debian, like other software distributors, has as a precaution decided to disable the DigiNotar Root CA by default in the NSS crypto libraries.</description>
     <oval_repository>
       <dates>
@@ -30,20 +29,21 @@
         <status_change date="2014-06-23T04:03:49.582-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="nss DPKG is earlier than 3.12.8-1+squeeze2" test_ref="oval:org.mitre.oval:tst:86331"/>
+      <criterion comment="nss DPKG is earlier than 3.12.8-1+squeeze2" test_ref="oval:org.mitre.oval:tst:86331" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criterion comment="nss DPKG is earlier than 3.12.3.1-0lenny5" test_ref="oval:org.mitre.oval:tst:86493"/>
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criterion comment="nss DPKG is earlier than 3.12.3.1-0lenny5" test_ref="oval:org.mitre.oval:tst:86493" />
     </criteria>
   </criteria>
 </definition>

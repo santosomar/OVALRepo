@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29006" version="3" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:29006" version="4">
   <metadata>
     <title>Microsoft Exchange Server 2013 Cumulative Update 5 is installed</title>
     <affected family="windows">
@@ -11,7 +10,7 @@
       <platform>Microsoft Windows Server 2012 R2</platform>
       <product>Microsoft Exchange Server 2013</product>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:microsoft:exchange_server:2013:cu5"/>
+    <reference ref_id="cpe:/a:microsoft:exchange_server:2013:cu5" source="CPE" />
     <description>Microsoft Exchange Server 2013 Cumulative Update 5 is installed</description>
     <oval_repository>
       <dates>
@@ -23,10 +22,11 @@
         <status_change date="2015-07-20T04:00:12.205-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="Check if Exchange Server 2013 Cumulative Update 5 is installed" test_ref="oval:org.mitre.oval:tst:138961"/>
-    <extend_definition comment="Microsoft Exchange Server 2013 is installed" definition_ref="oval:org.mitre.oval:def:18626"/>
+    <criterion comment="Check if Exchange Server 2013 Cumulative Update 5 is installed" test_ref="oval:org.mitre.oval:tst:138961" />
+    <extend_definition comment="Microsoft Exchange Server 2013 is installed" definition_ref="oval:org.mitre.oval:def:18626" />
   </criteria>
 </definition>

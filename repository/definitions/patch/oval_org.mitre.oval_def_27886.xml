@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27886" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27886" version="4">
   <metadata>
     <title>ELSA-2011-1691 -- util-linux-ng security, bug fix, and enhancement update (low)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>util-linux-ng</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1691.html" ref_id="ELSA-2011-1691"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1675" ref_id="CVE-2011-1675"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1677" ref_id="CVE-2011-1677"/>
+    <reference ref_id="ELSA-2011-1691" ref_url="http://linux.oracle.com/errata/ELSA-2011-1691.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-1675" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1675" source="CVE" />
+    <reference ref_id="CVE-2011-1677" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1677" source="CVE" />
     <description>[2.17.2-12.4]
 - fix CVE-2011-1675 - mount fails to anticipate RLIMIT_FSIZE
 - fix CVE-2011-1677 - umount may fail to remove /etc/mtab~ lock file
@@ -45,17 +44,18 @@
         <status_change date="2014-12-15T04:03:10.144-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="util-linux-ng is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132653"/>
-      <criterion comment="libblkid is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:133095"/>
-      <criterion comment="libblkid-devel is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132797"/>
-      <criterion comment="libuuid is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132954"/>
-      <criterion comment="libuuid-devel is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132337"/>
-      <criterion comment="uuidd is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:133078"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="util-linux-ng is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132653" />
+      <criterion comment="libblkid is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:133095" />
+      <criterion comment="libblkid-devel is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132797" />
+      <criterion comment="libuuid is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132954" />
+      <criterion comment="libuuid-devel is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:132337" />
+      <criterion comment="uuidd is earlier than 0:2.17.2-12.4.el6" test_ref="oval:org.mitre.oval:tst:133078" />
     </criteria>
   </criteria>
 </definition>

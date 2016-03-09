@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28460" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28460" version="6">
   <metadata>
     <title>RHSA-2014:2025 -- ntp security update (Important)</title>
     <affected family="unix">
@@ -7,11 +6,11 @@
       <platform>CentOS Linux 5</platform>
       <product>ntp</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2014-2025.html" ref_id="RHSA-2014:2025"/>
-    <reference source="CESA-2014:2025" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020851.html" ref_id="CESA-2014:2025"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9293" ref_id="CVE-2014-9293"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9294" ref_id="CVE-2014-9294"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9295" ref_id="CVE-2014-9295"/>
+    <reference ref_id="RHSA-2014:2025" ref_url="https://rhn.redhat.com/errata/RHSA-2014-2025.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:2025" ref_url="http://lists.centos.org/pipermail/centos-announce/2014-December/020851.html" source="CESA-2014:2025" />
+    <reference ref_id="CVE-2014-9293" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9293" source="CVE" />
+    <reference ref_id="CVE-2014-9294" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9294" source="CVE" />
+    <reference ref_id="CVE-2014-9295" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9295" source="CVE" />
     <description>The Network Time Protocol (NTP) is used to synchronize a computer&amp;#39;s time
 with a referenced time source.
 
@@ -54,19 +53,20 @@ update, the ntpd daemon will restart automatically.</description>
         <status_change date="2015-03-16T04:01:52.216-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="ntp is earlier than 0:4.2.2p1-18.el5_11" test_ref="oval:org.mitre.oval:tst:136694"/>
-        <criterion comment="ntp-debuginfo is earlier than 0:4.2.2p1-18.el5_11" test_ref="oval:org.mitre.oval:tst:137069"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="ntp is earlier than 0:4.2.2p1-18.el5_11" test_ref="oval:org.mitre.oval:tst:136694" />
+        <criterion comment="ntp-debuginfo is earlier than 0:4.2.2p1-18.el5_11" test_ref="oval:org.mitre.oval:tst:137069" />
       </criteria>
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="ntp is earlier than 0:4.2.2p1-18.el5.centos" test_ref="oval:org.mitre.oval:tst:136750"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="ntp is earlier than 0:4.2.2p1-18.el5.centos" test_ref="oval:org.mitre.oval:tst:136750" />
     </criteria>
   </criteria>
 </definition>

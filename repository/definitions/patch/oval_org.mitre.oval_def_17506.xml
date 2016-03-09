@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17506" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17506" version="6">
   <metadata>
     <title>USN-505-1 -- vim vulnerability</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <platform>Ubuntu 7.04</platform>
       <product>vim</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-505-1/" ref_id="USN-505-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2953" ref_id="CVE-2007-2953"/>
+    <reference ref_id="USN-505-1" ref_url="http://www.ubuntu.com/usn/usn-505-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-2953" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2953" source="CVE" />
     <description>Ulf Harnhammar discovered that vim does not properly sanitise the "helptags_one()" function when running the "helptags" command.</description>
     <oval_repository>
       <dates>
@@ -26,20 +25,21 @@
         <status_change date="2014-06-30T04:06:45.572-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="vim DPKG is earlier than 1:6.4-006+2ubuntu6.1" test_ref="oval:org.mitre.oval:tst:81708"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="vim DPKG is earlier than 1:6.4-006+2ubuntu6.1" test_ref="oval:org.mitre.oval:tst:81708" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="vim DPKG is earlier than 1:7.0-035+1ubuntu5.2" test_ref="oval:org.mitre.oval:tst:80998"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="vim DPKG is earlier than 1:7.0-035+1ubuntu5.2" test_ref="oval:org.mitre.oval:tst:80998" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="vim DPKG is earlier than 1:7.0-164+1ubuntu7.2" test_ref="oval:org.mitre.oval:tst:81973"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="vim DPKG is earlier than 1:7.0-164+1ubuntu7.2" test_ref="oval:org.mitre.oval:tst:81973" />
     </criteria>
   </criteria>
 </definition>

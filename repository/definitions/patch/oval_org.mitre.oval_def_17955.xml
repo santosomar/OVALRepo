@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17955" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17955" version="8">
   <metadata>
     <title>USN-1511-1 -- tiff vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>tiff</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1511-1/" ref_id="USN-1511-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3401" ref_id="CVE-2012-3401"/>
+    <reference ref_id="USN-1511-1" ref_url="http://www.ubuntu.com/usn/usn-1511-1/" source="VENDOR" />
+    <reference ref_id="CVE-2012-3401" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3401" source="CVE" />
     <description>tiff2pdf could be made to crash or run programs as your login if it opened a specially crafted file.</description>
     <oval_repository>
       <dates>
@@ -33,28 +32,29 @@
         <status_change date="2014-07-21T04:00:37.806-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libtiff-tools DPKG is earlier than 3.9.5-2ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83850"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libtiff-tools DPKG is earlier than 3.9.5-2ubuntu1.2" test_ref="oval:org.mitre.oval:tst:83850" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libtiff-tools DPKG is earlier than 3.9.5-1ubuntu1.3" test_ref="oval:org.mitre.oval:tst:84303"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libtiff-tools DPKG is earlier than 3.9.5-1ubuntu1.3" test_ref="oval:org.mitre.oval:tst:84303" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150"/>
-      <criterion comment="libtiff-tools DPKG is earlier than 3.9.4-5ubuntu6.3" test_ref="oval:org.mitre.oval:tst:84158"/>
+      <extend_definition comment="Ubuntu 11.04 is installed" definition_ref="oval:org.mitre.oval:def:14150" />
+      <criterion comment="libtiff-tools DPKG is earlier than 3.9.4-5ubuntu6.3" test_ref="oval:org.mitre.oval:tst:84158" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libtiff-tools DPKG is earlier than 3.9.2-2ubuntu0.10" test_ref="oval:org.mitre.oval:tst:84482"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libtiff-tools DPKG is earlier than 3.9.2-2ubuntu0.10" test_ref="oval:org.mitre.oval:tst:84482" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libtiff-tools DPKG is earlier than 3.8.2-7ubuntu3.13" test_ref="oval:org.mitre.oval:tst:84047"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libtiff-tools DPKG is earlier than 3.8.2-7ubuntu3.13" test_ref="oval:org.mitre.oval:tst:84047" />
     </criteria>
   </criteria>
 </definition>

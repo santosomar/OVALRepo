@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8331" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8331" version="5">
   <metadata>
     <title>DSA-1590 samba -- buffer overflow</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>samba</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1590" ref_id="DSA-1590"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1105" ref_id="CVE-2008-1105"/>
+    <reference ref_id="DSA-1590" ref_url="http://www.debian.org/security/2008/dsa-1590" source="VENDOR" />
+    <reference ref_id="CVE-2008-1105" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1105" source="CVE" />
     <description>Alin Rad Pop discovered that Samba contained a buffer overflow condition when processing certain responses received while acting as a client, leading to arbitrary code execution (CVE-2008-1105).</description>
     <oval_repository>
       <dates>
@@ -24,29 +23,30 @@
         <status_change date="2014-06-23T04:10:34.623-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="samba-doc is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19516"/>
-          <criterion comment="samba-doc-pdf is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19650"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="samba-doc is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19516" />
+          <criterion comment="samba-doc-pdf is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19650" />
         </criteria>
       </criteria>
-      <criterion comment="smbfs is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19141"/>
-      <criterion comment="samba is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:18768"/>
-      <criterion comment="libsmbclient is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19724"/>
-      <criterion comment="smbclient is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19744"/>
-      <criterion comment="winbind is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19411"/>
-      <criterion comment="swat is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19562"/>
-      <criterion comment="libpam-smbpass is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19399"/>
-      <criterion comment="libsmbclient-dev is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19712"/>
-      <criterion comment="python-samba is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19168"/>
-      <criterion comment="samba-common is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19388"/>
-      <criterion comment="samba-dbg is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19395"/>
+      <criterion comment="smbfs is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19141" />
+      <criterion comment="samba is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:18768" />
+      <criterion comment="libsmbclient is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19724" />
+      <criterion comment="smbclient is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19744" />
+      <criterion comment="winbind is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19411" />
+      <criterion comment="swat is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19562" />
+      <criterion comment="libpam-smbpass is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19399" />
+      <criterion comment="libsmbclient-dev is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19712" />
+      <criterion comment="python-samba is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19168" />
+      <criterion comment="samba-common is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19388" />
+      <criterion comment="samba-dbg is earlier than 3.0.24-6etch10" test_ref="oval:org.mitre.oval:tst:19395" />
     </criteria>
   </criteria>
 </definition>

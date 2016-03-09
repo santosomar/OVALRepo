@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:7699" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:7699" version="8">
   <metadata>
     <title>DSA-1708 git-core -- shell command injection</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>git-core</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1708" ref_id="DSA-1708"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5516" ref_id="CVE-2008-5516"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5517" ref_id="CVE-2008-5517"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5916" ref_id="CVE-2008-5916"/>
+    <reference ref_id="DSA-1708" ref_url="http://www.debian.org/security/2009/dsa-1708" source="VENDOR" />
+    <reference ref_id="CVE-2008-5516" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5516" source="CVE" />
+    <reference ref_id="CVE-2008-5517" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5517" source="CVE" />
+    <reference ref_id="CVE-2008-5916" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5916" source="CVE" />
     <description>It was discovered that gitweb, the web interface for the Git version control system, contained several vulnerabilities: Remote attackers could use crafted requests to execute shell commands on the web server, using the snapshot generation and pickaxe search functionality (CVE-2008-5916). Local users with write access to the configuration of a Git repository served by gitweb could cause gitweb to execute arbitrary shell commands with the permission of the web server (CVE-2008-5516, CVE-2008-5517).</description>
     <oval_repository>
       <dates>
@@ -31,25 +30,26 @@
         <status_change date="2015-02-23T04:01:41.620-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="gitweb is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12522"/>
-          <criterion comment="git-arch is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12001"/>
-          <criterion comment="gitk is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12384"/>
-          <criterion comment="git-daemon-run is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12563"/>
-          <criterion comment="git-doc is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12636"/>
-          <criterion comment="git-svn is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12205"/>
-          <criterion comment="git-cvs is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12445"/>
-          <criterion comment="git-email is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:11692"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="gitweb is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12522" />
+          <criterion comment="git-arch is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12001" />
+          <criterion comment="gitk is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12384" />
+          <criterion comment="git-daemon-run is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12563" />
+          <criterion comment="git-doc is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12636" />
+          <criterion comment="git-svn is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12205" />
+          <criterion comment="git-cvs is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12445" />
+          <criterion comment="git-email is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:11692" />
         </criteria>
       </criteria>
-      <criterion comment="git-core is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12554"/>
+      <criterion comment="git-core is earlier than 1:1.4.4.4-4+etch1" test_ref="oval:org.mitre.oval:tst:12554" />
     </criteria>
   </criteria>
 </definition>

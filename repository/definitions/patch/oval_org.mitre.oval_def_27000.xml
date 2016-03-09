@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27000" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27000" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0581 -- libxml2 security update (moderate)</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Oracle Linux 6</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0581.html" ref_id="ELSA-2013-0581"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" ref_id="CVE-2013-0338"/>
+    <reference ref_id="ELSA-2013-0581" ref_url="http://linux.oracle.com/errata/ELSA-2013-0581.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0338" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" source="CVE" />
     <description>[2.7.6-12.0.1.el6_4.1]
 - Update doc/redhat.gif in tarball
 - Add libxml2-oracle-enterprise.patch and update logos in tarball</description>
@@ -26,24 +25,25 @@
         <status_change date="2015-02-10T16:38:20.214-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 5 release section">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130269"/>
-        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130280"/>
-        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130286"/>
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130269" />
+        <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130280" />
+        <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.21.0.1.el5_9.1" test_ref="oval:org.mitre.oval:tst:130286" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libxml2 is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130256"/>
-        <criterion comment="libxml2-devel is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130142"/>
-        <criterion comment="libxml2-python is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130193"/>
-        <criterion comment="libxml2-static is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130250"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libxml2 is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130256" />
+        <criterion comment="libxml2-devel is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130142" />
+        <criterion comment="libxml2-python is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130193" />
+        <criterion comment="libxml2-static is earlier than 0:2.7.6-12.0.1.el6_4.1" test_ref="oval:org.mitre.oval:tst:130250" />
       </criteria>
     </criteria>
   </criteria>

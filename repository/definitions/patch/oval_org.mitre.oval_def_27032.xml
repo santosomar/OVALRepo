@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27032" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27032" version="8">
   <metadata>
     <title>ELSA-2014-1389 -- krb5 security and bug fix update</title>
     <affected family="unix">
@@ -12,14 +11,14 @@
       <product>krb5-server-ldap</product>
       <product>krb5-workstation</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1389.html" ref_id="ELSA-2014-1389"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1418" ref_id="CVE-2013-1418"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6800" ref_id="CVE-2013-6800"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4341" ref_id="CVE-2014-4341"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4344" ref_id="CVE-2014-4344"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4345" ref_id="CVE-2014-4345"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4342" ref_id="CVE-2014-4342"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4343" ref_id="CVE-2014-4343"/>
+    <reference ref_id="ELSA-2014-1389" ref_url="http://linux.oracle.com/errata/ELSA-2014-1389.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1418" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1418" source="CVE" />
+    <reference ref_id="CVE-2013-6800" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6800" source="CVE" />
+    <reference ref_id="CVE-2014-4341" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4341" source="CVE" />
+    <reference ref_id="CVE-2014-4344" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4344" source="CVE" />
+    <reference ref_id="CVE-2014-4345" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4345" source="CVE" />
+    <reference ref_id="CVE-2014-4342" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4342" source="CVE" />
+    <reference ref_id="CVE-2014-4343" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4343" source="CVE" />
     <description>[1.10.3-33]
 - actually apply that last patch
 
@@ -116,18 +115,19 @@
         <status_change date="2014-12-08T04:00:33.253-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="krb5 is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125523"/>
-      <criterion comment="krb5-devel is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125442"/>
-      <criterion comment="krb5-libs is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125754"/>
-      <criterion comment="krb5-pkinit-openssl is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126441"/>
-      <criterion comment="krb5-server is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126354"/>
-      <criterion comment="krb5-server-ldap is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126429"/>
-      <criterion comment="krb5-workstation is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125470"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="krb5 is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125523" />
+      <criterion comment="krb5-devel is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125442" />
+      <criterion comment="krb5-libs is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125754" />
+      <criterion comment="krb5-pkinit-openssl is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126441" />
+      <criterion comment="krb5-server is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126354" />
+      <criterion comment="krb5-server-ldap is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:126429" />
+      <criterion comment="krb5-workstation is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125470" />
     </criteria>
   </criteria>
 </definition>

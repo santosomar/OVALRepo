@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20038" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20038" version="6">
   <metadata>
     <title>DSA-2771-1 nas - several</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>Debian GNU/kFreeBSD 7</platform>
       <product>nas</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/dsa-2771-1" ref_id="DSA-2771-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4256" ref_id="CVE-2013-4256"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4257" ref_id="CVE-2013-4257"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4258" ref_id="CVE-2013-4258"/>
+    <reference ref_id="DSA-2771-1" ref_url="http://www.debian.org/security/dsa-2771-1" source="VENDOR" />
+    <reference ref_id="CVE-2013-4256" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4256" source="CVE" />
+    <reference ref_id="CVE-2013-4257" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4257" source="CVE" />
+    <reference ref_id="CVE-2013-4258" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4258" source="CVE" />
     <description>Hamid Zamani discovered multiple security problems (buffer overflows, format string vulnerabilities and missing input sanitising), which could lead to the execution of arbitrary code.</description>
     <oval_repository>
       <dates>
@@ -29,24 +28,25 @@
         <status_change date="2014-06-23T04:06:27.471-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.6</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 6.0 is installed" definition_ref="oval:org.mitre.oval:def:12959" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="nas DPKG is earlier than 0:1.9.2-4squeeze1" test_ref="oval:org.mitre.oval:tst:88812"/>
+      <criterion comment="nas DPKG is earlier than 0:1.9.2-4squeeze1" test_ref="oval:org.mitre.oval:tst:88812" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338"/>
-      <criteria operator="OR" comment="GNU/Linux or GNU/kFreeBSD kernel">
-        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894"/>
-        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698"/>
+      <extend_definition comment="Debian 7 is installed" definition_ref="oval:org.mitre.oval:def:19338" />
+      <criteria comment="GNU/Linux or GNU/kFreeBSD kernel" operator="OR">
+        <extend_definition comment="Debian GNU/Linux is installed" definition_ref="oval:org.mitre.oval:def:24894" />
+        <extend_definition comment="Debian GNU/kFreeBSD is installed" definition_ref="oval:org.mitre.oval:def:24698" />
       </criteria>
-      <criterion comment="nas DPKG is earlier than 0:1.9.3-5wheezy1" test_ref="oval:org.mitre.oval:tst:88854"/>
+      <criterion comment="nas DPKG is earlier than 0:1.9.3-5wheezy1" test_ref="oval:org.mitre.oval:tst:88854" />
     </criteria>
   </criteria>
 </definition>

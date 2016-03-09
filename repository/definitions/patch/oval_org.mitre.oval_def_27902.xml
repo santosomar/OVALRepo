@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27902" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27902" version="6">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0501 -- firefox security, bug fix, and enhancement update (critical)</title>
     <affected family="unix">
@@ -12,19 +11,19 @@
       <product>xulrunner</product>
       <product>yelp</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0501.html" ref_id="ELSA-2010-0501"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5017" ref_id="CVE-2009-5017"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0182" ref_id="CVE-2010-0182"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1121" ref_id="CVE-2010-1121"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1125" ref_id="CVE-2010-1125"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1196" ref_id="CVE-2010-1196"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1197" ref_id="CVE-2010-1197"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1198" ref_id="CVE-2010-1198"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1199" ref_id="CVE-2010-1199"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1200" ref_id="CVE-2010-1200"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1202" ref_id="CVE-2010-1202"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1203" ref_id="CVE-2010-1203"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5913" ref_id="CVE-2008-5913"/>
+    <reference ref_id="ELSA-2010-0501" ref_url="http://linux.oracle.com/errata/ELSA-2010-0501.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-5017" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5017" source="CVE" />
+    <reference ref_id="CVE-2010-0182" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0182" source="CVE" />
+    <reference ref_id="CVE-2010-1121" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1121" source="CVE" />
+    <reference ref_id="CVE-2010-1125" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1125" source="CVE" />
+    <reference ref_id="CVE-2010-1196" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1196" source="CVE" />
+    <reference ref_id="CVE-2010-1197" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1197" source="CVE" />
+    <reference ref_id="CVE-2010-1198" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1198" source="CVE" />
+    <reference ref_id="CVE-2010-1199" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1199" source="CVE" />
+    <reference ref_id="CVE-2010-1200" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1200" source="CVE" />
+    <reference ref_id="CVE-2010-1202" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1202" source="CVE" />
+    <reference ref_id="CVE-2010-1203" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1203" source="CVE" />
+    <reference ref_id="CVE-2008-5913" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5913" source="CVE" />
     <description>Several flaws were found in the processing of malformed web content. A web
 page containing malicious content could cause Firefox to crash or,
 potentially, execute arbitrary code with the privileges of the user running
@@ -75,26 +74,27 @@ document. (CVE-2010-0182)</description>
         <status_change date="2015-02-10T20:40:29.421-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="devhelp is earlier than 0:0.12-21.el5" test_ref="oval:org.mitre.oval:tst:135057"/>
-      <criterion comment="esc is earlier than 0:1.1.0-12.el5" test_ref="oval:org.mitre.oval:tst:134526"/>
-      <criterion comment="firefox is earlier than 0:3.6.4-8.0.1.el5" test_ref="oval:org.mitre.oval:tst:134501"/>
-      <criterion comment="gnome-python2-extras is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135040"/>
-      <criterion comment="totem is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:134774"/>
-      <criterion comment="xulrunner is earlier than 0:1.9.2.4-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:134989"/>
-      <criterion comment="yelp is earlier than 0:2.16.0-26.el5" test_ref="oval:org.mitre.oval:tst:135043"/>
-      <criterion comment="devhelp-devel is earlier than 0:0.12-21.el5" test_ref="oval:org.mitre.oval:tst:134645"/>
-      <criterion comment="gnome-python2-gtkhtml2 is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135004"/>
-      <criterion comment="gnome-python2-gtkmozembed is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135129"/>
-      <criterion comment="gnome-python2-gtkspell is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:134921"/>
-      <criterion comment="gnome-python2-libegg is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135088"/>
-      <criterion comment="totem-devel is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:134937"/>
-      <criterion comment="totem-mozplugin is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:135075"/>
-      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.4-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:134826"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="devhelp is earlier than 0:0.12-21.el5" test_ref="oval:org.mitre.oval:tst:135057" />
+      <criterion comment="esc is earlier than 0:1.1.0-12.el5" test_ref="oval:org.mitre.oval:tst:134526" />
+      <criterion comment="firefox is earlier than 0:3.6.4-8.0.1.el5" test_ref="oval:org.mitre.oval:tst:134501" />
+      <criterion comment="gnome-python2-extras is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135040" />
+      <criterion comment="totem is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:134774" />
+      <criterion comment="xulrunner is earlier than 0:1.9.2.4-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:134989" />
+      <criterion comment="yelp is earlier than 0:2.16.0-26.el5" test_ref="oval:org.mitre.oval:tst:135043" />
+      <criterion comment="devhelp-devel is earlier than 0:0.12-21.el5" test_ref="oval:org.mitre.oval:tst:134645" />
+      <criterion comment="gnome-python2-gtkhtml2 is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135004" />
+      <criterion comment="gnome-python2-gtkmozembed is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135129" />
+      <criterion comment="gnome-python2-gtkspell is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:134921" />
+      <criterion comment="gnome-python2-libegg is earlier than 0:2.14.2-7.el5" test_ref="oval:org.mitre.oval:tst:135088" />
+      <criterion comment="totem-devel is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:134937" />
+      <criterion comment="totem-mozplugin is earlier than 0:2.16.7-7.el5" test_ref="oval:org.mitre.oval:tst:135075" />
+      <criterion comment="xulrunner-devel is earlier than 0:1.9.2.4-9.0.1.el5" test_ref="oval:org.mitre.oval:tst:134826" />
     </criteria>
   </criteria>
 </definition>

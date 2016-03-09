@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26407" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26407" version="4">
   <metadata>
     <title>RHSA-2014:1033: java-1.6.0-ibm security update (Critical)</title>
     <affected family="unix">
@@ -7,16 +6,16 @@
       <platform>Red Hat Enterprise Linux 6</platform>
       <product>java-1.6.0-ibm</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1033-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1033.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4209" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4209.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4218" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4218.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4219" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4219.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4227" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4227.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4244" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4244.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4252" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4252.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4262" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4262.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4263" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4263.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4265" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4265.html"/>
+    <reference ref_id="RHSA-2014:1033-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1033.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-4209" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4209.html" source="CVE" />
+    <reference ref_id="CVE-2014-4218" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4218.html" source="CVE" />
+    <reference ref_id="CVE-2014-4219" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4219.html" source="CVE" />
+    <reference ref_id="CVE-2014-4227" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4227.html" source="CVE" />
+    <reference ref_id="CVE-2014-4244" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4244.html" source="CVE" />
+    <reference ref_id="CVE-2014-4252" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4252.html" source="CVE" />
+    <reference ref_id="CVE-2014-4262" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4262.html" source="CVE" />
+    <reference ref_id="CVE-2014-4263" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4263.html" source="CVE" />
+    <reference ref_id="CVE-2014-4265" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4265.html" source="CVE" />
     <description>IBM Java SE version 6 includes the IBM Java Runtime Environment and the IBM
 Java Software Development Kit.
 
@@ -43,32 +42,33 @@ instances of IBM Java must be restarted for the update to take effect.</descript
         <status_change date="2014-10-13T04:00:35.083-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="java-1.6.0-ibm is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122517"/>
-        <criterion comment="java-1.6.0-ibm-accessibility is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122462"/>
-        <criterion comment="java-1.6.0-ibm-demo is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122541"/>
-        <criterion comment="java-1.6.0-ibm-devel is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:121689"/>
-        <criterion comment="java-1.6.0-ibm-javacomm is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122553"/>
-        <criterion comment="java-1.6.0-ibm-jdbc is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122398"/>
-        <criterion comment="java-1.6.0-ibm-plugin is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122234"/>
-        <criterion comment="java-1.6.0-ibm-src is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122498"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="java-1.6.0-ibm is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122517" />
+        <criterion comment="java-1.6.0-ibm-accessibility is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122462" />
+        <criterion comment="java-1.6.0-ibm-demo is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122541" />
+        <criterion comment="java-1.6.0-ibm-devel is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:121689" />
+        <criterion comment="java-1.6.0-ibm-javacomm is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122553" />
+        <criterion comment="java-1.6.0-ibm-jdbc is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122398" />
+        <criterion comment="java-1.6.0-ibm-plugin is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122234" />
+        <criterion comment="java-1.6.0-ibm-src is earlier than 1:1.6.0.16.1-1jpp.1.el5_10" test_ref="oval:org.mitre.oval:tst:122498" />
       </criteria>
     </criteria>
     <criteria comment="Operation system section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="java-1.6.0-ibm is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:121990"/>
-        <criterion comment="java-1.6.0-ibm-demo is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122651"/>
-        <criterion comment="java-1.6.0-ibm-devel is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122357"/>
-        <criterion comment="java-1.6.0-ibm-javacomm is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122617"/>
-        <criterion comment="java-1.6.0-ibm-jdbc is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:121901"/>
-        <criterion comment="java-1.6.0-ibm-plugin is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122289"/>
-        <criterion comment="java-1.6.0-ibm-src is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122592"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="java-1.6.0-ibm is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:121990" />
+        <criterion comment="java-1.6.0-ibm-demo is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122651" />
+        <criterion comment="java-1.6.0-ibm-devel is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122357" />
+        <criterion comment="java-1.6.0-ibm-javacomm is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122617" />
+        <criterion comment="java-1.6.0-ibm-jdbc is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:121901" />
+        <criterion comment="java-1.6.0-ibm-plugin is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122289" />
+        <criterion comment="java-1.6.0-ibm-src is earlier than 1:1.6.0.16.1-1jpp.1.el6_5" test_ref="oval:org.mitre.oval:tst:122592" />
       </criteria>
     </criteria>
   </criteria>

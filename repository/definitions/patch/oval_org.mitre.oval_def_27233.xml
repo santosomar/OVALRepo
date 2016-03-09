@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27233" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27233" version="8">
   <metadata>
     <title>ELSA-2014-1052 -- openssl security update (moderate)</title>
     <affected family="unix">
@@ -7,14 +6,14 @@
       <platform>Oracle Linux 7</platform>
       <product>openssl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1052.html" ref_id="ELSA-2014-1052"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3505" ref_id="CVE-2014-3505"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3506" ref_id="CVE-2014-3506"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3507" ref_id="CVE-2014-3507"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3508" ref_id="CVE-2014-3508"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3509" ref_id="CVE-2014-3509"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3510" ref_id="CVE-2014-3510"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3511" ref_id="CVE-2014-3511"/>
+    <reference ref_id="ELSA-2014-1052" ref_url="http://linux.oracle.com/errata/ELSA-2014-1052.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3505" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3505" source="CVE" />
+    <reference ref_id="CVE-2014-3506" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3506" source="CVE" />
+    <reference ref_id="CVE-2014-3507" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3507" source="CVE" />
+    <reference ref_id="CVE-2014-3508" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3508" source="CVE" />
+    <reference ref_id="CVE-2014-3509" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3509" source="CVE" />
+    <reference ref_id="CVE-2014-3510" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3510" source="CVE" />
+    <reference ref_id="CVE-2014-3511" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3511" source="CVE" />
     <description>[1.0.1e-34.4]
           - fix CVE-2014-3505 - doublefree in DTLS packet processing
           - fix CVE-2014-3506 - avoid memory exhaustion in DTLS
@@ -38,26 +37,27 @@
         <status_change date="2015-02-23T04:00:56.701-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Oracle Linux 6 release section">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126663"/>
-        <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126095"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126863"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126808"/>
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126663" />
+        <criterion comment="openssl-devel is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126095" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126863" />
+        <criterion comment="openssl-static is earlier than 0:1.0.1e-16.el6_5.15" test_ref="oval:org.mitre.oval:tst:126808" />
       </criteria>
     </criteria>
     <criteria comment="Oracle Linux 7 release section">
-      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126860"/>
-        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126520"/>
-        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126921"/>
-        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126858"/>
-        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126776"/>
+      <extend_definition comment="Oracle Linux 7.x" definition_ref="oval:org.mitre.oval:def:25183" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="openssl is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126860" />
+        <criterion comment="openssl-devel is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126520" />
+        <criterion comment="openssl-libs is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126921" />
+        <criterion comment="openssl-perl is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126858" />
+        <criterion comment="openssl-static is earlier than 1:1.0.1e-34.el7_0.4" test_ref="oval:org.mitre.oval:tst:126776" />
       </criteria>
     </criteria>
   </criteria>

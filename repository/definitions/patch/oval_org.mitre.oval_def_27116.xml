@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27116" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27116" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1089 -- thunderbird security update (critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1089.html" ref_id="ELSA-2012-1089"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1948" ref_id="CVE-2012-1948"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1951" ref_id="CVE-2012-1951"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1952" ref_id="CVE-2012-1952"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1953" ref_id="CVE-2012-1953"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1954" ref_id="CVE-2012-1954"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1955" ref_id="CVE-2012-1955"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1957" ref_id="CVE-2012-1957"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1958" ref_id="CVE-2012-1958"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1959" ref_id="CVE-2012-1959"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1961" ref_id="CVE-2012-1961"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1962" ref_id="CVE-2012-1962"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1963" ref_id="CVE-2012-1963"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1964" ref_id="CVE-2012-1964"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1967" ref_id="CVE-2012-1967"/>
+    <reference ref_id="ELSA-2012-1089" ref_url="http://linux.oracle.com/errata/ELSA-2012-1089.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-1948" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1948" source="CVE" />
+    <reference ref_id="CVE-2012-1951" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1951" source="CVE" />
+    <reference ref_id="CVE-2012-1952" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1952" source="CVE" />
+    <reference ref_id="CVE-2012-1953" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1953" source="CVE" />
+    <reference ref_id="CVE-2012-1954" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1954" source="CVE" />
+    <reference ref_id="CVE-2012-1955" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1955" source="CVE" />
+    <reference ref_id="CVE-2012-1957" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1957" source="CVE" />
+    <reference ref_id="CVE-2012-1958" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1958" source="CVE" />
+    <reference ref_id="CVE-2012-1959" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1959" source="CVE" />
+    <reference ref_id="CVE-2012-1961" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1961" source="CVE" />
+    <reference ref_id="CVE-2012-1962" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1962" source="CVE" />
+    <reference ref_id="CVE-2012-1963" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1963" source="CVE" />
+    <reference ref_id="CVE-2012-1964" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1964" source="CVE" />
+    <reference ref_id="CVE-2012-1967" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1967" source="CVE" />
     <description>[10.0.6-1.0.1.el6_3]
 - Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js
 - Replace clean.gif in tarball
@@ -41,10 +40,11 @@
         <status_change date="2015-02-10T13:47:55.636-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criterion comment="thunderbird is earlier than 0:10.0.6-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131387"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criterion comment="thunderbird is earlier than 0:10.0.6-1.0.1.el6_3" test_ref="oval:org.mitre.oval:tst:131387" />
   </criteria>
 </definition>

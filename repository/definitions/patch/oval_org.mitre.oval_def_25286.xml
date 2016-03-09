@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:25286" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:25286" version="5">
   <metadata>
     <title>SUSE-SU-2014:0541-1 -- Security update for OpenSSL</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>SUSE Linux Enterprise Desktop 11</platform>
       <product>OpenSSL</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140541-1.html" ref_id="SUSE-SU-2014:0541-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0076" ref_id="CVE-2014-0076"/>
+    <reference ref_id="SUSE-SU-2014:0541-1" ref_url="https://www.suse.com/support/update/announcement/2014/suse-su-20140541-1.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-0076" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0076" source="CVE" />
     <description>OpenSSL has been updated to fix an attack on ECDSA Nonces.
 
 Using the FLUSH+RELOAD Cache Side-channel Attack the Nonces
@@ -23,7 +22,7 @@ Security Issue reference:
 
     * CVE-2014-0076
 &lt;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0076
-></description>
+&gt;</description>
     <oval_repository>
       <dates>
         <submitted date="2014-07-15T17:14:46">
@@ -34,26 +33,27 @@ Security Issue reference:
         <status_change date="2014-09-08T04:01:34.987-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="SUSE Linux Enterprise Server 11 and SUSE Linux Enterprise Desktop 11 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+        <extend_definition comment="SUSE Linux Enterprise Desktop 11.x is installed" definition_ref="oval:org.mitre.oval:def:25140" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libopenssl0_9_8 RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117147"/>
-        <criterion comment="openssl RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117278"/>
-        <criterion comment="libopenssl0_9_8-32bit RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:116929"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libopenssl0_9_8 RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117147" />
+        <criterion comment="openssl RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117278" />
+        <criterion comment="libopenssl0_9_8-32bit RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:116929" />
       </criteria>
     </criteria>
     <criteria comment="SUSE Linux Enterprise Server 11 release section">
-      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libopenssl0_9_8-hmac RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117261"/>
-        <criterion comment="openssl-doc RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:116878"/>
-        <criterion comment="libopenssl0_9_8-hmac-32bit RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117253"/>
+      <extend_definition comment="SUSE Linux Enterprise Server 11.x is installed" definition_ref="oval:org.mitre.oval:def:17270" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libopenssl0_9_8-hmac RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117261" />
+        <criterion comment="openssl-doc RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:116878" />
+        <criterion comment="libopenssl0_9_8-hmac-32bit RPM is earlier than 0:0.9.8j-0.54.1" test_ref="oval:org.mitre.oval:tst:117253" />
       </criteria>
     </criteria>
   </criteria>

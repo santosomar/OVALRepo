@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18119" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18119" version="8">
   <metadata>
     <title>USN-1739-1 -- linux vulnerability</title>
     <affected family="unix">
       <platform>Ubuntu 11.10</platform>
       <product>linux</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1739-1/" ref_id="USN-1739-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0871" ref_id="CVE-2013-0871"/>
+    <reference ref_id="USN-1739-1" ref_url="http://www.ubuntu.com/usn/usn-1739-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-0871" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0871" source="CVE" />
     <description>The system could be made to run programs as an administrator.</description>
     <oval_repository>
       <dates>
@@ -29,19 +28,20 @@
         <status_change date="2014-07-21T04:00:40.242-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="linux-image-3.0.0-31-generic DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85574"/>
-      <criterion comment="linux-image-3.0.0-31-generic-pae DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85031"/>
-      <criterion comment="linux-image-3.0.0-31-omap DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85586"/>
-      <criterion comment="linux-image-3.0.0-31-powerpc DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85480"/>
-      <criterion comment="linux-image-3.0.0-31-powerpc-smp DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85087"/>
-      <criterion comment="linux-image-3.0.0-31-powerpc64-smp DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85634"/>
-      <criterion comment="linux-image-3.0.0-31-server DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85602"/>
-      <criterion comment="linux-image-3.0.0-31-virtual DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85644"/>
+    <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="linux-image-3.0.0-31-generic DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85574" />
+      <criterion comment="linux-image-3.0.0-31-generic-pae DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85031" />
+      <criterion comment="linux-image-3.0.0-31-omap DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85586" />
+      <criterion comment="linux-image-3.0.0-31-powerpc DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85480" />
+      <criterion comment="linux-image-3.0.0-31-powerpc-smp DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85087" />
+      <criterion comment="linux-image-3.0.0-31-powerpc64-smp DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85634" />
+      <criterion comment="linux-image-3.0.0-31-server DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85602" />
+      <criterion comment="linux-image-3.0.0-31-virtual DPKG is earlier than 3.0.0-31.49" test_ref="oval:org.mitre.oval:tst:85644" />
     </criteria>
   </criteria>
 </definition>

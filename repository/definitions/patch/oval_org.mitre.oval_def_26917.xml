@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:26917" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:26917" version="7">
   <metadata>
     <title>RHSA-2014:1389: krb5 security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,15 +6,15 @@
       <platform>CentOS Linux 6</platform>
       <product>krb5</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1389-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1389.html"/>
-    <reference source="CVE" ref_id="CVE-2013-1418" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1418.html"/>
-    <reference source="CVE" ref_id="CVE-2013-6800" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6800.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4341" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4341.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4342" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4342.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4343" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4343.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4344" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4344.html"/>
-    <reference source="CVE" ref_id="CVE-2014-4345" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4345.html"/>
-    <reference source="CESA-2014:1389" ref_id="CESA-2014:1389" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001224.html"/>
+    <reference ref_id="RHSA-2014:1389-01" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1389.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1418" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-1418.html" source="CVE" />
+    <reference ref_id="CVE-2013-6800" ref_url="https://www.redhat.com/security/data/cve/CVE-2013-6800.html" source="CVE" />
+    <reference ref_id="CVE-2014-4341" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4341.html" source="CVE" />
+    <reference ref_id="CVE-2014-4342" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4342.html" source="CVE" />
+    <reference ref_id="CVE-2014-4343" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4343.html" source="CVE" />
+    <reference ref_id="CVE-2014-4344" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4344.html" source="CVE" />
+    <reference ref_id="CVE-2014-4345" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-4345.html" source="CVE" />
+    <reference ref_id="CESA-2014:1389" ref_url="http://lists.centos.org/pipermail/centos-cr-announce/2014-October/001224.html" source="CESA-2014:1389" />
     <description>Kerberos is a networked authentication system which allows clients and
 servers to authenticate to each other with the help of a trusted third
 party, the Kerberos KDC.
@@ -68,25 +67,26 @@ contain backported patches to correct these issues.</description>
         <status_change date="2015-04-13T04:00:12.956-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 6 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <criterion comment="krb5-debuginfo is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:138261"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <criterion comment="krb5-debuginfo is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:138261" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 6 and CentOS Linux 6 release section">
-      <criteria operator="OR" comment="Operation system section">
-        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+      <criteria comment="Operation system section" operator="OR">
+        <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+        <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
       </criteria>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="krb5-devel is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124879"/>
-        <criterion comment="krb5-libs is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124306"/>
-        <criterion comment="krb5-pkinit-openssl is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124907"/>
-        <criterion comment="krb5-server is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124936"/>
-        <criterion comment="krb5-server-ldap is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124840"/>
-        <criterion comment="krb5-workstation is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125280"/>
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="krb5-devel is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124879" />
+        <criterion comment="krb5-libs is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124306" />
+        <criterion comment="krb5-pkinit-openssl is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124907" />
+        <criterion comment="krb5-server is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124936" />
+        <criterion comment="krb5-server-ldap is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:124840" />
+        <criterion comment="krb5-workstation is earlier than 0:1.10.3-33.el6" test_ref="oval:org.mitre.oval:tst:125280" />
       </criteria>
     </criteria>
   </criteria>

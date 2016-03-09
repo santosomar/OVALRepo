@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28050" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:28050" version="4">
   <metadata>
     <title>ELSA-2014-1885 -- libxml2 security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2014-1885.html" ref_id="ELSA-2014-1885"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3660" ref_id="CVE-2014-3660"/>
+    <reference ref_id="ELSA-2014-1885" ref_url="http://linux.oracle.com/errata/ELSA-2014-1885.html" source="VENDOR" />
+    <reference ref_id="CVE-2014-3660" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3660" source="CVE" />
     <description>[2.6.26-2.1.25.0.1.el5_11]
 - Add libxml2-enterprise.patch
 - Replaced doc/redhat.gif in tarball with updated image
@@ -35,14 +34,15 @@
         <status_change date="2015-01-26T04:00:23.661-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135349"/>
-      <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135973"/>
-      <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135997"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libxml2 is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135349" />
+      <criterion comment="libxml2-devel is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135973" />
+      <criterion comment="libxml2-python is earlier than 0:2.6.26-2.1.25.0.1.el5_11" test_ref="oval:org.mitre.oval:tst:135997" />
     </criteria>
   </criteria>
 </definition>

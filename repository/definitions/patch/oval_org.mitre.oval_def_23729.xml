@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23729" version="13" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23729" version="17">
   <metadata>
     <title>ELSA-2012:0426: openssl security and bug fix update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Oracle Linux 6</platform>
       <product>openssl</product>
     </affected>
-    <reference ref_id="ELSA-2012:0426-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0426.html" source="VENDOR"/>
-    <reference ref_id="CVE-2012-0884" ref_url="http://linux.oracle.com/cve/CVE-2012-0884.html" source="CVE"/>
-    <reference ref_id="CVE-2012-1165" ref_url="http://linux.oracle.com/cve/CVE-2012-1165.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0426-02" ref_url="http://linux.oracle.com/errata/ELSA-2012-0426.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-0884" ref_url="http://linux.oracle.com/cve/CVE-2012-0884.html" source="CVE" />
+    <reference ref_id="CVE-2012-1165" ref_url="http://linux.oracle.com/cve/CVE-2012-1165.html" source="CVE" />
     <description>The mime_param_cmp function in crypto/asn1/asn_mime.c in OpenSSL before 0.9.8u and 1.x before 1.0.0h allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted S/MIME message, a different vulnerability than CVE-2006-7250.</description>
     <oval_repository>
       <dates>
@@ -26,24 +25,25 @@
         <status_change date="2014-05-26T04:05:17.114-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="openssl-devel is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109748"/>
-        <criterion comment="openssl-perl is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109588"/>
-        <criterion comment="openssl is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109759"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="openssl-devel is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109748" />
+        <criterion comment="openssl-perl is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109588" />
+        <criterion comment="openssl is earlier than 0:0.9.8e-22.el5_8.1" test_ref="oval:org.mitre.oval:tst:109759" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-      <criteria operator="OR" comment="rpm test">
-        <criterion comment="openssl-devel is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109723"/>
-        <criterion comment="openssl-static is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109838"/>
-        <criterion comment="openssl-perl is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:110081"/>
-        <criterion comment="openssl is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109985"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+      <criteria comment="rpm test" operator="OR">
+        <criterion comment="openssl-devel is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109723" />
+        <criterion comment="openssl-static is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109838" />
+        <criterion comment="openssl-perl is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:110081" />
+        <criterion comment="openssl is earlier than 0:1.0.0-20.el6_2.3" test_ref="oval:org.mitre.oval:tst:109985" />
       </criteria>
     </criteria>
   </criteria>

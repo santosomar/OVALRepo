@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27691" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27691" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2012-1327 -- freeradius2 security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>freeradius2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2012-1327.html" ref_id="ELSA-2012-1327"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3547" ref_id="CVE-2012-3547"/>
+    <reference ref_id="ELSA-2012-1327" ref_url="http://linux.oracle.com/errata/ELSA-2012-1327.html" source="VENDOR" />
+    <reference ref_id="CVE-2012-3547" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3547" source="CVE" />
     <description>[2.1.12-4]
 - resolves: bug#855315
   CVE-2012-3547 freeradius: Stack-based buffer overflow by processing
@@ -27,20 +26,21 @@
         <status_change date="2015-02-10T17:53:03.875-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="freeradius2 is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131163"/>
-      <criterion comment="freeradius2-krb5 is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131080"/>
-      <criterion comment="freeradius2-ldap is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130932"/>
-      <criterion comment="freeradius2-mysql is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130879"/>
-      <criterion comment="freeradius2-perl is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130539"/>
-      <criterion comment="freeradius2-postgresql is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131097"/>
-      <criterion comment="freeradius2-python is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131179"/>
-      <criterion comment="freeradius2-unixODBC is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130571"/>
-      <criterion comment="freeradius2-utils is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131184"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="freeradius2 is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131163" />
+      <criterion comment="freeradius2-krb5 is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131080" />
+      <criterion comment="freeradius2-ldap is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130932" />
+      <criterion comment="freeradius2-mysql is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130879" />
+      <criterion comment="freeradius2-perl is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130539" />
+      <criterion comment="freeradius2-postgresql is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131097" />
+      <criterion comment="freeradius2-python is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131179" />
+      <criterion comment="freeradius2-unixODBC is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:130571" />
+      <criterion comment="freeradius2-utils is earlier than 0:2.1.12-4.el5_8" test_ref="oval:org.mitre.oval:tst:131184" />
     </criteria>
   </criteria>
 </definition>

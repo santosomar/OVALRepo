@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23664" version="29" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23664" version="31">
   <metadata>
     <title>ELSA-2011:1333: flash-plugin security update (Critical)</title>
     <affected family="unix">
@@ -7,13 +6,13 @@
       <platform>Oracle Linux 6</platform>
       <product>flash-plugin</product>
     </affected>
-    <reference ref_id="ELSA-2011:1333-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1333.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-2426" ref_url="http://linux.oracle.com/cve/CVE-2011-2426.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2427" ref_url="http://linux.oracle.com/cve/CVE-2011-2427.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2428" ref_url="http://linux.oracle.com/cve/CVE-2011-2428.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2429" ref_url="http://linux.oracle.com/cve/CVE-2011-2429.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2430" ref_url="http://linux.oracle.com/cve/CVE-2011-2430.html" source="CVE"/>
-    <reference ref_id="CVE-2011-2444" ref_url="http://linux.oracle.com/cve/CVE-2011-2444.html" source="CVE"/>
+    <reference ref_id="ELSA-2011:1333-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1333.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2426" ref_url="http://linux.oracle.com/cve/CVE-2011-2426.html" source="CVE" />
+    <reference ref_id="CVE-2011-2427" ref_url="http://linux.oracle.com/cve/CVE-2011-2427.html" source="CVE" />
+    <reference ref_id="CVE-2011-2428" ref_url="http://linux.oracle.com/cve/CVE-2011-2428.html" source="CVE" />
+    <reference ref_id="CVE-2011-2429" ref_url="http://linux.oracle.com/cve/CVE-2011-2429.html" source="CVE" />
+    <reference ref_id="CVE-2011-2430" ref_url="http://linux.oracle.com/cve/CVE-2011-2430.html" source="CVE" />
+    <reference ref_id="CVE-2011-2444" ref_url="http://linux.oracle.com/cve/CVE-2011-2444.html" source="CVE" />
     <description>Cross-site scripting (XSS) vulnerability in Adobe Flash Player before 10.3.183.10 on Windows, Mac OS X, Linux, and Solaris, and before 10.3.186.7 on Android, allows remote attackers to inject arbitrary web script or HTML via a crafted URL, related to a "universal cross-site scripting issue," as exploited in the wild in September 2011.</description>
     <oval_repository>
       <dates>
@@ -30,16 +29,17 @@
         <status_change date="2014-05-26T04:05:08.039-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="flash-plugin is earlier than 0:10.3.183.10-1.el5" test_ref="oval:org.mitre.oval:tst:109320"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="flash-plugin is earlier than 0:10.3.183.10-1.el5" test_ref="oval:org.mitre.oval:tst:109320" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="flash-plugin is earlier than 0:10.3.183.10-1.el6" test_ref="oval:org.mitre.oval:tst:109313"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="flash-plugin is earlier than 0:10.3.183.10-1.el6" test_ref="oval:org.mitre.oval:tst:109313" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18259" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18259" version="8">
   <metadata>
     <title>USN-1801-1 -- curl vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>curl</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1801-1/" ref_id="USN-1801-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1944" ref_id="CVE-2013-1944"/>
+    <reference ref_id="USN-1801-1" ref_url="http://www.ubuntu.com/usn/usn-1801-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-1944" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1944" source="CVE" />
     <description>Applications using libcurl could be made to expose sensitive information over the network.</description>
     <oval_repository>
       <dates>
@@ -33,42 +32,43 @@
         <status_change date="2014-06-30T04:08:29.268-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="curl DPKG is earlier than 7.27.0-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85870"/>
-        <criterion comment="libcurl3 DPKG is earlier than 7.27.0-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85245"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="curl DPKG is earlier than 7.27.0-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85870" />
+        <criterion comment="libcurl3 DPKG is earlier than 7.27.0-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85245" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="curl DPKG is earlier than 7.22.0-3ubuntu4.1" test_ref="oval:org.mitre.oval:tst:85320"/>
-        <criterion comment="libcurl3 DPKG is earlier than 7.22.0-3ubuntu4.1" test_ref="oval:org.mitre.oval:tst:85808"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="curl DPKG is earlier than 7.22.0-3ubuntu4.1" test_ref="oval:org.mitre.oval:tst:85320" />
+        <criterion comment="libcurl3 DPKG is earlier than 7.22.0-3ubuntu4.1" test_ref="oval:org.mitre.oval:tst:85808" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="curl DPKG is earlier than 7.21.6-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:85659"/>
-        <criterion comment="libcurl3 DPKG is earlier than 7.21.6-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:85670"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="curl DPKG is earlier than 7.21.6-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:85659" />
+        <criterion comment="libcurl3 DPKG is earlier than 7.21.6-3ubuntu3.3" test_ref="oval:org.mitre.oval:tst:85670" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="curl DPKG is earlier than 7.19.7-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85632"/>
-        <criterion comment="libcurl3 DPKG is earlier than 7.19.7-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85530"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="curl DPKG is earlier than 7.19.7-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85632" />
+        <criterion comment="libcurl3 DPKG is earlier than 7.19.7-1ubuntu1.2" test_ref="oval:org.mitre.oval:tst:85530" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="curl DPKG is earlier than 7.18.0-1ubuntu2.4" test_ref="oval:org.mitre.oval:tst:85731"/>
-        <criterion comment="libcurl3 DPKG is earlier than 7.18.0-1ubuntu2.4" test_ref="oval:org.mitre.oval:tst:85715"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="curl DPKG is earlier than 7.18.0-1ubuntu2.4" test_ref="oval:org.mitre.oval:tst:85731" />
+        <criterion comment="libcurl3 DPKG is earlier than 7.18.0-1ubuntu2.4" test_ref="oval:org.mitre.oval:tst:85715" />
       </criteria>
     </criteria>
   </criteria>

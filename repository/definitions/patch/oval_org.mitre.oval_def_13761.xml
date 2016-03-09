@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13761" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13761" version="8">
   <metadata>
     <title>DSA-1740-1 yaws -- denial of service</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>yaws</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00050.html" ref_id="DSA-1740-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0751" ref_id="CVE-2009-0751"/>
+    <reference ref_id="DSA-1740-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00050.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-0751" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0751" source="CVE" />
     <description>It was discovered that yaws, a high performance HTTP 1.1 webserver, is prone to a denial of service attack via a request with a large HTTP header. For the stable distribution, this problem has been fixed in version 1.77-3+lenny1. For the oldstable distribution, this problem has been fixed in version 1.65-4etch1. For the testing distribution and the unstable distribution, this problem has been fixed in version 1.80-1. We recommend that you upgrade your yaws package.</description>
     <oval_repository>
       <dates>
@@ -25,55 +24,56 @@
         <status_change date="2014-06-23T04:03:03.710-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture independent section">
-          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="yaws-wiki DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51905"/>
-            <criterion comment="yaws-mail DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51795"/>
-            <criterion comment="yaws-chat DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51787"/>
-            <criterion comment="yaws-yapp DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51638"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture independent section" operator="AND">
+          <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="yaws-wiki DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51905" />
+            <criterion comment="yaws-mail DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51795" />
+            <criterion comment="yaws-chat DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51787" />
+            <criterion comment="yaws-yapp DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51638" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+            <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criterion comment="yaws DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51717"/>
+          <criterion comment="yaws DPKG is earlier than 1.77-3+lenny1" test_ref="oval:org.mitre.oval:tst:51717" />
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
       </criteria>
-      <criterion comment="yaws DPKG is earlier than 1.65-4etch1" test_ref="oval:org.mitre.oval:tst:51734"/>
+      <criterion comment="yaws DPKG is earlier than 1.65-4etch1" test_ref="oval:org.mitre.oval:tst:51734" />
     </criteria>
   </criteria>
 </definition>

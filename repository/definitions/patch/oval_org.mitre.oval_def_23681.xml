@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23681" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23681" version="9">
   <metadata>
     <title>ELSA-2013:0199: libvirt security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libvirt</product>
     </affected>
-    <reference ref_id="ELSA-2013:0199-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0199.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-0170" ref_url="http://linux.oracle.com/cve/CVE-2013-0170.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0199-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0199.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-0170" ref_url="http://linux.oracle.com/cve/CVE-2013-0170.html" source="CVE" />
     <description>Use-after-free vulnerability in the virNetMessageFree function in rpc/virnetserverclient.c in libvirt 1.0.x before 1.0.2, 0.10.2 before 0.10.2.3, 0.9.11 before 0.9.11.9, and 0.9.6 before 0.9.6.4 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code by triggering certain errors during an RPC connection, which causes a message to be freed without being removed from the message queue.</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-05-26T04:05:10.480-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libvirt-devel is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111132"/>
-      <criterion comment="libvirt-python is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111363"/>
-      <criterion comment="libvirt-client is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111214"/>
-      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:110923"/>
-      <criterion comment="libvirt is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111296"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libvirt-devel is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111132" />
+      <criterion comment="libvirt-python is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111363" />
+      <criterion comment="libvirt-client is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111214" />
+      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:110923" />
+      <criterion comment="libvirt is earlier than 0:0.9.10-21.el6_3.8" test_ref="oval:org.mitre.oval:tst:111296" />
     </criteria>
   </criteria>
 </definition>

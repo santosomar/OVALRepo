@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8084" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8084" version="6">
   <metadata>
     <title>DSA-1647 php5 -- several vulnerabilities</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>php5</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2008/dsa-1647" ref_id="DSA-1647"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3658" ref_id="CVE-2008-3658"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3659" ref_id="CVE-2008-3659"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3660" ref_id="CVE-2008-3660"/>
+    <reference ref_id="DSA-1647" ref_url="http://www.debian.org/security/2008/dsa-1647" source="VENDOR" />
+    <reference ref_id="CVE-2008-3658" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3658" source="CVE" />
+    <reference ref_id="CVE-2008-3659" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3659" source="CVE" />
+    <reference ref_id="CVE-2008-3660" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3660" source="CVE" />
     <description>Several vulnerabilities have been discovered in PHP, a server-side, HTML-embedded scripting language. The Common Vulnerabilities and Exposures project identifies the following problems: Buffer overflow in the imageloadfont function allows a denial of service or code execution through a crafted font file. Buffer overflow in the memnstr function allows a denial of service or code execution via a crafted delimiter parameter to the explode function. Denial of service is possible in the FastCGI module by a remote attacker by making a request with multiple dots before the extension.</description>
     <oval_repository>
       <dates>
@@ -26,47 +25,48 @@
         <status_change date="2014-06-23T04:09:59.941-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criteria operator="OR" comment="Architecture section">
-      <criteria operator="AND" comment="Architecture independent section">
-        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
-        <criteria operator="OR" comment="Packages section">
-          <criterion comment="php-pear is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17131"/>
-          <criterion comment="php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16833"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criteria comment="Architecture section" operator="OR">
+      <criteria comment="Architecture independent section" operator="AND">
+        <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881" />
+        <criteria comment="Packages section" operator="OR">
+          <criterion comment="php-pear is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17131" />
+          <criterion comment="php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16833" />
         </criteria>
       </criteria>
-      <criterion comment="libapache-mod-php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17571"/>
-      <criterion comment="php5-recode is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17429"/>
-      <criterion comment="php5-xmlrpc is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17338"/>
-      <criterion comment="php5-curl is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16717"/>
-      <criterion comment="php5-snmp is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17681"/>
-      <criterion comment="php5-mysql is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17003"/>
-      <criterion comment="php5-odbc is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16720"/>
-      <criterion comment="php5-xsl is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17388"/>
-      <criterion comment="php5-gd is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16965"/>
-      <criterion comment="libapache2-mod-php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17707"/>
-      <criterion comment="php5-mhash is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16895"/>
-      <criterion comment="php5-tidy is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17680"/>
-      <criterion comment="php5-mcrypt is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17286"/>
-      <criterion comment="php5-dev is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17706"/>
-      <criterion comment="php5-pgsql is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17632"/>
-      <criterion comment="php5-cgi is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17323"/>
-      <criterion comment="php5-imap is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17698"/>
-      <criterion comment="php5-sqlite is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17649"/>
-      <criterion comment="php5-ldap is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17699"/>
-      <criterion comment="php5-cli is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17295"/>
-      <criterion comment="php5-sybase is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17652"/>
-      <criterion comment="php5-pspell is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17703"/>
-      <criterion comment="php5-common is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17312"/>
-      <criteria operator="AND" comment="Architecture dependent section">
-        <criteria operator="OR" comment="Supported architectures section">
-          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
+      <criterion comment="libapache-mod-php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17571" />
+      <criterion comment="php5-recode is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17429" />
+      <criterion comment="php5-xmlrpc is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17338" />
+      <criterion comment="php5-curl is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16717" />
+      <criterion comment="php5-snmp is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17681" />
+      <criterion comment="php5-mysql is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17003" />
+      <criterion comment="php5-odbc is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16720" />
+      <criterion comment="php5-xsl is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17388" />
+      <criterion comment="php5-gd is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16965" />
+      <criterion comment="libapache2-mod-php5 is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17707" />
+      <criterion comment="php5-mhash is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:16895" />
+      <criterion comment="php5-tidy is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17680" />
+      <criterion comment="php5-mcrypt is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17286" />
+      <criterion comment="php5-dev is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17706" />
+      <criterion comment="php5-pgsql is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17632" />
+      <criterion comment="php5-cgi is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17323" />
+      <criterion comment="php5-imap is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17698" />
+      <criterion comment="php5-sqlite is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17649" />
+      <criterion comment="php5-ldap is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17699" />
+      <criterion comment="php5-cli is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17295" />
+      <criterion comment="php5-sybase is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17652" />
+      <criterion comment="php5-pspell is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17703" />
+      <criterion comment="php5-common is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17312" />
+      <criteria comment="Architecture dependent section" operator="AND">
+        <criteria comment="Supported architectures section" operator="OR">
+          <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+          <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
         </criteria>
-        <criterion comment="php5-interbase is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17615"/>
+        <criterion comment="php5-interbase is earlier than 5.2.0-8+etch13" test_ref="oval:org.mitre.oval:tst:17615" />
       </criteria>
     </criteria>
   </criteria>

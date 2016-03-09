@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:24790" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:24790" version="4">
   <metadata>
     <title>RHSA-2014:0747: python-jinja2 security update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>python-jinja2</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:0747-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0747.html"/>
-    <reference source="CESA" ref_id="CESA-2014:0747"/>
-    <reference source="CVE" ref_id="CVE-2014-1402" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1402.html"/>
+    <reference ref_id="RHSA-2014:0747-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-0747.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:0747" source="CESA" />
+    <reference ref_id="CVE-2014-1402" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1402.html" source="CVE" />
     <description>Jinja2 is a template engine written in pure Python. It provides a
 Django-inspired, non-XML syntax but supports inline expressions and an
 optional sandboxed environment.
@@ -33,13 +32,14 @@ take effect, all applications using python-jinja2 must be restarted.</descriptio
         <status_change date="2014-08-18T04:02:47.607-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="python-jinja2 is earlier than 0:2.2.1-2.el6_5" test_ref="oval:org.mitre.oval:tst:115390"/>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criterion comment="python-jinja2 is earlier than 0:2.2.1-2.el6_5" test_ref="oval:org.mitre.oval:tst:115390" />
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
   </criteria>
 </definition>

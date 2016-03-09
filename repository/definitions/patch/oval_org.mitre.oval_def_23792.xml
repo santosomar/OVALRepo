@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23792" version="21" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23792" version="23">
   <metadata>
     <title>ELSA-2012:0080: thunderbird security update (Critical)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference ref_id="ELSA-2012:0080-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0080.html" source="VENDOR"/>
-    <reference ref_id="CVE-2011-3659" ref_url="http://linux.oracle.com/cve/CVE-2011-3659.html" source="CVE"/>
-    <reference ref_id="CVE-2011-3670" ref_url="http://linux.oracle.com/cve/CVE-2011-3670.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0442" ref_url="http://linux.oracle.com/cve/CVE-2012-0442.html" source="CVE"/>
-    <reference ref_id="CVE-2012-0449" ref_url="http://linux.oracle.com/cve/CVE-2012-0449.html" source="CVE"/>
+    <reference ref_id="ELSA-2012:0080-01" ref_url="http://linux.oracle.com/errata/ELSA-2012-0080.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3659" ref_url="http://linux.oracle.com/cve/CVE-2011-3659.html" source="CVE" />
+    <reference ref_id="CVE-2011-3670" ref_url="http://linux.oracle.com/cve/CVE-2011-3670.html" source="CVE" />
+    <reference ref_id="CVE-2012-0442" ref_url="http://linux.oracle.com/cve/CVE-2012-0442.html" source="CVE" />
+    <reference ref_id="CVE-2012-0449" ref_url="http://linux.oracle.com/cve/CVE-2012-0449.html" source="CVE" />
     <description>Mozilla Firefox before 3.6.26 and 4.x through 9.0, Thunderbird before 3.1.18 and 5.0 through 9.0, and SeaMonkey before 2.7 allow remote attackers to cause a denial of service (memory corruption and application crash) or possibly execute arbitrary code via a malformed XSLT stylesheet that is embedded in a document.</description>
     <oval_repository>
       <dates>
@@ -27,10 +26,11 @@
         <status_change date="2014-05-26T04:05:28.229-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="thunderbird is earlier than 0:3.1.18-1.el6_2" test_ref="oval:org.mitre.oval:tst:109556"/>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criterion comment="thunderbird is earlier than 0:3.1.18-1.el6_2" test_ref="oval:org.mitre.oval:tst:109556" />
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:20906" version="4" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:20906" version="5">
   <metadata>
     <title>RHSA-2012:1284: spice-gtk security update (Moderate)</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>CentOS Linux 6</platform>
       <product>spice-gtk</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2012:1284-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1284.html"/>
-    <reference source="CESA" ref_id="CESA-2012:1284"/>
-    <reference source="CVE" ref_id="CVE-2012-4425" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4425.html"/>
+    <reference ref_id="RHSA-2012:1284-01" ref_url="https://rhn.redhat.com/errata/RHSA-2012-1284.html" source="VENDOR" />
+    <reference ref_id="CESA-2012:1284" source="CESA" />
+    <reference ref_id="CVE-2012-4425" ref_url="https://www.redhat.com/security/data/cve/CVE-2012-4425.html" source="CVE" />
     <description>libgio, when used in setuid or other privileged programs in spice-gtk and possibly other products, allows local users to gain privileges and execute arbitrary code via the DBUS_SYSTEM_BUS_ADDRESS environment variable.  NOTE: it could be argued that this is a vulnerability in the applications that do not cleanse environment variables, not in libgio itself.</description>
     <oval_repository>
       <dates>
@@ -21,20 +20,21 @@
         <status_change date="2014-02-24T04:00:37.289-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criteria operator="OR" comment="Redhat 6 or Centos 6 release">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337"/>
+    <criteria comment="Redhat 6 or Centos 6 release" operator="OR">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 6.x" definition_ref="oval:org.mitre.oval:def:16337" />
     </criteria>
-    <criteria operator="OR" comment="Packages section">
-      <criterion comment="spice-gtk-tools is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:93845"/>
-      <criterion comment="spice-glib-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94703"/>
-      <criterion comment="spice-glib is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:93981"/>
-      <criterion comment="spice-gtk-python is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94563"/>
-      <criterion comment="spice-gtk is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94595"/>
-      <criterion comment="spice-gtk-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94649"/>
+    <criteria comment="Packages section" operator="OR">
+      <criterion comment="spice-gtk-tools is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:93845" />
+      <criterion comment="spice-glib-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94703" />
+      <criterion comment="spice-glib is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:93981" />
+      <criterion comment="spice-gtk-python is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94563" />
+      <criterion comment="spice-gtk is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94595" />
+      <criterion comment="spice-gtk-devel is earlier than 0:0.11-11.el6_3.1" test_ref="oval:org.mitre.oval:tst:94649" />
     </criteria>
   </criteria>
 </definition>

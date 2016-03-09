@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:16999" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:16999" version="8">
   <metadata>
     <title>USN-1470-1 -- linux-lts-backport-natty vulnerabilities</title>
     <affected family="unix">
       <platform>Ubuntu 10.04</platform>
       <product>linux-lts-backport-natty</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1470-1/" ref_id="USN-1470-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4131" ref_id="CVE-2011-4131"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1601" ref_id="CVE-2012-1601"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2121" ref_id="CVE-2012-2121"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2123" ref_id="CVE-2012-2123"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2133" ref_id="CVE-2012-2133"/>
+    <reference ref_id="USN-1470-1" ref_url="http://www.ubuntu.com/usn/usn-1470-1/" source="VENDOR" />
+    <reference ref_id="CVE-2011-4131" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4131" source="CVE" />
+    <reference ref_id="CVE-2012-1601" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1601" source="CVE" />
+    <reference ref_id="CVE-2012-2121" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2121" source="CVE" />
+    <reference ref_id="CVE-2012-2123" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2123" source="CVE" />
+    <reference ref_id="CVE-2012-2133" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2133" source="CVE" />
     <description>Several security issues were fixed in the kernel.</description>
     <oval_repository>
       <dates>
@@ -33,15 +32,16 @@
         <status_change date="2014-06-30T04:06:08.129-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="linux-image-2.6.38-15-generic DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:83627"/>
-      <criterion comment="linux-image-2.6.38-15-generic-pae DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:84206"/>
-      <criterion comment="linux-image-2.6.38-15-server DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:84223"/>
-      <criterion comment="linux-image-2.6.38-15-virtual DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:83894"/>
+    <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="linux-image-2.6.38-15-generic DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:83627" />
+      <criterion comment="linux-image-2.6.38-15-generic-pae DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:84206" />
+      <criterion comment="linux-image-2.6.38-15-server DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:84223" />
+      <criterion comment="linux-image-2.6.38-15-virtual DPKG is earlier than 2.6.38-15.60~lucid1" test_ref="oval:org.mitre.oval:tst:83894" />
     </criteria>
   </criteria>
 </definition>

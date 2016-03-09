@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:13468" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:13468" version="8">
   <metadata>
     <title>DSA-1921-1 expat -- denial of service</title>
     <affected family="unix">
@@ -7,8 +6,8 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>expat</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00244.html" ref_id="DSA-1921-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2625" ref_id="CVE-2009-2625"/>
+    <reference ref_id="DSA-1921-1" ref_url="http://lists.debian.org/debian-security-announce/2009/msg00244.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-2625" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2625" source="CVE" />
     <description>Peter Valchev discovered an error in expat, an XML parsing C library, when parsing certain UTF-8 sequences, which can be exploited to crash an application using the library. For the old stable distribution, this problem has been fixed in version 1.95.8-3.4+etch1. For the stable distribution, this problem has been fixed in version 2.0.1-4+lenny1. For the testing distribution and the unstable distribution, this problem will be fixed soon. We recommend that you upgrade your expat packages.</description>
     <oval_repository>
       <dates>
@@ -25,51 +24,52 @@
         <status_change date="2014-06-23T04:02:18.998-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Architecture section">
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Architecture section" operator="OR">
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+            <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+            <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+            <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="lib64expat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52356"/>
-            <criterion comment="lib64expat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52041"/>
-            <criterion comment="xpat DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52264"/>
-            <criterion comment="libexpat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:51857"/>
-            <criterion comment="libexpat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52277"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="lib64expat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52356" />
+            <criterion comment="lib64expat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52041" />
+            <criterion comment="xpat DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52264" />
+            <criterion comment="libexpat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:51857" />
+            <criterion comment="libexpat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52277" />
           </criteria>
         </criteria>
-        <criteria operator="AND" comment="Architecture depended section">
-          <criteria operator="OR" comment="Supported architectures section">
-            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+        <criteria comment="Architecture depended section" operator="AND">
+          <criteria comment="Supported architectures section" operator="OR">
+            <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+            <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+            <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+            <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+            <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+            <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+            <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
           </criteria>
-          <criteria operator="OR" comment="Packages section">
-            <criterion comment="libexpat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52277"/>
-            <criterion comment="libexpat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:51857"/>
-            <criterion comment="xpat DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52264"/>
+          <criteria comment="Packages section" operator="OR">
+            <criterion comment="libexpat1 DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52277" />
+            <criterion comment="libexpat1-dev DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:51857" />
+            <criterion comment="xpat DPKG is earlier than 2.0.1-4+lenny1" test_ref="oval:org.mitre.oval:tst:52264" />
           </criteria>
         </criteria>
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="xpat DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:52260"/>
-        <criterion comment="libexpat1-dev DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:51621"/>
-        <criterion comment="libexpat1 DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:52223"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="xpat DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:52260" />
+        <criterion comment="libexpat1-dev DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:51621" />
+        <criterion comment="libexpat1 DPKG is earlier than 1.95.8-3.4+etch1" test_ref="oval:org.mitre.oval:tst:52223" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:17555" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:17555" version="8">
   <metadata>
     <title>USN-512-1 -- quagga vulnerability</title>
     <affected family="unix">
@@ -8,8 +7,8 @@
       <platform>Ubuntu 7.04</platform>
       <product>quagga</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-512-1/" ref_id="USN-512-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4826" ref_id="CVE-2007-4826"/>
+    <reference ref_id="USN-512-1" ref_url="http://www.ubuntu.com/usn/usn-512-1/" source="VENDOR" />
+    <reference ref_id="CVE-2007-4826" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4826" source="CVE" />
     <description>It was discovered that Quagga did not correctly verify OPEN messages or COMMUNITY attributes sent from configured peers.</description>
     <oval_repository>
       <dates>
@@ -31,20 +30,21 @@
         <status_change date="2014-06-30T04:06:51.561-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.2-1ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81982"/>
+      <extend_definition comment="Ubuntu 6.06 is installed" definition_ref="oval:org.mitre.oval:def:13319" />
+      <criterion comment="quagga DPKG is earlier than 0.99.2-1ubuntu3.3" test_ref="oval:org.mitre.oval:tst:81982" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.4-4ubuntu1.2" test_ref="oval:org.mitre.oval:tst:81516"/>
+      <extend_definition comment="Ubuntu 6.10 is installed" definition_ref="oval:org.mitre.oval:def:17043" />
+      <criterion comment="quagga DPKG is earlier than 0.99.4-4ubuntu1.2" test_ref="oval:org.mitre.oval:tst:81516" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290"/>
-      <criterion comment="quagga DPKG is earlier than 0.99.6-2ubuntu3.2" test_ref="oval:org.mitre.oval:tst:82036"/>
+      <extend_definition comment="Ubuntu 7.04 is installed" definition_ref="oval:org.mitre.oval:def:17290" />
+      <criterion comment="quagga DPKG is earlier than 0.99.6-2ubuntu3.2" test_ref="oval:org.mitre.oval:tst:82036" />
     </criteria>
   </criteria>
 </definition>

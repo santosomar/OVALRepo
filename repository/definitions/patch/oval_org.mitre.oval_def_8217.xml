@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8217" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8217" version="6">
   <metadata>
     <title>DSA-1772 udev -- several vulnerabilities</title>
     <affected family="unix">
@@ -7,9 +6,9 @@
       <platform>Debian GNU/Linux 4.0</platform>
       <product>udev</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1772" ref_id="DSA-1772"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1185" ref_id="CVE-2009-1185"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1186" ref_id="CVE-2009-1186"/>
+    <reference ref_id="DSA-1772" ref_url="http://www.debian.org/security/2009/dsa-1772" source="VENDOR" />
+    <reference ref_id="CVE-2009-1185" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1185" source="CVE" />
+    <reference ref_id="CVE-2009-1186" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1186" source="CVE" />
     <description>Sebastian Kramer discovered two vulnerabilities in udev, the /dev and hotplug management daemon. udev does not check the origin of NETLINK messages, allowing local users to gain root privileges. udev suffers from a buffer overflow condition in path encoding, potentially allowing arbitrary code execution.</description>
     <oval_repository>
       <dates>
@@ -26,37 +25,38 @@
         <status_change date="2014-06-23T04:10:23.280-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
-      <criteria operator="OR" comment="Supported architectures section">
-        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024"/>
-        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
-        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
-        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
-        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
-        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
-        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195"/>
-        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
-        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
-        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
-        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110"/>
-        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513" />
+      <criteria comment="Supported architectures section" operator="OR">
+        <criterion comment="Installed architecture is s390" test_ref="oval:org.mitre.oval:tst:11024" />
+        <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392" />
+        <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465" />
+        <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933" />
+        <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864" />
+        <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101" />
+        <criterion comment="Installed architecture is mips" test_ref="oval:org.mitre.oval:tst:11195" />
+        <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830" />
+        <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654" />
+        <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168" />
+        <criterion comment="Installed architecture is mipsel" test_ref="oval:org.mitre.oval:tst:11110" />
+        <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164" />
       </criteria>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libvolume-id-dev is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18836"/>
-        <criterion comment="libvolume-id0 is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18915"/>
-        <criterion comment="udev is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18875"/>
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libvolume-id-dev is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18836" />
+        <criterion comment="libvolume-id0 is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18915" />
+        <criterion comment="udev is earlier than 0.125-7+lenny1" test_ref="oval:org.mitre.oval:tst:18875" />
       </criteria>
     </criteria>
-    <criteria operator="AND" comment="Release section">
-      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-      <criteria operator="OR" comment="Packages section">
-        <criterion comment="libvolume-id-dev is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:18811"/>
-        <criterion comment="libvolume-id0 is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:19015"/>
-        <criterion comment="udev is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:18997"/>
+    <criteria comment="Release section" operator="AND">
+      <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+      <criteria comment="Packages section" operator="OR">
+        <criterion comment="libvolume-id-dev is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:18811" />
+        <criterion comment="libvolume-id0 is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:19015" />
+        <criterion comment="udev is earlier than 0.105-4etch1" test_ref="oval:org.mitre.oval:tst:18997" />
       </criteria>
     </criteria>
   </criteria>

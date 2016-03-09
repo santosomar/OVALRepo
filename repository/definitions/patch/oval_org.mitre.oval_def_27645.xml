@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27645" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27645" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2013-0521 -- pam security, bug fix, and enhancement update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>pam</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2013-0521.html" ref_id="ELSA-2013-0521"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3148" ref_id="CVE-2011-3148"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3149" ref_id="CVE-2011-3149"/>
+    <reference ref_id="ELSA-2013-0521" ref_url="http://linux.oracle.com/errata/ELSA-2013-0521.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-3148" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3148" source="CVE" />
+    <reference ref_id="CVE-2011-3149" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3149" source="CVE" />
     <description>[1.1.1-13]
 - fix environment file handling problems - CVE-2011-3148 (#746619) and
   CVE-2011-3148 (#746620)
@@ -42,13 +41,14 @@
         <status_change date="2015-02-10T11:46:03.831-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="pam is earlier than 0:1.1.1-13.el6" test_ref="oval:org.mitre.oval:tst:130330"/>
-      <criterion comment="pam-devel is earlier than 0:1.1.1-13.el6" test_ref="oval:org.mitre.oval:tst:130024"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="pam is earlier than 0:1.1.1-13.el6" test_ref="oval:org.mitre.oval:tst:130330" />
+      <criterion comment="pam-devel is earlier than 0:1.1.1-13.el6" test_ref="oval:org.mitre.oval:tst:130024" />
     </criteria>
   </criteria>
 </definition>

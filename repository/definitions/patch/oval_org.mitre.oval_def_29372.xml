@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:29372" version="2" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:29372" version="4">
   <metadata>
     <title>RHSA-2009:0010 -- squirrelmail security update (Moderate)</title>
     <affected family="unix">
@@ -10,11 +9,11 @@
       <platform>CentOS Linux 5</platform>
       <product>squirrelmail</product>
     </affected>
-    <reference source="VENDOR" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0010.html" ref_id="RHSA-2009:0010"/>
-    <reference source="CESA-2009:0010" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015540.html" ref_id="CESA-2009:0010-CentOS 3"/>
-    <reference source="CESA-2009:0010" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015546.html" ref_id="CESA-2009:0010-CentOS 5"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2379" ref_id="CVE-2008-2379"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3663" ref_id="CVE-2008-3663"/>
+    <reference ref_id="RHSA-2009:0010" ref_url="https://rhn.redhat.com/errata/RHSA-2009-0010.html" source="VENDOR" />
+    <reference ref_id="CESA-2009:0010-CentOS 3" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015540.html" source="CESA-2009:0010" />
+    <reference ref_id="CESA-2009:0010-CentOS 5" ref_url="http://lists.centos.org/pipermail/centos-announce/2009-January/015546.html" source="CESA-2009:0010" />
+    <reference ref_id="CVE-2008-2379" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2379" source="CVE" />
+    <reference ref_id="CVE-2008-3663" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3663" source="CVE" />
     <description>An updated squirrelmail package that resolves various security issues is
 now available for Red Hat Enterprise Linux 3, 4 and 5.
 This update has been rated as having moderate security impact by the Red
@@ -31,26 +30,28 @@ folder manipulation.</description>
         </submitted>
         <status_change date="2015-07-06T10:39:55.532-04:00">DRAFT</status_change>
         <status_change date="2015-07-27T04:01:44.179-04:00">INTERIM</status_change>
+        <status_change date="2015-08-17T04:01:38.972-04:00">ACCEPTED</status_change>
       </dates>
-      <status>INTERIM</status>
+      <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Red Hat Enterprise Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_2.2" test_ref="oval:org.mitre.oval:tst:140516"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5_2.2" test_ref="oval:org.mitre.oval:tst:140516" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 3 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782"/>
-      <criterion comment="squirrelmail is earlier than 0:1.4.8-8.el3" test_ref="oval:org.mitre.oval:tst:139889"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 3" definition_ref="oval:org.mitre.oval:def:11782" />
+      <criterion comment="squirrelmail is earlier than 0:1.4.8-8.el3" test_ref="oval:org.mitre.oval:tst:139889" />
     </criteria>
     <criteria comment="Red Hat Enterprise Linux 4 release section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831"/>
-      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el4_7.2" test_ref="oval:org.mitre.oval:tst:140185"/>
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 4" definition_ref="oval:org.mitre.oval:def:11831" />
+      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el4_7.2" test_ref="oval:org.mitre.oval:tst:140185" />
     </criteria>
     <criteria comment="CentOS Linux 5 release section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5.centos.2" test_ref="oval:org.mitre.oval:tst:140526"/>
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="squirrelmail is earlier than 0:1.4.8-5.el5.centos.2" test_ref="oval:org.mitre.oval:tst:140526" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:19044" version="5" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:19044" version="6">
   <metadata>
     <title>USN-1954-1 -- libvirt vulnerabilities</title>
     <affected family="unix">
@@ -9,10 +8,10 @@
       <platform>Ubuntu 10.04</platform>
       <product>libvirt</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1954-1/" ref_id="USN-1954-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4311" ref_id="CVE-2013-4311"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4296" ref_id="CVE-2013-4296"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5651" ref_id="CVE-2013-5651"/>
+    <reference ref_id="USN-1954-1" ref_url="http://www.ubuntu.com/usn/usn-1954-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-4311" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4311" source="CVE" />
+    <reference ref_id="CVE-2013-4296" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4296" source="CVE" />
+    <reference ref_id="CVE-2013-5651" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5651" source="CVE" />
     <description>Several security issues were fixed in libvirt.</description>
     <oval_repository>
       <dates>
@@ -29,35 +28,36 @@
         <status_change date="2014-06-30T04:08:48.835-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0:1.0.2-0ubuntu11.13.04.4" test_ref="oval:org.mitre.oval:tst:87272"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0:1.0.2-0ubuntu11.13.04.4" test_ref="oval:org.mitre.oval:tst:87374"/>
+      <extend_definition comment="Ubuntu 13.04 is installed" definition_ref="oval:org.mitre.oval:def:16014" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0:1.0.2-0ubuntu11.13.04.4" test_ref="oval:org.mitre.oval:tst:87272" />
+        <criterion comment="libvirt0 DPKG is earlier than 0:1.0.2-0ubuntu11.13.04.4" test_ref="oval:org.mitre.oval:tst:87374" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0:0.9.13-0ubuntu12.5" test_ref="oval:org.mitre.oval:tst:87343"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0:0.9.13-0ubuntu12.5" test_ref="oval:org.mitre.oval:tst:86667"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0:0.9.13-0ubuntu12.5" test_ref="oval:org.mitre.oval:tst:87343" />
+        <criterion comment="libvirt0 DPKG is earlier than 0:0.9.13-0ubuntu12.5" test_ref="oval:org.mitre.oval:tst:86667" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0:0.9.8-2ubuntu17.13" test_ref="oval:org.mitre.oval:tst:87369"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0:0.9.8-2ubuntu17.13" test_ref="oval:org.mitre.oval:tst:87387"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0:0.9.8-2ubuntu17.13" test_ref="oval:org.mitre.oval:tst:87369" />
+        <criterion comment="libvirt0 DPKG is earlier than 0:0.9.8-2ubuntu17.13" test_ref="oval:org.mitre.oval:tst:87387" />
       </criteria>
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criteria operator="OR" comment="Packages match section">
-        <criterion comment="libvirt-bin DPKG is earlier than 0:0.7.5-5ubuntu27.24" test_ref="oval:org.mitre.oval:tst:87001"/>
-        <criterion comment="libvirt0 DPKG is earlier than 0:0.7.5-5ubuntu27.24" test_ref="oval:org.mitre.oval:tst:86544"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criteria comment="Packages match section" operator="OR">
+        <criterion comment="libvirt-bin DPKG is earlier than 0:0.7.5-5ubuntu27.24" test_ref="oval:org.mitre.oval:tst:87001" />
+        <criterion comment="libvirt0 DPKG is earlier than 0:0.7.5-5ubuntu27.24" test_ref="oval:org.mitre.oval:tst:86544" />
       </criteria>
     </criteria>
   </criteria>

@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28036" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28036" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2011-1104 -- libpng security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>libpng</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2011-1104.html" ref_id="ELSA-2011-1104"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2690" ref_id="CVE-2011-2690"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2692" ref_id="CVE-2011-2692"/>
+    <reference ref_id="ELSA-2011-1104" ref_url="http://linux.oracle.com/errata/ELSA-2011-1104.html" source="VENDOR" />
+    <reference ref_id="CVE-2011-2690" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2690" source="CVE" />
+    <reference ref_id="CVE-2011-2692" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2692" source="CVE" />
     <description>[2:1.2.10-7.1.el5_7.5]
 - Install the correct fix for CVE-2011-2690
 Resolves: #721303
@@ -32,13 +31,14 @@ Resolves: #721303</description>
         <status_change date="2015-02-10T20:50:29.371-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="libpng is earlier than 0:1.2.10-7.1.el5_7.5" test_ref="oval:org.mitre.oval:tst:133301"/>
-      <criterion comment="libpng-devel is earlier than 0:1.2.10-7.1.el5_7.5" test_ref="oval:org.mitre.oval:tst:132945"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="libpng is earlier than 0:1.2.10-7.1.el5_7.5" test_ref="oval:org.mitre.oval:tst:133301" />
+      <criterion comment="libpng-devel is earlier than 0:1.2.10-7.1.el5_7.5" test_ref="oval:org.mitre.oval:tst:132945" />
     </criteria>
   </criteria>
 </definition>

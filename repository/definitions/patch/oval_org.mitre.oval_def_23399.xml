@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23399" version="6" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:23399" version="7">
   <metadata>
     <title>DEPRECATED: ELSA-2011:1243: thunderbird security update (Important)</title>
     <affected family="unix">
@@ -7,7 +6,7 @@
       <platform>Oracle Linux 5</platform>
       <product>thunderbird</product>
     </affected>
-    <reference ref_id="ELSA-2011:1243-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1243.html" source="VENDOR"/>
+    <reference ref_id="ELSA-2011:1243-01" ref_url="http://linux.oracle.com/errata/ELSA-2011-1243.html" source="VENDOR" />
     <description>Mozilla Thunderbird is a standalone mail and newsgroup client.
 It was found that a Certificate Authority (CA) issued a fraudulent HTTPS
 certificate. This update renders any HTTPS certificates signed by that
@@ -37,16 +36,17 @@ restarted for the update to take effect.</description>
         <status_change date="2014-07-11T17:27:19.368-04:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="rpm test">
-      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-      <criterion comment="thunderbird is earlier than 0:2.0.0.24-24.el5" test_ref="oval:org.mitre.oval:tst:105138"/>
+    <criteria comment="rpm test" operator="AND">
+      <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+      <criterion comment="thunderbird is earlier than 0:2.0.0.24-24.el5" test_ref="oval:org.mitre.oval:tst:105138" />
     </criteria>
-    <criteria operator="AND" comment="rpm test">
-      <criterion comment="thunderbird is earlier than 0:3.1.12-2.el6_1" test_ref="oval:org.mitre.oval:tst:105134"/>
-      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
+    <criteria comment="rpm test" operator="AND">
+      <criterion comment="thunderbird is earlier than 0:3.1.12-2.el6_1" test_ref="oval:org.mitre.oval:tst:105134" />
+      <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
     </criteria>
   </criteria>
 </definition>

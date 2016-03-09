@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:28023" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:28023" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0892 -- openswan security update (moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>openswan</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0892.html" ref_id="ELSA-2010-0892"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3302" ref_id="CVE-2010-3302"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3308" ref_id="CVE-2010-3308"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3752" ref_id="CVE-2010-3752"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3753" ref_id="CVE-2010-3753"/>
+    <reference ref_id="ELSA-2010-0892" ref_url="http://linux.oracle.com/errata/ELSA-2010-0892.html" source="VENDOR" />
+    <reference ref_id="CVE-2010-3302" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3302" source="CVE" />
+    <reference ref_id="CVE-2010-3308" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3308" source="CVE" />
+    <reference ref_id="CVE-2010-3752" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3752" source="CVE" />
+    <reference ref_id="CVE-2010-3753" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3753" source="CVE" />
     <description>[2.6.24-8.1]
 Resolves: #635058 CVE-2010-3302 CVE-2010-3308
                   CVE-2010-2752 CVE-2010-3753</description>
@@ -28,13 +27,14 @@ Resolves: #635058 CVE-2010-3302 CVE-2010-3308
         <status_change date="2015-02-10T16:14:32.328-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="openswan is earlier than 0:2.6.24-8.el6_0.1" test_ref="oval:org.mitre.oval:tst:134200"/>
-      <criterion comment="openswan-doc is earlier than 0:2.6.24-8.el6_0.1" test_ref="oval:org.mitre.oval:tst:134428"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="openswan is earlier than 0:2.6.24-8.el6_0.1" test_ref="oval:org.mitre.oval:tst:134200" />
+      <criterion comment="openswan-doc is earlier than 0:2.6.24-8.el6_0.1" test_ref="oval:org.mitre.oval:tst:134428" />
     </criteria>
   </criteria>
 </definition>

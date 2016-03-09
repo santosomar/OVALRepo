@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:23927" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:23927" version="9">
   <metadata>
     <title>ELSA-2013:0831: libvirt security and bug fix update (Moderate)</title>
     <affected family="unix">
       <platform>Oracle Linux 6</platform>
       <product>libvirt</product>
     </affected>
-    <reference ref_id="ELSA-2013:0831-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0831.html" source="VENDOR"/>
-    <reference ref_id="CVE-2013-1962" ref_url="http://linux.oracle.com/cve/CVE-2013-1962.html" source="CVE"/>
+    <reference ref_id="ELSA-2013:0831-01" ref_url="http://linux.oracle.com/errata/ELSA-2013-0831.html" source="VENDOR" />
+    <reference ref_id="CVE-2013-1962" ref_url="http://linux.oracle.com/cve/CVE-2013-1962.html" source="CVE" />
     <description>The remoteDispatchStoragePoolListAllVolumes function in the storage pool manager in libvirt 1.0.5 allows remote attackers to cause a denial of service (file descriptor consumption) via a large number of requests "to list all volumes for the particular pool."</description>
     <oval_repository>
       <dates>
@@ -24,16 +23,17 @@
         <status_change date="2014-05-26T04:05:51.648-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="libvirt-devel is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111959"/>
-      <criterion comment="libvirt-client is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111839"/>
-      <criterion comment="libvirt-python is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:112044"/>
-      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:112082"/>
-      <criterion comment="libvirt is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111516"/>
+    <extend_definition comment="Oracle Linux 6.x" definition_ref="oval:org.mitre.oval:def:16594" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="libvirt-devel is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111959" />
+      <criterion comment="libvirt-client is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111839" />
+      <criterion comment="libvirt-python is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:112044" />
+      <criterion comment="libvirt-lock-sanlock is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:112082" />
+      <criterion comment="libvirt is earlier than 0:0.10.2-18.el6_4.5" test_ref="oval:org.mitre.oval:tst:111516" />
     </criteria>
   </criteria>
 </definition>

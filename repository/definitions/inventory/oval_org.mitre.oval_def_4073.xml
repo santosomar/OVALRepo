@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:4073" version="1" class="inventory">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="inventory" id="oval:org.mitre.oval:def:4073" version="2">
   <metadata>
     <title>Package ekiga is installed</title>
     <affected family="unix">
       <platform>openSUSE 10.2</platform>
       <platform>openSUSE Factory</platform>
     </affected>
-    <reference source="CPE" ref_id="cpe:/a:novell:ekiga"/>
+    <reference ref_id="cpe:/a:novell:ekiga" source="CPE" />
     <description>Package ekiga is installed.</description>
     <oval_repository>
       <dates>
@@ -22,9 +21,10 @@
         <cpe>cpe:/o:novell:opensuse:10.2</cpe>
         <cpe>cpe:/o:novell:opensuse:factory</cpe>
       </affected_cpe_list>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <criterion comment="ekiga is installed" test_ref="oval:org.mitre.oval:tst:5615"/>
+    <criterion comment="ekiga is installed" test_ref="oval:org.mitre.oval:tst:5615" />
   </criteria>
 </definition>

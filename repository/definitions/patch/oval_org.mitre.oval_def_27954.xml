@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27954" version="4" class="patch" deprecated="true">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" deprecated="true" id="oval:org.mitre.oval:def:27954" version="5">
   <metadata>
     <title>DEPRECATED: ELSA-2010-0321 -- automake security update (low)</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <product>automake16</product>
       <product>automake17</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://linux.oracle.com/errata/ELSA-2010-0321.html" ref_id="ELSA-2010-0321"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4029" ref_id="CVE-2009-4029"/>
+    <reference ref_id="ELSA-2010-0321" ref_url="http://linux.oracle.com/errata/ELSA-2010-0321.html" source="VENDOR" />
+    <reference ref_id="CVE-2009-4029" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4029" source="CVE" />
     <description>[1.9.6-2.3]
 - increase delay in self checks
 - add delays in aclocal7 self check
@@ -34,16 +33,17 @@
         <status_change date="2015-02-10T20:51:11.348-05:00">DEPRECATED</status_change>
       </dates>
       <status>DEPRECATED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="Packages match section">
-      <criterion comment="automake is earlier than 0:1.9.6-2.3.el5" test_ref="oval:org.mitre.oval:tst:134278"/>
-      <criterion comment="automake14 is earlier than 0:1.4p6-13.el5.1" test_ref="oval:org.mitre.oval:tst:135271"/>
-      <criterion comment="automake15 is earlier than 0:1.5-16.el5.2" test_ref="oval:org.mitre.oval:tst:135183"/>
-      <criterion comment="automake16 is earlier than 0:1.6.3-8.el5.1" test_ref="oval:org.mitre.oval:tst:134906"/>
-      <criterion comment="automake17 is earlier than 0:1.7.9-7.el5.2" test_ref="oval:org.mitre.oval:tst:135207"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="Packages match section" operator="OR">
+      <criterion comment="automake is earlier than 0:1.9.6-2.3.el5" test_ref="oval:org.mitre.oval:tst:134278" />
+      <criterion comment="automake14 is earlier than 0:1.4p6-13.el5.1" test_ref="oval:org.mitre.oval:tst:135271" />
+      <criterion comment="automake15 is earlier than 0:1.5-16.el5.2" test_ref="oval:org.mitre.oval:tst:135183" />
+      <criterion comment="automake16 is earlier than 0:1.6.3-8.el5.1" test_ref="oval:org.mitre.oval:tst:134906" />
+      <criterion comment="automake17 is earlier than 0:1.7.9-7.el5.2" test_ref="oval:org.mitre.oval:tst:135207" />
     </criteria>
   </criteria>
 </definition>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:18166" version="7" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:18166" version="8">
   <metadata>
     <title>USN-1782-1 -- libxml2 vulnerability</title>
     <affected family="unix">
@@ -10,8 +9,8 @@
       <platform>Ubuntu 8.04</platform>
       <product>libxml2</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.ubuntu.com/usn/usn-1782-1/" ref_id="USN-1782-1"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" ref_id="CVE-2013-0338"/>
+    <reference ref_id="USN-1782-1" ref_url="http://www.ubuntu.com/usn/usn-1782-1/" source="VENDOR" />
+    <reference ref_id="CVE-2013-0338" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0338" source="CVE" />
     <description>libxml2 could be made to hang if it received specially crafted input.</description>
     <oval_repository>
       <dates>
@@ -33,28 +32,29 @@
         <status_change date="2014-06-30T04:08:17.386-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418"/>
-      <criterion comment="libxml2 DPKG is earlier than 2.8.0+dfsg1-5ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85762"/>
+      <extend_definition comment="Ubuntu 12.10 is installed" definition_ref="oval:org.mitre.oval:def:16418" />
+      <criterion comment="libxml2 DPKG is earlier than 2.8.0+dfsg1-5ubuntu2.2" test_ref="oval:org.mitre.oval:tst:85762" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824"/>
-      <criterion comment="libxml2 DPKG is earlier than 2.7.8.dfsg-5.1ubuntu4.4" test_ref="oval:org.mitre.oval:tst:85593"/>
+      <extend_definition comment="Ubuntu 12.04 is installed" definition_ref="oval:org.mitre.oval:def:15824" />
+      <criterion comment="libxml2 DPKG is earlier than 2.7.8.dfsg-5.1ubuntu4.4" test_ref="oval:org.mitre.oval:tst:85593" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657"/>
-      <criterion comment="libxml2 DPKG is earlier than 2.7.8.dfsg-4ubuntu0.6" test_ref="oval:org.mitre.oval:tst:85596"/>
+      <extend_definition comment="Ubuntu 11.10 is installed" definition_ref="oval:org.mitre.oval:def:14657" />
+      <criterion comment="libxml2 DPKG is earlier than 2.7.8.dfsg-4ubuntu0.6" test_ref="oval:org.mitre.oval:tst:85596" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089"/>
-      <criterion comment="libxml2 DPKG is earlier than 2.7.6.dfsg-1ubuntu1.8" test_ref="oval:org.mitre.oval:tst:85456"/>
+      <extend_definition comment="Ubuntu 10.04 is installed" definition_ref="oval:org.mitre.oval:def:13089" />
+      <criterion comment="libxml2 DPKG is earlier than 2.7.6.dfsg-1ubuntu1.8" test_ref="oval:org.mitre.oval:tst:85456" />
     </criteria>
     <criteria comment="Release section">
-      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250"/>
-      <criterion comment="libxml2 DPKG is earlier than 2.6.31.dfsg-2ubuntu1.12" test_ref="oval:org.mitre.oval:tst:85810"/>
+      <extend_definition comment="Ubuntu 8.04 is installed" definition_ref="oval:org.mitre.oval:def:13250" />
+      <criterion comment="libxml2 DPKG is earlier than 2.6.31.dfsg-2ubuntu1.12" test_ref="oval:org.mitre.oval:tst:85810" />
     </criteria>
   </criteria>
 </definition>

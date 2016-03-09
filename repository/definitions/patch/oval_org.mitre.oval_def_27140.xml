@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:27140" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:27140" version="4">
   <metadata>
     <title>RHSA-2014:1647: thunderbird security update (Important)</title>
     <affected family="unix">
@@ -9,12 +8,12 @@
       <platform>CentOS Linux 6</platform>
       <product>thunderbird</product>
     </affected>
-    <reference source="VENDOR" ref_id="RHSA-2014:1647-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1647.html"/>
-    <reference source="CESA" ref_id="CESA-2014:1647"/>
-    <reference source="CVE" ref_id="CVE-2014-1574" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1574.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1577" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1577.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1578" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1578.html"/>
-    <reference source="CVE" ref_id="CVE-2014-1581" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1581.html"/>
+    <reference ref_id="RHSA-2014:1647-00" ref_url="https://rhn.redhat.com/errata/RHSA-2014-1647.html" source="VENDOR" />
+    <reference ref_id="CESA-2014:1647" source="CESA" />
+    <reference ref_id="CVE-2014-1574" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1574.html" source="CVE" />
+    <reference ref_id="CVE-2014-1577" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1577.html" source="CVE" />
+    <reference ref_id="CVE-2014-1578" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1578.html" source="CVE" />
+    <reference ref_id="CVE-2014-1581" ref_url="https://www.redhat.com/security/data/cve/CVE-2014-1581.html" source="CVE" />
     <description>Mozilla Thunderbird is a standalone mail and newsgroup client.
 
 Several flaws were found in the processing of malformed web content. A web
@@ -50,20 +49,21 @@ to take effect.</description>
         <status_change date="2014-11-24T04:02:27.458-05:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria operator="OR">
-    <criteria operator="AND" comment="Redhat 5 section">
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414"/>
-      <criterion comment="thunderbird is earlier than 0:31.2.0-2.el5_11" test_ref="oval:org.mitre.oval:tst:125259"/>
+    <criteria comment="Redhat 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 5" definition_ref="oval:org.mitre.oval:def:11414" />
+      <criterion comment="thunderbird is earlier than 0:31.2.0-2.el5_11" test_ref="oval:org.mitre.oval:tst:125259" />
     </criteria>
-    <criteria operator="AND" comment="Centos 5 section">
-      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802"/>
-      <criterion comment="thunderbird is earlier than 0:31.2.0-2.el5.centos" test_ref="oval:org.mitre.oval:tst:125147"/>
+    <criteria comment="Centos 5 section" operator="AND">
+      <extend_definition comment="The operating system installed on the system is CentOS Linux 5.x" definition_ref="oval:org.mitre.oval:def:15802" />
+      <criterion comment="thunderbird is earlier than 0:31.2.0-2.el5.centos" test_ref="oval:org.mitre.oval:tst:125147" />
     </criteria>
     <criteria comment="Operation system section">
-      <criterion comment="thunderbird is earlier than 0:31.2.0-3.el6_6" test_ref="oval:org.mitre.oval:tst:125043"/>
-      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273"/>
+      <criterion comment="thunderbird is earlier than 0:31.2.0-3.el6_6" test_ref="oval:org.mitre.oval:tst:125043" />
+      <extend_definition comment="The operating system installed on the system is Red Hat Enterprise Linux 6" definition_ref="oval:org.mitre.oval:def:20273" />
     </criteria>
   </criteria>
 </definition>

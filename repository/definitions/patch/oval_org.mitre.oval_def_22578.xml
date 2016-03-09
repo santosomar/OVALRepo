@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:22578" version="6" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:22578" version="8">
   <metadata>
     <title>ELSA-2008:0583: openldap security update (Important)</title>
     <affected family="unix">
       <platform>Oracle Linux 5</platform>
       <product>openldap</product>
     </affected>
-    <reference ref_id="ELSA-2008:0583-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0583.html" source="VENDOR"/>
-    <reference ref_id="CVE-2008-2952" ref_url="http://linux.oracle.com/cve/CVE-2008-2952.html" source="CVE"/>
+    <reference ref_id="ELSA-2008:0583-01" ref_url="http://linux.oracle.com/errata/ELSA-2008-0583.html" source="VENDOR" />
+    <reference ref_id="CVE-2008-2952" ref_url="http://linux.oracle.com/cve/CVE-2008-2952.html" source="CVE" />
     <description>liblber/io.c in OpenLDAP 2.2.4 to 2.4.10 allows remote attackers to cause a denial of service (program termination) via crafted ASN.1 BER datagrams that trigger an assertion error.</description>
     <oval_repository>
       <dates>
@@ -24,17 +23,18 @@
         <status_change date="2014-05-26T04:01:31.398-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.3</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459"/>
-    <criteria operator="OR" comment="rpm test">
-      <criterion comment="openldap-devel is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102026"/>
-      <criterion comment="openldap-clients is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102362"/>
-      <criterion comment="openldap-servers-sql is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102164"/>
-      <criterion comment="compat-openldap is earlier than 0:2.3.27_2.2.29-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102333"/>
-      <criterion comment="openldap is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102290"/>
-      <criterion comment="openldap-servers is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102117"/>
+    <extend_definition comment="Oracle Linux 5.x" definition_ref="oval:org.mitre.oval:def:15459" />
+    <criteria comment="rpm test" operator="OR">
+      <criterion comment="openldap-devel is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102026" />
+      <criterion comment="openldap-clients is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102362" />
+      <criterion comment="openldap-servers-sql is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102164" />
+      <criterion comment="compat-openldap is earlier than 0:2.3.27_2.2.29-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102333" />
+      <criterion comment="openldap is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102290" />
+      <criterion comment="openldap-servers is earlier than 0:2.3.27-8.el5_2.4" test_ref="oval:org.mitre.oval:tst:102117" />
     </criteria>
   </criteria>
 </definition>

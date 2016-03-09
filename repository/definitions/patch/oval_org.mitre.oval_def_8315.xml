@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.mitre.oval:def:8315" version="3" class="patch">
+<definition xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:org.mitre.oval:def:8315" version="4">
   <metadata>
     <title>DSA-1735 znc -- missing input sanitisation</title>
     <affected family="unix">
       <platform>Debian GNU/Linux 4.0</platform>
       <product>znc</product>
     </affected>
-    <reference source="VENDOR" ref_url="http://www.debian.org/security/2009/dsa-1735" ref_id="DSA-1735"/>
-    <reference source="CVE" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0759" ref_id="CVE-2009-0759"/>
+    <reference ref_id="DSA-1735" ref_url="http://www.debian.org/security/2009/dsa-1735" source="VENDOR" />
+    <reference ref_id="CVE-2009-0759" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0759" source="CVE" />
     <description>It was discovered that znc, an IRC proxy/bouncer, does not properly sanitise input contained in configuration change requests to the webadmin interface. This allows authenticated users to elevate their privileges and indirectly execute arbitrary commands (CVE-2009-0759).</description>
     <oval_repository>
       <dates>
@@ -24,10 +23,11 @@
         <status_change date="2014-06-23T04:10:33.922-04:00">ACCEPTED</status_change>
       </dates>
       <status>ACCEPTED</status>
+      <min_schema_version>5.4</min_schema_version>
     </oval_repository>
   </metadata>
   <criteria>
-    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461"/>
-    <criterion comment="znc is earlier than 0.058-2+lenny1" test_ref="oval:org.mitre.oval:tst:19268"/>
+    <extend_definition comment="Debian GNU/Linux 4.0 is installed." definition_ref="oval:org.mitre.oval:def:6461" />
+    <criterion comment="znc is earlier than 0.058-2+lenny1" test_ref="oval:org.mitre.oval:tst:19268" />
   </criteria>
 </definition>
